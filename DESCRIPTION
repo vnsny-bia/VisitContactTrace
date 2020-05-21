@@ -1,0 +1,34 @@
+Package: VisitContactTrace
+Type: Package
+Title: A contact tracing application built to consume healthcare encounter data
+Version: 0.1.0
+Author: Carlin Brickner, Naomi Shinoda, Rushabh Patel
+Maintainer: VNSNY Data Science <DataScience-Provider@vnsny.org>
+Description: This application is designed to conduct contact tracing on healthcare encounter data with a specific focus on providers of community-based healthcare delivery services. In a community based healthcare system, patients are typically considered to be homebound and do not interact with each other.
+License: GPL-3 + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Depends:
+    R (>= 2.10),
+    shiny,
+    shinydashboard,
+    shinyFiles,
+    shinycssloaders,
+    shinyWidgets,
+    data.table,
+    highcharter,
+    dplyr,
+    purrr,
+    ggthemes,
+    rmarkdown,
+    visNetwork,
+    DT,
+    fst,
+    stringr,
+    shinyalert,
+    epicontacts,
+    fs,
+    readxl,
+    shinyjs
+Remotes:cttobin/ggthemr
+RoxygenNote: 6.1.1
