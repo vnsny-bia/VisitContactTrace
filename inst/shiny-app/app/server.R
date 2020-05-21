@@ -262,7 +262,7 @@ server = function(input, output,session) {
       </table><br> -->
                     <!--  <img src="data_format.PNG" alt="Data Preview" width="580" height="62"> -->
                       <center>  <ui style="background-color:#9a2a1c;"><b>&#x26A0; Acceptable File Format/Type: .CSV/.XLSX </b> </ui><br></center></div>'),
-      footer=list(actionButton("demo", label="Demo"),modalButton("Close")),
+      footer=list(actionButton("demo", label="Try out demo data"),modalButton("Close")),
       list(
         shinyFilesButton(id = 'file', 'Upload File', 'Please select a file', FALSE,style = upload_button_style),  tags$br(),
         div(style="display: inline-block;vertical-align:top; width: 100px; bottom: 200px; top: -100px; margin-top: 24px;height: 36px; margin-left:95px; ",
