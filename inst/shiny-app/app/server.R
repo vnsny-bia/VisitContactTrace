@@ -682,7 +682,7 @@ server = function(input, output,session) {
 
   onclick("pat_id",{
 
-    js_code_1 <- "$('#clin_id').css('background-color', '#282c2f');"
+    js_code_1 <- "$('#clin_id').css('background-color', '#231f20');"
     shinyjs::runjs(js_code_1)
     js_code_1 <- "$('#pat_id').css('background-color', '#3a95e296');"
     shinyjs::runjs(js_code_1)
@@ -691,7 +691,7 @@ server = function(input, output,session) {
 
   onclick("clin_id",{
 
-    js_code_1 <- "$('#pat_id').css('background-color', '#282c2f');"
+    js_code_1 <- "$('#pat_id').css('background-color', '#231f20');"
     shinyjs::runjs(js_code_1)
     js_code_1 <- "$('#clin_id').css('background-color', '#3a95e296');"
     shinyjs::runjs(js_code_1)
