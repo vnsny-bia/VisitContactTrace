@@ -65,45 +65,19 @@ server = function(input, output,session) {
   #_1.3 Initial Data Upload Modal Dialog Box -----
 
   showModal( modalDialog(
-    title =HTML('<div class="basic_dwnld"> <svg style="margin-top: -100px;margin-bottom: -50px;
-    margin-left: 40px;" viewbox="-280 -150 450 200">
-        <defs>
-          <line id="ray" x1="-5" x2="5"></line>
-          <clipPath id="cp">
-            <rect x="-200" y="-150" width="400" height="150"></rect>
-          </clipPath>
-        </defs>
-        <line id="line" x1="-76" x2="76"></line>
-        <text text-anchor="middle" y="45"> WELCOME</text>
-        <g id="sun" clip-path="url(#cp)">
-          <g id="mover">
-            <circle id="main" r="50"></circle>
-            <g id="eyes">
-              <circle r="3" cx="-13"></circle>
-              <circle r="3" cx="13"></circle>
-            </g>
-            <g id="rays">
-        <use xlink:href="#ray" transform="rotate(315) translate(70)"></use>
-        <use xlink:href="#ray" transform="rotate(270) translate(70)"></use>
-        <use xlink:href="#ray" transform="rotate(225) translate(70)"></use>
-        <use xlink:href="#ray" transform="rotate(180) translate(70)"></use>
-        <use xlink:href="#ray" transform="rotate(135) translate(70)"></use>
-        <use xlink:href="#ray" transform="rotate(90) translate(70)"></use>
-        <use xlink:href="#ray" transform="rotate(45) translate(70)"></use>
-        <use xlink:href="#ray" transform="rotate(0) translate(70)"></use>
-      </g>
-    </g>
-  </g>
-</svg> <h2 align="center",style="color:white; margin-top:-50px;">
+    title =HTML('<div class="basic_dwnld"> 
+    <center><img src="www/VNSNY_White.png" alt="Data Preview"  height="120" align="center"></center>
+
+    <h2 align="center",style="color:white; margin-top:-50px;">
 <i style="font-size:24px;color:rgb(255, 164, 27); class="fas fa-project-diagram"></i>
-                  VNSNY CONTACT TRACING PORTAL </h2>
-                      <h3 align="center" style="color:#3c8dbc;"><i class="fas fa-cloud-upload-alt" style="font-size:26px;color:#3c8dbc;"></i>&ensp;Upload Data</h3><br>
-                      <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i> Please upload file with Patients & Clinicians details .</p><br>
+                  VisitContactTrace Application </h2>
+                      <h3 align="center" style="color:white;"><i class="fas fa-cloud-upload-alt" style="font-size:26px;color:white;"></i>&ensp;Upload Data</h3><br>
+                      <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i> Please upload file with Patients & Staffs details .</p><br>
                       <p><b><i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i></b> Make sure file contains required columns.<br><br></p>
 
                     <!--  <img src="data_format.PNG" alt="Data Preview" width="580" height="62"> -->
 
-                      <center>  <ui style="background-color:Tomato;"><b>&#x26A0; Acceptable File Format/Type: .CSV/.XLSX </b> </ui><br></center></div>'),
+                      <center>  <ui style="background-color:#9a2a1c;"><b>&#x26A0; Acceptable File Format/Type: .CSV/.XLSX </b> </ui><br></center></div>'),
     footer=list(actionButton("demo", label="Demo"),modalButton("Close")),
     list(shinyFilesButton(id = 'file', 'Upload File', 'Please select a file', FALSE,style = upload_button_style),  tags$br(),
          div(style="display: inline-block;vertical-align:top; width: 100px; bottom: 200px; top: -100px; margin-top: 24px;height: 36px; margin-left:95px; ",
@@ -224,45 +198,18 @@ server = function(input, output,session) {
 
   observeEvent(input$back2,{
     showModal( modalDialog(
-      title =HTML('<div class="basic_dwnld"> <svg style="margin-top: -100px;margin-bottom: -50px;
-    margin-left: 40px;" viewbox="-280 -150 450 200">
-  <defs>
-    <line id="ray" x1="-5" x2="5"></line>
-    <clipPath id="cp">
-      <rect x="-200" y="-150" width="400" height="150"></rect>
-    </clipPath>
-  </defs>
-  <line id="line" x1="-76" x2="76"></line>
-  <text text-anchor="middle" y="45"> WELCOME</text>
-  <g id="sun" clip-path="url(#cp)">
-    <g id="mover">
-      <circle id="main" r="50"></circle>
-      <g id="eyes">
-        <circle r="3" cx="-13"></circle>
-        <circle r="3" cx="13"></circle>
-      </g>
-      <g id="rays">
-        <use xlink:href="#ray" transform="rotate(315) translate(70)"></use>
-        <use xlink:href="#ray" transform="rotate(270) translate(70)"></use>
-        <use xlink:href="#ray" transform="rotate(225) translate(70)"></use>
-        <use xlink:href="#ray" transform="rotate(180) translate(70)"></use>
-        <use xlink:href="#ray" transform="rotate(135) translate(70)"></use>
-        <use xlink:href="#ray" transform="rotate(90) translate(70)"></use>
-        <use xlink:href="#ray" transform="rotate(45) translate(70)"></use>
-        <use xlink:href="#ray" transform="rotate(0) translate(70)"></use>
-      </g>
-    </g>
-  </g>
-</svg> <h2 align="center",style="color:white;margin-top:-50px;">
+      title =HTML('<div class="basic_dwnld"> 
+      <center><img src="www/VNSNY_White.png" alt="Data Preview"  height="120" align="center"></center>
+
+    <h2 align="center",style="color:white; margin-top:-50px;">
 <i style="font-size:24px;color:rgb(255, 164, 27); class="fas fa-project-diagram"></i>
-                  VNSNY CONTACT TRACING PORTAL </h2>
-                      <h3 align="center" style="color:#3c8dbc;"><i class="fas fa-cloud-upload-alt" style="font-size:26px;color:#3c8dbc;"></i>&ensp;Upload Data</h3><br>
-                      <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i> Please upload file with Patients & Clinicians details .</p><br>
+                  VisitContactTrace Application </h2>
+                      <h3 align="center" style="color:white;"><i class="fas fa-cloud-upload-alt" style="font-size:26px;color:white;"></i>&ensp;Upload Data</h3><br>
+                      <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i> Please upload file with Patients & Staffs details .</p><br>
                       <p><b><i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i></b> Make sure file contains required columns.<br><br></p>
 
                     <!--  <img src="data_format.PNG" alt="Data Preview" width="580" height="62"> -->
-
-                      <center>  <ui style="background-color:Tomato;"><b>&#x26A0; Acceptable File Format/Type: .CSV/.XLSX </b> </ui><br></center></div>'),
+                      <center>  <ui style="background-color:#9a2a1c;"><b>&#x26A0; Acceptable File Format/Type: .CSV/.XLSX </b> </ui><br></center></div>'),
       footer=list(actionButton("demo", label="Demo"),modalButton("Close")),
       list(
         shinyFilesButton(id = 'file', 'Upload File', 'Please select a file', FALSE,style = upload_button_style),  tags$br(),

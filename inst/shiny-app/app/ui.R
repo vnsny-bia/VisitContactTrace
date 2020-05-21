@@ -15,7 +15,7 @@ jscode <- "shinyjs.closeWindow = function() { window.close(); }"
 
 
 title_logo <-  tags$a(href='http://www.vnsny.org',
-                      tags$img(src='www/logo.png',height='50',width='180'),style="color:white;","Visit Contact Tracing")
+                      tags$img(src='www/logo.png',height='50',width='180'),style="color:white;","VisitContactTrace Application")
 header <- dashboardHeader(title = title_logo,titleWidth = 500,
 
 
