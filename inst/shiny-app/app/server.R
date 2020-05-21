@@ -983,47 +983,44 @@ server = function(input, output,session) {
 
                      #___1.16.8 Generating data for plot -----
 
-                     #Plot data------
                      a1 <- table_txt[,.(id=unique(from))]
                      a1 <- merge(a1,data,by.x='id',by.y='staff_id',all.x=T)
                      a1 <- a1[,.(id,Name=staff_name,Status=staff_status,visit_date)]
-                     a1_pos <- a1[!(Status=='NA' | is.na(Status) | Status == ""),]
-                     a1 <- a1[,.(id,Name)]
-
+                     
+                     a_max <- setDT(a1)[order(visit_date), tail(.SD, 1L), by = id]
+                     
                      a2 <- table_txt[,.(id=unique(to))]
                      a2 <- merge(a2,data,by.x='id',by.y='patient_id',all.x=T)
                      a2 <- a2[,.(id,Name=patient_name,Status=patient_status,visit_date)]
-                     a2_pos <- a2[!(Status=='NA' | is.na(Status) | Status == ""),]
-                     a2 <- a2[,.(id,Name)]
-
-                     a <- rbind(a1,a2)
-                     a <- a[!duplicated(a)]
-                     a[,Status:=NA]
-                     a[,visit_date:=NA]
-
-                     a_pos <- rbind(a1_pos,a2_pos)
-                     a_pos <- setDT(a_pos)[order(visit_date), head(.SD, 1L), by = id]
-
-                     a <- rbind(a,a_pos)
-                     coalesce_by_column <- function(df) {
-                       return(dplyr::coalesce(!!! as.list(df)))
-                     }
-
-                     a <- a %>%
-                       group_by(id) %>%
-                       summarise_all(coalesce_by_column)
+                     a2_max <- setDT(a2)[order(visit_date), tail(.SD, 1L), by = id]
+                     
+                     a <- rbind(a_max,a2_max)
+                     setDT(a)[,group:=ifelse(substr(id,1,5)=='clin_','Staff','Patient')]
+                     a[,label:=paste0(group,"-",Status)]
+                     
+                     
+                     icon.color <- viridis::viridis_pal(option = "D")(length(unique(a$label)))
+                     icon.color <- cbind(label=unique(a$label), icon.color)
+                     
+                     a <- merge(a, icon.color, by="label")
                      setDT(a)
-                     a[,group:=ifelse(substr(id,1,5)=='clin_','Staff','Patient')]
-
+                     
+                     a[,shape:="icon"]
+                     a[,icon.face:="fontAwesome"]
+                     a[,icon.code:= ifelse(group=='Staff','f0f0','f007')]
+                     
+                     
                      a[,title:= ifelse(Status=='NA' | is.na(Status) | Status == "",
                                        paste0("<p><b>", group,"ID : ",id," <br>",group,"Name :",Name," <br></b></p>"),
                                        paste0("<p><b>", group,"ID : ",id," <br>",group,"Name :",Name," <br>",group," Status :",Status,"</b></p>"))]
-                     a[,group:=ifelse(!(Status=='NA' | is.na(Status) | Status == ""),paste0('positive-',group),group)]
-
+                     
+                     
                      a <- a[!duplicated(a)]
-
+                     
                      b1 <- table_txt[,.(from,to)]
                      b1 <- b1[!duplicated(b1)]
+                     
+                     a[,label:=gsub("-NA","",label)]
 
 
                      #___1.16.8 renderPrint for raw text contact tracing results -----
@@ -1049,68 +1046,18 @@ server = function(input, output,session) {
                      output$plot_epicontacts <- renderVisNetwork({
 
 
-
-                       if(all(c('positive-Staff','positive-Patient') %in% unique(a$group))){
-
-                         visNetwork(a, b1, width = "100%") %>%
-
-                           visPhysics(stabilization = FALSE) %>%
-                           visGroups(groupname = "Staff", shape = "icon", icon = list(code = "f0f0",color="#003049")) %>%
-                           visGroups(groupname = "Patient", shape = "icon", icon = list(code = "f007", color = "#f77f00")) %>%
-                           visGroups(groupname = "positive-Staff", shape = "icon", icon = list(code = "f0f0", color = "#1a936f")) %>%
-                           visGroups(groupname = "positive-Patient", shape = "icon", icon = list(code = "f007", color = "#606c38")) %>%
-                           visLegend() %>%
-                           addFontAwesome(name = "font-awesome-visNetwork") %>%
-                           visEdges(shadow = TRUE,
-                                    arrows =list(to = list(enabled = TRUE, scaleFactor = 2)),
-                                    color = list(color = "gray", highlight = "red")) 
-
-
-                       } else if(c('positive-Patient') %in% a$group){
-
-                         visNetwork(a, b1, width = "100%") %>%
-
-                           visPhysics(stabilization = FALSE) %>%
-                           visGroups(groupname = "Staff", shape = "icon", icon = list(code = "f0f0",color="#003049")) %>%
-                           visGroups(groupname = "Patient", shape = "icon", icon = list(code = "f007", color = "#f77f00")) %>%
-                           visGroups(groupname = "positive-Patient", shape = "icon", icon = list(code = "f007", color = "#606c38")) %>%
-                           visLegend() %>%
-                           addFontAwesome(name = "font-awesome-visNetwork") %>%
-                           visEdges(shadow = TRUE,
-                                    arrows =list(to = list(enabled = TRUE, scaleFactor = 2)),
-                                    color = list(color = "gray", highlight = "red")) 
-
-
-                       } else if(c('positive-Staff') %in% a$group){
-
-                         visNetwork(a, b1, width = "100%") %>%
-
-                           visPhysics(stabilization = FALSE) %>%
-                           visGroups(groupname = "Staff", shape = "icon", icon = list(code = "f0f0",color="#003049")) %>%
-                           visGroups(groupname = "Patient", shape = "icon", icon = list(code = "f007", color = "#f77f00")) %>%
-                           visGroups(groupname = "positive-Staff", shape = "icon", icon = list(code = "f0f0", color = "#1a936f")) %>%
-                           visLegend() %>%
-                           addFontAwesome(name = "font-awesome-visNetwork") %>%
-                           visEdges(shadow = TRUE,
-                                    arrows =list(to = list(enabled = TRUE, scaleFactor = 2)),
-                                    color = list(color = "gray", highlight = "red")) 
-
-
-                       } else {
-                         visNetwork(a, b1, width = "100%") %>%
-
-                           visPhysics(stabilization = FALSE) %>%
-                           visGroups(groupname = "Staff", shape = "icon", icon = list(code = "f0f0",color="#003049")) %>%
-                           visGroups(groupname = "Patient", shape = "icon", icon = list(code = "f007", color = "#f77f00")) %>%
-                           visLegend() %>%
-                           addFontAwesome(name = "font-awesome-visNetwork") %>%
-                           visEdges(shadow = TRUE,
-                                    arrows =list(to = list(enabled = TRUE, scaleFactor = 2)),
-                                    color = list(color = "gray", highlight = "red")) 
-
-
-
-                       }
+                       lnodes <- a[,.(label,shape,icon.color,icon.face,icon.code,Status)]
+                       lnodes <- lnodes[!duplicated(lnodes)]
+                       
+                       
+                       visNetwork(a, b1, width = "100%") %>%
+                         
+                         visPhysics(stabilization = FALSE) %>%
+                         addFontAwesome(name = "font-awesome-visNetwork") %>%
+                         visLegend(addNodes = lnodes, useGroups = FALSE) %>%
+                         visEdges(shadow = TRUE,
+                                  arrows =list(to = list(enabled = TRUE, scaleFactor = 2)),
+                                  color = list(color = "gray", highlight = "red"))
 
 
                      })
@@ -1441,45 +1388,42 @@ server = function(input, output,session) {
                      a1 <- table_txt[,.(id=unique(from))]
                      a1 <- merge(a1,data,by.x='id',by.y='staff_id',all.x=T)
                      a1 <- a1[,.(id,Name=staff_name,Status=staff_status,visit_date)]
-                     a1_pos <- a1[!(Status=='NA' | is.na(Status) | Status == ""),]
-                     a1 <- a1[,.(id,Name)]
-
+                     
+                     a_max <- setDT(a1)[order(visit_date), tail(.SD, 1L), by = id]
+                     
                      a2 <- table_txt[,.(id=unique(to))]
                      a2 <- merge(a2,data,by.x='id',by.y='patient_id',all.x=T)
                      a2 <- a2[,.(id,Name=patient_name,Status=patient_status,visit_date)]
-                     a2_pos <- a2[!(Status=='NA' | is.na(Status) | Status == ""),]
-                     a2 <- a2[,.(id,Name)]
-
-                     a <- rbind(a1,a2)
-                     a <- a[!duplicated(a)]
-                     a[,Status:=NA]
-                     a[,visit_date:=NA]
-
-                     a_pos <- rbind(a1_pos,a2_pos)
-                     a_pos <- setDT(a_pos)[order(visit_date), head(.SD, 1L), by = id]
-
-                     a <- rbind(a,a_pos)
-                     coalesce_by_column <- function(df) {
-                       return(dplyr::coalesce(!!! as.list(df)))
-                     }
-
-                     a <- a %>%
-                       group_by(id) %>%
-                       summarise_all(coalesce_by_column)
+                     a2_max <- setDT(a2)[order(visit_date), tail(.SD, 1L), by = id]
+                     
+                     a <- rbind(a_max,a2_max)
+                     setDT(a)[,group:=ifelse(substr(id,1,5)=='clin_','Staff','Patient')]
+                     a[,label:=paste0(group,"-",Status)]
+                     
+                     
+                     icon.color <- viridis::viridis_pal(option = "D")(length(unique(a$label)))
+                     icon.color <- cbind(label=unique(a$label), icon.color)
+                     
+                     a <- merge(a, icon.color, by="label")
                      setDT(a)
-                     a[,group:=ifelse(substr(id,1,5)=='clin_','Staff','Patient')]
-
+                     
+                     a[,shape:="icon"]
+                     a[,icon.face:="fontAwesome"]
+                     a[,icon.code:= ifelse(group=='Staff','f0f0','f007')]
+                     
+                     
                      a[,title:= ifelse(Status=='NA' | is.na(Status) | Status == "",
                                        paste0("<p><b>", group,"ID : ",id," <br>",group,"Name :",Name," <br></b></p>"),
                                        paste0("<p><b>", group,"ID : ",id," <br>",group,"Name :",Name," <br>",group," Status :",Status,"</b></p>"))]
-                     a[,group:=ifelse(!(Status=='NA' | is.na(Status) | Status == ""),paste0('positive-',group),group)]
-
+                     
+                     
                      a <- a[!duplicated(a)]
-
+                     
                      b1 <- table_txt[,.(from,to)]
                      b1 <- b1[!duplicated(b1)]
-
-
+                     
+                     a[,label:=gsub("-NA","",label)]
+                     
                      #___1.20.7 renderPrint to print raw contact tracing output (Patients) -----
 
                      # raw text print code ---
@@ -1559,68 +1503,18 @@ server = function(input, output,session) {
                      output$plot_epicontacts_1 <- renderVisNetwork({
 
 
-                       if(all(c('positive-Staff','positive-Patient') %in% unique(a$group))){
-
-                         visNetwork(a, b1, width = "100%") %>%
-
-                           visPhysics(stabilization = FALSE) %>%
-                           visGroups(groupname = "Staff", shape = "icon", icon = list(code = "f0f0",color="#003049")) %>%
-                           visGroups(groupname = "Patient", shape = "icon", icon = list(code = "f007", color = "#f77f00")) %>%
-                           visGroups(groupname = "positive-Staff", shape = "icon", icon = list(code = "f0f0", color = "#1a936f")) %>%
-                           visGroups(groupname = "positive-Patient", shape = "icon", icon = list(code = "f007", color = "#606c38")) %>%
-                           visLegend() %>%
-                           addFontAwesome(name = "font-awesome-visNetwork")  %>%
-                           visEdges(shadow = TRUE,
-                                    arrows =list(to = list(enabled = TRUE, scaleFactor = 2)),
-                                    color = list(color = "gray", highlight = "red")) 
-
-
-                       } else if(c('positive-Patient') %in% a$group){
-
-                         visNetwork(a, b1, width = "100%") %>%
-
-                           visPhysics(stabilization = FALSE) %>%
-                           visGroups(groupname = "Staff", shape = "icon", icon = list(code = "f0f0",color="#003049")) %>%
-                           visGroups(groupname = "Patient", shape = "icon", icon = list(code = "f007", color = "#f77f00")) %>%
-                           visGroups(groupname = "positive-Patient", shape = "icon", icon = list(code = "f007", color = "#606c38")) %>%
-                           visLegend() %>%
-                           addFontAwesome(name = "font-awesome-visNetwork")  %>%
-                           visEdges(shadow = TRUE,
-                                    arrows =list(to = list(enabled = TRUE, scaleFactor = 2)),
-                                    color = list(color = "gray", highlight = "red")) 
-
-
-                       } else if(c('positive-Staff') %in% a$group){
-
-                         visNetwork(a, b1, width = "100%") %>%
-
-                           visPhysics(stabilization = FALSE) %>%
-                           visGroups(groupname = "Staff", shape = "icon", icon = list(code = "f0f0",color="#003049")) %>%
-                           visGroups(groupname = "Patient", shape = "icon", icon = list(code = "f007", color = "#f77f00")) %>%
-                           visGroups(groupname = "positive-Staff", shape = "icon", icon = list(code = "f0f0", color = "#1a936f")) %>%
-                           visLegend() %>%
-                           addFontAwesome(name = "font-awesome-visNetwork") %>%
-                           visEdges(shadow = TRUE,
-                                    arrows =list(to = list(enabled = TRUE, scaleFactor = 2)),
-                                    color = list(color = "gray", highlight = "red")) 
-
-
-                       } else {
-                         visNetwork(a, b1, width = "100%") %>%
-
-                           visPhysics(stabilization = FALSE) %>%
-                           visGroups(groupname = "Staff", shape = "icon", icon = list(code = "f0f0",color="#003049")) %>%
-                           visGroups(groupname = "Patient", shape = "icon", icon = list(code = "f007", color = "#f77f00")) %>%
-                           visLegend() %>%
-                           addFontAwesome(name = "font-awesome-visNetwork") %>%
-                           visEdges(shadow = TRUE,
-                                    arrows =list(to = list(enabled = TRUE, scaleFactor = 2)),
-                                    color = list(color = "gray", highlight = "red")) 
-
-
-
-                       }
-
+                       lnodes <- a[,.(label,shape,icon.color,icon.face,icon.code,Status)]
+                       lnodes <- lnodes[!duplicated(lnodes)]
+                       
+                       
+                       visNetwork(a, b1, width = "100%") %>%
+                         
+                         visPhysics(stabilization = FALSE) %>%
+                         addFontAwesome(name = "font-awesome-visNetwork") %>%
+                         visLegend(addNodes = lnodes, useGroups = FALSE) %>%
+                         visEdges(shadow = TRUE,
+                                  arrows =list(to = list(enabled = TRUE, scaleFactor = 2)),
+                                  color = list(color = "gray", highlight = "red"))
                      })
 
                      #___1.20.10 renderDataTable to display primary contact table (Patients) -----
