@@ -13,6 +13,31 @@
   }
 */
 
+
+#modal {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#modal td, #modal th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#modal tr:nth-child(even){background-color: red;}
+#modal tr:nth-child(odd){background-color: purple;}
+
+#modal tr:hover {background-color: green;}
+
+#modal th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #175477;
+  color: white;
+}
+
 .modal-content {
     background: #231f20;
     -webkit-box-shadow: 0 2px 3px rgba(0,0,0,.125);

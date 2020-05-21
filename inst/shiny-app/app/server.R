@@ -66,19 +66,31 @@ server = function(input, output,session) {
 
   showModal( modalDialog(
     title =HTML('<div class="basic_dwnld"> 
-    <center><img src="www/VNSNY_White.png" alt="Data Preview"  height="120" align="center"></center>
+    <center><img src="www/VNSNY_White.png" alt="Data Preview"  height="100" align="center"></center>
 
     <h2 align="center",style="color:white; margin-top:-50px;">
 <i style="font-size:24px;color:rgb(255, 164, 27); class="fas fa-project-diagram"></i>
                   VisitContactTrace Application </h2>
-                      <h3 align="center" style="color:white;"><i class="fas fa-cloud-upload-alt" style="font-size:26px;color:white;"></i>&ensp;Upload Data</h3><br>
-                      <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i> Please upload file with Patients & Staffs details .</p><br>
-                      <p><b><i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i></b> Make sure file contains required columns.<br><br></p>
+                      <h3 align="center" style="color:white;"><i class="fas fa-cloud-upload-alt" style="font-size:26px;color:white;"></i>&ensp;Upload Data</h3>
+      <table id="modal">
+                      <tr>
+                      <th style="font-size:13px;"><i style="font-size:18px; color:#231f20" class="fa">&#xf0a4;</i>Please upload visit data file (.CSV or .XLSX) by clicking on the “Upload File” button.</th>
+                      </tr>
+                        <tr>
+                      <th style="font-size:13px;"><i style="font-size:18px; color:#231f20" class="fa">&#xf0a4;</i>Make sure the file contains the following columns: PATIENT_ID, PATIENT_NAME (required), VISIT_DATE (required), STAFF_ID, STAFF_NAME (required), PATIENT_STATUS, STAFF_STATUS</th>
+                      </tr>  
+                      <tr>
+                      <th style="font-size:13px;"><i style="font-size:18px; color:#231f20" class="fa">&#xf0a4;</i>Click on the “Review Data” button to review your uploaded data file and to rename columns.</th>
+                      </tr>  
+                      <tr>
+                      <th style="font-size:13px;"><i style="font-size:18px; color:#231f20" class="fa">&#xf0a4;</i>Click on the “Submit Data” button when you are ready to display your data in the application.</th>
+                      </tr>
 
+      </table><br>
                     <!--  <img src="data_format.PNG" alt="Data Preview" width="580" height="62"> -->
 
                       <center>  <ui style="background-color:#9a2a1c;"><b>&#x26A0; Acceptable File Format/Type: .CSV/.XLSX </b> </ui><br></center></div>'),
-    footer=list(actionButton("demo", label="Demo"),modalButton("Close")),
+    footer=list(actionButton("demo", label="Try out demo data"),modalButton("Close")),
     list(shinyFilesButton(id = 'file', 'Upload File', 'Please select a file', FALSE,style = upload_button_style),  tags$br(),
          div(style="display: inline-block;vertical-align:top; width: 100px; bottom: 200px; top: -100px; margin-top: 24px;height: 36px; margin-left:95px; ",
              disabled(actionButton(inputId = 'review_btn',label= 'Review Data',style = upload_button_style))),
@@ -177,11 +189,12 @@ server = function(input, output,session) {
 
 
 
-    showModal(modalDialog( h2("Data Review"),
+    showModal(modalDialog( h2("Review Data"),
                            DT::dataTableOutput('Table'),
                            size = "l",br(),
-                           footer=list(actionButton("back2", label="Back"),modalButton("Close")),
-                           list( div(style="display: inline-block;vertical-align:top; width: 300px;",selectInput(inputId = "OldColumnName", label = "Select Column Name to rename",multiple = F, choices = c("NA"), selected = "")),
+                           footer=list(actionButton("back2", label="Back")),
+                           list( tags$p("The VisitContactTrace application will recognize the following columns: PATIENT_ID, PATIENT_NAME (required), VISIT_DATE (required), STAFF_ID, STAFF_NAME (required), PATIENT_STATUS, STAFF_STATUS"),
+                                 div(style="display: inline-block;vertical-align:top; width: 300px;",selectInput(inputId = "OldColumnName", label = "Select Column Name to rename",multiple = F, choices = c("NA"), selected = "")),
                                  div(style="display: inline-block;vertical-align:top; width: 300px; margin-left:10px;",textInput(inputId = "NewColumnName", label = "Enter New Column Name", "NA")),
                                  div(style="display: inline-block;vertical-align:top; width: 100px; bottom: 200px; top: -100px; margin-top: 24px;height: 36px; margin-left:10px;",actionButton("RenameColumn", "Rename Column",style = "color: #fff; background-color: MAROON; border-color: #2e6da4")),
                                  div(style="display: inline-block;vertical-align:top; width: 100px; bottom: 200px; top: -100px; margin-top: 24px;height: 36px; margin-left:30px; ",actionButton("submit", "Submit Data",style = "color: #fff; background-color: MAROON; border-color: #2e6da4"))
@@ -204,10 +217,22 @@ server = function(input, output,session) {
     <h2 align="center",style="color:white; margin-top:-50px;">
 <i style="font-size:24px;color:rgb(255, 164, 27); class="fas fa-project-diagram"></i>
                   VisitContactTrace Application </h2>
-                      <h3 align="center" style="color:white;"><i class="fas fa-cloud-upload-alt" style="font-size:26px;color:white;"></i>&ensp;Upload Data</h3><br>
-                      <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i> Please upload file with Patients & Staffs details .</p><br>
-                      <p><b><i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i></b> Make sure file contains required columns.<br><br></p>
+                      <h3 align="center" style="color:white;"><i class="fas fa-cloud-upload-alt" style="font-size:26px;color:white;"></i>&ensp;Upload Data</h3>
+      <table id="modal">
+                      <tr>
+                      <th style="font-size:13px;"><i style="font-size:18px; color:#231f20" class="fa">&#xf0a4;</i>Please upload visit data file (.CSV or .XLSX) by clicking on the “Upload File” button.</th>
+                      </tr>
+                        <tr>
+                      <th style="font-size:13px;"><i style="font-size:18px; color:#231f20" class="fa">&#xf0a4;</i>Make sure the file contains the following columns: PATIENT_ID, PATIENT_NAME (required), VISIT_DATE (required), STAFF_ID, STAFF_NAME (required), PATIENT_STATUS, STAFF_STATUS</th>
+                      </tr>  
+                      <tr>
+                      <th style="font-size:13px;"><i style="font-size:18px; color:#231f20" class="fa">&#xf0a4;</i>Click on the “Review Data” button to review your uploaded data file and to rename columns.</th>
+                      </tr>  
+                      <tr>
+                      <th style="font-size:13px;"><i style="font-size:18px; color:#231f20" class="fa">&#xf0a4;</i>Click on the “Submit Data” button when you are ready to display your data in the application.</th>
+                      </tr>
 
+      </table><br>
                     <!--  <img src="data_format.PNG" alt="Data Preview" width="580" height="62"> -->
                       <center>  <ui style="background-color:#9a2a1c;"><b>&#x26A0; Acceptable File Format/Type: .CSV/.XLSX </b> </ui><br></center></div>'),
       footer=list(actionButton("demo", label="Demo"),modalButton("Close")),
