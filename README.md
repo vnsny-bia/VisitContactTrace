@@ -4,13 +4,18 @@
 
 # VisitContactTrace 
 
-This application is designed to conduct contact tracing on healthcare encounter data with a specific focus on providers of community-based healthcare delivery services.  In a community based healthcare system, patients are typically considered to be homebound and do not interact with each other.  The VisitContactTrace application provides advanced querying capabilities of a patient-clinician visit data set to allow the user to explore how infectious diseases may spread if appropriate precautions are not in place.  This application **does not suggest causality** , rather, a method to explore how infectious diseases may spread exponentially if no precautions are not put into place in a community-based healthcare setting.
+This application is designed to conduct contact tracing on healthcare encounter data with a specific focus on providers of community-based healthcare delivery services.  In a community-based healthcare system, patients are typically homebound and are visited at home by healthcare providers, meaning that while direct contact occurs between patients and visit staff, very little to no direct contact would occur between patients. This is in direct contrast with facility-based healthcare (e.g. hospitals, clinics) where patients travel to a central location that serves several patients at a time, and thus direct contact can occur between patients and staff as well as patient-to-patient.  The VisitContactTrace application allows the user to load and query their visit data in order to:
 
-This application allows the user to query their visit data from one of two different sources of origin if the case of origin is a patient/member or a healthcare provider (Nurse, Therapist, Social Worker, Home Health Aide, etc.).  The application assumes that the user knows who their indexed person is and presents levels of exposure in primary, secondary and tertiary contacts from the origin. 
+* explore how infectious diseases may spread within their visit-based service delivery model if appropriate precautions are not in place; 
+
+* conduct visit-based contact tracing of the primary, secondary, and tertiary contacts of an "index" patient or visit staff member whose disease status is known to the user.
+
+This application **does not suggest causality** or confirm disease transmission routes.  Rather, it provides a means to explore how infectious diseases may spread expotentially among patients and visit staff if precautions are not put into place in a visit-based service delivery model such as a community-based healthcare setting.
+
 <img src="./inst/www/VNSNYCT-hexsticker.png" width="150" align="right"/>
 
 
-This application was designed and created by the Data Science team at the [Visiting Nurse Service of New York](https://www.vnsny.org/) during the COVID-19 pandemic to support contact tracing efforts to support operations across multiple community based health care organizations within the parent company.  This application may serve value to smaller agencies providing community-based healthcare in the applicaiton of contact tracing for any infectious disease.
+The VisitContactTrace application was designed and created by the Data Science team at the [Visiting Nurse Service of New York](https://www.vnsny.org/) during the COVID-19 pandemic in order to support the organization's contact tracing efforts.  This application may be of value to other agencies providing community-based healthcare or to organizations that have visit-based service delivery models for the purpose of contact tracing of any infectious disease.
 
 To learn more about VNSNY COVID-19 response please visit [here](https://www.vnsny.org/coronavirus-covid-19/vnsnys-covid-19-response/). 
 
@@ -131,15 +136,15 @@ If the R installation is successful a shortcut should have been created for easy
 In organizations that require administrative rights to install software, it is possible to install R in the users documents on a Windows OS without administrative rights.  You can find the **Rgui** executable in the tree which it was installed. Below are some examples of how this may look, click on RGui.exe to launch an R session.  If you will be using this application often, you may consider creating a shortcut on your desktop.
 
 
-<img src="./inst/www/Ri386-image.PNG" width="400" align="center"/>
+<img src="./inst/www/Ri386-image.PNG" width="600" align="center"/>
 
-<img src="./inst/www/Rx64-image.png" width="400" align="center"/>
+<img src="./inst/www/Rx64-image.png" width="600" align="center"/>
 
 ## R Console ##
 
 In order to run the contact tracing application, you must copy and paste two commands into the R Console.  The R Console looks like the image below. It is here where you should write or paste the commands to install and run the VisitContactTrace application on your personal computer.
 
-<img src="./inst/www/Rconsole-image.PNG" width="600" align="center"/>
+<img src="./inst/www/Rconsole-image.PNG" width="800" align="center"/>
 
 
 ## License
