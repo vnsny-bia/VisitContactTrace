@@ -71,8 +71,8 @@ The **VisitContactTracing** application requires a minimum set of fields in a da
 | VISIT_DATE | DATE | TRUE | The date for which the patient encounters a clincian |
 | STAFF_ID | Character | FALSE | Unique ID for clincian.  If absent, **STAFF_NAME** is used as the key |
 | STAFF_NAME | Character | TRUE | First and last Name of clincian*|
-| PATIENT_STATUS | Character | FALSE | A single unique label maybe used to indicate a **patient** who is confirmed with an infectious disease.  This label must persist over all visit observations for the **patient**.  The application only supports one label at this time and does not consider the time relationship between the status of one individual compared to the timing of statuses of other contacts; it is only provided as label of an individual
-| STAFF_STATUS | Character | FALSE | A single unique label maybe used to indicate a **staff** who is confirmed with an infectious disease.  This label must persist over all visit observations for the **staff**.  The application only supports one label at this time and does not consider the time relationship between the status of one individual compared to the timing of statuses of other contacts; it is only provided as label of an individual
+| PATIENT_STATUS | Character | FALSE | Unique labels maybe used to indicate a status for each **patient** who is confirmed with an infectious disease (or other status).  This label must persist over all visit observations for the **patient**.  The application only supports one label at this time and does not consider the time relationship between the status of one individual compared to the timing of statuses of other contacts; it is only provided as label of an individual
+| STAFF_STATUS | Character | FALSE | Unique labels maybe used to indicate a status for each **staff** who is confirmed with an infectious disease (or other status).  This label must persist over all visit observations for the **staff**.  The application only supports one label at this time and does not consider the time relationship between the status of one individual compared to the timing of statuses of other contacts; it is only provided as label of an individual
 
 \* The authors antcipate that many users may have patient/clinician name in two columns (first & last).  Those users should consider concatenating those fields together prior to this step.
 
@@ -87,22 +87,52 @@ If the data uploaded does not have the names spelled as documented here. The use
 
 ## Graphical User Interface for Importing Data
 
-The following figure should be the welcome screen that appears as soon as the application opens.  Click on "upload file" and browse to the dataset that you wish to import into the Visit Contact Tracing Application.  
+The following figure should be the welcome screen that appears as soon as the application opens.  Click on "Upload File" and browse to the dataset that you wish to import into the VisitContactTrace Application.  
 
 <img src="./inst/www/ct-welcome.PNG" width="400" height="400" align="center"/>
 
 The "Review Data" button provides a preview of the data import and the ability to rename columns to the names defined in [data specifications](#dataspec). If column names and formats are correct, the "Submit Data" button will import the data into the application.  If not, the user will be notified of an error.
 
+**Try Out Demo Data** button allows you to experiment with the simulated dataset within the application.  
+
 <img src="./inst/www/ct-preview.PNG" width="500" height="600" align="center"/>
 
-## Patient or Staff?
+## Exit/Reload
 
-The first imporant decision to make is to decide what type of individual they would like to anchor the contact trace query.  The available options available are 
+In the following figure, on the top right hand side, options exist to exit the application, or, reload the graphical user interface to upload data.  
 
-## Parameter Interface
+## Querying VisitContactTrace 
 
-The parameter interface provided contain the key elements for the user to conduct a visit-based contact trace query
+Querying Parameter Instructions :
 
+* Choose whether you are starting with an index staff member or a patient by clicking the on the “Staff” or “Patient” tile. 
+* Choose the Staff ID (or Patient ID) of the index person. 
+* Choose the reference date. Ideally, this should be the date of symptom onset of the index person. 
+* Choose the number of days to look back from the reference date (e.g. the incubation period of the disease) and the number of days to look forward from the reference date.  Consult your Agency's policies & procedures for specifc guidances
+
+**Click on the “run” button**
+
+### Definition of N degrees of Contact From Origin
+
+<img src="./inst/www/ct-staff-patient-origin.PNG" width="800" height="400" align="center"/>
+
+<img src="./inst/www/ct-main.PNG" width="1200" height="800" align="center"/>
+
+### Output - Contact Lists
+
+On the right hand side of the previous figure, primary, secondary, and tertiary contact listings are made availabe to the user for download into .csv.
+
+### Output - Plot
+
+The "Plot" tab displays the primary contacts and any secondary or tertiary contacts away from the staff/patient of origin.  If the user included staff/patient statuses, the legend indicates which status each patient or staff is known to have had. 
+
+<img src="./inst/www/ct-plot2.PNG" width="800" height="800" align="center"/>
+
+### Output - Visit Details
+
+All orders of contact are provided in a separate format for export.  They user may then wish to filter on contact_type to their discretion.  
+
+<img src="./inst/www/ct-visitdetails.PNG" width="800" height="800" align="center"/>
 
 ## Other Usefull R Functions/Objects
 
