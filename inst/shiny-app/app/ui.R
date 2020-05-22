@@ -259,37 +259,39 @@ body <- dashboardBody(
                                                                 <span></span>
                                                                 <span></span></p> </center>
                                                                 <h4 align="left" style="color:#3c8dbc;"><u><b>Introduction</b> </u></h4>
-                                                                <p>This application allows you to conduct HCHB visit-level contact tracing for a CHHA/Hospice patient or clinician known/suspected to have COVID-19 (“index person”). Based on VNSNY visit data, this application will list all primary, secondary, and tertiary clinician or patient contacts within a look-back time period for a given index person. You must comply with all applicable requirements and <a href="https://vnsny.sharepoint.com/COVID/SitePages/Homepage%20-%20COVID-19.aspx" target="_blank"> VNSNY’s COVID-19 Policies & Procedures </a> when conducting visit-based contact tracing.</p>
+                                                                <p>This application allows you to conduct visit-level contact tracing for a patient or staff member known/suspected to have an infectious disease (“index person”). Based on the visit data you supply, this application will list all primary, secondary, and tertiary patient or staff contacts within a look-back time period for a given index person.</p>
                                                                 <h4 align="left" style="color:#3c8dbc;"><u><b>Instructions</b> </u></h4>
-                                                                <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i>First choose whether you are starting with a clinician or a patient by clicking the on the “clinician” or “patient” tile.</p>
-                                                                <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i>Choose the reference date. Ideally, this should be the date of symptom onset for the index person. </p>
-                                                                <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i>Choose the number of days to look back from the reference date. The application is designed to return all primary, secondary, and tertiary visit contacts of the index patient during the look-back period up until present day.</p>
+                                                                <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i>First choose whether you are starting with an index staff member or a patient by clicking the on the “Staff” or “Patient” tile. </p>
+                                                                <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i>Choose the Staff ID (or Patient ID) of the index person. </p>
+                                                                <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i>Choose the reference date. Ideally, this should be the date of symptom onset of the index person.</p>
+                                                                <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i>Choose the number of days to look back from the reference date (e.g. the incubation period of the disease) and the number of days to look forward from the reference date.</p>
+                                                                <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i>Click on the “run” button.</p>
+
+
                                                                    <table>
                                                                       <tr>
                                                                       <th></th>
-                                                                      <th>If a clinician is the index person…</th>
-                                                                      <th>If a patient is the index person…</th>
+                                                                      <th>If a staff member is the index person…</th>
+                                                                      <th>If a patient is the index person… </th>
                                                                       </tr>
                                                                       <tr>
                                                                       <td>Primary contact</td>
-                                                                      <td>The patients that the index clinician visited </td>
-                                                                      <td>The clinicians that visited the index patient</td>
+                                                                      <td>The patients that the index staff member visited </td>
+                                                                      <td>The staff members that visited the index patient </td>
                                                                       </tr>
                                                                       <tr>
                                                                       <td>Secondary contact</td>
-                                                                      <td>The clinicians that visited the primary contact patients </td>
-                                                                      <td>The patients that the primary contact clinicians visited </td>
+                                                                      <td>The staff members that visited the primary contact patients  </td>
+                                                                      <td>The patients that the primary contact staff members visited </td>
                                                                       </tr>
                                                                       <tr>
                                                                       <td>Tertiary contact</td>
-                                                                      <td>The patients that were visited by the secondary contact clinicians </td>
-                                                                      <td>The clinicians that visited the secondary contact patients </td>
+                                                                      <td>The patients that were visited by the secondary contact staff members </td>
+                                                                      <td>The staff members that visited the secondary contact patients  </td>
                                                                       </tr>
 
                                                                       </table><br>
-                                                                <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i>Choose the Clinician ID (or Patient ID) of the index person.</p>
-                                                                <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i>Click on the “run” button </p>
-
+                                                                
                                                                 <center><br></center></div>
 
 
@@ -497,56 +499,44 @@ body <- dashboardBody(
                                                                 <span></span>
                                                                 <span></span></p> </center>
                                                                 <h4 align="left" style="color:#3c8dbc;"><u><b>Introduction</b> </u></h4>
-                                                                <p>This application allows you to conduct HCHB visit-level contact tracing for a CHHA/Hospice patient or clinician known/suspected to have COVID-19 (“index person”). Based on VNSNY visit data, this application will list all primary, secondary, and tertiary clinician or patient contacts within a look-back time period for a given index person. You must comply with all applicable requirements and <a href="https://vnsny.sharepoint.com/COVID/SitePages/Homepage%20-%20COVID-19.aspx" target="_blank"> VNSNY’s COVID-19 Policies & Procedures </a> when conducting visit-based contact tracing.</p>
+                                                                <p>This application allows you to conduct visit-level contact tracing for a patient or staff member known/suspected to have an infectious disease (“index person”). Based on the visit data you supply, this application will list all primary, secondary, and tertiary patient or staff contacts within a look-back time period for a given index person.</p>
                                                                 <h4 align="left" style="color:#3c8dbc;"><u><b>Instructions</b> </u></h4>
-                                                                <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i>First choose whether you are starting with a clinician or a patient by clicking the on the “clinician” or “patient” tile.</p>
-                                                                <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i>Choose the reference date. Ideally, this should be the date of symptom onset for the index person. </p>
-                                                                <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i>Choose the number of days to look back from the reference date. The application is designed to return all primary, secondary, and tertiary visit contacts of the index patient during the look-back period up until present day.</p>
+                                                                <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i>First choose whether you are starting with an index staff member or a patient by clicking the on the “Staff” or “Patient” tile. </p>
+                                                                <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i>Choose the Staff ID (or Patient ID) of the index person. </p>
+                                                                <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i>Choose the reference date. Ideally, this should be the date of symptom onset of the index person.</p>
+                                                                <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i>Choose the number of days to look back from the reference date (e.g. the incubation period of the disease) and the number of days to look forward from the reference date.</p>
+                                                                <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i>Click on the “run” button.</p>
+
+
                                                                    <table>
                                                                       <tr>
                                                                       <th></th>
-                                                                      <th>If a clinician is the index person…</th>
-                                                                      <th>If a patient is the index person…</th>
+                                                                      <th>If a staff member is the index person…</th>
+                                                                      <th>If a patient is the index person… </th>
                                                                       </tr>
                                                                       <tr>
                                                                       <td>Primary contact</td>
-                                                                      <td>The patients that the index clinician visited </td>
-                                                                      <td>The clinicians that visited the index patient</td>
+                                                                      <td>The patients that the index staff member visited </td>
+                                                                      <td>The staff members that visited the index patient </td>
                                                                       </tr>
                                                                       <tr>
                                                                       <td>Secondary contact</td>
-                                                                      <td>The clinicians that visited the primary contact patients </td>
-                                                                      <td>The patients that the primary contact clinicians visited </td>
+                                                                      <td>The staff members that visited the primary contact patients  </td>
+                                                                      <td>The patients that the primary contact staff members visited </td>
                                                                       </tr>
                                                                       <tr>
                                                                       <td>Tertiary contact</td>
-                                                                      <td>The patients that were visited by the secondary contact clinicians </td>
-                                                                      <td>The clinicians that visited the secondary contact patients </td>
+                                                                      <td>The patients that were visited by the secondary contact staff members </td>
+                                                                      <td>The staff members that visited the secondary contact patients  </td>
                                                                       </tr>
-
                                                                       </table><br>
-                                                                <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i>Choose the Clinician ID (or Patient ID) of the index person.</p>
-                                                                <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i>Click on the “run” button </p>
-
+                                                                
                                                                 <center><br></center></div>
-
-
                                                    ')
-
                                                )
-
-
-
-
                                            ))),
-
-
-
-
-                              div(style="display: inline-block; width: 800px;",HTML("<br>"))
-
+                              div(style="display: inline-block;",HTML("<br>"))
                      )
-
 
               ),
               tabBox(id='conf_summary_1', width = 6,
