@@ -92,6 +92,17 @@ body <- dashboardBody(
     clear: both;
     color: black;
 }'),
+ tags$head(tags$script('
+                        var width = 0;
+                        $(document).on("shiny:connected", function(e) {
+                          width = window.innerWidth;
+                          Shiny.onInputChange("width", width);
+                        });
+                        $(window).resize(function(e) {
+                          width = window.innerWidth;
+                          Shiny.onInputChange("width", width);
+                        });
+                        ')),
   tags$title('This is my page'),
 
   tags$style(HTML(".js-irs-0 .irs-single, .js-irs-0 .irs-bar-edge, .js-irs-0 .irs-bar {background: #005daa}")),
@@ -134,10 +145,10 @@ body <- dashboardBody(
 
     tabItem("Data",
             fluidRow(
-              tabBox(id='main_data', width = 6, height = '620px',title = tagList(shiny::icon("table"),""),
+              tabBox(id='main_data', width = 6, height = '640px',title = tagList(shiny::icon("table"),""),
                      tabPanel(tagList(shiny::icon("table"),"Input Data"),
 
-                              fluidRow(box(width=12,height = '90px',
+                              fluidRow(box(width=12,
 
 
                                            div(style="display:inline-block",
@@ -188,7 +199,7 @@ body <- dashboardBody(
                                                  style = "material-flat",size = 'sm'
                                                )
                                            ),
-
+                                           div(id="verbtext",style="width:500px;",fluidRow(verbatimTextOutput('visit_date_rng',placeholder = F))),
                                            tags$head(
                                              tags$style(
                                                HTML(".shiny-notification {
@@ -214,7 +225,7 @@ body <- dashboardBody(
                                                )
                                              )
                                            )),
-                                       verbatimTextOutput('visit_date_rng',placeholder = F),
+                                       
                                        tags$head(
                                          tags$style(HTML("
                                                     #visit_date_rng {
@@ -231,14 +242,16 @@ body <- dashboardBody(
                                                       border-radius: 4px;
                                                       max-height: 550px;
                                                       overflow: auto;
-                                                      width:736px;
+                                                      width:700px;
                                                       background-color: #222527;
                                                   }
                                               "))),
                                        tags$style(HTML("<br>")),
+                                       tags$style(HTML("<br>")),
+                                       
                                        div(style="display: inline-block;",
                                            box(width=12,
-                                               height = '425px',
+                                               #height = '400px',
                                                div(style = 'overflow-y: scroll; height:400px;',
                                                    HTML('<div class="header_csv"><center><p id="preloader6">
                                                                 <span></span>
@@ -291,14 +304,14 @@ body <- dashboardBody(
 
                                            ))),
 
-                              div(style="display: inline-block; width: 800px;",HTML("<br>"))
+                              div(style="display: inline-block;",HTML("<br>"))
 
                      )
 
 
               ),
               tabBox(id='conf_summary', width = 6,
-                     height = '675px',
+                     height = '700px',
                      title = "",
                      tabPanel(tagList(HTML('<i class="fa fa-newspaper-o"></i>'),"Contact Lists"),
                               tabBox(id='stg_tbls',width = 12,
@@ -360,10 +373,11 @@ body <- dashboardBody(
     ),#End of data tab
     tabItem("Data_Dictionary",
             fluidRow(
-              tabBox(id='main_data', width = 6, height = '600px',title = tagList(shiny::icon("table"),""),
+              tabBox(id='main_data', width = 6, 
+                     height = '640px',title = tagList(shiny::icon("table"),""),
                      tabPanel(tagList(shiny::icon("table"),"Input Data"),
 
-                              fluidRow(box(width=12,height = '90px',
+                              fluidRow(box(width=12,
 
 
                                            div(style="display:inline-block",
@@ -412,6 +426,8 @@ body <- dashboardBody(
                                                  style = "material-flat",size = 'sm'
                                                )
                                            ),
+                                           div(id="verbtext_1",style="width:500px;",fluidRow(verbatimTextOutput('visit_date_rng_1',placeholder = F))),
+                                           
                                            tags$head(
                                              tags$style(
                                                HTML(".shiny-notification {
@@ -445,7 +461,7 @@ body <- dashboardBody(
                                              )
                                            )),
                                        tags$style(HTML("<br>")),
-                                       verbatimTextOutput('visit_date_rng_1',placeholder = F),
+                                       #verbatimTextOutput('visit_date_rng_1',placeholder = F),
                                        tags$head(
                                          tags$style(HTML("
                                                     #visit_date_rng_1 {
@@ -462,7 +478,7 @@ body <- dashboardBody(
                                                       border-radius: 4px;
                                                       max-height: 550px;
                                                       overflow: auto;
-                                                      width:736px;
+                                                      width:700px;
                                                       background-color: #222527;
                                                   }
                                               "))),
@@ -534,7 +550,7 @@ body <- dashboardBody(
 
               ),
               tabBox(id='conf_summary_1', width = 6,
-                     height = '645px',
+                     height = '700px',
                      title = "",
 
                      tabPanel(tagList(HTML('<i class="fa fa-newspaper-o"></i>'),"Contact Lists"),
