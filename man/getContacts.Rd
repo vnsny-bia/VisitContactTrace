@@ -2,11 +2,64 @@
 % Please edit documentation in R/getContacts.R
 \name{getContacts}
 \alias{getContacts}
-\title{A function rather aimed at developers}
+\title{Get contact tracing list and plot.}
 \usage{
-getContacts(x, y, dt)
+getContacts(
+  staff_id = NA,
+  patient_id = NA,
+  reference_date = "2020-03-01",
+  look_forward_days = 7,
+  look_back_days = 0,
+  plot = F,
+  data = NULL
+)
+}
+\arguments{
+\item{staff_id}{character - unique staff identifier for each staff in the homecare dataset}
+
+\item{patient_id}{character - unique patient identifier for each patient in the homecare dataset}
+
+\item{reference_date}{character - The date user assume that staff/patient started showing onset symptoms. ('2020-03-01')}
+
+\item{look_forward_days}{character - How many days forward you want to look from reference date ('7')}
+
+\item{look_back_days}{character - How many days backward you want to look from reference date ('0')}
+
+\item{plot}{logical - If TRUE then plot object will be added in the output list. (FALSE)}
+
+\item{data}{data.table - Data with following columns: PATIENT_ID, PATIENT_NAME (required), VISIT_DATE (required), STAFF_ID, STAFF_NAME (required), PATIENT_STATUS, STAFF_STATUS}
+}
+\value{
+returns a list with 4 elements:
+\itemize{
+  \item primary_contact_list - The primary contact data frame.
+  \item secondary_contact_list - The primary contact data frame.
+  \item tertiary_contact_list - The tertiary contact data frame.
+  \item plot - A plot object, if logical parameter in the function is TRUE.
+}
+The second example below generates plot. \cr
 }
 \description{
-A function that does blabla, blabla.
+To get primary, secondary & tertiary contact list from data for specific staff/patient id.
 }
-\keyword{internal}
+\examples{
+# Below example is used to get contact tracing lists based on staff id.
+            
+getContacts(staff_id= '1',
+             patient_id = NA,
+             reference_date = "2020-03-01",
+             look_forward_days = 20,
+             look_back_days = 3,
+             data= hcvisits,
+             plot=FALSE)
+             
+# Below example is used to get contact tracing lists based on patient id. 
+           
+ getContacts(staff_id= NA,
+             patient_id = '1000',
+             reference_date = "2020-03-01",
+             look_forward_days = 50,
+             look_back_days = 3,
+             data= hcvisits,
+             plot=TRUE)     
+}

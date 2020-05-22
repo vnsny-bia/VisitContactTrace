@@ -854,7 +854,7 @@ server = function(input, output,session) {
 
                      #___1.16.1 getContacts to get contact tracing -----
 
-                     raw_txt <- VisitContactTrace:::getContacts(x=unique(data_updated$nurse_pat[data_updated$staff_id == paste0('clin_',temp_wkrid)]),
+                     raw_txt <- VisitContactTrace:::getContactsInternal(x=unique(data_updated$nurse_pat[data_updated$staff_id == paste0('clin_',temp_wkrid)]),
                                             y=unique(data_updated$final[data_updated$staff_id == paste0('clin_',temp_wkrid)]),
                                             dt=data_updated)
 
@@ -1708,5 +1708,6 @@ server = function(input, output,session) {
 
   })# End ObserveEvent
 
-
+  gc()
+  
 } #Server Ends Here

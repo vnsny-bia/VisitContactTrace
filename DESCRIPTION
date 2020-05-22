@@ -18,6 +18,7 @@ Depends:
     shinyWidgets,
     data.table,
     highcharter,
+    assertthat,
     dplyr,
     purrr,
     ggthemes,

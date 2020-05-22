@@ -26,4 +26,5 @@ VisitContactTrace <- function(viewer = "browser") {
   shiny::runGadget(shiny::shinyAppDir(appDir = appDir),
                    viewer = inviewer
   )
+  
 }
