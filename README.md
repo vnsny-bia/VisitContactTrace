@@ -113,15 +113,18 @@ Querying Parameter Instructions :
 
 In the following screen shot, [Florence Nightingale](https://en.wikipedia.org/wiki/Florence_Nightingale) has been selected as the indexed staff person.  In this hypothetical example, her symptom onset date was May 12, 2020 and the contact trace is going to start seven days prior to that date and 7 days after to ensure that no visits were delivered while she was symptomatic.  The calculated begin and end date from the reference date is presented back to the user in the black screen immediately below the parameter input.  
 
-### Definition of Primary, Secondary Tertiary degrees of Contact From Origin
-
-<img src="./inst/www/ct-staff-patient-origin.PNG" width="800" align="center"/>
-
-<img src="./inst/www/ct-main.PNG" width="1200" align="center"/>
 
 ### Output - Contact Lists
 
 On the right hand side of the previous figure, primary, secondary, and tertiary contact listings are made available to the user for download into .csv.
+
+#### Definition of Primary, Secondary Tertiary Degrees of Contact From Origin
+
+<img src="./inst/www/ct-staff-patient-origin.PNG" width="800" align="center"/>
+
+These contact listings are availble in the three tabs on the right under "Contact Lists."  Each one is avaible for download into .csv.
+
+<img src="./inst/www/ct-main.PNG" width="1200" align="center"/>
 
 ### Output - Plot
 
@@ -131,17 +134,16 @@ The "Plot" tab displays the primary contacts and any secondary or tertiary conta
 
 ### Output - Visit Details
 
-All orders of contact are provided in a separate format for export.  They user may then wish to filter on contact_type to their discretion.  
+All orders of contact are provided in a separate format for export.  They user may then wish to filter on contact_type to their discretion.  In this example, the staff id of 1 was the primary contact to patients with ids 1043 and 1047.
 
 <img src="./inst/www/ct-visitdetails.PNG" width="800" align="center"/>
 
 ## Other Usefull R Functions/Objects
 
-
 There is a simulated Home Healthcare Visits dataset loaded with the R package for experimentation and instructional purposes.
 
 ```r
-# head(visitshc, 10)
+head(visitshc, 10)
 ```
 
 Given a visit based patient-staff encounter file, this function returns the primary, secondary, teriary contacts (Rushabh can you expand here with the example)  
