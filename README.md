@@ -111,6 +111,8 @@ Querying Parameter Instructions :
 
 **Click on the “run” button**
 
+In the following screen shot, [Florence Nightingale](https://en.wikipedia.org/wiki/Florence_Nightingale) has been selected as the indexed staff person.  In this hypothetical example, her symptom onset date was May 12, 2020 and the contact trace is going to start seven days prior to that date and 7 days after to ensure that no visits were delivered while she was symptomatic.  The calculated begin and end date from the reference date is presented back to the user in the black screen immediately below the parameter input.  
+
 ### Definition of Primary, Secondary Tertiary degrees of Contact From Origin
 
 <img src="./inst/www/ct-staff-patient-origin.PNG" width="800" align="center"/>
