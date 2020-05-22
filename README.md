@@ -31,7 +31,7 @@ The Visit Contact Trace application has been built for users to  **upload data m
 Copy and paste this line into the R Console to install the development version of **VisitContactTrace** from GitHub:
 
 ```r
-install.packages("VisitContactTrace", repos = "https://github.com/vnsny-bia/Visit-Contact-Tracing")
+install.packages("VisitContactTrace", repos = "https://github.com/vnsny-bia/VisitContactTrace")
 ```
 
 ## Run Application Locally
