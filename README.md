@@ -48,7 +48,7 @@ The Visit Contact Tracing Application was built to support a common data structu
 
 The image below shows a snippet of an example dataset where _n_ clinicians have delivered _n_ x _p_ visits to _p_ patients during an observation window of February - May 2020. In this simulated example, Patient 4 was first visited by [Anna Caroline Maxwell](https://en.wikipedia.org/wiki/Anna_Maxwell) on February, 27, 2020, then [Lillian Wald](https://en.wikipedia.org/wiki/Lillian_Wald) continued the case visiting every 2-6 days from February, 29, 2020 to March, 31, 2020.
 
-<img src="./inst/www/visithc.png" width="400" height="400" align="center"/>
+<img src="./inst/www/visithc.png" width="400" align="center"/>
 
 ## Data Specifications <a name="dataspec"></a>
 
@@ -88,13 +88,13 @@ The user interface for uploading data will raise an error to the user if an atte
 
 The following figure should be the welcome screen that appears as soon as the application opens.  Click on "Upload File" and browse to the dataset that you wish to import into the VisitContactTrace Application.  
 
-<img src="./inst/www/ct-welcome.PNG" width="400" height="400" align="center"/>
+<img src="./inst/www/ct-welcome.PNG" width="400"  align="center"/>
 
 The "Review Data" button provides a preview of the data import and the ability to rename columns to the names defined in [data specifications](#dataspec). If column names and formats are correct, the "Submit Data" button will import the data into the application.  If not, the user will be notified of an error.
 
 **Try Out Demo Data** button allows you to experiment with the simulated dataset within the application.  
 
-<img src="./inst/www/ct-preview.PNG" width="500" height="600" align="center"/>
+<img src="./inst/www/ct-preview.PNG" width="500"  align="center"/>
 
 ## Exit/Reload
 
@@ -113,9 +113,9 @@ Querying Parameter Instructions :
 
 ### Definition of N degrees of Contact From Origin
 
-<img src="./inst/www/ct-staff-patient-origin.PNG" width="800" height="400" align="center"/>
+<img src="./inst/www/ct-staff-patient-origin.PNG" width="800" align="center"/>
 
-<img src="./inst/www/ct-main.PNG" width="1200" height="800" align="center"/>
+<img src="./inst/www/ct-main.PNG" width="1200" align="center"/>
 
 ### Output - Contact Lists
 
@@ -125,13 +125,13 @@ On the right hand side of the previous figure, primary, secondary, and tertiary 
 
 The "Plot" tab displays the primary contacts and any secondary or tertiary contacts away from the staff/patient of origin.  If the user included staff/patient statuses, the legend indicates which status each patient or staff is known to have had. 
 
-<img src="./inst/www/ct-plot2.PNG" width="800" height="800" align="center"/>
+<img src="./inst/www/ct-plot2.PNG" width="800" align="center"/>
 
 ### Output - Visit Details
 
 All orders of contact are provided in a separate format for export.  They user may then wish to filter on contact_type to their discretion.  
 
-<img src="./inst/www/ct-visitdetails.PNG" width="800" height="800" align="center"/>
+<img src="./inst/www/ct-visitdetails.PNG" width="800" align="center"/>
 
 ## Other Usefull R Functions/Objects
 
