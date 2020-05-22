@@ -103,8 +103,6 @@ body <- dashboardBody(
                           Shiny.onInputChange("width", width);
                         });
                         ')),
-  tags$title('This is my page'),
-
   tags$style(HTML(".js-irs-0 .irs-single, .js-irs-0 .irs-bar-edge, .js-irs-0 .irs-bar {background: #005daa}")),
   tags$style(".small-box.bg-yellow { background-color: #dee8d3 !important; color: #000000 !important; height:400px;
                overflow: hidden;
@@ -259,16 +257,25 @@ body <- dashboardBody(
                                                                 <span></span>
                                                                 <span></span></p> </center>
                                                                 <h4 align="left" style="color:#3c8dbc;"><u><b>Introduction</b> </u></h4>
-                                                                <p>This application allows you to conduct visit-level contact tracing for a patient or staff member known/suspected to have an infectious disease (“index person”). Based on the visit data you supply, this application will list all primary, secondary, and tertiary patient or staff contacts within a look-back time period for a given index person.</p>
+                                                                <p style="font-size:14px;font-family: Arial, Sans-Serif">This application allows you to conduct visit-level contact tracing for a patient or staff member known/suspected to have an infectious disease (“index person”). Based on the visit data you supply, this application will list all primary, secondary, and tertiary patient or staff contacts within a look-back time period for a given index person.</p>
                                                                 <h4 align="left" style="color:#3c8dbc;"><u><b>Instructions</b> </u></h4>
-                                                                <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i>First choose whether you are starting with an index staff member or a patient by clicking the on the “Staff” or “Patient” tile. </p>
+                                                                
+                                                              <!--  <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i>First choose whether you are starting with an index staff member or a patient by clicking the on the “Staff” or “Patient” tile. </p>
                                                                 <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i>Choose the Staff ID (or Patient ID) of the index person. </p>
                                                                 <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i>Choose the reference date. Ideally, this should be the date of symptom onset of the index person.</p>
                                                                 <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i>Choose the number of days to look back from the reference date (e.g. the incubation period of the disease) and the number of days to look forward from the reference date.</p>
                                                                 <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i>Click on the “run” button.</p>
+                                                              -->
+                                                              
+                                                             <ul class="fa-ul">
+                                                                <li style="font-size:14px;font-family: Arial, Sans-Serif"><i class="fa-li fa fa-check-square"></i> First choose whether you are starting with an index staff member or a patient by clicking the on the “Staff” or “Patient” tile.</li>
+                                                                <li style="font-size:14px;font-family: Arial, Sans-Serif"><i class="fa-li fa fa-check-square"></i> Choose the Staff ID (or Patient ID) of the index person. </li>
+                                                                <li style="font-size:14px;font-family: Arial, Sans-Serif"><i class="fa-li fa fa-check-square"></i> Choose the reference date. Ideally, this should be the date of symptom onset of the index person. </li>
+                                                                <li style="font-size:14px;font-family: Arial, Sans-Serif"><i class="fa-li fa fa-check-square"></i> Choose the number of days to look back from the reference date (e.g. the incubation period of the disease) and the number of days to look forward from the reference date.</li>
+                                                                <li style="font-size:14px;font-family: Arial, Sans-Serif"><i class="fa-li fa fa-check-square"></i> Click on the “run” button.</li>
+                                                                </ul>
 
-
-                                                                   <table>
+                                                                <table style="font-size:14px;font-family: Arial, Sans-Serif">
                                                                       <tr>
                                                                       <th></th>
                                                                       <th>If a staff member is the index person…</th>
@@ -321,7 +328,7 @@ body <- dashboardBody(
                                      tabPanel(tagList(shiny::icon("table"),"Primary Contact Patients"),
                                               downloadButton("download1","Download"),
                                               DT::dataTableOutput("stage_1_table")),
-                                     tabPanel(tagList(shiny::icon("table"),"Secondary Contact Staffs"),
+                                     tabPanel(tagList(shiny::icon("table"),"Secondary Contact Staff"),
                                               downloadButton("download2","Download"),
                                               DT::dataTableOutput("stage_2_table")),
                                      tabPanel(tagList(shiny::icon("table"),"Tertiary Contact Patients"),
@@ -499,16 +506,25 @@ body <- dashboardBody(
                                                                 <span></span>
                                                                 <span></span></p> </center>
                                                                 <h4 align="left" style="color:#3c8dbc;"><u><b>Introduction</b> </u></h4>
-                                                                <p>This application allows you to conduct visit-level contact tracing for a patient or staff member known/suspected to have an infectious disease (“index person”). Based on the visit data you supply, this application will list all primary, secondary, and tertiary patient or staff contacts within a look-back time period for a given index person.</p>
+                                                                <p style="font-size:14px;font-family: Arial, Sans-Serif">This application allows you to conduct visit-level contact tracing for a patient or staff member known/suspected to have an infectious disease (“index person”). Based on the visit data you supply, this application will list all primary, secondary, and tertiary patient or staff contacts within a look-back time period for a given index person.</p>
                                                                 <h4 align="left" style="color:#3c8dbc;"><u><b>Instructions</b> </u></h4>
-                                                                <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i>First choose whether you are starting with an index staff member or a patient by clicking the on the “Staff” or “Patient” tile. </p>
+                                                                
+                                                              <!--  <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i>First choose whether you are starting with an index staff member or a patient by clicking the on the “Staff” or “Patient” tile. </p>
                                                                 <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i>Choose the Staff ID (or Patient ID) of the index person. </p>
                                                                 <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i>Choose the reference date. Ideally, this should be the date of symptom onset of the index person.</p>
                                                                 <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i>Choose the number of days to look back from the reference date (e.g. the incubation period of the disease) and the number of days to look forward from the reference date.</p>
                                                                 <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i>Click on the “run” button.</p>
+                                                              -->
+                                                              
+                                                             <ul class="fa-ul">
+                                                                <li style="font-size:14px;font-family: Arial, Sans-Serif"><i class="fa-li fa fa-check-square"></i> First choose whether you are starting with an index staff member or a patient by clicking the on the “Staff” or “Patient” tile.</li>
+                                                                <li style="font-size:14px;font-family: Arial, Sans-Serif"><i class="fa-li fa fa-check-square"></i> Choose the Staff ID (or Patient ID) of the index person. </li>
+                                                                <li style="font-size:14px;font-family: Arial, Sans-Serif"><i class="fa-li fa fa-check-square"></i> Choose the reference date. Ideally, this should be the date of symptom onset of the index person. </li>
+                                                                <li style="font-size:14px;font-family: Arial, Sans-Serif"><i class="fa-li fa fa-check-square"></i> Choose the number of days to look back from the reference date (e.g. the incubation period of the disease) and the number of days to look forward from the reference date.</li>
+                                                                <li style="font-size:14px;font-family: Arial, Sans-Serif"><i class="fa-li fa fa-check-square"></i> Click on the “run” button.</li>
+                                                                </ul>
 
-
-                                                                   <table>
+                                                                <table style="font-size:14px;font-family: Arial, Sans-Serif">
                                                                       <tr>
                                                                       <th></th>
                                                                       <th>If a staff member is the index person…</th>
@@ -529,9 +545,12 @@ body <- dashboardBody(
                                                                       <td>The patients that were visited by the secondary contact staff members </td>
                                                                       <td>The staff members that visited the secondary contact patients  </td>
                                                                       </tr>
+
                                                                       </table><br>
                                                                 
                                                                 <center><br></center></div>
+
+
                                                    ')
                                                )
                                            ))),
@@ -546,13 +565,13 @@ body <- dashboardBody(
                      tabPanel(tagList(HTML('<i class="fa fa-newspaper-o"></i>'),"Contact Lists"),
                               tabBox(id='stg_tbls_1',width = 12,
                                      title = "",
-                                     tabPanel(tagList(shiny::icon("table"),"Primary Contact Staffs"),
+                                     tabPanel(tagList(shiny::icon("table"),"Primary Contact Staff"),
                                               downloadButton("download5","Download"),
                                               DT::dataTableOutput("stage_1_table_1")),
                                      tabPanel(tagList(shiny::icon("table"),"Secondary Contact Patients"),
                                               downloadButton("download6","Download"),
                                               DT::dataTableOutput("stage_2_table_1")),
-                                     tabPanel(tagList(shiny::icon("table"),"Tertiary Contact Staffs"),
+                                     tabPanel(tagList(shiny::icon("table"),"Tertiary Contact Staff"),
                                               downloadButton("download7","Download"),
                                               DT::dataTableOutput("stage_3_table_1"))
                               ),

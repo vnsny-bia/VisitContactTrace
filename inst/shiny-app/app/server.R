@@ -226,42 +226,17 @@ server = function(input, output,session) {
       title =HTML('<div class="basic_dwnld"> 
       <center><img src="www/VNSNY_White.png" alt="Data Preview"  height="120" align="center"></center>
 
-    <h2 align="center",style="color:white; margin-top:-50px;">
-<i style="font-size:24px;color:rgb(255, 164, 27); class="fas fa-project-diagram"></i>
-                  VisitContactTrace Application </h2>
-                      <h3 align="center" style="color:white;"><i class="fas fa-cloud-upload-alt" style="font-size:26px;color:white;"></i>&ensp;Upload Data</h3>
-      <br>
-      <ul class="fa-ul">
-  <li style="font-size:16px;"><i class="fa-li fa fa-check-square"></i>Please upload visit data file (.CSV or .XLSX) by clicking on the “Upload File” button.</li>
-  <li style="font-size:16px;"><i class="fa-li fa fa-check-square"></i>Make sure the file contains the following columns: PATIENT_ID, PATIENT_NAME (required), VISIT_DATE (required), STAFF_ID, STAFF_NAME (required), PATIENT_STATUS, STAFF_STATUS</li>
-  <li style="font-size:16px;"><i class="fa-li fa fa-check-square"></i> Click on the “Review Data” button to review your uploaded data file and to rename columns</li>
-  <li style="font-size:16px;"><i class="fa-li fa fa-check-square"></i>Click on the “Submit Data” button when you are ready to display your data in the application.</li>
-</ul>
-                     <!--   <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i> <p> Please upload visit data file (.CSV or .XLSX) by clicking on the “Upload File” button.</p>
-                      <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i> <p> Make sure the file contains the following columns: PATIENT_ID, PATIENT_NAME (required), VISIT_DATE (required), STAFF_ID, STAFF_NAME (required), PATIENT_STATUS, STAFF_STATUS</p>
-                      <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i> Click on the “Review Data” button to review your uploaded data file and to rename columns.</p>
-                      <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i> Click on the “Submit Data” button when you are ready to display your data in the application.</p>
-
-      
-    
-      
-      <table id="modal">
-                      <tr>
-                      <th style="font-size:13px;"><i style="font-size:18px; color:#231f20" class="fa">&#xf0a4;</i>Please upload visit data file (.CSV or .XLSX) by clicking on the “Upload File” button.</th>
-                      </tr>
-                        <tr>
-                      <th style="font-size:13px;"><i style="font-size:18px; color:#231f20" class="fa">&#xf0a4;</i>Make sure the file contains the following columns: PATIENT_ID, PATIENT_NAME (required), VISIT_DATE (required), STAFF_ID, STAFF_NAME (required), PATIENT_STATUS, STAFF_STATUS</th>
-                      </tr>  
-                      <tr>
-                      <th style="font-size:13px;"><i style="font-size:18px; color:#231f20" class="fa">&#xf0a4;</i>Click on the “Review Data” button to review your uploaded data file and to rename columns.</th>
-                      </tr>  
-                      <tr>
-                      <th style="font-size:13px;"><i style="font-size:18px; color:#231f20" class="fa">&#xf0a4;</i>Click on the “Submit Data” button when you are ready to display your data in the application.</th>
-                      </tr>
-
-      </table><br> -->
-                    <!--  <img src="data_format.PNG" alt="Data Preview" width="580" height="62"> -->
-                      <center>  <ui style="background-color:#9a2a1c;"><b>&#x26A0; Acceptable File Format/Type: .CSV/.XLSX </b> </ui><br></center></div>'),
+    <h2 align="center",style="color:white; margin-top:-50px;"><i style="font-size:24px;color:rgb(255, 164, 27); class="fas fa-project-diagram"></i>VisitContactTrace Application </h2>
+    <h3 align="center" style="color:white;"><i class="fas fa-cloud-upload-alt" style="font-size:26px;color:white;"></i>&ensp;Upload Data</h3>
+    <br>
+    <ul class="fa-ul">
+      <li style="font-size:16px;"><i class="fa-li fa fa-check-square"></i>Please upload visit data file (.CSV or .XLSX) by clicking on the “Upload File” button.</li>
+      <li style="font-size:16px;"><i class="fa-li fa fa-check-square"></i>Make sure the file contains the following columns: PATIENT_ID, PATIENT_NAME (required), VISIT_DATE (required), STAFF_ID, STAFF_NAME (required), PATIENT_STATUS, STAFF_STATUS</li>
+      <li style="font-size:16px;"><i class="fa-li fa fa-check-square"></i> Click on the “Review Data” button to review your uploaded data file and to rename columns</li>
+      <li style="font-size:16px;"><i class="fa-li fa fa-check-square"></i>Click on the “Submit Data” button when you are ready to display your data in the application.</li>
+    </ul>
+                    
+    <center>  <ui style="background-color:#9a2a1c;"><b>&#x26A0; Acceptable File Format/Type: .CSV/.XLSX </b> </ui><br></center></div>'),
       footer=list(actionButton("demo", label="Try out demo data"),modalButton("Close")),
       list(
         shinyFilesButton(id = 'file', 'Upload File', 'Please select a file', FALSE,style = upload_button_style),  tags$br(),
