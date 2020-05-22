@@ -125,7 +125,7 @@ On the right hand side of the previous figure, primary, secondary, and tertiary 
 
 The "Plot" tab displays the primary contacts and any secondary or tertiary contacts away from the staff/patient of origin.  If the user included staff/patient statuses, the legend indicates which status each patient or staff is known to have had. 
 
-<img src="./inst/www/ct-plot2.PNG" width="800" align="center"/>
+<img src="./inst/www/ct-plot3.PNG" width="800" align="center"/>
 
 ### Output - Visit Details
 
