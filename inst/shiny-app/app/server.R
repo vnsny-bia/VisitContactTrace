@@ -951,23 +951,29 @@ server = function(input, output,session) {
                      output$table_txt_tbl <- renderDataTable({
 
                        if(is.null(table_txt)){return()}
-                       table_txt <- as.data.frame(lapply(table_txt, function(x) gsub('clin_','',x)))
                        library(dplyr)
                        setDT(table_txt)[,n:=gsub("Stage ","",stage)]
                        table_txt <-  table_txt %>%
                          group_by(from,to,visit_date) %>%
                          slice(c(which.min(n)))
-
-
+                       
+                       
                        table_txt <- subset(table_txt,select=-c(n))
                        setDT(table_txt)
                        setnames(table_txt,'stage','contact_type')
                        table_txt[,contact_type:=ifelse(contact_type=='Stage 1','Primary Contact',as.character(contact_type))]
                        table_txt[,contact_type:=ifelse(contact_type=='Stage 2','Secondary Contact',as.character(contact_type))]
                        table_txt[,contact_type:=ifelse(contact_type=='Stage 3','Tertiary Contact',as.character(contact_type))]
-
-
+                       setnames(table_txt,c("from","to"),c("staff_id","patient_id"))
+                       
+                       table_txt <- merge(table_txt,copy_data,by=c("patient_id", "staff_id", "visit_date"),all.x=T)
+                       
+                       setcolorder(table_txt,c("staff_id","staff_name","staff_status",
+                                               "patient_id","patient_name","patient_status","visit_date","contact_type"))
+                       table_txt <- as.data.frame(lapply(table_txt, function(x) gsub('clin_','',x)))
+                       
                        DT::datatable(table_txt,
+                                     class="nowrap display",
                                      options = list(autoWidth=F,
                                                     pageLength = 10,
                                                     width = "100%",
@@ -994,14 +1000,22 @@ server = function(input, output,session) {
                          table_txt <-  table_txt %>%
                            group_by(from,to,visit_date) %>%
                            slice(c(which.min(n)))
-
+                         
+                         
                          table_txt <- subset(table_txt,select=-c(n))
                          setDT(table_txt)
                          setnames(table_txt,'stage','contact_type')
                          table_txt[,contact_type:=ifelse(contact_type=='Stage 1','Primary Contact',as.character(contact_type))]
                          table_txt[,contact_type:=ifelse(contact_type=='Stage 2','Secondary Contact',as.character(contact_type))]
                          table_txt[,contact_type:=ifelse(contact_type=='Stage 3','Tertiary Contact',as.character(contact_type))]
-
+                         setnames(table_txt,c("from","to"),c("staff_id","patient_id"))
+                         
+                         table_txt <- merge(table_txt,copy_data,by=c("patient_id", "staff_id", "visit_date"),all.x=T)
+                         
+                         setcolorder(table_txt,c("staff_id","staff_name","staff_status",
+                                                 "patient_id","patient_name","patient_status","visit_date","contact_type"))
+                         table_txt <- as.data.frame(lapply(table_txt, function(x) gsub('clin_','',x)))
+                         
                          write.csv(table_txt, file)
                        }
                      )
@@ -1092,6 +1106,7 @@ server = function(input, output,session) {
                      #___1.16.10 renderDataTable for primary contacts table -----
 
                      output$stage_1_table <- renderDataTable({
+                       setnames(stg_1_dt,c("name","status"),c("patient_name","patient_status"))
                        stg_1_dt <- as.data.frame(lapply(stg_1_dt, function(x) gsub('clin_','',x)))
 
                        DT::datatable(stg_1_dt,
@@ -1113,6 +1128,8 @@ server = function(input, output,session) {
                          paste("data-primary-contacts-", Sys.Date(), ".csv", sep="")
                        },
                        content = function(file) {
+                         stg_1_dt <- as.data.frame(lapply(stg_1_dt, function(x) gsub('clin_','',x)))
+                         
                          write.csv(stg_1_dt, file)
                        }
                      )
@@ -1121,6 +1138,7 @@ server = function(input, output,session) {
                      #___1.16.11 renderDataTable for secondary contacts table -----
 
                      output$stage_2_table <- renderDataTable({
+                       setnames(stg_2_dt,c("name","status"),c("staff_name","staff_status"))
                        stg_2_dt <- as.data.frame(lapply(stg_2_dt, function(x) gsub('clin_','',x)))
 
                        DT::datatable(stg_2_dt,
@@ -1143,6 +1161,8 @@ server = function(input, output,session) {
                          paste("data-secondary-contacts-", Sys.Date(), ".csv", sep="")
                        },
                        content = function(file) {
+                         stg_2_dt <- as.data.frame(lapply(stg_2_dt, function(x) gsub('clin_','',x)))
+                         
                          write.csv(stg_2_dt, file)
                        }
                      )
@@ -1150,6 +1170,7 @@ server = function(input, output,session) {
                      #___1.16.12 renderDataTable for tertiary contacts table -----
 
                      output$stage_3_table <- renderDataTable({
+                       setnames(stg_3_dt,c("name","status"),c("patient_name","patient_status"))
                        stg_3_dt <- as.data.frame(lapply(stg_3_dt, function(x) gsub('clin_','',x)))
 
                        DT::datatable(stg_3_dt,
@@ -1172,6 +1193,8 @@ server = function(input, output,session) {
                          paste("data-tertiary-contacts-", Sys.Date(), ".csv", sep="")
                        },
                        content = function(file) {
+                         stg_3_dt <- as.data.frame(lapply(stg_3_dt, function(x) gsub('clin_','',x)))
+                         
                          write.csv(stg_3_dt, file)
                        }
                      )
@@ -1472,23 +1495,29 @@ server = function(input, output,session) {
 
                      output$table_txt_tbl_1 <- renderDataTable({
 
-                       if(is.null(table_txt)){return()}
-                       table_txt <- as.data.frame(lapply(table_txt, function(x) gsub('clin_','staff_',x)))
                        library(dplyr)
                        setDT(table_txt)[,n:=gsub("Stage ","",stage)]
                        table_txt <-  table_txt %>%
                          group_by(from,to,visit_date) %>%
                          slice(c(which.min(n)))
-
+                       
+                       
                        table_txt <- subset(table_txt,select=-c(n))
                        setDT(table_txt)
                        setnames(table_txt,'stage','contact_type')
                        table_txt[,contact_type:=ifelse(contact_type=='Stage 1','Primary Contact',as.character(contact_type))]
                        table_txt[,contact_type:=ifelse(contact_type=='Stage 2','Secondary Contact',as.character(contact_type))]
                        table_txt[,contact_type:=ifelse(contact_type=='Stage 3','Tertiary Contact',as.character(contact_type))]
-
-
+                       setnames(table_txt,c("from","to"),c("staff_id","patient_id"))
+                       
+                       table_txt <- merge(table_txt,copy_data_1,by=c("patient_id", "staff_id", "visit_date"),all.x=T)
+                       
+                       setcolorder(table_txt,c("staff_id","staff_name","staff_status",
+                                               "patient_id","patient_name","patient_status","visit_date","contact_type"))
+                       table_txt <- as.data.frame(lapply(table_txt, function(x) gsub('clin_','',x)))
+                       
                        DT::datatable(table_txt,
+                                     class="nowrap display",
                                      options = list(autoWidth=F,
                                                     pageLength = 10,
                                                     width = "100%",
@@ -1512,14 +1541,22 @@ server = function(input, output,session) {
                          table_txt <-  table_txt %>%
                            group_by(from,to,visit_date) %>%
                            slice(c(which.min(n)))
-
+                         
+                         
                          table_txt <- subset(table_txt,select=-c(n))
                          setDT(table_txt)
                          setnames(table_txt,'stage','contact_type')
                          table_txt[,contact_type:=ifelse(contact_type=='Stage 1','Primary Contact',as.character(contact_type))]
                          table_txt[,contact_type:=ifelse(contact_type=='Stage 2','Secondary Contact',as.character(contact_type))]
                          table_txt[,contact_type:=ifelse(contact_type=='Stage 3','Tertiary Contact',as.character(contact_type))]
-
+                         setnames(table_txt,c("from","to"),c("staff_id","patient_id"))
+                         
+                         table_txt <- merge(table_txt,copy_data_1,by=c("patient_id", "staff_id", "visit_date"),all.x=T)
+                         
+                         setcolorder(table_txt,c("staff_id","staff_name","staff_status",
+                                                 "patient_id","patient_name","patient_status","visit_date","contact_type"))
+                         table_txt <- as.data.frame(lapply(table_txt, function(x) gsub('clin_','',x)))
+                         
 
                          write.csv(table_txt, file)
                        }
@@ -1547,6 +1584,7 @@ server = function(input, output,session) {
                      #___1.20.10 renderDataTable to display primary contact table (Patients) -----
 
                      output$stage_1_table_1 <- renderDataTable({
+                       setnames(stg_1_dt,c("name","status"),c("staff_name","staff_status"))
                        stg_1_dt <- as.data.frame(lapply(stg_1_dt, function(x) gsub('clin_','',x)))
 
 
@@ -1568,6 +1606,8 @@ server = function(input, output,session) {
                          paste("pat-data-primary-contacts-", Sys.Date(), ".csv", sep="")
                        },
                        content = function(file) {
+                         stg_1_dt <- as.data.frame(lapply(stg_1_dt, function(x) gsub('clin_','',x)))
+                         
                          write.csv(stg_1_dt, file)
                        }
                      )
@@ -1575,6 +1615,8 @@ server = function(input, output,session) {
                      #___1.20.11 renderDataTable to display secondary contact table (Patients) -----
 
                      output$stage_2_table_1 <- renderDataTable({
+                       setnames(stg_2_dt,c("name","status"),c("patient_name","patient_status"))
+                       
                        stg_2_dt <- as.data.frame(lapply(stg_2_dt, function(x) gsub('clin_','',x)))
 
                        DT::datatable(stg_2_dt,
@@ -1597,6 +1639,8 @@ server = function(input, output,session) {
                          paste("pat-data-secondary-contacts-", Sys.Date(), ".csv", sep="")
                        },
                        content = function(file) {
+                         stg_2_dt <- as.data.frame(lapply(stg_2_dt, function(x) gsub('clin_','',x)))
+                         
                          write.csv(stg_2_dt, file)
                        }
                      )
@@ -1604,6 +1648,8 @@ server = function(input, output,session) {
                      #___1.20.12 renderDataTable to display tertiary contact table (Patients) -----
 
                      output$stage_3_table_1 <- renderDataTable({
+                       setnames(stg_3_dt,c("name","status"),c("staff_name","staff_status"))
+                       
                        stg_3_dt <- as.data.frame(lapply(stg_3_dt, function(x) gsub('clin_','',x)))
 
                        DT::datatable(stg_3_dt,
@@ -1625,6 +1671,8 @@ server = function(input, output,session) {
                          paste("pat-data-tertiary-contacts-", Sys.Date(), ".csv", sep="")
                        },
                        content = function(file) {
+                         stg_3_dt <- as.data.frame(lapply(stg_3_dt, function(x) gsub('clin_','',x)))
+                         
                          write.csv(stg_3_dt, file)
                        }
                      )
