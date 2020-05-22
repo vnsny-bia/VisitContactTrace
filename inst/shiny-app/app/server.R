@@ -258,11 +258,10 @@ server = function(input, output,session) {
     temp <- rv_data$df
     DT::datatable(head(temp,10),
                   options = list(autoWidth=F,
-                                 pageLength = 10,
                                  width = "100%",
                                  scrollX = '600px',
                                  filter='top',
-                                 dom = 'B<"dwnld">frtip',
+                                 dom = 't',
 
                                  initComplete = JS(
                                    "function(settings, json) {",
