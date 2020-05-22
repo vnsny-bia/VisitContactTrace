@@ -4,26 +4,26 @@
 
 # VisitContactTrace 
 
-This application is designed to conduct contact tracing on healthcare encounter data with a specific focus on providers of community-based healthcare delivery services.  In a community-based healthcare system, patients are typically homebound and are visited at home by healthcare providers, meaning that while direct contact occurs between patients and visit staff, very little to no direct contact would occur between patients. This is in direct contrast with facility-based healthcare (e.g. hospitals, clinics) where patients travel to a central location that serves several patients at a time, and thus direct contact can occur between patients and staff as well as patient-to-patient.  The VisitContactTrace application allows the user to load and query their visit data in order to:
+This application is designed to conduct contact tracing on healthcare encounter data with a specific focus on providers of community-based healthcare delivery services.  In a community-based healthcare system, patients typically are homebound and are visited at home by healthcare providers.  Thus, while direct contact occurs between patients and visit staff, there is no direct contact between patients. This is in contrast with facility-based healthcare (e.g. hospitals, clinics) settings, where patients travel to a central geographic location at which healthcare services are delivered to several patients at a time, and where direct patient-to-patient, patient-to-staff, and staff-to-staff contact can occur.  The VisitContactTrace application allows the user to load and query their visit data in order to:
 
-* explore how infectious diseases may spread within their visit-based service delivery model if appropriate precautions are not in place; 
+* explore how infectious disease might spread within a visit-based service delivery model if appropriate precautions are not in place; 
 
 * conduct visit-based contact tracing of the primary, secondary, and tertiary contacts of an "index" patient or visit staff member whose disease status is known to the user.
 
-This application **does not suggest causality** or confirm disease transmission routes.  Rather, it provides a means to explore how infectious diseases may spread expotentially among patients and visit staff if precautions are not put into place in a visit-based service delivery model such as a community-based healthcare setting.
+This application **does not suggest causality** or confirm disease transmission routes.  Rather, it provides a means to explore how infectious disease may spread expotentially among patients and visit staff if precautions are not put into place in a visit-based service delivery model such as a community-based healthcare setting.
 
 <img src="./inst/www/VNSNYCT-hexsticker.png" width="150" align="right"/>
 
 
 The VisitContactTrace application was designed and created by the Data Science team at the [Visiting Nurse Service of New York](https://www.vnsny.org/) during the COVID-19 pandemic in order to support the organization's contact tracing efforts.  This application may be of value to other agencies providing community-based healthcare or to organizations that have visit-based service delivery models for the purpose of contact tracing of any infectious disease.
 
-To learn more about VNSNY COVID-19 response please visit [here](https://www.vnsny.org/coronavirus-covid-19/vnsnys-covid-19-response/). 
+Learn more about VNSNY's COVID-19 response [here](https://www.vnsny.org/coronavirus-covid-19/vnsnys-covid-19-response/). 
 
 # Run the VisitContactTrace Application
 
-VisitContactTrace is an R package that requires the installation of the R software. For more information about R, please see the [R Project for Statistical Computing]( https://www.r-project.org/). For unexperienced R users please jump to [Help Getting Started with R](#helpR) for some additional guidance.  The R commands below should be typed/coppied and pasted into the R Console.
+VisitContactTrace is an R package that requires the installation of the R software. For more information about R, visit the [R Project for Statistical Computing](https://www.r-project.org/). For unexperienced R users please jump to [Help Getting Started with R](#helpR) for some additional guidance.  The R commands below should be typed/copied and pasted into the R Console.
 
-The Visit Contact Trace application has been built for users to  **upload data manually.**  This application assumes the end user is extracting data from a standard report from the agency's electronic medical record application.  It should be saved as an *.xlsx or *.csv file and uploaded to the VisitContactTracing application.  More sophisticated users can adapt the source code to read datasets created from an ETL tool automatically.  [Plese see more on the data specifications](#dataspec)
+The Visit Contact Trace application has been built for users to  **upload data manually.**  This application assumes the end user is extracting data from a standard report of service encounters from the organization's electronic medical record application.  The data file should be saved as an *.xlsx or *.csv file and uploaded to the VisitContactTracing application.  More sophisticated users can adapt the source code to read datasets created from an ETL tool or incorporate into a data workflow.  [More on the data specifications](#dataspec)
 
 
 ## VisitContactTrace R package installation
@@ -44,22 +44,21 @@ VisitContactTrace()
 
 # Data 
 
-The Visit Contact Tracing Application was built to support a common data structure often used in community-based healthcare settings for functions such as billing and documentation in the clinical record. This data structure represents the unique environment of community-based care is the motivation for creating this application. Most contact tracing applications assume all individuals have the potential to encounter all other individuals. In a community-based healthcare setting, patients are usually homebound and are never observed to encounter each other nor do the staff. It is possible for staff to encounter each other, but these types of data are rarely embedded in a healthcare administrative record. In this visit-based application of contact tracing, the clinician in the community-based healthcare setting is the focus potential vectors of exposure to other homebound patients (if no precautions are made to protect clinicians and patients from infectious diseases). The authors acknowledge that the application of this type of contact tracing is not limited to community-based healthcare settings.
+The Visit Contact Tracing Application was built to support a common data structure used in community-based healthcare settings for functions such as billing and documentation in the clinical record. This data structure, which represents the unique environment of community-based care, is the motivation for creating this application. Most contact tracing applications assume all individuals have the potential to encounter all other individuals. In a community-based healthcare setting, patients usually are homebound or have significant disability, and are not observed to encounter each other.  While it is possible under certain circumstances for community-based clinical staff to interact in the field, it is an uncommon occurrence. In this visit-based application of contact tracing, the clinician in the community-based healthcare setting is the modeled vector for exposure to other homebound patients (if no precautions are made to protect clinicians and patients from infectious diseases). The authors acknowledge that potential applications of this type of contact tracing are not limited to community-based healthcare settings.
 
 The image below shows a snippet of an example dataset where _n_ clinicians have delivered _n_ x _p_ visits to _p_ patients during an observation window of February - May 2020. In this simulated example, Patient 4 was first visited by [Anna Caroline Maxwell](https://en.wikipedia.org/wiki/Anna_Maxwell) on February, 27, 2020, then [Lillian Wald](https://en.wikipedia.org/wiki/Lillian_Wald) continued the case visiting every 2-6 days from February, 29, 2020 to March, 31, 2020.
 
 <img src="./inst/www/visithc.png" width="400" height="400" align="center"/>
 
-## Data Specifiations <a name="dataspec"></a>
+## Data Specifications <a name="dataspec"></a>
 
-Please note that the contact tracing will not be accurate if there are any data integertity and completeness issues.  Please take this inconplete list of items to consider:
+Please note that the contact tracing will not be accurate if there are any data integrity or completeness issues. Please take the following (incomplete) considerations:
 
-Please note that the contact tracing will not be accurate if there are any data integrity and completeness issues. Please take this incomplete list of items to consider:
-
-* Preprocessing of data should be carefully considered prior
-  * Consider dropping records that don’t represent a face-to-face encounter (e.g. filter out telephonic or telemedicine visits)
+* Preprocessing of data to ensure proper filtering for the appropriate unit - a direct person-to-person encounter
+  * Exclude telephonic or telemedicine "visits" or encounters
 * Do not inadvertently exclude any face-to-face records that may be critical to the contact tracing
   * The time period of which the data was extracted should fully encapsulate any querying windows of time during the contact tracing
+
 
   
 The **VisitContactTracing** application requires a minimum set of fields in a data set meeting the following requirements:
@@ -74,13 +73,13 @@ The **VisitContactTracing** application requires a minimum set of fields in a da
 | PATIENT_STATUS | Character | FALSE | Unique labels maybe used to indicate a status for each **patient** who is confirmed with an infectious disease (or other status).  This label must persist over all visit observations for the **patient**.  The application only supports one label at this time and does not consider the time relationship between the status of one individual compared to the timing of statuses of other contacts; it is only provided as label of an individual
 | STAFF_STATUS | Character | FALSE | Unique labels maybe used to indicate a status for each **staff** who is confirmed with an infectious disease (or other status).  This label must persist over all visit observations for the **staff**.  The application only supports one label at this time and does not consider the time relationship between the status of one individual compared to the timing of statuses of other contacts; it is only provided as label of an individual
 
-\* The authors antcipate that many users may have patient/clinician name in two columns (first & last).  Those users should consider concatenating those fields together prior to this step.
+\* The authors anticipate that many users may have systems that store patient/clinician name in two columns (first & last).  Those users should consider concatenating those fields prior to this step.
 
-The order of columns does not matter. PATIENT_NAME, STAFF_NAME, and VISIT_DATE are required fields where the name must be spelled the same as specified here. If other fields are not named exactly as documented here, the application will ignore. PATIENT_ID and STAFF_ID are highly recommended from a data source that treats these as a unique key that identifies a patient or staff. When provided, these id’s serve as the mechanism in which the algorithm conducts contact tracing. This application relies on the integrity of these keys. If either of these are not available, the application will assume that PATIENT_NAME and STAFF_NAME are the keys that unique identify a patient and staff, respectively. Additional caution is warranted to address inconsistent spellings of the names contained in PATIENT_NAME and STAFF_NAME.
+The order of columns does not matter. PATIENT_NAME, STAFF_NAME, and VISIT_DATE are required fields where the spelling of the column name must be as specified here. The application will ignore any columns whose names do not exactly match those documented here. It is highly recommended that PATIENT_ID and STAFF_ID are derived from a data source that treats these as a unique key - i.e., that the field uniquely identifies a specific patient or staff member. When provided, these fields serve as the mechanism upon which the algorithm conducts contact tracing. The application relies on the underlying integrity of these keys. If either of these are not available, the application will assume that PATIENT_NAME and STAFF_NAME are the keys that unique identify a patient and staff, respectively. Additional caution is warranted to address inconsistent spelling of the names contained in PATIENT_NAME and STAFF_NAME.
 
 ### Renaming
 
-If the data uploaded does not have the names spelled as documented here. The user interface for uploading data will raise an error to the user when they try to submit.  It also allows the user to rename fields to the correct spelling in the user inteface.  
+The user interface for uploading data will raise an error to the user if an attempt is made to submit a data file without the required columns.  Users are provided with an option to rename fields to the correct spelling in the user inteface.  
 
 
 # Using the Application
@@ -99,7 +98,7 @@ The "Review Data" button provides a preview of the data import and the ability t
 
 ## Exit/Reload
 
-In the following figure, on the top right hand side, options exist to exit the application, or, reload the graphical user interface to upload data.  
+In the following figure, on the top right hand side, options exist to exit the application or reload the graphical user interface to upload data.  
 
 ## Querying VisitContactTrace 
 
@@ -107,8 +106,8 @@ Querying Parameter Instructions :
 
 * Choose whether you are starting with an index staff member or a patient by clicking the on the “Staff” or “Patient” tile. 
 * Choose the Staff ID (or Patient ID) of the index person. 
-* Choose the reference date. Ideally, this should be the date of symptom onset of the index person. 
-* Choose the number of days to look back from the reference date (e.g. the incubation period of the disease) and the number of days to look forward from the reference date.  Consult your Agency's policies & procedures for specifc guidances
+* Choose the reference date. For example, this could be the date of symptom onset for the index person. 
+* Choose the number of days to look back from the reference date (e.g. the incubation period of the disease) and the number of days to look forward from the reference date.  Consult your organization's policies & procedures for specifc guidance regarding the use of index dates and tracing periods.
 
 **Click on the “run” button**
 
@@ -120,7 +119,7 @@ Querying Parameter Instructions :
 
 ### Output - Contact Lists
 
-On the right hand side of the previous figure, primary, secondary, and tertiary contact listings are made availabe to the user for download into .csv.
+On the right hand side of the previous figure, primary, secondary, and tertiary contact listings are made available to the user for download into .csv.
 
 ### Output - Plot
 
@@ -158,9 +157,9 @@ If the R installation is successful a shortcut should have been created for easy
 
 ## Open the R Graphical User Interface application ###
 
-### Windows environemnt 
+### Windows environment 
 
-In organizations that require administrative rights to install software, it is possible to install R in the users documents on a Windows OS without administrative rights.  You can find the **Rgui** executable in the tree which it was installed. Below are some examples of how this may look, click on RGui.exe to launch an R session.  If you will be using this application often, you may consider creating a shortcut on your desktop.
+In organizations that require administrative rights to install software, it is possible to install R in the user's local storage without administrative rights.  You can find the **Rgui** executable in the tree which it was installed. Below are some examples of how this may look; click on RGui.exe to launch an R session.  If you will be using this application often, consider creating a shortcut on your desktop.
 
 
 <img src="./inst/www/Ri386-image.PNG" width="600" align="center"/>
