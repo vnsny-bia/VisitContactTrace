@@ -120,7 +120,7 @@ On the right hand side of the previous figure, primary, secondary, and tertiary 
 
 #### Definition of Primary, Secondary Tertiary Degrees of Contact From Origin
 
-<img src="./inst/www/ct-staff-patient-origin.PNG" width="800" align="center"/>
+<img src="./inst/www/ct-staff-patient-origin.PNG" width="600" align="center"/>
 
 These contact listings are availble in the three tabs on the right under "Contact Lists."  Each one is avaible for download into .csv.
 
