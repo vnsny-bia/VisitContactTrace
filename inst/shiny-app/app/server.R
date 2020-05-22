@@ -971,6 +971,9 @@ server = function(input, output,session) {
                        setcolorder(table_txt,c("staff_id","staff_name","staff_status",
                                                "patient_id","patient_name","patient_status","visit_date","contact_type"))
                        table_txt <- as.data.frame(lapply(table_txt, function(x) gsub('clin_','',x)))
+                       setDT(table_txt)
+                       keycol <-c("contact_type","visit_date")
+                       setorderv(table_txt, keycol)
                        
                        DT::datatable(table_txt,
                                      class="nowrap display",
@@ -1015,6 +1018,9 @@ server = function(input, output,session) {
                          setcolorder(table_txt,c("staff_id","staff_name","staff_status",
                                                  "patient_id","patient_name","patient_status","visit_date","contact_type"))
                          table_txt <- as.data.frame(lapply(table_txt, function(x) gsub('clin_','',x)))
+                         setDT(table_txt)
+                         keycol <-c("contact_type","visit_date")
+                         setorderv(table_txt, keycol)
                          
                          write.csv(table_txt, file)
                        }
@@ -1371,7 +1377,6 @@ server = function(input, output,session) {
                      setnames(stg_1_dt,c('clinician_id','staff_name','staff_status'),c('staff_id','name','status'))
                      stg_1_dt <- stg_1_dt[!duplicated(stg_1_dt)]
                      setcolorder(stg_1_dt,c('staff_id','name','visit_date','status'))
-                     stg_1_dt <- setDT(stg_1_dt)[, lapply(.SD, na.omit), by = .(staff_id,name,visit_date)]
                      coalesce_by_column <- function(df) {
                        return(dplyr::coalesce(!!! as.list(df)))
                      }
@@ -1515,6 +1520,9 @@ server = function(input, output,session) {
                        setcolorder(table_txt,c("staff_id","staff_name","staff_status",
                                                "patient_id","patient_name","patient_status","visit_date","contact_type"))
                        table_txt <- as.data.frame(lapply(table_txt, function(x) gsub('clin_','',x)))
+                       setDT(table_txt)
+                       keycol <-c("contact_type","visit_date")
+                       setorderv(table_txt, keycol)
                        
                        DT::datatable(table_txt,
                                      class="nowrap display",
@@ -1556,7 +1564,9 @@ server = function(input, output,session) {
                          setcolorder(table_txt,c("staff_id","staff_name","staff_status",
                                                  "patient_id","patient_name","patient_status","visit_date","contact_type"))
                          table_txt <- as.data.frame(lapply(table_txt, function(x) gsub('clin_','',x)))
-                         
+                         setDT(table_txt)
+                         keycol <-c("contact_type","visit_date")
+                         setorderv(table_txt, keycol)
 
                          write.csv(table_txt, file)
                        }
