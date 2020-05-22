@@ -1346,7 +1346,7 @@ server = function(input, output,session) {
                    temp_patid <- trimws(sub('.*:', '', input$patient_id))
                    data_updated <- data[!duplicated(data$patient_id)]
 
-                   if(length(unique(unique(data_updated$pat_nurse[data_updated$patient_id == temp_patid])))!=0){
+                   if(length(unique(data_updated$pat_nurse[data_updated$patient_id == temp_patid]))!=0){
 
                      #___1.20.1 getContactsPatient to get raw contact tracing (Patients) -----
 
