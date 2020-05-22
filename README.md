@@ -98,7 +98,7 @@ The "Review Data" button provides a preview of the data import and the ability t
 
 ## Exit/Reload
 
-In the following figure, on the top right hand side, options exist to exit the application or reload the graphical user interface to upload data.  
+In the following figure, on the top right hand side, options exist to exit the application or reload the graphical user interface to upload data.  It is best to exit the applicaiton by clicking on "Exit" in this window, because that correctly closes the VisitContactTrace application from the R session. 
 
 ## Querying VisitContactTrace 
 
@@ -111,7 +111,7 @@ Querying Parameter Instructions :
 
 **Click on the “run” button**
 
-### Definition of N degrees of Contact From Origin
+### Definition of Primary, Secondary Tertiary degrees of Contact From Origin
 
 <img src="./inst/www/ct-staff-patient-origin.PNG" width="800" align="center"/>
 
