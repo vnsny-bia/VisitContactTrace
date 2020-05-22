@@ -13,6 +13,21 @@
   }
 */
 
+.navbar-custom-menu>.navbar-nav>li>.dropdown-menu {
+    position: absolute;
+    right: 0;
+    left: auto;
+    background-color: #231f20;
+}
+
+.navbar-nav>.notifications-menu>.dropdown-menu>li .menu>li>a:hover,
+.navbar-nav>.notifications-menu>.dropdown-menu>li .menu>li>a:focus {
+
+   color: white;
+   text-decoration: none;
+   background-color: #2b5b83;
+
+} 
 .fa-ul {
     list-style-type: none;
     margin-left: 2.5em;
