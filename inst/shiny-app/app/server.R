@@ -74,10 +74,10 @@ server = function(input, output,session) {
                       <h3 align="center" style="color:white;"><i class="fas fa-cloud-upload-alt" style="font-size:26px;color:white;"></i>&ensp;Upload Data</h3>
       <br>
       <ul class="fa-ul">
-  <li style="font-size:16px;"><i class="fa-li fa fa-check-square"></i>Please upload visit data file (.CSV or .XLSX) by clicking on the “Upload File” button.</li>
-  <li style="font-size:16px;"><i class="fa-li fa fa-check-square"></i>Make sure the file contains the following columns: PATIENT_ID, PATIENT_NAME (required), VISIT_DATE (required), STAFF_ID, STAFF_NAME (required), PATIENT_STATUS, STAFF_STATUS</li>
-  <li style="font-size:16px;"><i class="fa-li fa fa-check-square"></i> Click on the “Review Data” button to review your uploaded data file and to rename columns</li>
-  <li style="font-size:16px;"><i class="fa-li fa fa-check-square"></i>Click on the “Submit Data” button when you are ready to display your data in the application.</li>
+  <li style="font-size:15px;font-family: Arial, Sans-Serif"><i class="fa-li fa fa-check-square"></i>Please upload visit data file (.CSV or .XLSX) by clicking on the “Upload File” button.</li>
+  <li style="font-size:15px;font-family: Arial, Sans-Serif"><i class="fa-li fa fa-check-square"></i>Make sure the file contains the following columns: PATIENT_ID, PATIENT_NAME (required), VISIT_DATE (required), STAFF_ID, STAFF_NAME (required), PATIENT_STATUS, STAFF_STATUS</li>
+  <li style="font-size:15px;font-family: Arial, Sans-Serif"><i class="fa-li fa fa-check-square"></i> Click on the “Review Data” button to review your uploaded data file and to rename columns</li>
+  <li style="font-size:15px;font-family: Arial, Sans-Serif"><i class="fa-li fa fa-check-square"></i>Click on the “Submit Data” button when you are ready to display your data in the application.</li>
 </ul>
       
     <!--  <table id="modal">
@@ -230,10 +230,10 @@ server = function(input, output,session) {
     <h3 align="center" style="color:white;"><i class="fas fa-cloud-upload-alt" style="font-size:26px;color:white;"></i>&ensp;Upload Data</h3>
     <br>
     <ul class="fa-ul">
-      <li style="font-size:16px;"><i class="fa-li fa fa-check-square"></i>Please upload visit data file (.CSV or .XLSX) by clicking on the “Upload File” button.</li>
-      <li style="font-size:16px;"><i class="fa-li fa fa-check-square"></i>Make sure the file contains the following columns: PATIENT_ID, PATIENT_NAME (required), VISIT_DATE (required), STAFF_ID, STAFF_NAME (required), PATIENT_STATUS, STAFF_STATUS</li>
-      <li style="font-size:16px;"><i class="fa-li fa fa-check-square"></i> Click on the “Review Data” button to review your uploaded data file and to rename columns</li>
-      <li style="font-size:16px;"><i class="fa-li fa fa-check-square"></i>Click on the “Submit Data” button when you are ready to display your data in the application.</li>
+      <li style="font-size:15px;font-family: Arial, Sans-Serif"><i class="fa-li fa fa-check-square"></i>Please upload visit data file (.CSV or .XLSX) by clicking on the “Upload File” button.</li>
+      <li style="font-size:15px;font-family: Arial, Sans-Serif"><i class="fa-li fa fa-check-square"></i>Make sure the file contains the following columns: PATIENT_ID, PATIENT_NAME (required), VISIT_DATE (required), STAFF_ID, STAFF_NAME (required), PATIENT_STATUS, STAFF_STATUS</li>
+      <li style="font-size:15px;font-family: Arial, Sans-Serif"><i class="fa-li fa fa-check-square"></i> Click on the “Review Data” button to review your uploaded data file and to rename columns</li>
+      <li style="font-size:15px;font-family: Arial, Sans-Serif"><i class="fa-li fa fa-check-square"></i>Click on the “Submit Data” button when you are ready to display your data in the application.</li>
     </ul>
                     
     <center>  <ui style="background-color:#9a2a1c;"><b>&#x26A0; Acceptable File Format/Type: .CSV/.XLSX </b> </ui><br></center></div>'),
