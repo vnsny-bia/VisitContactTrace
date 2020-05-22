@@ -886,10 +886,12 @@ server = function(input, output,session) {
                      coalesce_by_column <- function(df) {
                        return(dplyr::coalesce(!!! as.list(df)))
                      }
-
+                     if(nrow(stg_1_dt)!=0){
+                       
                      stg_1_dt <-  stg_1_dt %>%
                        group_by(patient_id,visit_date,name) %>%
                        summarise_all(coalesce_by_column)
+                     }
 
 
                      #___1.16.4 Cleaning & Creating Secondary contacts tables -----
@@ -913,11 +915,11 @@ server = function(input, output,session) {
                      coalesce_by_column <- function(df) {
                        return(dplyr::coalesce(!!! as.list(df)))
                      }
-
+                     if(nrow(stg_2_dt)!=0){
                      stg_2_dt <-  stg_2_dt %>%
                        group_by(staff_id,visit_date,name) %>%
                        summarise_all(coalesce_by_column)
-
+                        }
                      #___1.16.5 Cleaning & Creating Tertiary contacts tables -----
 
                      stg_3_dt <-  table_txt[stage=='Stage 3',]
@@ -940,11 +942,12 @@ server = function(input, output,session) {
                      coalesce_by_column <- function(df) {
                        return(dplyr::coalesce(!!! as.list(df)))
                      }
-
+                     if(nrow(stg_3_dt)!=0){
+                       
                      stg_3_dt <-  stg_3_dt %>%
                        group_by(patient_id,visit_date,name) %>%
                        summarise_all(coalesce_by_column)
-
+                     }
 
                      #___1.16.6 renderDataTable for Contact tracing results (Visit Details) -----
 
@@ -1380,11 +1383,12 @@ server = function(input, output,session) {
                      coalesce_by_column <- function(df) {
                        return(dplyr::coalesce(!!! as.list(df)))
                      }
-
+                     
+                     if(nrow(stg_1_dt)!=0){
                      stg_1_dt <-  stg_1_dt %>%
                        group_by(staff_id,visit_date,name) %>%
                        summarise_all(coalesce_by_column)
-
+                     }
                      #___1.20.4 Generating & cleaning secondary contact data (Patients) -----
 
                      stg_2_dt <-  table_txt[stage=='Stage 2',]
@@ -1405,12 +1409,13 @@ server = function(input, output,session) {
                      coalesce_by_column <- function(df) {
                        return(dplyr::coalesce(!!! as.list(df)))
                      }
-
+                     if(nrow(stg_2_dt)!=0){
+                       
                      stg_2_dt <-  stg_2_dt %>%
                        group_by(patient_id,visit_date,name) %>%
                        summarise_all(coalesce_by_column)
 
-
+                     }
                      #___1.20.5 Generating & cleaning tertiary contact data (Patients) -----
 
                      stg_3_dt <-  table_txt[stage=='Stage 3',]
@@ -1433,11 +1438,13 @@ server = function(input, output,session) {
                        return(dplyr::coalesce(!!! as.list(df)))
                      }
 
+                     if(nrow(stg_3_dt)!=0){
+                       
                      stg_3_dt <-  stg_3_dt %>%
                        group_by(staff_id,visit_date,name) %>%
                        summarise_all(coalesce_by_column)
 
-
+                     }
 
                      #___1.20.6 Generating & cleaning plot data (Patients) -----
                      a1 <- table_txt[,.(id=unique(from))]
