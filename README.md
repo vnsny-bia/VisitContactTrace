@@ -113,6 +113,10 @@ Querying Parameter Instructions :
 
 **Click on the “run” button**
 
+## The Alogorithm 
+
+The algorithm first starts by identifying the primary contacts of the indexed individual during the specified window of time.  It proceeds to look at contacts of two to three orders of separation away from the indexed individual.  These contacts must have occurred after the date of primary contacts (and tertiary contacts occur after secondary).  The timing of the optional patient or staff status is not considered in this version of the VisitContactTrace application.  The status of the patient or staff is only presented back to the user in the contact listings or network diagram plots. 
+
 In the following screen shot, [Florence Nightingale](https://en.wikipedia.org/wiki/Florence_Nightingale) has been selected as the indexed staff person.  In this hypothetical example, her symptom onset date was May 12, 2020 and the contact trace is going to start seven days prior to that date and 7 days after to ensure that no visits were delivered while she was symptomatic.  The calculated begin and end date from the reference date is presented back to the user in the black screen immediately below the parameter input.  
 
 
