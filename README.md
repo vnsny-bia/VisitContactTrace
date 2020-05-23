@@ -102,6 +102,8 @@ In the following figure, on the top right hand side, options exist to exit the a
 
 ## Querying VisitContactTrace 
 
+This VisitContactTrace algorithm assumes that the user has identified an individual who should serve as the indexed individual in a contact tracing query.  
+
 Querying Parameter Instructions :
 
 * Choose whether you are starting with an index staff member or a patient by clicking the on the “Staff” or “Patient” tile. 
