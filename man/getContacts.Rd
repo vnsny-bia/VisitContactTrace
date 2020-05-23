@@ -4,15 +4,9 @@
 \alias{getContacts}
 \title{Get contact tracing list and plot.}
 \usage{
-getContacts(
-  staff_id = NA,
-  patient_id = NA,
-  reference_date = "2020-03-01",
-  look_forward_days = 7,
-  look_back_days = 0,
-  plot = F,
-  data = NULL
-)
+getContacts(staff_id = NA, patient_id = NA,
+  reference_date = "2020-03-01", look_forward_days = 7,
+  look_back_days = 0, plot = F, data = NULL)
 }
 \arguments{
 \item{staff_id}{character - unique staff identifier for each staff in the homecare dataset}
