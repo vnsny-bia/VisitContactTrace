@@ -167,7 +167,7 @@ getContacts(x,y,dt)
 
 ## Installation
 
-VisitContactTrace is an R package that requires the installation of the R software.  To learn more, please visit the [R Project for Statistical Computing]( https://www.r-project.org/).  You will be asked to choose a CRAN mirrors, [also available here)[https://cran.r-project.org/mirrors.html].  Choose any location as the mirror, it does not matter which one.  Choose the correct operating system. See more OS tips below.
+VisitContactTrace is an R package that requires the installation of the R software.  To learn more, please visit the [R Project for Statistical Computing]( https://www.r-project.org/).  You will be asked to choose a CRAN mirrors, [also available here](https://cran.r-project.org/mirrors.html).  Choose any location as the mirror, it does not matter which one.  Choose the correct operating system. See more OS tips below.
 
 If the R installation is successful a shortcut should have been created for easy access.  Click on that shortcut to open the R application.
 
