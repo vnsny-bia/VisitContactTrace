@@ -158,10 +158,18 @@ There is a simulated Home Healthcare Visits dataset loaded with the R package fo
 head(visitshc, 10)
 ```
 
-Given a visit based patient-staff encounter file, this function returns the primary, secondary, teriary contacts (Rushabh can you expand here with the example)  
+More experienced R users may want to access the contact tracing function directly.  Given a visit based patient-staff encounter file, an indexed staff/patient, reference date and days forward/back, this getContacts function returns the primary, secondary, tertiary contacts as a dataframe.
 
 ```r
-getContacts(x,y,dt)
+# Below example is used to get contact tracing lists based on staff id.
+            
+getContacts(staff_id= '1',
+             patient_id = NA,
+             reference_date = "2020-03-01",
+             look_forward_days = 20,
+             look_back_days = 3,
+             data= hcvisits,
+             plot=FALSE)
 ```
 # Help Getting Started with R <a name="helpR"></a>
 
