@@ -167,13 +167,15 @@ getContacts(x,y,dt)
 
 ## Installation
 
-VisitContactTrace is an R package that requires the installation of the R software.  To learn more, please visit the [R Project for Statistical Computing]( https://www.r-project.org/). 
+VisitContactTrace is an R package that requires the installation of the R software.  To learn more, please visit the [R Project for Statistical Computing]( https://www.r-project.org/).  You will be asked to choose a CRAN mirrors, [also available here)[https://cran.r-project.org/mirrors.html].  Choose any location as the mirror, it does not matter which one.  Choose the correct operating system. See more OS tips below.
 
 If the R installation is successful a shortcut should have been created for easy access.  Click on that shortcut to open the R application.
 
 ## Open the R Graphical User Interface application ###
 
 ### Windows environment 
+
+After selecting the mirror and correct OS, click on "base," and click on "Downlaod R.X.Y.Z" 
 
 In organizations that require administrative rights to install software, it is possible to install R in the user's local storage without administrative rights.  You can find the **Rgui** executable in the tree which it was installed. Below are some examples of how this may look; click on RGui.exe to launch an R session.  If you will be using this application often, consider creating a shortcut on your desktop.
 
