@@ -28,10 +28,15 @@ The Visit Contact Trace application has been built for users to  **upload data m
 
 ## VisitContactTrace R package installation
 
-Copy and paste this line into the R Console to install the development version of **VisitContactTrace** from GitHub:
+The following code has to be run the first time you use VisitContactTrace only (unless you switch versions of R).  Copy and paste this line into the R Console to install the development version of **VisitContactTrace** from GitHub:
 
 ```r
-install.packages("VisitContactTrace", repos = "https://github.com/vnsny-bia/VisitContactTrace")
+depend.pack <- c('shiny', 'shinydashboard', 'viridis', 'shinyFiles', 'shinycssloaders', 'shinyWidgets', 'data.table', 'assertthat', 'dplyr', 'purrr', 'rmarkdown', 'visNetwork', 'DT', 'fst', 'stringr', 'shinyalert', 'epicontacts', 'fs', 'readxl', 'shinyjs')
+install.packages(depend.pack, dependencies=TRUE, repos="http://lib.stat.cmu.edu/R/CRAN/")
+# VNSNY Internal Employees Only (Remove before making public)
+install.packages("http://stats.vnsny.org/VisitContactTrace/VisitContactTrace_0.1.0.tar.gz",repo=NULL,type="source")
+# Public version install
+# install.packages("VisitContactTrace", repos = "https://github.com/vnsny-bia/VisitContactTrace")
 ```
 
 ## Run Application Locally
@@ -41,6 +46,7 @@ Type this command into the R Console and the application should run
 ```r
 VisitContactTrace()
 ```
+This function is all you need to run everytime you being an R session and want to use VisitContactTrace.
 
 # Data 
 
