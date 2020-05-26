@@ -119,7 +119,7 @@ Querying Parameter Instructions :
 
 **Click on the “run” button**
 
-## The Alogorithm 
+## The Algorithm 
 
 The algorithm first starts by identifying the primary contacts of the indexed individual during the specified window of time.  It proceeds to look at contacts of two to three orders of separation away from the indexed individual.  These contacts must have occurred after the date of primary contacts (and tertiary contacts occur after secondary).  The timing of the optional patient or staff status is not considered in this version of the VisitContactTrace application.  The status of the patient or staff is only presented back to the user in the contact listings or network diagram plots. 
 
