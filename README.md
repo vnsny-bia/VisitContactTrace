@@ -19,16 +19,16 @@ The VisitContactTrace application was designed and created by the Data Science t
 
 Learn more about VNSNY's COVID-19 response [here](https://www.vnsny.org/coronavirus-covid-19/vnsnys-covid-19-response/). 
 
-# Run the VisitContactTrace Application
+# Running the VisitContactTrace Application
 
-VisitContactTrace is an R package that requires the installation of the R software. For more information about R, visit the [R Project for Statistical Computing](https://www.r-project.org/). For unexperienced R users please jump to [Help Getting Started with R](#helpR) for some additional guidance.  The R commands below should be typed/copied and pasted into the R Console.
+VisitContactTrace is an R package that requires R, an open-source software, to be installed. For more information about R, visit the [R Project for Statistical Computing](https://www.r-project.org/). Inexperienced R users can jump to [Help Getting Started with R](#helpR) for additional guidance.  
 
-The Visit Contact Trace application has been built for users to  **upload data manually.**  This application assumes the end user is extracting data from a standard report of service encounters from the organization's electronic medical record application.  The data file should be saved as an *.xlsx or *.csv file and uploaded to the VisitContactTracing application.  More sophisticated users can adapt the source code to read datasets created from an ETL tool or incorporate into a data workflow.  [More on the data specifications](#dataspec)
+The VisitContactTrace application allows users to **upload data manually.**  For example, a user may have access to a data extract from a standard report of service encounters from their organization's electronic medical record system. The user can save this data file as an *.xlsx or *.csv file and upload it to the VisitContactTrace application.  More sophisticated R users can adapt the source code to read in datasets created from an ETL tool or incorporate the code into a data workflow.  [More on the data specifications](#dataspec)
 
 
-## VisitContactTrace R package installation
+## Installing the VisitContactTrace R package
 
-The following code has to be run the first time you use VisitContactTrace only (unless you switch versions of R).  Copy and paste this line into the R Console to install the development version of **VisitContactTrace** from GitHub:
+The following code must be run the first time you use VisitContactTrace (unless you switch versions of R).  Copy and paste the following lines of code into the R Console and press "enter" on the keyboard to install the development version of **VisitContactTrace** from GitHub:
 
 ```r
 depend.pack <- c('shiny', 'shinydashboard', 'viridis', 'shinyFiles', 'shinycssloaders', 'shinyWidgets', 'data.table', 'assertthat', 'dplyr', 'purrr', 'rmarkdown', 'visNetwork', 'DT', 'fst', 'stringr', 'shinyalert', 'epicontacts', 'fs', 'readxl', 'shinyjs')
@@ -39,15 +39,15 @@ install.packages("http://stats.vnsny.org/VisitContactTrace/VisitContactTrace_0.1
 # install.packages("VisitContactTrace", repos = "https://github.com/vnsny-bia/VisitContactTrace")
 ```
 
-## Run Application Locally
+## Running VisitContactTrace Locally
 
-Type this command into the R Console and the application should run
+Type the following commands into the R Console and press "enter" in order to run the application:
 
 ```r
 library(VisitContactTrace)
 VisitContactTrace()
 ```
-This function is all you need to run everytime you being an R session and want to use VisitContactTrace.
+Run those commands from an R session every time you want to use VisitContactTrace.
 
 # Data 
 
