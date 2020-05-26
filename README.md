@@ -31,7 +31,7 @@ The VisitContactTrace application allows users to **upload data manually.**  For
 The following code must be run the first time you use VisitContactTrace (unless you switch versions of R).  Copy and paste the following lines of code into the R Console and press "enter" on the keyboard to install the development version of **VisitContactTrace** from GitHub:
 
 ```r
-depend.pack <- c('shiny', 'shinydashboard', 'viridis', 'shinyFiles', 'shinycssloaders', 'shinyWidgets', 'data.table', 'assertthat', 'dplyr', 'purrr', 'rmarkdown', 'visNetwork', 'DT', 'fst', 'stringr', 'shinyalert', 'epicontacts', 'fs', 'readxl', 'shinyjs')
+depend.pack <- c('anytime', 'shiny', 'shinydashboard', 'viridis', 'shinyFiles', 'shinycssloaders', 'shinyWidgets', 'data.table', 'assertthat', 'dplyr', 'purrr', 'rmarkdown', 'visNetwork', 'DT', 'fst', 'stringr', 'shinyalert', 'epicontacts', 'fs', 'readxl', 'shinyjs')
 install.packages(depend.pack, dependencies=TRUE, repos="http://lib.stat.cmu.edu/R/CRAN/")
 # VNSNY Internal Employees Only (Remove before making public)
 install.packages("http://stats.vnsny.org/VisitContactTrace/VisitContactTrace_0.1.0.tar.gz",repo=NULL,type="source")
@@ -47,13 +47,13 @@ Type the following commands into the R Console and press "enter" in order to run
 library(VisitContactTrace)
 VisitContactTrace()
 ```
-Run those commands from an R session every time you want to use VisitContactTrace.
+Run those two commands from an R session every time you want to use VisitContactTrace.
 
 # Data 
 
-The Visit Contact Tracing Application was built to support a common data structure used in community-based healthcare settings for functions such as billing and documentation in the clinical record. This data structure, which represents the unique environment of community-based care, is the motivation for creating this application. Most contact tracing applications assume all individuals have the potential to encounter all other individuals. In a community-based healthcare setting, patients usually are homebound or have significant disability, and are not observed to encounter each other.  While it is possible under certain circumstances for community-based clinical staff to interact in the field, it is an uncommon occurrence. In this visit-based application of contact tracing, the clinician in the community-based healthcare setting is the modeled vector for exposure to other homebound patients (if no precautions are made to protect clinicians and patients from infectious diseases). The authors acknowledge that potential applications of this type of contact tracing are not limited to community-based healthcare settings.
+The VisitContactTrace application supports a common data structure used in community-based healthcare settings for functions such as billing and clinical record documentation. This data structure, known as "encounter data" or "visit data," was the motivation for creating this application. In a community-based healthcare setting, patients are usually homebound or have significant disability, and are not observed to encounter each other. The VisitContactTrace application uses only the interactions or "encounters" of visit staff members and patients as the possible transmission route of an infectious disease.  While it is possible for community-based visit staff to interact with each other in the field under certain circumstances, it is an uncommon occurrence, and VisitContactTrace currently does not consider those interactions.  The concept of visit-based contact tracing can be used in other visit-based service delivery models outside of community-based healthcare settings.
 
-The image below shows a snippet of an example dataset where _n_ clinicians have delivered _n_ x _p_ visits to _p_ patients during an observation window of February - May 2020. In this simulated example, Patient 4 was first visited by [Anna Caroline Maxwell](https://en.wikipedia.org/wiki/Anna_Maxwell) on February, 27, 2020, then [Lillian Wald](https://en.wikipedia.org/wiki/Lillian_Wald) continued the case visiting every 2-6 days from February, 29, 2020 to March, 31, 2020.
+The image below shows a snippet of an example dataset where a handful clinicians have delivered visits to a few patients during an observation window of February - May 2020. In this simulated example, Patient 4 was first visited by [Anna Caroline Maxwell](https://en.wikipedia.org/wiki/Anna_Maxwell) on February, 27, 2020, then [Lillian Wald](https://en.wikipedia.org/wiki/Lillian_Wald) continued the case visiting every 2-6 days from February, 29, 2020 to March, 31, 2020.
 
 <img src="./inst/www/visithc.png" width="400" align="center"/>
 
