@@ -44,6 +44,7 @@ install.packages("http://stats.vnsny.org/VisitContactTrace/VisitContactTrace_0.1
 Type this command into the R Console and the application should run
 
 ```r
+library(VisitContactTrace)
 VisitContactTrace()
 ```
 This function is all you need to run everytime you being an R session and want to use VisitContactTrace.
