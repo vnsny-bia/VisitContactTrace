@@ -28,7 +28,7 @@ The VisitContactTrace application allows users to **upload data manually.**  For
 
 ## Installing the VisitContactTrace R package
 
-The following code must be run the first time you use VisitContactTrace (unless you switch versions of R).  Copy and paste the following lines of code into the R Console and press "enter" on the keyboard to install the development version of **VisitContactTrace** from GitHub:
+The following code must be run the first time you use VisitContactTrace (unless you switch versions of R, in which case they should be re-run).  Copy and paste the following lines of code into the R Console and press "enter" on the keyboard to install the development version of **VisitContactTrace** from GitHub:
 
 ```r
 depend.pack <- c('anytime', 'shiny', 'shinydashboard', 'viridis', 'shinyFiles', 'shinycssloaders', 'shinyWidgets', 'data.table', 'assertthat', 'dplyr', 'purrr', 'rmarkdown', 'visNetwork', 'DT', 'fst', 'stringr', 'shinyalert', 'epicontacts', 'fs', 'readxl', 'shinyjs')
@@ -51,32 +51,34 @@ Run those two commands from an R session every time you want to use VisitContact
 
 # Data 
 
-The VisitContactTrace application supports a common data structure used in community-based healthcare settings for functions such as billing and clinical record documentation. This data structure, known as "encounter data" or "visit data," was the motivation for creating this application. In a community-based healthcare setting, patients are usually homebound or have significant disability, and are not observed to encounter each other. The VisitContactTrace application uses only the interactions or "encounters" of visit staff members and patients as the possible transmission route of an infectious disease.  While it is possible for community-based visit staff to interact with each other in the field under certain circumstances, it is an uncommon occurrence, and VisitContactTrace currently does not consider those interactions.  The concept of visit-based contact tracing can be used in other visit-based service delivery models outside of community-based healthcare settings.
+The VisitContactTrace application supports a common data structure used in community-based healthcare settings for functions such as billing and clinical record documentation. This data structure, known as "encounter data" or "visit data," was the motivation for creating this application. In a community-based healthcare setting, patients are usually homebound or have significant disability, and are not observed to encounter each other. The VisitContactTrace application uses only the interactions or "encounters" of visit staff members and patients as the possible transmission route of an infectious disease in a visit-based service delivery model.  While it is possible for community-based visit staff to interact with each other in the field under certain circumstances, it is an uncommon occurrence, and VisitContactTrace currently does not consider those interactions.  The concept of visit-based contact tracing can be used in other visit-based service delivery models outside of community-based healthcare settings.
 
-The image below shows a snippet of an example dataset where a handful clinicians have delivered visits to a few patients during an observation window of February - May 2020. In this simulated example, Patient 4 was first visited by [Anna Caroline Maxwell](https://en.wikipedia.org/wiki/Anna_Maxwell) on February, 27, 2020, then [Lillian Wald](https://en.wikipedia.org/wiki/Lillian_Wald) continued the case visiting every 2-6 days from February, 29, 2020 to March, 31, 2020.
+The image below shows a snippet of an example dataset where a handful clinicians have delivered visits to a few patients during an observation window of February - May 2020. In this simulated sample dataset, Patient 4 was first visited by [Anna Caroline Maxwell](https://en.wikipedia.org/wiki/Anna_Maxwell) on February 27, 2020, followed by several visits by [Lillian Wald](https://en.wikipedia.org/wiki/Lillian_Wald) every 2-6 days from February 29, 2020 to March 31, 2020.
 
 <img src="./inst/www/visithc.png" width="400" align="center"/>
 
 ## Data Specifications <a name="dataspec"></a>
 
-Please note that the contact tracing will not be accurate if there are any data integrity or completeness issues. Please take the following (incomplete) considerations:
+Please note that the VisitContactTrace will not produce accurate results if there are any data integrity or completeness issues. Please take the following into consideration:
 
-* Preprocessing of data to ensure proper filtering for the appropriate unit - a direct person-to-person encounter
+* Preprocess the data to ensure that each row in the dataset represents a direct person-to-person visit per day.
+  * Do not aggregate data from several days into one row.
+  * Only use one row to represent a unique patient/staff/date combination. If a staff member visited the same patient several times during the same day, the dataset should have only one row to represent those same-day visits.
   * Exclude telephonic or telemedicine "visits" or encounters
-* Do not inadvertently exclude any face-to-face records that may be critical to the contact tracing
-  * The time period of which the data was extracted should fully encapsulate any querying windows of time during the contact tracing
+* Pay attention to the range of visit dates included in your dataset.
+  * For example, if you load a dataset that contains visits from April 2020, then VisitContactTrace will only return results that apply to May 2020 and will not be able to return results about visits from March 2020 or May 2020.
 
 
   
-The **VisitContactTracing** application requires a minimum set of fields in a data set meeting the following requirements:
+The **VisitContactTracing** application recognizes the following data fields:
 
 | Column Name | Format | Required | Description |
 | --------------- | --------------- | --------------- |----------------------------------------------------------------------------|
-| PATIENT_ID | Character | FALSE | Unique identifier of patient.  If absent, **PATIENT_NAME** is used as the key|
-| PATIENT_NAME | Character | TRUE | First and last name of patient* |
-| VISIT_DATE | DATE | TRUE | The date for which the patient encounters a clincian |
-| STAFF_ID | Character | FALSE | Unique ID for clincian.  If absent, **STAFF_NAME** is used as the key |
-| STAFF_NAME | Character | TRUE | First and last Name of clincian*|
+| PATIENT_ID | Character | FALSE | Unique identifier of patient.  If this column is absent, **PATIENT_NAME** is used as the key|
+| PATIENT_NAME | Character | TRUE | First and last name of patient. If the **PATIENT_ID** column is absent, this column is used as the unique identifier of a patient.* |
+| VISIT_DATE | DATE | TRUE | The date that a visit staff member visits a patient. Date should be in MM/DD/YYYY or MM-DD-YYYY format |
+| STAFF_ID | Character | FALSE | Unique ID for visit staff member.  If this column is absent, **STAFF_NAME** is used as the key |
+| STAFF_NAME | Character | TRUE | First and last name of visit staff member. If the **STAFF_ID** column is absent, this column is used as the unique identifier of a visit staff member.*|
 | PATIENT_STATUS | Character | FALSE | Unique labels maybe used to indicate a status for each **patient** who is confirmed with an infectious disease (or other status).  This label must persist over all visit observations for the **patient**.  The application only supports one label at this time and does not consider the time relationship between the status of one individual compared to the timing of statuses of other contacts; it is only provided as label of an individual
 | STAFF_STATUS | Character | FALSE | Unique labels maybe used to indicate a status for each **staff** who is confirmed with an infectious disease (or other status).  This label must persist over all visit observations for the **staff**.  The application only supports one label at this time and does not consider the time relationship between the status of one individual compared to the timing of statuses of other contacts; it is only provided as label of an individual
 
