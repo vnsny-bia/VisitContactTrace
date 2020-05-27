@@ -117,19 +117,21 @@ The user interface for uploading data will raise an error if the user attempts t
 
 # Using the VisitContactTrace Application <a name="useapp"></a>
 
+The following figure is the welcome screen that appears as soon as the application opens. 
+
+<img src="./inst/www/ct-welcome.PNG" width="400"  align="center"/>
+
 ## Demo Data <a name="demodata"></a>
 
 If you don't have data available but would like to experiment with the application, you can try out the simulated dataset that comes with the VisitContactTrace application.  Click on the "Try Out Demo Data" button on the bottom right hand corner of the welcome screen.
 
-<img src="./inst/www/ct-preview.PNG" width="500"  align="center"/>
-
 ## Importing Data <a name="importdata"></a>
 
-The following figure is the welcome screen that appears as soon as the application opens.  Click on "Upload File" and browse to the dataset that you wish to import into the VisitContactTrace application.  
-
-<img src="./inst/www/ct-welcome.PNG" width="400"  align="center"/>
+If you do have data you would like to use, click on "Upload File" and browse to the dataset that you wish to import into the VisitContactTrace application.  
 
 The "Review Data" button provides a preview of the data import and the ability to rename columns to the names defined in [data specifications](#dataspec). If column names and formats are correct, the "Submit Data" button will import the data into the application.  If not, the user will be notified of an error.
+
+<img src="./inst/www/ct-preview.PNG" width="500"  align="center"/>
 
 ## Exit/Reload data <a name="exitapp"></a>
 
