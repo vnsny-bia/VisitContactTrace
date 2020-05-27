@@ -107,7 +107,7 @@ The **Try Out Demo Data** button allows users to experiment with a simulated dat
 
 ## Exit/Reload
 
-In the top right-hand corner of the following figure, users can choose to exit the application or reload the user interface to upload data.  It is best to exit the application by clicking on "Exit" in this window, because this correctly closes the VisitContactTrace application from the R session. 
+The top right-hand corner of the following figure shows how users can choose to exit the application or reload the user interface to upload data.  It is best to exit the application by clicking on "Exit" in this window, because this correctly closes the VisitContactTrace application from the R session. 
 
 ## Querying VisitContactTrace 
 
@@ -124,26 +124,26 @@ Querying Parameter Instructions:
 
 ## The Algorithm 
 
-The algorithm first starts by identifying the primary contacts of the indexed individual during the specified window of time.  It proceeds to look at contacts of two to three orders of separation away from the indexed individual.  These contacts must have occurred after the date of primary contacts (and tertiary contacts occur after secondary).  The timing of the optional patient or staff status is not considered in this version of the VisitContactTrace application.  The status of the patient or staff is only presented back to the user in the contact listings or network diagram plots. 
+The algorithm first identifies the primary visit-based contacts of the index person during the specified window of time.  It proceeds to identify the visit-based contacts two to three orders of separation away from the index person.  These visit-based contacts must have occurred after the primary contact visit dates (and tertiary contacts must occur after the secondary contact visits). 
 
-In the following screen shot, [Florence Nightingale](https://en.wikipedia.org/wiki/Florence_Nightingale) has been selected as the indexed staff person.  In this hypothetical example, her symptom onset date was May 12, 2020 and the contact trace is going to start seven days prior to that date and 7 days after to ensure that no visits were delivered while she was symptomatic.  The calculated begin and end date from the reference date is presented back to the user in the black screen immediately below the parameter input.  
+In the following screenshot, [Florence Nightingale](https://en.wikipedia.org/wiki/Florence_Nightingale) has been selected as the index staff person for a novel infectious disease.  In this hypothetical example, her symptom onset date was May 12, 2020 and is used as the reference date. The contact tracing is set to start 7 days prior to that date (to account for a 7-day incubation period of the novel infectious disease) and will conclude 7 days afterwards (in order to account for visits that she delivered while she was symptomatic as well as to capture a longer timeframe for secondary and tertiary visits to have occurred).  The calculated begin and end dates for the contact tracing is presented back to the user immediately below the parameter input area: "All visits during 2020-05-05 and 2020-05-19 will be shown."  
 
 
 ### Output - Contact Lists
 
-On the right hand side of the previous figure, primary, secondary, and tertiary contact listings are made available to the user for download into .csv.
+The right-hand panel in the following screenshot displays the primary, secondary, and tertiary contact lists. The user can download these lists into .csv.
 
-#### Definition of Primary, Secondary Tertiary Degrees of Contact From Origin
+#### Definition of Primary, Secondary Tertiary Contacts
 
 <img src="./inst/www/ct-staff-patient-origin.PNG" width="600" align="center"/>
 
-These contact listings are availble in the three tabs on the right under "Contact Lists."  Each one is avaible for download into .csv.
+These contact lists are available in the three tabs on the right under "Contact Lists."  Each one is available for download into .csv.
 
 <img src="./inst/www/ct-main.PNG" width="1200" align="center"/>
 
 ### Output - Plot
 
-The "Plot" tab displays the primary contacts and any secondary or tertiary contacts away from the staff/patient of origin.  If the user included staff/patient statuses, the legend indicates which status each patient or staff is known to have had. 
+The "Plot" tab displays the "network diagram" of primary, secondary, and tertiary contacts.  If the user included staff/patient statuses, the legend indicates which status each patient or staff is known to have had. 
 
 <img src="./inst/www/ct-plot3.PNG" width="800" align="center"/>
 
