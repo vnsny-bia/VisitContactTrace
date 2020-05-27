@@ -28,7 +28,7 @@ The VisitContactTrace application allows users to **upload data manually.**  For
 
 ## Installing the VisitContactTrace R package
 
-The following code must be run the first time you use VisitContactTrace (unless you switch versions of R, in which case they should be re-run).  Copy and paste the following lines of code into the R Console and press "enter" on the keyboard to install the development version of **VisitContactTrace** from GitHub:
+The following code must be run the first time you use VisitContactTrace (unless you switch versions of R, in which case they should be re-run).  Copy and paste the following lines of code (preserving the upper- and lower- case letters) into the R Console and press "enter" on the keyboard to install the development version of **VisitContactTrace** from GitHub:
 
 ```r
 depend.pack <- c('anytime', 'shiny', 'shinydashboard', 'viridis', 'shinyFiles', 'shinycssloaders', 'shinyWidgets', 'data.table', 'assertthat', 'dplyr', 'purrr', 'rmarkdown', 'visNetwork', 'DT', 'fst', 'stringr', 'shinyalert', 'epicontacts', 'fs', 'readxl', 'shinyjs')
@@ -41,7 +41,7 @@ install.packages("http://stats.vnsny.org/VisitContactTrace/VisitContactTrace_0.1
 
 ## Running VisitContactTrace Locally
 
-Type the following commands into the R Console and press "enter" in order to run the application:
+Type the following commands (preserving the upper- and lower- case letters) into the R Console and press "enter" in order to run the application:
 
 ```r
 library(VisitContactTrace)
@@ -51,20 +51,20 @@ Run those two commands from an R session every time you want to use VisitContact
 
 # Data 
 
-The VisitContactTrace application supports a common data structure used in community-based healthcare settings for functions such as billing and clinical record documentation. This data structure, known as "encounter data" or "visit data," was the motivation for creating this application. In a community-based healthcare setting, patients are usually homebound or have significant disability, and are not observed to encounter each other. The VisitContactTrace application uses only the interactions or "encounters" of visit staff members and patients as the possible transmission route of an infectious disease in a visit-based service delivery model.  While it is possible for community-based visit staff to interact with each other in the field under certain circumstances, it is an uncommon occurrence, and VisitContactTrace currently does not consider those interactions.  The concept of visit-based contact tracing can be used in other visit-based service delivery models outside of community-based healthcare settings.
+The VisitContactTrace application supports a common data structure used in community-based healthcare settings for functions such as billing and clinical record documentation. This data structure, known as "encounter data" or "visit data," was the motivation for creating this application. In a community-based healthcare setting, patients are usually homebound or have significant disability, and are not observed to encounter each other. The VisitContactTrace application uses only these visit interactions or "encounters" between visit staff and patients to trace the possible transmission route of an infectious disease in a visit-based service delivery model.  While it is possible for community-based visit staff to interact with each other in the field under certain circumstances, it is an uncommon occurrence, and VisitContactTrace currently does not support contact tracing for those interactions.  The concept of visit-based contact tracing can be used in other visit-based service delivery models outside of community-based healthcare settings.
 
-The image below shows a snippet of an example dataset where a handful clinicians have delivered visits to a few patients during an observation window of February - May 2020. In this simulated sample dataset, Patient 4 was first visited by [Anna Caroline Maxwell](https://en.wikipedia.org/wiki/Anna_Maxwell) on February 27, 2020, followed by several visits by [Lillian Wald](https://en.wikipedia.org/wiki/Lillian_Wald) every 2-6 days from February 29, 2020 to March 31, 2020.
+The image below shows a snippet of an example dataset where a handful of clinicians have delivered visits to a few patients during an observation window of February - May 2020. In this simulated sample dataset, Patient 4 was first visited by [Anna Caroline Maxwell](https://en.wikipedia.org/wiki/Anna_Maxwell) on February 27, 2020, followed by several visits by [Lillian Wald](https://en.wikipedia.org/wiki/Lillian_Wald) every 2-6 days from February 29, 2020 to March 31, 2020.
 
 <img src="./inst/www/visithc.png" width="400" align="center"/>
 
 ## Data Specifications <a name="dataspec"></a>
 
-Please note that the VisitContactTrace will not produce accurate results if there are any data integrity or completeness issues. Please take the following into consideration:
+The VisitContactTrace will not produce accurate results if there are any data integrity or completeness issues. Please take the following into consideration when preparing a data file to upload into the application:
 
 * Preprocess the data to ensure that each row in the dataset represents a direct person-to-person visit per day.
   * Do not aggregate data from several days into one row.
   * Only use one row to represent a unique patient/staff/date combination. If a staff member visited the same patient several times during the same day, the dataset should have only one row to represent those same-day visits.
-  * Exclude telephonic or telemedicine "visits" or encounters
+  * Exclude telephonic or telemedicine "visits" or encounters.
 * Pay attention to the range of visit dates included in your dataset.
   * For example, if you load a dataset that contains visits from April 2020, then VisitContactTrace will only return results that apply to May 2020 and will not be able to return results about visits from March 2020 or May 2020.
 
@@ -79,21 +79,21 @@ The **VisitContactTracing** application recognizes the following data fields:
 | VISIT_DATE | DATE | TRUE | The date that a visit staff member visits a patient. Date should be in MM/DD/YYYY or MM-DD-YYYY format |
 | STAFF_ID | Character | FALSE | Unique ID for visit staff member.  If this column is absent, **STAFF_NAME** is used instead. |
 | STAFF_NAME | Character | TRUE | First and last name of visit staff member. If the **STAFF_ID** column is absent, this column is used as the unique identifier for visit staff members.*|
-| PATIENT_STATUS | Character | FALSE |  Labels used to indicate a status for each **patient**, such as confirmation of an infectious disease or some other status (e.g. "POSITIVE", "NEGATIVE", "SUSPECTED").  This label must be applied to all applicable visit observations for the **patient**.  See the Output - Plot section to learn how the application uses this column. |
-| STAFF_STATUS | Character | FALSE |  Labels used to indicate a status for each **staff member**, such as confirmation of an infectious disease or some other status (e.g. "POSITIVE", "NEGATIVE", "SUSPECTED").  This label must be applied to all applicable visit observations for the **staff member**.  See the Output - Plot section to learn how the application uses this column. |
+| PATIENT_STATUS | Character | FALSE |  Labels used to indicate a status for each **patient**, such as confirmation of an infectious disease or some other status (e.g. "POSITIVE", "NEGATIVE", "SUSPECTED").  This label is case-sensitive (meaning that "Positive", "positive", and "POSITIVE" are all considered different statuses) and must be applied to all applicable visit observations for the **patient**.  See the Output - Plot section to learn how the application uses this column. |
+| STAFF_STATUS | Character | FALSE |  Labels used to indicate a status for each **staff member**, such as confirmation of an infectious disease or some other status (e.g. "POSITIVE", "NEGATIVE", "SUSPECTED").  This label is case-sensitive (meaning that "Positive", "positive", and "POSITIVE" are all considered different statuses) and must be applied to all applicable visit observations for the **staff member**.  See the Output - Plot section to learn how the application uses this column. |
 
-\* Many users may have data systems that store patient/staff name in two columns (first name & last name).  Those users should consider concatenating those columns prior to uploading the data into the application.
+\* Many users may work with data systems that store patient/staff name in two columns (first name & last name).  Those users should consider concatenating those columns prior to uploading the data into the application.
 
-The order of columns does not matter. PATIENT_NAME, STAFF_NAME, and VISIT_DATE are required fields where the spelling of the column name must be as specified here. The application will ignore any columns whose names do not exactly match those documented here. It is highly recommended that PATIENT_ID and STAFF_ID are derived from a data source that treats these as a unique key - i.e., that the field uniquely identifies a specific patient or staff member. When provided, these fields serve as the mechanism upon which the algorithm conducts contact tracing. The application relies on the underlying integrity of these keys. If either of these are not available, the application will assume that PATIENT_NAME and STAFF_NAME are the keys that unique identify a patient and staff, respectively. Additional caution is warranted to address inconsistent spelling of the names contained in PATIENT_NAME and STAFF_NAME.
+The columns in the dataset can be in any particular order. However, PATIENT_NAME, STAFF_NAME, and VISIT_DATE are required columns and must be spelled exactly as specified. The VisitContactTrace application will ignore any columns names that do not exactly match those documented here. It is highly recommended that PATIENT_ID and STAFF_ID are derived from a data source that treats these fields as a unique key - i.e., that these columns uniquely identify a specific patient or staff member. When PATIENT_ID and STAFF_ID are provided, the application relies on the underlying integrity of these fields in order to produce accurate contact tracing. If either of these columns are not available, the application will use the PATIENT_NAME and STAFF_NAME columns to uniquely identify a patient and staff member, respectively. Thus, in the absence of PATIENT_ID and STAFF_ID columns users should be careful to address inconsistencies in spelling, use of upper- and lower- case letters, use of extraneous spaces, and the order of first and last names for the names contained in PATIENT_NAME and STAFF_NAME. For example, "Lillian Wald", "lillian wald", "Wald, Lillian", and "Lillian  Wald" (with 2 spaces between first and last name instead of one) would all be treated as different individuals. Similarly, "Hazel Johnson-Brown" and "Hazel Johnson Brown" (not hyphenated) would be treated as different individuals as well. 
 
-### Renaming
+### Renaming data columns
 
-The user interface for uploading data will raise an error to the user if an attempt is made to submit a data file without the required columns.  Users are provided with an option to rename fields to the correct spelling in the user inteface.  
+The user interface for uploading data will raise an error if the user attempts to submit a data file without the required columns.The user interface allows users the option to rename columns with the correct spelling.  
 
 
 # Using the Application
 
-## Graphical User Interface for Importing Data
+## User Interface for Importing Data
 
 The following figure should be the welcome screen that appears as soon as the application opens.  Click on "Upload File" and browse to the dataset that you wish to import into the VisitContactTrace Application.  
 
