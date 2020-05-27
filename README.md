@@ -24,7 +24,7 @@ Learn more about VNSNY's COVID-19 response [here](https://www.vnsny.org/coronavi
 [Requirements for the VisitContactTrace Application](#requirements)  
       [Installing the VisitContactTrace R package](#installapp)  
       [Running VisitContactTrace Locally](#runapp)  
-[Input Data](#inputdata)  
+      [Input Data](#inputdata)  
       [Data Specifications](#dataspec)     
 [Using the VisitContactTrace Application](#useapp)  
       [Importing Data](#importdata)  
@@ -49,7 +49,7 @@ The VisitContactTrace application allows users to **upload data manually.**  For
 
 ## Installing the VisitContactTrace R package <a name="installapp"></a>
 
-The following code must be run in R the first time you use VisitContactTrace (unless you switch versions of R, in which case it should be re-run).  Copy and paste the following lines of code (preserving the upper- and lower- case letters) into the R Console and press "enter" on the keyboard to install the development version of **VisitContactTrace** from GitHub:
+The following code must be run in R the first time you use VisitContactTrace (and anytime you switch versions of R).  Copy and paste the following lines of code (preserving the upper- and lower- case letters) into the R Console and press "enter" on the keyboard to install the development version of **VisitContactTrace** from GitHub:
 
 ```r
 depend.pack <- c('anytime', 'shiny', 'shinydashboard', 'viridis', 'shinyFiles', 'shinycssloaders', 'shinyWidgets', 'data.table', 'assertthat', 'dplyr', 'purrr', 'rmarkdown', 'visNetwork', 'DT', 'fst', 'stringr', 'shinyalert', 'epicontacts', 'fs', 'readxl', 'shinyjs')
@@ -70,7 +70,7 @@ VisitContactTrace()
 ```
 Run those two commands from an R session every time you want to use VisitContactTrace.
 
-# Input Data <a name="inputdata"></a>
+## Input Data <a name="inputdata"></a>
 
 The VisitContactTrace application supports a common data structure used in community-based healthcare settings for functions such as billing and clinical record documentation. This data structure, known as "encounter data" or "visit data," was the motivation for creating this application. In a community-based healthcare setting, patients are usually homebound or have significant disability, and are not observed to encounter each other. The VisitContactTrace application uses only these visit interactions or "encounters" between visit staff and patients to trace the possible transmission route of an infectious disease in a visit-based service delivery model.  While it is possible for community-based visit staff to interact with each other in the field under certain circumstances, it is an uncommon occurrence, and VisitContactTrace currently does not support contact tracing for those interactions.  The concept of visit-based contact tracing can be used in other visit-based service delivery models outside of community-based healthcare settings.
 
