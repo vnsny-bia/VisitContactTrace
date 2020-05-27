@@ -61,7 +61,7 @@ header <- dashboardHeader(title = title_logo,titleWidth = 500,
                           VisitContactTrace:::dropdownActionMenu(id="refresh1",title= "",icon = icon("chevron-circle-down"),
                                                                  VisitContactTrace:::actionItem("refresh",tags$h4(style="color:white;",tags$i(class="fa fa-refresh fa-spin",style="font-size:16px"),HTML("&nbsp;")," Reload Data")),
                                                                  VisitContactTrace:::actionItem("quit",tags$h4(style="color:white;",tags$i(class="fas fa-window-close",style="font-size:16px"),HTML("&nbsp;")," Exit")),
-                                                                 VisitContactTrace:::actionItem("github",tags$h4(style="color:white;",tags$i(class="fa fa-exclamation-circle",style="font-size:16px"),HTML("&nbsp;")," Report Issue"),onclick_event = "window.open('https://github.com/vnsny-bia/Visit-Contact-Tracing/issues', '_blank')")
+                                                                 VisitContactTrace:::actionItem("github",tags$h4(style="color:white;",tags$i(class="fa fa-exclamation-circle",style="font-size:16px"),HTML("&nbsp;")," Report Issue"),onclick_event = "window.open('https://github.com/vnsny-bia/VisitContactTrace/issues', '_blank')")
 
                           )
 
