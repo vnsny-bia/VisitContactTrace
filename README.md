@@ -49,7 +49,7 @@ The VisitContactTrace application allows users to **upload data manually.**  For
 
 ## Installing the VisitContactTrace R package <a name="installapp"></a>
 
-The following code must be run in R the first time you use VisitContactTrace (and anytime you switch versions of R).  Copy and paste the following lines of code (preserving the upper- and lower- case letters) into the R Console and press "enter" on the keyboard to install the development version of **VisitContactTrace** from GitHub:
+The following code must be run in R the first time you use VisitContactTrace (and anytime you switch versions of R).  This step may take a while to run as there are lot of other packages that need to be downloaded and installed before VisitContactTrace can run successfully.  Copy and paste the following lines of code (preserving the upper- and lower- case letters) into the R Console and press "enter" on the keyboard to install the development version of **VisitContactTrace** from GitHub:
 
 ```r
 depend.pack <- c('anytime', 'shiny', 'shinydashboard', 'viridis', 'shinyFiles', 'shinycssloaders', 'shinyWidgets', 'data.table', 'assertthat', 'dplyr', 'purrr', 'rmarkdown', 'visNetwork', 'DT', 'fst', 'stringr', 'shinyalert', 'epicontacts', 'fs', 'readxl', 'shinyjs')
@@ -89,7 +89,7 @@ The VisitContactTrace application will not produce accurate results if there are
 * Keep in mind the range of visit dates included in your dataset when you use use the application.
   * For example, if you load a dataset that contains visits from April 2020, then VisitContactTrace will only return results that apply to May 2020 and will not be able to return results about visits from March 2020 or May 2020.
 
-
+There may be other precautions necessary that the authors of VisitContactTrace have not anticipated.  Please be thoughtful about other relevant to your organization when uploading a dataset into the application.
   
 The **VisitContactTrace** application recognizes the following data fields:
 
