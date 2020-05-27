@@ -133,9 +133,6 @@ The "Review Data" button provides a preview of the data import and the ability t
 
 <img src="./inst/www/ct-preview.PNG" width="500"  align="center"/>
 
-## Exit/Reload data <a name="exitapp"></a>
-
-The top right-hand corner of the application contains a drop down menu that contains options for users to exit the application or reload the user interface to upload data.  It is best to exit the application by clicking on "Exit" in this window, because this correctly closes the VisitContactTrace application from the R session. 
 
 ## Querying VisitContactTrace <a name="queryapp"></a>
 
@@ -150,13 +147,14 @@ Querying Parameter Instructions:
 
 **Click on the “Run” button.**
 
+<img src="./inst/www/ct-main.PNG" width="1200" align="center"/>
+
 # The Output/Results <a name="results"></a>
 
 The algorithm behind the VisitContactTrace application first identifies the primary visit-based contacts of the index person during the specified window of time.  It proceeds to identify the visit-based contacts two to three orders of separation away from the index person.  These visit-based contacts must have occurred after the primary contact visit dates (and tertiary contacts must occur after the secondary contact visits). 
 
-In the screenshot below, [Florence Nightingale](https://en.wikipedia.org/wiki/Florence_Nightingale) has been selected as the index staff person for visit-based contact tracing of a novel infectious disease.  In this hypothetical example, her symptom onset date was May 12, 2020 and is used as the reference date. The contact tracing is set to start 7 days prior to that date (to account for a 7-day incubation period of the novel infectious disease) and will conclude 7 days afterwards (in order to account for visits that she delivered while she was symptomatic as well as to capture a longer timeframe for secondary and tertiary visits to have occurred).  The calculated begin and end dates for the contact tracing is presented back to the user immediately below the parameter input area: "All visits during 2020-05-05 and 2020-05-19 will be shown."  
+In the screenshot above, [Florence Nightingale](https://en.wikipedia.org/wiki/Florence_Nightingale) has been selected as the index staff person for visit-based contact tracing of a novel infectious disease.  In this hypothetical example, her symptom onset date was May 12, 2020 and is used as the reference date. The contact tracing is set to start 7 days prior to that date (to account for a 7-day incubation period of the novel infectious disease) and will conclude 7 days afterwards (in order to account for visits that she delivered while she was symptomatic as well as to capture a longer timeframe for secondary and tertiary visits to have occurred).  The calculated begin and end dates for the contact tracing is presented back to the user immediately below the parameter input area: "All visits during 2020-05-05 and 2020-05-19 will be shown."  
 
-<img src="./inst/www/ct-main.PNG" width="1200" align="center"/>
 
 #### Definition of Primary, Secondary Tertiary Contacts
 
@@ -179,7 +177,11 @@ The visit details tab includes all primary, secondary, and tertiary contact visi
 
 <img src="./inst/www/ct-visitdetails.PNG" width="800" align="center"/>
 
-## Other Useful R Functions/Objects (for experienced R users) <a name="advancedR"></a>
+## Exit/Reload data <a name="exitapp"></a>
+
+The top right-hand corner of the application contains a drop down menu that contains options for users to exit the application or reload the user interface to upload data.  It is best to exit the application by clicking on "Exit" in this window, because this correctly closes the VisitContactTrace application from the R session. 
+
+# Other Useful R Functions/Objects (for experienced R users) <a name="advancedR"></a>
 
 The VisitContactTrace R package includes a sample simulated Home Healthcare Visits dataset (visitshc.RData) that users can explore for experimentation and instructional purposes.
 
