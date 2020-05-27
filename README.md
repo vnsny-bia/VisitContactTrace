@@ -103,13 +103,13 @@ The following figure is the welcome screen that appears as soon as the applicati
 
 The "Review Data" button provides a preview of the data import and the ability to rename columns to the names defined in [data specifications](#dataspec). If column names and formats are correct, the "Submit Data" button will import the data into the application.  If not, the user will be notified of an error.
 
-The **Try Out Demo Data** button allows users to experiment with a simulated dataset within the application.  
+The "Try Out Demo Data" button allows users to experiment with a simulated dataset within the application.  
 
 <img src="./inst/www/ct-preview.PNG" width="500"  align="center"/>
 
 ## Exit/Reload data
 
-The top right-hand corner of the following figure shows how users can choose to exit the application or reload the user interface to upload data.  It is best to exit the application by clicking on "Exit" in this window, because this correctly closes the VisitContactTrace application from the R session. 
+The top right-hand corner of the application contains a drop down menu that contains options for users to exit the application or reload the user interface to upload data.  It is best to exit the application by clicking on "Exit" in this window, because this correctly closes the VisitContactTrace application from the R session. 
 
 ## Querying VisitContactTrace 
 
@@ -122,7 +122,7 @@ Querying Parameter Instructions:
 * Choose the reference date. For example, this could be the date of symptom onset for the index person. 
 * Choose the number of days to look back from the reference date (e.g. the incubation period of the disease) and the number of days to look forward from the reference date.  Consult your organization's policies & procedures for specific guidance regarding the use of index dates and tracing periods.
 
-**Click on the “run” button.**
+**Click on the “Run” button.**
 
 ## The VisitContactTrace Output/Results
 
