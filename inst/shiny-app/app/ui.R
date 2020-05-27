@@ -322,6 +322,9 @@ body <- dashboardBody(
               tabBox(id='conf_summary', width = 6,
                      height = '700px',
                      title = "",
+                     tabPanel(tagList(shiny::icon("bar-chart-o"),"Plot"),
+                              visNetworkOutput('plot_epicontacts',height = '550px'),
+                              value = 'model_perf'),
                      tabPanel(tagList(HTML('<i class="fa fa-newspaper-o"></i>'),"Contact Lists"),
                               tabBox(id='stg_tbls',width = 12,
                                      title = "",
@@ -336,33 +339,31 @@ body <- dashboardBody(
                                               DT::dataTableOutput("stage_3_table"))
                               ),
                               value = 'stg_tbls'),
-                     tabPanel(tagList(HTML('<i class="fa fa-group"></i>'),"Contact Tracing"),
-                              div(style="display:inline-block;padding-upper:'0px';padding-left:'2px';overflow-y: auto;",
-                                  conditionalPanel("input.go_btn > 0",verbatimTextOutput('print_txt',placeholder = F)),
-                                  tags$head(tags$style(HTML("
-                                                    #print_txt {
-                                                      padding: 9.5px;
-                                                      margin: 0 0 10px;
-                                                      margin-left: 14px;
-                                                      font-size: 13px;
-                                                      line-height: 1.42857143;
-                                                      color: #fff;
-                                                          word-break: break-all;
-                                                      word-wrap: break-word;
-                                                      background-color: #f5f5f5;
-                                                          border: 1px solid #ccc;
-                                                      border-radius: 4px;
-                                                      max-height: 550px;
-                                                      overflow: auto;
-                                                      width:735px;
-                                                      background-color: #222527;
-                                                  }
-                                              ")))
-                              ),
-                              value = 'model_perf1'),
-                     tabPanel(tagList(shiny::icon("bar-chart-o"),"Plot"),
-                              visNetworkOutput('plot_epicontacts',height = '550px'),
-                              value = 'model_perf'),
+                     # tabPanel(tagList(HTML('<i class="fa fa-group"></i>'),"Contact Tracing"),
+                     #          div(style="display:inline-block;padding-upper:'0px';padding-left:'2px';overflow-y: auto;",
+                     #              conditionalPanel("input.go_btn > 0",verbatimTextOutput('print_txt',placeholder = F)),
+                     #              tags$head(tags$style(HTML("
+                     #                                #print_txt {
+                     #                                  padding: 9.5px;
+                     #                                  margin: 0 0 10px;
+                     #                                  margin-left: 14px;
+                     #                                  font-size: 13px;
+                     #                                  line-height: 1.42857143;
+                     #                                  color: #fff;
+                     #                                      word-break: break-all;
+                     #                                  word-wrap: break-word;
+                     #                                  background-color: #f5f5f5;
+                     #                                      border: 1px solid #ccc;
+                     #                                  border-radius: 4px;
+                     #                                  max-height: 550px;
+                     #                                  overflow: auto;
+                     #                                  width:735px;
+                     #                                  background-color: #222527;
+                     #                              }
+                     #                          ")))
+                     #          ),
+                     #         value = 'model_perf1'),
+                     
 
                      tabPanel(tagList(HTML("<i class='fas fa-notes-medical'></i>"),"Visit Details"),
                               box(width=12,
@@ -561,7 +562,9 @@ body <- dashboardBody(
               tabBox(id='conf_summary_1', width = 6,
                      height = '700px',
                      title = "",
-
+                     tabPanel(tagList(shiny::icon("bar-chart-o"),"Plot"),
+                              visNetworkOutput('plot_epicontacts_1',height = '550px'),
+                              value = 'model_perf'),
                      tabPanel(tagList(HTML('<i class="fa fa-newspaper-o"></i>'),"Contact Lists"),
                               tabBox(id='stg_tbls_1',width = 12,
                                      title = "",
@@ -577,34 +580,32 @@ body <- dashboardBody(
                               ),
 
                               value = 'stg_tbls'),
-                     tabPanel(tagList(HTML('<i class="fa fa-group"></i>'),"Contact Tracing"),
-                              div(style="display:inline-block;padding-upper:'0px';padding-left:'2px';overflow-y: auto;",
-                                  conditionalPanel("input.go_btn_1 > 0",verbatimTextOutput('print_txt_1',placeholder = F)),
-                                  tags$head(tags$style(HTML("
-                                                    #print_txt_1 {
-                                                      padding: 9.5px;
-                                                      margin: 0 0 10px;
-                                                      margin-left: 14px;
-                                                      font-size: 13px;
-                                                      line-height: 1.42857143;
-                                                      color: #fff;
-                                                          word-break: break-all;
-                                                      word-wrap: break-word;
-                                                      background-color: #f5f5f5;
-                                                          border: 1px solid #ccc;
-                                                      border-radius: 4px;
-                                                      max-height: 550px;
-                                                      overflow: auto;
-                                                      width:735px;
-                                                      background-color: #222527;
-                                                  }
-                                              ")))
-                              ),
-
-                              value = 'model_perf'),
-                     tabPanel(tagList(shiny::icon("bar-chart-o"),"Plot"),
-                              visNetworkOutput('plot_epicontacts_1',height = '550px'),
-                              value = 'model_perf'),
+                     # tabPanel(tagList(HTML('<i class="fa fa-group"></i>'),"Contact Tracing"),
+                     #          div(style="display:inline-block;padding-upper:'0px';padding-left:'2px';overflow-y: auto;",
+                     #              conditionalPanel("input.go_btn_1 > 0",verbatimTextOutput('print_txt_1',placeholder = F)),
+                     #              tags$head(tags$style(HTML("
+                     #                                #print_txt_1 {
+                     #                                  padding: 9.5px;
+                     #                                  margin: 0 0 10px;
+                     #                                  margin-left: 14px;
+                     #                                  font-size: 13px;
+                     #                                  line-height: 1.42857143;
+                     #                                  color: #fff;
+                     #                                      word-break: break-all;
+                     #                                  word-wrap: break-word;
+                     #                                  background-color: #f5f5f5;
+                     #                                      border: 1px solid #ccc;
+                     #                                  border-radius: 4px;
+                     #                                  max-height: 550px;
+                     #                                  overflow: auto;
+                     #                                  width:735px;
+                     #                                  background-color: #222527;
+                     #                              }
+                     #                          ")))
+                     #          ),
+                     # 
+                     #          value = 'model_perf'),
+                     
                      tabPanel(tagList(HTML("<i class='fas fa-notes-medical'></i>"),"Visit Details"),
                               box(width=12,
                                   downloadButton("download8","Download"),

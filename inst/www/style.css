@@ -407,7 +407,7 @@
 
 
   .modal-header {
-    border-bottom-color:black;
+    border-bottom-color:#231f20;
   }
   /*.modal-header {
     padding: 15px;
@@ -416,7 +416,6 @@
 
     .modal-header {
       padding: 15px;
-      border-bottom: 0.01px solid black;
       /* background-color: azure;
       border-top: 20px solid #14213d;
       border-left: 20px solid #14213d;
