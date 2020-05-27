@@ -89,7 +89,7 @@ The VisitContactTrace application will not produce accurate results if there are
 * Keep in mind the range of visit dates included in your dataset when you use use the application.
   * For example, if you load a dataset that contains visits from April 2020, then VisitContactTrace will only return results that apply to May 2020 and will not be able to return results about visits from March 2020 or May 2020.
 
-There may be other precautions necessary that the authors of VisitContactTrace have not anticipated.  Please be thoughtful about other relevant to your organization when uploading a dataset into the application.
+There may be other precautions necessary that the authors of VisitContactTrace have not anticipated.  Please be thoughtful about other considerations relevant to your organization when uploading a dataset into the application.
   
 The **VisitContactTrace** application recognizes the following data fields:
 
