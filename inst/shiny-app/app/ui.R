@@ -197,7 +197,7 @@ body <- dashboardBody(
                                                  style = "material-flat",size = 'sm'
                                                )
                                            ),
-                                           div(id="verbtext",style="width:500px;",fluidRow(verbatimTextOutput('visit_date_rng',placeholder = F))),
+                                           div(id="verbtext",fluidRow(verbatimTextOutput('visit_date_rng',placeholder = F))),
                                            tags$head(
                                              tags$style(
                                                HTML(".shiny-notification {
@@ -240,7 +240,7 @@ body <- dashboardBody(
                                                       border-radius: 4px;
                                                       max-height: 550px;
                                                       overflow: auto;
-                                                      width:700px;
+                                                     /* width:700px;*/
                                                       background-color: #222527;
                                                   }
                                               "))),
@@ -435,7 +435,7 @@ body <- dashboardBody(
                                                  style = "material-flat",size = 'sm'
                                                )
                                            ),
-                                           div(id="verbtext_1",style="width:500px;",fluidRow(verbatimTextOutput('visit_date_rng_1',placeholder = F))),
+                                           div(id="verbtext_1",fluidRow(verbatimTextOutput('visit_date_rng_1',placeholder = F))),
                                            
                                            tags$head(
                                              tags$style(
@@ -487,7 +487,7 @@ body <- dashboardBody(
                                                       border-radius: 4px;
                                                       max-height: 550px;
                                                       overflow: auto;
-                                                      width:700px;
+                                                      /*width:700px;*/
                                                       background-color: #222527;
                                                   }
                                               "))),

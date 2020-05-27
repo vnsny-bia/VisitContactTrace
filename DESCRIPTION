@@ -8,6 +8,28 @@ Description: This application is designed to conduct contact tracing on healthca
 License: GPL-3 + file LICENSE
 Encoding: UTF-8
 LazyData: true
+Imports:
+    shiny,
+    shinydashboard,
+    viridis,
+    shinyFiles,
+    shinycssloaders,
+    shinyWidgets,
+    data.table,
+    assertthat,
+    dplyr,
+    purrr,
+    rmarkdown,
+    visNetwork,
+    DT,
+    fst,
+    stringr,
+    shinyalert,
+    epicontacts,
+    fs,
+    readxl,
+    shinyjs,
+    anytime
 Depends:
     R (>= 2.10),
     shiny,
@@ -29,6 +51,7 @@ Depends:
     epicontacts,
     fs,
     readxl,
-    shinyjs
+    shinyjs,
+    anytime
 Remotes: cttobin/ggthemr
 RoxygenNote: 7.1.0

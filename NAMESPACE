@@ -2,6 +2,7 @@
 export(VisitContactTrace)
 export(getContacts)
 import(DT)
+import(anytime)
 import(assertthat)
 import(shiny, except=c(renderDataTable,dataTableOutput))
 import(shinydashboard)

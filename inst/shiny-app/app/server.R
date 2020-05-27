@@ -139,6 +139,7 @@ server = function(input, output,session) {
         dt <- read.csv(as.character(inFile$datapath),stringsAsFactors = F)
         setDT(dt)
         names(dt) <- tolower(names(dt))
+        dt[,visit_date:=anytime::anydate(visit_date)]
         dt[, (colnames(dt)) := lapply(.SD, as.character), .SDcols = colnames(dt)]
 
 
@@ -158,6 +159,7 @@ server = function(input, output,session) {
         dt <- readxl::read_xlsx(as.character(a))
         setDT(dt)
         names(dt) <- tolower(names(dt))
+        dt[,visit_date:=anytime::anydate(visit_date)]
         dt[, (colnames(dt)) := lapply(.SD, as.character), .SDcols = colnames(dt)]
 
 
