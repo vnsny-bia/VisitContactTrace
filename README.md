@@ -19,14 +19,35 @@ The VisitContactTrace application was designed and created by the Data Science t
 
 Learn more about VNSNY's COVID-19 response [here](https://www.vnsny.org/coronavirus-covid-19/vnsnys-covid-19-response/). 
 
-# Requirements for the VisitContactTrace Application
+
+## Table of Contents  
+[Requirements for the VisitContactTrace Application](#requirements)  
+    [Installing the VisitContactTrace R package](#installapp)  
+    [Running VisitContactTrace Locally](#runapp)  
+[Input Data](#inputdata)  
+    [Data Specifications](#dataspec)     
+[Using the VisitContactTrace Application](#useapp)  
+    [Importing Data](#importdata)  
+    [Exit/Reload data](#exitapp)  
+    [Querying VisitContactTrace](#queryapp)  
+[The Output/Results](#results)  
+    [Output - Contact Lists](#outputcontactlists)  
+    [Output - Plot](#outputplot)  
+    [Output - Visit Details](#outputdetails)  
+[Other Useful R Functions/Objects (for experienced R users)](#advancedR)  
+[Help Getting Started with R](#helpR)  
+[License](#license)  
+[Acknowledgments](#thanks)  
+    
+    
+# Requirements for the VisitContactTrace Application <a name="requirements"></a>
 
 VisitContactTrace is an R package that requires R, an open-source software, to be installed. For more information about R, visit the [R Project for Statistical Computing](https://www.r-project.org/). Inexperienced R users can jump to [Help Getting Started with R](#helpR) for additional guidance.  
 
 The VisitContactTrace application allows users to **upload data manually.**  For example, a user may have access to a data extract from a standard report of service encounters from their organization's electronic medical record system. The user can save this data file as an *.xlsx or *.csv file and upload it to the VisitContactTrace application.  More sophisticated R users can adapt the application's source code to read in datasets created from an ETL tool or incorporate the code into a data workflow.  [More on the data specifications](#dataspec)
 
 
-## Installing the VisitContactTrace R package
+## Installing the VisitContactTrace R package <a name="installapp"></a>
 
 The following code must be run in R the first time you use VisitContactTrace (unless you switch versions of R, in which case it should be re-run).  Copy and paste the following lines of code (preserving the upper- and lower- case letters) into the R Console and press "enter" on the keyboard to install the development version of **VisitContactTrace** from GitHub:
 
@@ -39,7 +60,7 @@ install.packages("http://stats.vnsny.org/VisitContactTrace/VisitContactTrace_0.1
 # install.packages("VisitContactTrace", repos = "https://github.com/vnsny-bia/VisitContactTrace")
 ```
 
-## Running VisitContactTrace Locally
+## Running VisitContactTrace Locally <a name="runapp"></a>
 
 Type the following commands (preserving the upper- and lower- case letters) into the R Console and press "enter" in order to start the application:
 
@@ -49,7 +70,7 @@ VisitContactTrace()
 ```
 Run those two commands from an R session every time you want to use VisitContactTrace.
 
-# Input Data 
+# Input Data <a name="inputdata"></a>
 
 The VisitContactTrace application supports a common data structure used in community-based healthcare settings for functions such as billing and clinical record documentation. This data structure, known as "encounter data" or "visit data," was the motivation for creating this application. In a community-based healthcare setting, patients are usually homebound or have significant disability, and are not observed to encounter each other. The VisitContactTrace application uses only these visit interactions or "encounters" between visit staff and patients to trace the possible transmission route of an infectious disease in a visit-based service delivery model.  While it is possible for community-based visit staff to interact with each other in the field under certain circumstances, it is an uncommon occurrence, and VisitContactTrace currently does not support contact tracing for those interactions.  The concept of visit-based contact tracing can be used in other visit-based service delivery models outside of community-based healthcare settings.
 
@@ -93,9 +114,9 @@ The columns in the dataset can be in any order. However, PATIENT_NAME, STAFF_NAM
 The user interface for uploading data will raise an error if the user attempts to submit a data file without the required columns. The user interface allows users the option to rename columns with the correct spelling.  
 
 
-# Using the VisitContactTrace Application
+# Using the VisitContactTrace Application <a name="useapp"></a>
 
-## Importing Data
+## Importing Data <a name="importdata"></a>
 
 The following figure is the welcome screen that appears as soon as the application opens.  Click on "Upload File" and browse to the dataset that you wish to import into the VisitContactTrace application.  
 
@@ -107,11 +128,11 @@ The "Try Out Demo Data" button allows users to experiment with a simulated datas
 
 <img src="./inst/www/ct-preview.PNG" width="500"  align="center"/>
 
-## Exit/Reload data
+## Exit/Reload data <a name="exitapp"></a>
 
 The top right-hand corner of the application contains a drop down menu that contains options for users to exit the application or reload the user interface to upload data.  It is best to exit the application by clicking on "Exit" in this window, because this correctly closes the VisitContactTrace application from the R session. 
 
-## Querying VisitContactTrace 
+## Querying VisitContactTrace <a name="queryapp"></a>
 
 When using the VisitContactTrace application, the user needs to identify an individual that serves as the "index" person in a contact tracing investigation.  
 
@@ -124,7 +145,7 @@ Querying Parameter Instructions:
 
 **Click on the “Run” button.**
 
-## The VisitContactTrace Output/Results
+# The Output/Results <a name="results"></a>
 
 The algorithm behind the VisitContactTrace application first identifies the primary visit-based contacts of the index person during the specified window of time.  It proceeds to identify the visit-based contacts two to three orders of separation away from the index person.  These visit-based contacts must have occurred after the primary contact visit dates (and tertiary contacts must occur after the secondary contact visits). 
 
@@ -136,24 +157,24 @@ In the screenshot below, [Florence Nightingale](https://en.wikipedia.org/wiki/Fl
 
 <img src="./inst/www/ct-staff-patient-origin.PNG" width="600" align="center"/>
 
-### Output - Contact Lists
+## Output - Contact Lists <a name="outputcontactlists"></a>
 
 The right-hand panel of the application displays the primary, secondary, and tertiary contact lists (available in the three tabs under "Contact Lists." The user can download these lists into .csv.
 
 
-### Output - Plot
+## Output - Plot <a name="outputplot"></a>
 
 The "Plot" tab displays the "network diagram" of primary, secondary, and tertiary contacts.  If the user included patient/staff statuses, the plot legend displays each distinct status type differently. The application applies **the most recent status for each patient or staff within the requested visit window**. For example, imagine that Patient A has a status of "NEGATIVE" for visits on 5/1, 5/2, 5/3, and 5/4, and then a status of "POSITIVE" for visits on 5/5 and 5/6. If the requested window of visits for Patient A ends on 5/4, then Patient A will be labeled as "NEGATIVE" in the plot. However, if the requested window of visits for Patient A ends on 5/5 or 5/6, then Patient A will be labeled as "POSITIVE" in the plot.
 
 <img src="./inst/www/ct-plot3.PNG" width="800" align="center"/>
 
-### Output - Visit Details
+## Output - Visit Details <a name="outputdetails"></a>
 
 The visit details tab includes all primary, secondary, and tertiary contact visit details together and can be downloaded into .csv.  If the input dataset included patient/staff statuses, this tab shows the statuses that correspond to each patient/staff member on each given visit date.  In the example shown below, STAFF_ID 1 was the primary contact to patients with PATIENT_IDs 1043 and 1047.
 
 <img src="./inst/www/ct-visitdetails.PNG" width="800" align="center"/>
 
-## Other Useful R Functions/Objects (for experienced R users)
+## Other Useful R Functions/Objects (for experienced R users) <a name="advancedR"></a>
 
 The VisitContactTrace R package includes a sample simulated Home Healthcare Visits dataset (visitshc.RData) that users can explore for experimentation and instructional purposes.
 
@@ -188,7 +209,7 @@ If the R installation is successful a desktop shortcut for R should appear.  Cli
 
 After selecting the CRAN mirror and correct OS, click on "base," and click on "Download R.#.#.#" 
 
-In organizations that require administrative rights to install software, it is still possible to install R in the user's local storage without administrative rights.  You can find the **RGui** executable file in the directory in which it was installed. Below are some examples of how this may look; click on RGui.exe to launch an R session.  If you will be using this application often, consider creating a shortcut on your desktop.
+In organizations that require administrative rights to install software, it is still possible to install R in the user's local storage without administrative rights.  You can find the **Rgui** executable file in the directory in which it was installed. Below are some examples of how this may look; click on Rgui.exe to launch an R session.  If you will be using this application often, consider creating a shortcut on your desktop.
 
 
 <img src="./inst/www/Ri386-image.PNG" width="600" align="center"/>
@@ -202,9 +223,9 @@ In order to load and run the VisitContactTrace application, you must copy and pa
 <img src="./inst/www/Rconsole-image.PNG" width="800" align="center"/>
 
 
-# License
+# License <a name="license"></a>
 **VisitContactTrace** is released under [GPLv3 license](https://www.gnu.org/licenses/gpl-3.0.en.html). Please see the license in this GitHub repository for additional disclaimers on the usage of this application. 
 
-# Acknowledgments
+# Acknowledgments <a name="thanks"></a>
 
 * Nurse image used for the hex sticker <a href="http://cliparts.co/clipart/4411">cliparts.co</a>
