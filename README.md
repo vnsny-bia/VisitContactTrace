@@ -23,7 +23,7 @@ Learn more about VNSNY's COVID-19 response [here](https://www.vnsny.org/coronavi
 ## Table of Contents  
 [Requirements for the VisitContactTrace Application](#requirements)  
       [Installing the VisitContactTrace R package](#installapp)  
-      [Running VisitContactTrace Locally](#runapp)  
+      [Running VisitContactTrace on Your PC](#runapp)  
       [Input Data](#inputdata)  
       [Data Specifications](#dataspec)     
 [Using the VisitContactTrace Application](#useapp)  
@@ -60,7 +60,7 @@ install.packages("http://stats.vnsny.org/VisitContactTrace/VisitContactTrace_0.1
 # install.packages("VisitContactTrace", repos = "https://github.com/vnsny-bia/VisitContactTrace")
 ```
 
-## Running VisitContactTrace Locally <a name="runapp"></a>
+## Running VisitContactTrace on Your PC <a name="runapp"></a>
 
 Type the following commands (preserving the upper- and lower- case letters) into the R Console and press "enter" in order to start the application:
 
