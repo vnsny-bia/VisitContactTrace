@@ -236,3 +236,6 @@ In order to load and run the VisitContactTrace application, you must copy and pa
 # Acknowledgments <a name="thanks"></a>
 
 * Nurse image used for the hex sticker <a href="http://cliparts.co/clipart/4411">cliparts.co</a>
+
+
+<center><img src="./inst/www/VisitContactTrace-Setup.gif" width="800" align="center"/></center>
