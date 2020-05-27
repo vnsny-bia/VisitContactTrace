@@ -27,7 +27,8 @@ Learn more about VNSNY's COVID-19 response [here](https://www.vnsny.org/coronavi
       [Input Data](#inputdata)  
       [Data Specifications](#dataspec)     
 [Using the VisitContactTrace Application](#useapp)  
-      [Importing Data](#importdata)  
+      [Try VisitContactTrace with Demo Feature](#demodata)
+      [Importing Data](#importdata)  
       [Exit/Reload data](#exitapp)  
       [Querying VisitContactTrace](#queryapp)  
 [The Output/Results](#results)  
@@ -116,6 +117,12 @@ The user interface for uploading data will raise an error if the user attempts t
 
 # Using the VisitContactTrace Application <a name="useapp"></a>
 
+## Demo Data <a name="demodata"></a>
+
+If you don't have data available but would like to experiment with the application, you can try out the simulated dataset that comes with the VisitContactTrace application.  Click on the "Try Out Demo Data" button on the bottom right hand corner of the welcome screen.
+
+<img src="./inst/www/ct-preview.PNG" width="500"  align="center"/>
+
 ## Importing Data <a name="importdata"></a>
 
 The following figure is the welcome screen that appears as soon as the application opens.  Click on "Upload File" and browse to the dataset that you wish to import into the VisitContactTrace application.  
@@ -123,10 +130,6 @@ The following figure is the welcome screen that appears as soon as the applicati
 <img src="./inst/www/ct-welcome.PNG" width="400"  align="center"/>
 
 The "Review Data" button provides a preview of the data import and the ability to rename columns to the names defined in [data specifications](#dataspec). If column names and formats are correct, the "Submit Data" button will import the data into the application.  If not, the user will be notified of an error.
-
-The "Try Out Demo Data" button allows users to experiment with a simulated dataset within the application.  
-
-<img src="./inst/www/ct-preview.PNG" width="500"  align="center"/>
 
 ## Exit/Reload data <a name="exitapp"></a>
 
