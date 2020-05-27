@@ -139,7 +139,7 @@ When using the VisitContactTrace application, the user needs to identify an indi
 Querying Parameter Instructions:
 
 * Choose whether you are starting with an index staff member or a patient by clicking the on the “Staff” or “Patient” tile. 
-* Choose the Staff ID (or Patient ID) of the index person. 
+* Choose the Staff ID (or Patient ID) of the index person by selecting the ID/name from the drop-down. You can start typing the ID/name in order to narrow the results in the drop-down menu.
 * Choose the reference date. For example, this could be the date of symptom onset for the index person. 
 * Choose the number of days to look back from the reference date (e.g. the incubation period of the disease) and the number of days to look forward from the reference date.  Consult your organization's policies & procedures for specific guidance regarding the use of index dates and tracing periods.
 
