@@ -143,28 +143,28 @@ These contact lists are available in the three tabs on the right under "Contact 
 
 ### Output - Plot
 
-The "Plot" tab displays the "network diagram" of primary, secondary, and tertiary contacts.  If the user included staff/patient statuses, the legend indicates which status each patient or staff is known to have had. 
+The "Plot" tab displays the "network diagram" of primary, secondary, and tertiary contacts.  If the user included patient/staff statuses, the plot legend displays each distinct status type differently. The application applies **the most recent status for each patient or staff within the requested visit window**. For example, imagine that Patient A has a status of "NEGATIVE" for visits on 5/1, 5/2, 5/3, and 5/4, and then a status of "POSITIVE" for visits on 5/5 and 5/6. If the requested window of visits for Patient A ends on 5/4, then Patient A will be labeled as "NEGATIVE" in the plot. However, if the requested window of visits for Patient A ends on 5/5 or 5/6, then Patient A will be labeled as "POSITIVE" in the plot.
 
 <img src="./inst/www/ct-plot3.PNG" width="800" align="center"/>
 
 ### Output - Visit Details
 
-All orders of contact are provided in a separate format for export.  They user may then wish to filter on contact_type to their discretion.  In this example, the staff id of 1 was the primary contact to patients with ids 1043 and 1047.
+The visit details tab includes all primary, secondary, and tertiary contact visit details together and can be downloaded into .csv.  If the input dataset included patient/staff statuses, this tab shows the statuses that correspond to each patient/staff member on each given visit date.  In the example shown below, STAFF_ID 1 was the primary contact to patients with PATIENT_IDs 1043 and 1047.
 
 <img src="./inst/www/ct-visitdetails.PNG" width="800" align="center"/>
 
-## Other Usefull R Functions/Objects
+## Other Useful R Functions/Objects
 
-There is a simulated Home Healthcare Visits dataset loaded with the R package for experimentation and instructional purposes.
+The VisitContactTrace R package includes a sample simulated Home Healthcare Visits dataset (visitshc.RData) that users can explore for experimentation and instructional purposes.
 
 ```r
 head(visitshc, 10)
 ```
 
-More experienced R users may want to access the contact tracing function directly.  Given a visit based patient-staff encounter file, an indexed staff/patient, reference date and days forward/back, this getContacts function returns the primary, secondary, tertiary contacts as a dataframe.
+More experienced R users may want to access the contact tracing R function directly.  The getContacts function returns a dataframe of primary, secondary, and tertiary contacts when the following parameters are specified: the name of a visit-based patient-staff encounter data file, the ID of the index patient/staff, reference date, and number of days forward/back.
 
 ```r
-# Below example is used to get contact tracing lists based on staff id.
+# The Below example will produce contact tracing lists based on staff id.
             
 getContacts(staff_id= '1',
              patient_id = NA,
@@ -176,34 +176,34 @@ getContacts(staff_id= '1',
 ```
 # Help Getting Started with R <a name="helpR"></a>
 
-## Installation
+## Installing R Software
 
-VisitContactTrace is an R package that requires the installation of the R software.  To learn more, please visit the [R Project for Statistical Computing]( https://www.r-project.org/).  You will be asked to choose a CRAN mirrors, [also available here](https://cran.r-project.org/mirrors.html).  Choose any location as the mirror, it does not matter which one.  Choose the correct operating system. See more OS tips below.
+VisitContactTrace is an R package that requires R software to be installed.  To learn more, please visit the [R Project for Statistical Computing]( https://www.r-project.org/).  You will be asked to choose a CRAN mirror, [also available here](https://cran.r-project.org/mirrors.html).  Choose any location as the mirror, as it does not matter which one you select.  Choose the correct operating system (OS). See more OS tips below.
 
-If the R installation is successful a shortcut should have been created for easy access.  Click on that shortcut to open the R application.
+If the R installation is successful a desktop shortcut for R should appear.  Click on that shortcut to open the R application.
 
-## Open the R Graphical User Interface application ###
+## Opening the R Graphical User Interface application ###
 
 ### Windows environment 
 
-After selecting the mirror and correct OS, click on "base," and click on "Download R.#.#.#" 
+After selecting the CRAN mirror and correct OS, click on "base," and click on "Download R.#.#.#" 
 
-In organizations that require administrative rights to install software, it is possible to install R in the user's local storage without administrative rights.  You can find the **Rgui** executable in the tree which it was installed. Below are some examples of how this may look; click on RGui.exe to launch an R session.  If you will be using this application often, consider creating a shortcut on your desktop.
+In organizations that require administrative rights to install software, it is still possible to install R in the user's local storage without administrative rights.  You can find the **RGui** executable file in the directory in which it was installed. Below are some examples of how this may look; click on RGui.exe to launch an R session.  If you will be using this application often, consider creating a shortcut on your desktop.
 
 
 <img src="./inst/www/Ri386-image.PNG" width="600" align="center"/>
 
 <img src="./inst/www/Rx64-image.png" width="600" align="center"/>
 
-## R Console ##
+## Using the R Console ##
 
-In order to run the contact tracing application, you must copy and paste two commands into the R Console.  The R Console looks like the image below. It is here where you should write or paste the commands to install and run the VisitContactTrace application on your personal computer.
+In order to run the VisitContactTrace application, you must copy and paste two commands into the R Console.  The R Console looks like the image below. You should write or paste the commands here in order to to install and run the VisitContactTrace application on your computer.
 
 <img src="./inst/www/Rconsole-image.PNG" width="800" align="center"/>
 
 
 ## License
-**VisitContactTrace** is released under [GPLv3 license](https://www.gnu.org/licenses/gpl-3.0.en.html), please see the license in this GitHub repository for additional disclaimers on the usage of this application. 
+**VisitContactTrace** is released under [GPLv3 license](https://www.gnu.org/licenses/gpl-3.0.en.html). Please see the license in this GitHub repository for additional disclaimers on the usage of this application. 
 
 ## Acknowledgments
 
