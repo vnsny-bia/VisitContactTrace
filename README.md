@@ -84,7 +84,7 @@ The **VisitContactTracing** application recognizes the following data fields:
 
 \* Many users may work with data systems that store patient/staff name in two columns (first name & last name).  Those users should consider concatenating those columns prior to uploading the data into the application.
 
-The columns in the dataset can be in any particular order. However, PATIENT_NAME, STAFF_NAME, and VISIT_DATE are required columns and must be spelled exactly as specified. The VisitContactTrace application will ignore any columns names that do not exactly match those documented here. It is highly recommended that PATIENT_ID and STAFF_ID are derived from a data source that treats these fields as a unique key - i.e., that these columns uniquely identify a specific patient or staff member. When PATIENT_ID and STAFF_ID are provided, the application relies on the underlying integrity of these fields in order to produce accurate contact tracing. If either of these columns are not available, the application will use the PATIENT_NAME and STAFF_NAME columns to uniquely identify a patient and staff member, respectively. Thus, in the absence of PATIENT_ID and STAFF_ID columns users should be careful to address inconsistencies in spelling, use of upper- and lower- case letters, use of extraneous spaces, and the order of first and last names for the names contained in PATIENT_NAME and STAFF_NAME. For example, "Lillian Wald", "lillian wald", "Wald, Lillian", and "Lillian  Wald" (with 2 spaces between first and last name instead of one) would all be treated as different individuals. Similarly, "Hazel Johnson-Brown" and "Hazel Johnson Brown" (not hyphenated) would be treated as different individuals as well. 
+The columns in the dataset can be in any particular order. However, PATIENT_NAME, STAFF_NAME, and VISIT_DATE are required columns and must be spelled exactly as specified. The VisitContactTrace application will ignore any columns names that do not exactly match those documented here. It is highly recommended that PATIENT_ID and STAFF_ID are derived from a data source that treats these fields as a unique key - i.e., that these columns uniquely identify a specific patient or staff member. When PATIENT_ID and STAFF_ID are provided, the application relies on the underlying integrity of these fields in order to produce accurate contact tracing. If either of these columns are not available, the application will use the PATIENT_NAME and STAFF_NAME columns to uniquely identify a patient and staff member, respectively. Thus, in the absence of PATIENT_ID and STAFF_ID columns users should be careful to address inconsistencies in spelling, use of upper- and lower- case letters, use of extraneous spaces, and the order of first and last names for the names contained in PATIENT_NAME and STAFF_NAME. For example, "Lillian Wald", "lillian wald", "Wald, Lillian", and "Lillian  Wald" (with 2 spaces between first and last name instead of one) would all be treated as different individuals. Similarly, ["Hazel Johnson-Brown"](https://en.wikipedia.org/wiki/Hazel_Johnson-Brown) and "Hazel Johnson Brown" (not hyphenated) would be treated as different individuals as well. 
 
 ### Renaming data columns
 
@@ -95,30 +95,30 @@ The user interface for uploading data will raise an error if the user attempts t
 
 ## User Interface for Importing Data
 
-The following figure should be the welcome screen that appears as soon as the application opens.  Click on "Upload File" and browse to the dataset that you wish to import into the VisitContactTrace Application.  
+The following figure is the welcome screen that appears as soon as the application opens.  Click on "Upload File" and browse to the dataset that you wish to import into the VisitContactTrace application.  
 
 <img src="./inst/www/ct-welcome.PNG" width="400"  align="center"/>
 
 The "Review Data" button provides a preview of the data import and the ability to rename columns to the names defined in [data specifications](#dataspec). If column names and formats are correct, the "Submit Data" button will import the data into the application.  If not, the user will be notified of an error.
 
-**Try Out Demo Data** button allows you to experiment with the simulated dataset within the application.  
+The **Try Out Demo Data** button allows users to experiment with a simulated dataset within the application.  
 
 <img src="./inst/www/ct-preview.PNG" width="500"  align="center"/>
 
 ## Exit/Reload
 
-In the following figure, on the top right hand side, options exist to exit the application or reload the graphical user interface to upload data.  It is best to exit the applicaiton by clicking on "Exit" in this window, because that correctly closes the VisitContactTrace application from the R session. 
+In the top right-hand corner of the following figure, users can choose to exit the application or reload the user interface to upload data.  It is best to exit the application by clicking on "Exit" in this window, because this correctly closes the VisitContactTrace application from the R session. 
 
 ## Querying VisitContactTrace 
 
-This VisitContactTrace algorithm assumes that the user has identified an individual who should serve as the indexed individual in a contact tracing query.  
+When using the VisitContactTrace application, the user needs to identify an individual that serves as the "index" person in a contact tracing investigation.  
 
-Querying Parameter Instructions :
+Querying Parameter Instructions:
 
 * Choose whether you are starting with an index staff member or a patient by clicking the on the “Staff” or “Patient” tile. 
 * Choose the Staff ID (or Patient ID) of the index person. 
 * Choose the reference date. For example, this could be the date of symptom onset for the index person. 
-* Choose the number of days to look back from the reference date (e.g. the incubation period of the disease) and the number of days to look forward from the reference date.  Consult your organization's policies & procedures for specifc guidance regarding the use of index dates and tracing periods.
+* Choose the number of days to look back from the reference date (e.g. the incubation period of the disease) and the number of days to look forward from the reference date.  Consult your organization's policies & procedures for specific guidance regarding the use of index dates and tracing periods.
 
 **Click on the “run” button**
 
