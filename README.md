@@ -27,7 +27,7 @@ Learn more about VNSNY's COVID-19 response [here](https://www.vnsny.org/coronavi
       [Input Data](#inputdata)  
       [Data Specifications](#dataspec)     
 [Using the VisitContactTrace Application](#useapp)  
-      [Try VisitContactTrace with Demonstration Feature](#demodata)
+      [Try VisitContactTrace with Demonstration Feature](#demodata)  
       [Importing Data](#importdata)  
       [Exit/Reload data](#exitapp)  
       [Querying VisitContactTrace](#queryapp)  
