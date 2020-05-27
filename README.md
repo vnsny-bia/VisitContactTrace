@@ -10,7 +10,7 @@ This application is designed to conduct contact tracing on healthcare encounter 
 
 * conduct visit-based contact tracing of the primary, secondary, and tertiary contacts of an "index" patient or visit staff member whose disease status is known to the user.
 
-This application **does not suggest causality** or confirm disease transmission routes.  Rather, it provides a means to explore how infectious disease may spread expotentially among patients and visit staff if precautions are not put into place in a visit-based service delivery model such as a community-based healthcare setting.
+This application **does not suggest causality** or confirm disease transmission routes.  Rather, it provides a means to explore how infectious disease may spread exponentially among patients and visit staff if precautions are not put into place in a visit-based service delivery model such as a community-based healthcare setting.
 
 <img src="./inst/www/VNSNYCT-hexsticker.png" width="150" align="right"/>
 
@@ -70,7 +70,7 @@ The VisitContactTrace will not produce accurate results if there are any data in
 
 
   
-The **VisitContactTracing** application recognizes the following data fields:
+The **VisitContactTrace** application recognizes the following data fields:
 
 | Column Name | Format | Required | Description |
 | --------------- | --------------- | --------------- |----------------------------------------------------------------------------|
@@ -84,11 +84,11 @@ The **VisitContactTracing** application recognizes the following data fields:
 
 \* Many users may work with data systems that store patient/staff name in two columns (first name & last name).  Those users should consider concatenating those columns prior to uploading the data into the application.
 
-The columns in the dataset can be in any particular order. However, PATIENT_NAME, STAFF_NAME, and VISIT_DATE are required columns and must be spelled exactly as specified. The VisitContactTrace application will ignore any columns names that do not exactly match those documented here. It is highly recommended that PATIENT_ID and STAFF_ID are derived from a data source that treats these fields as a unique key - i.e., that these columns uniquely identify a specific patient or staff member. When PATIENT_ID and STAFF_ID are provided, the application relies on the underlying integrity of these fields in order to produce accurate contact tracing. If either of these columns are not available, the application will use the PATIENT_NAME and STAFF_NAME columns to uniquely identify a patient and staff member, respectively. Thus, in the absence of PATIENT_ID and STAFF_ID columns users should be careful to address inconsistencies in spelling, use of upper- and lower- case letters, use of extraneous spaces, and the order of first and last names for the names contained in PATIENT_NAME and STAFF_NAME. For example, "Lillian Wald", "lillian wald", "Wald, Lillian", and "Lillian  Wald" (with 2 spaces between first and last name instead of one) would all be treated as different individuals. Similarly, ["Hazel Johnson-Brown"](https://en.wikipedia.org/wiki/Hazel_Johnson-Brown) and "Hazel Johnson Brown" (not hyphenated) would be treated as different individuals as well. 
+The columns in the dataset can be in any order. However, PATIENT_NAME, STAFF_NAME, and VISIT_DATE are required columns and must be spelled exactly as specified. The VisitContactTrace application will ignore any columns names that do not exactly match those documented here. It is highly recommended that PATIENT_ID and STAFF_ID are derived from a data source that treats these fields as a unique key - i.e., that these columns uniquely identify a specific patient or staff member. When PATIENT_ID and STAFF_ID are provided, the application relies on the underlying integrity of these fields in order to produce accurate contact tracing. If either of these columns are not available, the application will use the PATIENT_NAME and STAFF_NAME columns to uniquely identify a patient and staff member, respectively. Thus, in the absence of PATIENT_ID and STAFF_ID columns users should be careful to address inconsistencies in spelling, use of upper- and lower- case letters, use of extraneous spaces, and the order of first and last names for the names contained in PATIENT_NAME and STAFF_NAME. For example, "Lillian Wald", "lillian wald", "Wald, Lillian", and "Lillian  Wald" (with 2 spaces between first and last name instead of one) would all be treated as different individuals. Similarly, ["Hazel Johnson-Brown"](https://en.wikipedia.org/wiki/Hazel_Johnson-Brown) and "Hazel Johnson Brown" (not hyphenated) would be treated as different individuals as well. 
 
 ### Renaming data columns
 
-The user interface for uploading data will raise an error if the user attempts to submit a data file without the required columns.The user interface allows users the option to rename columns with the correct spelling.  
+The user interface for uploading data will raise an error if the user attempts to submit a data file without the required columns. The user interface allows users the option to rename columns with the correct spelling.  
 
 
 # Using the Application
@@ -197,7 +197,7 @@ In organizations that require administrative rights to install software, it is s
 
 ## Using the R Console ##
 
-In order to run the VisitContactTrace application, you must copy and paste two commands into the R Console.  The R Console looks like the image below. You should write or paste the commands here in order to to install and run the VisitContactTrace application on your computer.
+In order to run the VisitContactTrace application, you must copy and paste two commands into the R Console.  The R Console looks like the image below. You should write or paste the commands here in order to install and run the VisitContactTrace application on your computer.
 
 <img src="./inst/www/Rconsole-image.PNG" width="800" align="center"/>
 
