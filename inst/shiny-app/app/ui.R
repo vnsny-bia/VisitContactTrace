@@ -196,7 +196,7 @@ body <- dashboardBody(
                                                  label = "Run",
                                                  style = "material-flat",size = 'sm'
                                                )
-                                           ),
+                                           ),tags$br(),
                                            div(id="verbtext",fluidRow(verbatimTextOutput('visit_date_rng',placeholder = F))),
                                            tags$head(
                                              tags$style(
@@ -435,7 +435,7 @@ body <- dashboardBody(
                                                  label = "Run",
                                                  style = "material-flat",size = 'sm'
                                                )
-                                           ),
+                                           ),tags$br(),
                                            div(id="verbtext_1",fluidRow(verbatimTextOutput('visit_date_rng_1',placeholder = F))),
                                            
                                            tags$head(
