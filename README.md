@@ -87,7 +87,7 @@ The VisitContactTrace application will not produce accurate results if there are
   * Do not aggregate data from several days into one row.
   * Only use one row to represent a unique patient/staff/date combination. If a staff member visited the same patient several times during the same day, the dataset should have only one row to represent those same-day visits.
   * Exclude telephonic or telemedicine "visits" or encounters.
-* Keep in mind the range of visit dates included in your dataset when you use use the application.
+* Keep in mind the range of visit dates included in your dataset when you use the application.
   * For example, if you load a dataset that contains visits from April 2020, then VisitContactTrace will only return results that apply to April 2020 and will not be able to return results about visits from March 2020 or May 2020.
 
 There may be other precautions necessary that the authors of VisitContactTrace have not anticipated.  Please be thoughtful about other considerations relevant to your organization when uploading a dataset into the application.
