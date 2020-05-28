@@ -94,15 +94,60 @@ There may be other precautions necessary that the authors of VisitContactTrace h
   
 The **VisitContactTrace** application recognizes the following data fields:
 
-| Column Name | Format | Required | Description |
-| --------------- | --------------- | --------------- |----------------------------------------------------------------------------|
-| PATIENT_ID | Character | FALSE | Unique identifier of patient.  If this column is absent, **PATIENT_NAME** is used instead. |
-| PATIENT_NAME | Character | TRUE | First and last name of patient.* If the **PATIENT_ID** column is absent, this column is used as the unique identifier for patients. |
-| VISIT_DATE | DATE | TRUE | The date that a visit staff member visits a patient. Acceptable date formats include '2004-03-21 12:45:33.123456', '2004/03/21 12:45:33.123456', '20040321 124533.123456', '03/21/2004 12:45:33.123456', '03-21-2004 12:45:33.123456', '2004-03-21', '20040321', '03/21/2004', '03-21-2004', '20010101' |
-| STAFF_ID | Character | FALSE | Unique ID for visit staff member.  If this column is absent, **STAFF_NAME** is used instead. |
-| STAFF_NAME | Character | TRUE | First and last name of visit staff member*. If the **STAFF_ID** column is absent, this column is used as the unique identifier for visit staff members. |
-| PATIENT_STATUS | Character | FALSE |  Labels used to indicate a status for each **patient**, such as confirmation of an infectious disease or some other status (e.g. "POSITIVE", "NEGATIVE", "SUSPECTED").  This label is case-sensitive (meaning that "Positive", "positive", and "POSITIVE" are all considered different statuses) and must be applied to all applicable visit observations for the **patient**.  See the Output - Plot section to learn how the application uses this column. |
-| STAFF_STATUS | Character | FALSE |  Labels used to indicate a status for each **staff member**, such as confirmation of an infectious disease or some other status (e.g. "POSITIVE", "NEGATIVE", "SUSPECTED").  This label is case-sensitive (meaning that "Positive", "positive", and "POSITIVE" are all considered different statuses) and must be applied to all applicable visit observations for the **staff member**.  See the Output - Plot section to learn how the application uses this column. |
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Column Name</th>
+<th>Format</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PATIENT_ID</td>
+<td>Character</td>
+<td>FALSE</td>
+<td>Unique identifier of patient.  If this column is absent, <strong>PATIENT_NAME</strong> is used instead.</td>
+</tr>
+<tr>
+<td>PATIENT_NAME</td>
+<td>Character</td>
+<td>TRUE</td>
+<td>First and last name of patient.* If the <strong>PATIENT_ID</strong> column is absent, this column is used as the unique identifier for patients.</td>
+</tr>
+<tr>
+<td>VISIT_DATE</td>
+<td>DATE</td>
+<td>TRUE</td>
+<td>The date that a visit staff member visits a patient. Acceptable date formats include ‘2004-03-21 12:45:33.123456’, ‘2004/03/21 12:45:33.123456’, ‘20040321 124533.123456’, ‘03/21/2004 12:45:33.123456’, ‘03-21-2004 12:45:33.123456’, ‘2004-03-21’, ‘20040321’, ‘03/21/2004’, ‘03-21-2004’, ‘20010101’</td>
+</tr>
+<tr>
+<td>STAFF_ID</td>
+<td>Character</td>
+<td>FALSE</td>
+<td>Unique ID for visit staff member.  If this column is absent, <strong>STAFF_NAME</strong> is used instead.</td>
+</tr>
+<tr>
+<td>STAFF_NAME</td>
+<td>Character</td>
+<td>TRUE</td>
+<td>First and last name of visit staff member*. If the <strong>STAFF_ID</strong> column is absent, this column is used as the unique identifier for visit staff members.</td>
+</tr>
+<tr>
+<td>PATIENT_STATUS</td>
+<td>Character</td>
+<td>FALSE</td>
+<td>Labels used to indicate a status for each <strong>patient</strong>, such as confirmation of an infectious disease or some other status (e.g. “POSITIVE”, “NEGATIVE”, “SUSPECTED”).  This label is case-sensitive (meaning that “Positive”, “positive”, and “POSITIVE” are all considered different statuses) and must be applied to all applicable visit observations for the <strong>patient</strong>.  See the Output - Plot section to learn how the application uses this column.</td>
+</tr>
+<tr>
+<td>STAFF_STATUS</td>
+<td>Character</td>
+<td>FALSE</td>
+<td>Labels used to indicate a status for each <strong>staff member</strong>, such as confirmation of an infectious disease or some other status (e.g. “POSITIVE”, “NEGATIVE”, “SUSPECTED”).  This label is case-sensitive (meaning that “Positive”, “positive”, and “POSITIVE” are all considered different statuses) and must be applied to all applicable visit observations for the <strong>staff member</strong>.  See the Output - Plot section to learn how the application uses this column.</td>
+</tr>
+</tbody>
+</table>
 
 \* Many users may work with data systems that store patient/staff name in two columns (first name & last name).  Those users should consider concatenating those columns prior to uploading the data into the application.
 
