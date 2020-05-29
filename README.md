@@ -136,7 +136,7 @@ The "Review Data" button provides a preview of the data import and the ability t
 
 ## Querying VisitContactTrace <a name="queryapp"></a>
 
-When using the VisitContactTrace application, the user needs to identify an individual that serves as the "index" person in a contact tracing investigation.  This application assumes the user has a list of individuals to contact trace apriori and does not inform the user which individuals to contact trace.  These options are available as different tabs in the top of the screenshot displayed below.
+When using the VisitContactTrace application, the user needs to identify an individual that serves as the “index” person in a contact tracing investigation. This application was designed assuming that the user has a list of individuals (patients and/or staff members) to conduct contact tracing on; the application itself does not inform the user as to which individuals need contact tracing.
 
 Querying Parameter Instructions:
 
