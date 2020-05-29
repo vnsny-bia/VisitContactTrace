@@ -124,8 +124,12 @@ server = function(input, output,session) {
 
   #_1.5 Read Data logic using Upload button -----
 
-  volumes <- c(Home = fs::path_home(), "R Installation" = R.home(), getVolumes()())
-
+  if(.Platform$OS.type == "windows"){
+    volumes <- c(Home = file.path(Sys.getenv("USERPROFILE"),"Desktop"), "R Installation" = R.home(), getVolumes()())
+  } else {
+    volumes <- c(Home = fs::path_home(), "R Installation" = R.home(), getVolumes()())
+    
+  }
 
   shinyFileChoose(input, 'file', roots=volumes, filetypes=c('csv','xlsx'))
 
