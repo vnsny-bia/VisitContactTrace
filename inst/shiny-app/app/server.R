@@ -340,10 +340,10 @@ server = function(input, output,session) {
   },ignoreInit = T)
 
 
-
+  
   observeEvent(input$submit,{
-
-
+    
+    
     req(rv_data$df)
     
     data <- rv_data$df
@@ -352,10 +352,10 @@ server = function(input, output,session) {
     
     req_col <- c('patient_name','staff_name','visit_date')
     col_diff <- setdiff(req_col,tolower(names(data)))
-
+    
     if(length(col_diff)!=0){
       col_diff <- paste0(col_diff,collapse = ", ")
-
+      
       sendSweetAlert(
         session = session,
         title = "Error !!",
@@ -364,162 +364,221 @@ server = function(input, output,session) {
       )
     } else {
       if(all(!(c("patient_id","staff_id") %in% names(data)))){
-        setDT(data)
-        data[,visit_date:=anytime::anydate(visit_date)]
-        data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
         
-        data[,patient_id:=paste0(patient_name)]
-        data[,staff_id:=paste0(staff_name)]
-        withProgress(message = 'Calculation in progress',
-                     detail = 'This may take a while...', value = 10, {
-                       updatePickerInput(session,inputId = "clinic_id", label = "Staff ID :",
-                                         choices = sort(c(unique(paste0(gsub('clin_','',data$staff_id)))))
-
-                       )
-                       updatePickerInput(session, inputId = "ref_date_id", label = "Reference Date :",
-                                         choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days")))),'Nothing Selected'),
-                                         
-                       )
-                       updatePickerInput(session,inputId = "patient_id", label = "Patient ID :",
-                                         choices = sort(c(unique(paste0(data$patient_id))))
-
-                       )
-                       updatePickerInput(session, inputId = "ref_date_id_1", label = "Reference Date :",
-                                         choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days")))),'Nothing Selected'),
-                                         
-                       )
-
-
-
-                     })
-        removeModal()
-
-        sendSweetAlert(
-          session = session,
-          title = "Success",
-          text = "File successfully uploaded.",
-          type = "success"
-        )
-
-
+        setDT(data)
+        
+        visit_date_error <- try(data[,visit_date:=anytime::assertDate(visit_date)],silent = T)
+        
+        if(class(visit_date_error)=="try-error"){
+          sendSweetAlert(
+            session = session,
+            title = "Error !!",
+            text = "Check your visit_date column.",
+            type = "error"
+          )
+          
+          
+        } else {
+          
+          data[,visit_date:=anytime::anydate(visit_date)]
+          data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
+          
+          data[,patient_id:=paste0(patient_name)]
+          data[,staff_id:=paste0(staff_name)]
+          withProgress(message = 'Calculation in progress',
+                       detail = 'This may take a while...', value = 10, {
+                         updatePickerInput(session,inputId = "clinic_id", label = "Staff ID :",
+                                           choices = sort(c(unique(paste0(gsub('clin_','',data$staff_id)))))
+                                           
+                         )
+                         updatePickerInput(session, inputId = "ref_date_id", label = "Reference Date :",
+                                           choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days"))))),
+                                           
+                         )
+                         updatePickerInput(session,inputId = "patient_id", label = "Patient ID :",
+                                           choices = sort(c(unique(paste0(data$patient_id))))
+                                           
+                         )
+                         updatePickerInput(session, inputId = "ref_date_id_1", label = "Reference Date :",
+                                           choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days"))))),
+                                           
+                         )
+                         
+                         
+                         
+                       })
+          removeModal()
+          
+          sendSweetAlert(
+            session = session,
+            title = "Success",
+            text = "File successfully uploaded.",
+            type = "success"
+          )
+          
+        }
+        
       } else if(!("patient_id" %in% names(data))){
         setDT(data)
-        data[,visit_date:=anytime::anydate(visit_date)]
-        data[,patient_id:=paste0(patient_name)]
-        data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
         
-        withProgress(message = 'Calculation in progress',
-                     detail = 'This may take a while...', value = 10, {
-                       updatePickerInput(session,inputId = "clinic_id", label = "Staff ID :",
-                                         choices = sort(c(unique(paste0(data$staff_name,': ',gsub('clin_','',data$staff_id)))))
-
-                       )
-                       updatePickerInput(session, inputId = "ref_date_id", label = "Reference Date :",
-                                         choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days")))),'Nothing Selected'),
-                                         
-                       )
-                       updatePickerInput(session,inputId = "patient_id", label = "Patient ID :",
-                                         choices = sort(c(unique(paste0(data$patient_id))))
-
-                       )
-                       updatePickerInput(session, inputId = "ref_date_id_1", label = "Reference Date :",
-                                         choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days")))),'Nothing Selected'),
-                                         
-                       )
-
-
-
-                     })
-        removeModal()
-
-        sendSweetAlert(
-          session = session,
-          title = "Success",
-          text = "File successfully uploaded.",
-          type = "success"
-        )
+        visit_date_error <- try(data[,visit_date:=anytime::assertDate(visit_date)],silent = T)
+        
+        if(class(visit_date_error)=="try-error"){
+          sendSweetAlert(
+            session = session,
+            title = "Error !!",
+            text = "Check your visit_date column.",
+            type = "error"
+          )
+          
+        } else {
+          
+          data[,visit_date:=anytime::anydate(visit_date)]
+          data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
+          
+          data[,patient_id:=paste0(patient_name)]
+          
+          withProgress(message = 'Calculation in progress',
+                       detail = 'This may take a while...', value = 10, {
+                         updatePickerInput(session,inputId = "clinic_id", label = "Staff ID :",
+                                           choices = sort(c(unique(paste0(data$staff_name,': ',gsub('clin_','',data$staff_id)))))
+                                           
+                         )
+                         updatePickerInput(session, inputId = "ref_date_id", label = "Reference Date :",
+                                           choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days"))))),
+                                           
+                         )
+                         updatePickerInput(session,inputId = "patient_id", label = "Patient ID :",
+                                           choices = sort(c(unique(paste0(data$patient_id))))
+                                           
+                         )
+                         updatePickerInput(session, inputId = "ref_date_id_1", label = "Reference Date :",
+                                           choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days"))))),
+                                           
+                         )
+                         
+                         
+                         
+                       })
+          removeModal()
+          
+          sendSweetAlert(
+            session = session,
+            title = "Success",
+            text = "File successfully uploaded.",
+            type = "success"
+          )
+          
+        }
+        
       } else if(!('staff_id' %in% names(data))){
         setDT(data)
-        data[,visit_date:=anytime::anydate(visit_date)]
-        data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
+        visit_date_error <- try(data[,visit_date:=anytime::assertDate(visit_date)],silent = T)
         
-        data[,staff_id:=paste0(staff_name)]
-
-        withProgress(message = 'Calculation in progress',
-                     detail = 'This may take a while...', value = 10, {
-                       updatePickerInput(session,inputId = "clinic_id", label = "Staff ID :",
-                                         choices = sort(c(unique(paste0(gsub('clin_','',data$staff_id)))))
-
-                       )
-                       updatePickerInput(session, inputId = "ref_date_id", label = "Reference Date :",
-                                         choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days")))),'Nothing Selected'),
-                                         
-                       )
-                       updatePickerInput(session,inputId = "patient_id", label = "Patient ID :",
-                                         choices = sort(c(unique(paste0(data$patient_name,': ',data$patient_id))))
-
-                       )
-                       updatePickerInput(session, inputId = "ref_date_id_1", label = "Reference Date :",
-                                         choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days")))),'Nothing Selected'),
-                                         
-                       )
-
-
-
-                     })
-        removeModal()
-
-        sendSweetAlert(
-          session = session,
-          title = "Success",
-          text = "File successfully uploaded.",
-          type = "success"
-        )
-
+        if(class(visit_date_error)=="try-error"){
+          sendSweetAlert(
+            session = session,
+            title = "Error !!",
+            text = "Check your visit_date column.",
+            type = "error"
+          )
+          
+        } else {
+          data[,visit_date:=anytime::anydate(visit_date)]
+          data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
+          data[,staff_id:=paste0(staff_name)]
+          
+          withProgress(message = 'Calculation in progress',
+                       detail = 'This may take a while...', value = 10, {
+                         updatePickerInput(session,inputId = "clinic_id", label = "Staff ID :",
+                                           choices = sort(c(unique(paste0(gsub('clin_','',data$staff_id)))))
+                                           
+                         )
+                         updatePickerInput(session, inputId = "ref_date_id", label = "Reference Date :",
+                                           choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days"))))),
+                                           
+                         )
+                         updatePickerInput(session,inputId = "patient_id", label = "Patient ID :",
+                                           choices = sort(c(unique(paste0(data$patient_name,': ',data$patient_id))))
+                                           
+                         )
+                         updatePickerInput(session, inputId = "ref_date_id_1", label = "Reference Date :",
+                                           choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days"))))),
+                                           
+                         )
+                         
+                         
+                         
+                       })
+          removeModal()
+          
+          sendSweetAlert(
+            session = session,
+            title = "Success",
+            text = "File successfully uploaded.",
+            type = "success"
+          )
+        }
+        
       }else {
-        data[,visit_date:=anytime::anydate(visit_date)]
-        data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
-        
-        withProgress(message = 'Calculation in progress',
-                     detail = 'This may take a while...', value = 10, {
-                       updatePickerInput(session,inputId = "clinic_id", label = "Staff ID :",
-                                         choices = sort(c(unique(paste0(data$staff_name,': ',gsub('clin_','',data$staff_id)))))
+        setDT(data)
+        visit_date_error <- try(data[,visit_date:=anytime::assertDate(visit_date)],silent = T)
 
-                       )
-                       updatePickerInput(session, inputId = "ref_date_id", label = "Reference Date :",
-                                         choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days")))),'Nothing Selected'),
-                                         
-                       )
-                       updatePickerInput(session,inputId = "patient_id", label = "Patient ID :",
-                                         choices = sort(c(unique(paste0(data$patient_name,': ',data$patient_id))))
-
-                       )
-                       updatePickerInput(session, inputId = "ref_date_id_1", label = "Reference Date :",
-                                         choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days")))),'Nothing Selected'),
-                                         
-                       )
-
-
-
-                     })
-        removeModal()
-
-        sendSweetAlert(
-          session = session,
-          title = "Success",
-          text = "File successfully uploaded.",
-          type = "success"
-        )
+        if(class(visit_date_error)=="try-error"){
+          sendSweetAlert(
+            session = session,
+            title = "Error !!",
+            text = "Check your visit_date column.",
+            type = "error"
+          )
+          
+        } else {
+          
+          data[,visit_date:=anytime::anydate(visit_date)]
+          data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
+          
+          withProgress(message = 'Calculation in progress',
+                       detail = 'This may take a while...', value = 10, {
+                         updatePickerInput(session,inputId = "clinic_id", label = "Staff ID :",
+                                           choices = sort(c(unique(paste0(data$staff_name,': ',gsub('clin_','',data$staff_id)))))
+                                           
+                         )
+                         updatePickerInput(session, inputId = "ref_date_id", label = "Reference Date :",
+                                           choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days"))))),
+                                           
+                         )
+                         updatePickerInput(session,inputId = "patient_id", label = "Patient ID :",
+                                           choices = sort(c(unique(paste0(data$patient_name,': ',data$patient_id))))
+                                           
+                         )
+                         updatePickerInput(session, inputId = "ref_date_id_1", label = "Reference Date :",
+                                           choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days"))))),
+                                           
+                         )
+                         
+                         
+                         
+                       })
+          removeModal()
+          
+          sendSweetAlert(
+            session = session,
+            title = "Success",
+            text = "File successfully uploaded.",
+            type = "success"
+          )
+          
+        }
       }
     } #End Else part main if condition
   },ignoreInit = T)
-
-
+  
+  
   #_1.10 observeEvent for initial submit button -----
-
+  
   observeEvent(input$submit_init,{
-
-
+    
+    
     data <- dt_read()
     names(data) <- tolower(names(data))
     data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
@@ -530,7 +589,7 @@ server = function(input, output,session) {
     
     if(length(col_diff)!=0){
       col_diff <- paste0(col_diff,collapse = ", ")
-
+      
       sendSweetAlert(
         session = session,
         title = "Error !!",
@@ -539,158 +598,216 @@ server = function(input, output,session) {
       )
     } else {
       if(all(!(c("patient_id","staff_id") %in% names(data)))){
-        setDT(data)
-        data[,visit_date:=anytime::anydate(visit_date)]
-        data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
         
-        data[,patient_id:=paste0(patient_name)]
-        data[,staff_id:=paste0(staff_name)]
-        withProgress(message = 'Calculation in progress',
-                     detail = 'This may take a while...', value = 10, {
-                       updatePickerInput(session,inputId = "clinic_id", label = "Staff ID :",
-                                         choices = sort(c(unique(paste0(gsub('clin_','',data$staff_id)))))
-
-                       )
-                       updatePickerInput(session, inputId = "ref_date_id", label = "Reference Date :",
-                                         choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days")))),'Nothing Selected'),
-                                         
-                       )
-                       updatePickerInput(session,inputId = "patient_id", label = "Patient ID :",
-                                         choices = sort(c(unique(paste0(data$patient_id))))
-
-                       )
-                       updatePickerInput(session, inputId = "ref_date_id_1", label = "Reference Date :",
-                                         choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days")))),'Nothing Selected'),
-                                         
-                       )
-
-
-
-                     })
-        removeModal()
-
-        sendSweetAlert(
-          session = session,
-          title = "Success",
-          text = "File successfully uploaded.",
-          type = "success"
-        )
-
-
+        setDT(data)
+        
+        visit_date_error <- try(data[,visit_date:=anytime::assertDate(visit_date)],silent = T)
+        
+        if(class(visit_date_error)=="try-error"){
+          sendSweetAlert(
+            session = session,
+            title = "Error !!",
+            text = "Check your visit_date column.",
+            type = "error"
+          )
+          
+          
+        } else {
+          
+          data[,visit_date:=anytime::anydate(visit_date)]
+          data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
+          
+          data[,patient_id:=paste0(patient_name)]
+          data[,staff_id:=paste0(staff_name)]
+          withProgress(message = 'Calculation in progress',
+                       detail = 'This may take a while...', value = 10, {
+                         updatePickerInput(session,inputId = "clinic_id", label = "Staff ID :",
+                                           choices = sort(c(unique(paste0(gsub('clin_','',data$staff_id)))))
+                                           
+                         )
+                         updatePickerInput(session, inputId = "ref_date_id", label = "Reference Date :",
+                                           choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days"))))),
+                                           
+                         )
+                         updatePickerInput(session,inputId = "patient_id", label = "Patient ID :",
+                                           choices = sort(c(unique(paste0(data$patient_id))))
+                                           
+                         )
+                         updatePickerInput(session, inputId = "ref_date_id_1", label = "Reference Date :",
+                                           choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days"))))),
+                                           
+                         )
+                         
+                         
+                         
+                       })
+          removeModal()
+          
+          sendSweetAlert(
+            session = session,
+            title = "Success",
+            text = "File successfully uploaded.",
+            type = "success"
+          )
+          
+        }
+        
       } else if(!("patient_id" %in% names(data))){
         setDT(data)
-        data[,visit_date:=anytime::anydate(visit_date)]
-        data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
         
-        data[,patient_id:=paste0(patient_name)]
-
-        withProgress(message = 'Calculation in progress',
-                     detail = 'This may take a while...', value = 10, {
-                       updatePickerInput(session,inputId = "clinic_id", label = "Staff ID :",
-                                         choices = sort(c(unique(paste0(data$staff_name,': ',gsub('clin_','',data$staff_id)))))
-
-                       )
-                       updatePickerInput(session, inputId = "ref_date_id", label = "Reference Date :",
-                                         choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days")))),'Nothing Selected'),
-                                         
-                       )
-                       updatePickerInput(session,inputId = "patient_id", label = "Patient ID :",
-                                         choices = sort(c(unique(paste0(data$patient_id))))
-
-                       )
-                       updatePickerInput(session, inputId = "ref_date_id_1", label = "Reference Date :",
-                                         choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days")))),'Nothing Selected'),
-                                         
-                       )
-
-
-
-                     })
-        removeModal()
-
-        sendSweetAlert(
-          session = session,
-          title = "Success",
-          text = "File successfully uploaded.",
-          type = "success"
-        )
+        visit_date_error <- try(data[,visit_date:=anytime::assertDate(visit_date)],silent = T)
+        
+        if(class(visit_date_error)=="try-error"){
+          sendSweetAlert(
+            session = session,
+            title = "Error !!",
+            text = "Check your visit_date column.",
+            type = "error"
+          )
+          
+        } else {
+          
+          data[,visit_date:=anytime::anydate(visit_date)]
+          data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
+          
+          data[,patient_id:=paste0(patient_name)]
+          
+          withProgress(message = 'Calculation in progress',
+                       detail = 'This may take a while...', value = 10, {
+                         updatePickerInput(session,inputId = "clinic_id", label = "Staff ID :",
+                                           choices = sort(c(unique(paste0(data$staff_name,': ',gsub('clin_','',data$staff_id)))))
+                                           
+                         )
+                         updatePickerInput(session, inputId = "ref_date_id", label = "Reference Date :",
+                                           choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days"))))),
+                                           
+                         )
+                         updatePickerInput(session,inputId = "patient_id", label = "Patient ID :",
+                                           choices = sort(c(unique(paste0(data$patient_id))))
+                                           
+                         )
+                         updatePickerInput(session, inputId = "ref_date_id_1", label = "Reference Date :",
+                                           choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days"))))),
+                                           
+                         )
+                         
+                         
+                         
+                       })
+          removeModal()
+          
+          sendSweetAlert(
+            session = session,
+            title = "Success",
+            text = "File successfully uploaded.",
+            type = "success"
+          )
+          
+        }
+        
       } else if(!('staff_id' %in% names(data))){
         setDT(data)
-        data[,visit_date:=anytime::anydate(visit_date)]
-        data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
-        print(data$visit_date[1:5])
-        data[,staff_id:=paste0(staff_name)]
-
-        withProgress(message = 'Calculation in progress',
-                     detail = 'This may take a while...', value = 10, {
-                       updatePickerInput(session,inputId = "clinic_id", label = "Staff ID :",
-                                         choices = sort(c(unique(paste0(gsub('clin_','',data$staff_id)))))
-
-                       )
-                       updatePickerInput(session, inputId = "ref_date_id", label = "Reference Date :",
-                                         choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days")))),'Nothing Selected'),
-                                         
-                       )
-                       updatePickerInput(session,inputId = "patient_id", label = "Patient ID :",
-                                         choices = sort(c(unique(paste0(data$patient_name,': ',data$patient_id))))
-
-                       )
-                       updatePickerInput(session, inputId = "ref_date_id_1", label = "Reference Date :",
-                                         choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days")))),'Nothing Selected'),
-                                         
-                       )
-
-
-
-                     })
-        removeModal()
-
-        sendSweetAlert(
-          session = session,
-          title = "Success",
-          text = "File successfully uploaded.",
-          type = "success"
-        )
-
-      }else {
-        data[,visit_date:=anytime::anydate(visit_date)]
-        data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
+        visit_date_error <- try(data[,visit_date:=anytime::assertDate(visit_date)],silent = T)
         
-        withProgress(message = 'Calculation in progress',
-                     detail = 'This may take a while...', value = 10, {
-                       updatePickerInput(session,inputId = "clinic_id", label = "Staff ID :",
-                                         choices = sort(c(unique(paste0(data$staff_name,': ',gsub('clin_','',data$staff_id)))))
+        if(class(visit_date_error)=="try-error"){
+          sendSweetAlert(
+            session = session,
+            title = "Error !!",
+            text = "Check your visit_date column.",
+            type = "error"
+          )
+          
+        } else {
+          data[,visit_date:=anytime::anydate(visit_date)]
+          data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
+          data[,staff_id:=paste0(staff_name)]
+          
+          withProgress(message = 'Calculation in progress',
+                       detail = 'This may take a while...', value = 10, {
+                         updatePickerInput(session,inputId = "clinic_id", label = "Staff ID :",
+                                           choices = sort(c(unique(paste0(gsub('clin_','',data$staff_id)))))
+                                           
+                         )
+                         updatePickerInput(session, inputId = "ref_date_id", label = "Reference Date :",
+                                           choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days"))))),
+                                           
+                         )
+                         updatePickerInput(session,inputId = "patient_id", label = "Patient ID :",
+                                           choices = sort(c(unique(paste0(data$patient_name,': ',data$patient_id))))
+                                           
+                         )
+                         updatePickerInput(session, inputId = "ref_date_id_1", label = "Reference Date :",
+                                           choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days"))))),
+                                           
+                         )
+                         
+                         
+                         
+                       })
+          removeModal()
+          
+          sendSweetAlert(
+            session = session,
+            title = "Success",
+            text = "File successfully uploaded.",
+            type = "success"
+          )
+        }
+        
+      }else {
+        setDT(data)
+        visit_date_error <- try(data[,visit_date:=anytime::assertDate(visit_date)],silent = T)
 
-                       )
-                       updatePickerInput(session, inputId = "ref_date_id", label = "Reference Date :",
-                                         choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days")))),'Nothing Selected'),
-                                         
-                       )
-                       updatePickerInput(session,inputId = "patient_id", label = "Patient ID :",
-                                         choices = sort(c(unique(paste0(data$patient_name,': ',data$patient_id))))
-
-                       )
-                       updatePickerInput(session, inputId = "ref_date_id_1", label = "Reference Date :",
-                                         choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days")))),'Nothing Selected'),
-                                         
-                       )
-
-
-
-                     })
-        removeModal()
-
-        sendSweetAlert(
-          session = session,
-          title = "Success",
-          text = "File successfully uploaded.",
-          type = "success"
-        )
+        if(class(visit_date_error)=="try-error"){
+          sendSweetAlert(
+            session = session,
+            title = "Error !!",
+            text = "Check your visit_date column.",
+            type = "error"
+          )
+          
+        } else {
+          
+          data[,visit_date:=anytime::anydate(visit_date)]
+          data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
+          
+          withProgress(message = 'Calculation in progress',
+                       detail = 'This may take a while...', value = 10, {
+                         updatePickerInput(session,inputId = "clinic_id", label = "Staff ID :",
+                                           choices = sort(c(unique(paste0(data$staff_name,': ',gsub('clin_','',data$staff_id)))))
+                                           
+                         )
+                         updatePickerInput(session, inputId = "ref_date_id", label = "Reference Date :",
+                                           choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days"))))),
+                                           
+                         )
+                         updatePickerInput(session,inputId = "patient_id", label = "Patient ID :",
+                                           choices = sort(c(unique(paste0(data$patient_name,': ',data$patient_id))))
+                                           
+                         )
+                         updatePickerInput(session, inputId = "ref_date_id_1", label = "Reference Date :",
+                                           choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days"))))),
+                                           
+                         )
+                         
+                         
+                         
+                       })
+          removeModal()
+          
+          sendSweetAlert(
+            session = session,
+            title = "Success",
+            text = "File successfully uploaded.",
+            type = "success"
+          )
+          
+        }
       }
     } #End Else part main if condition
   },ignoreInit = T)
-
-
+  
+  
 
   #_1.11 observeEvent to change tab using updateTabItems  -----
 
@@ -767,8 +884,7 @@ server = function(input, output,session) {
     data[,visit_date:=anytime::anydate(visit_date)]
     data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
     
-    print(as.Date(input$ref_date_id)- min(as.Date(data$visit_date)))
-    
+
     updatePickerInput(session, inputId = "days_frwd_id", label = "# of Days to Look forward :",
                       choices = c(as.character(seq(0, (as.numeric(Sys.Date() - as.Date(input$ref_date_id))),1))),
                       selected=ifelse("7" %in% as.character(seq(0, (as.numeric(Sys.Date() - as.Date(input$ref_date_id))),1)),"7","0"),
