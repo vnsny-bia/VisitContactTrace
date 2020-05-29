@@ -138,9 +138,9 @@ server = function(input, output,session) {
         system(paste0("setfacl -m u:rstudio-connect:rwx ", inFile$datapath))
         dt <- read.csv(as.character(inFile$datapath),stringsAsFactors = F)
         setDT(dt)
-        names(dt) <- tolower(names(dt))
-        dt[,visit_date:=anytime::anydate(visit_date)]
-        dt[, (colnames(dt)) := lapply(.SD, as.character), .SDcols = colnames(dt)]
+        # names(dt) <- tolower(names(dt))
+        # dt[,visit_date:=anytime::anydate(visit_date)]
+        # dt[, (colnames(dt)) := lapply(.SD, as.character), .SDcols = colnames(dt)]
 
 
 
@@ -158,9 +158,10 @@ server = function(input, output,session) {
 
         dt <- readxl::read_xlsx(as.character(a))
         setDT(dt)
-        names(dt) <- tolower(names(dt))
-        dt[,visit_date:=anytime::anydate(visit_date)]
-        dt[, (colnames(dt)) := lapply(.SD, as.character), .SDcols = colnames(dt)]
+        # names(dt) <- tolower(names(dt))
+        # 
+        # dt[,visit_date:=anytime::anydate(visit_date)]
+        # dt[, (colnames(dt)) := lapply(.SD, as.character), .SDcols = colnames(dt)]
 
 
         if("X" %in% names(dt)){
@@ -200,7 +201,7 @@ server = function(input, output,session) {
 
   observeEvent(input$review_btn,{
     rv_data$df <- dt_read()
-
+    
 
 
     showModal(modalDialog( h2("Review Data"),
@@ -344,11 +345,13 @@ server = function(input, output,session) {
 
 
     req(rv_data$df)
+    
     data <- rv_data$df
-
-
+    names(data) <- tolower(names(data))
+    data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
+    
     req_col <- c('patient_name','staff_name','visit_date')
-    col_diff <- setdiff(req_col,names(data))
+    col_diff <- setdiff(req_col,tolower(names(data)))
 
     if(length(col_diff)!=0){
       col_diff <- paste0(col_diff,collapse = ", ")
@@ -362,6 +365,9 @@ server = function(input, output,session) {
     } else {
       if(all(!(c("patient_id","staff_id") %in% names(data)))){
         setDT(data)
+        data[,visit_date:=anytime::anydate(visit_date)]
+        data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
+        
         data[,patient_id:=paste0(patient_name)]
         data[,staff_id:=paste0(staff_name)]
         withProgress(message = 'Calculation in progress',
@@ -398,8 +404,10 @@ server = function(input, output,session) {
 
       } else if(!("patient_id" %in% names(data))){
         setDT(data)
+        data[,visit_date:=anytime::anydate(visit_date)]
         data[,patient_id:=paste0(patient_name)]
-
+        data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
+        
         withProgress(message = 'Calculation in progress',
                      detail = 'This may take a while...', value = 10, {
                        updatePickerInput(session,inputId = "clinic_id", label = "Staff ID :",
@@ -432,6 +440,9 @@ server = function(input, output,session) {
         )
       } else if(!('staff_id' %in% names(data))){
         setDT(data)
+        data[,visit_date:=anytime::anydate(visit_date)]
+        data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
+        
         data[,staff_id:=paste0(staff_name)]
 
         withProgress(message = 'Calculation in progress',
@@ -466,7 +477,9 @@ server = function(input, output,session) {
         )
 
       }else {
-
+        data[,visit_date:=anytime::anydate(visit_date)]
+        data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
+        
         withProgress(message = 'Calculation in progress',
                      detail = 'This may take a while...', value = 10, {
                        updatePickerInput(session,inputId = "clinic_id", label = "Staff ID :",
@@ -508,11 +521,13 @@ server = function(input, output,session) {
 
 
     data <- dt_read()
+    names(data) <- tolower(names(data))
+    data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
     rv_data$df <- data
     
     req_col <- c('patient_name','staff_name','visit_date')
-    col_diff <- setdiff(req_col,names(data))
-
+    col_diff <- setdiff(req_col,tolower(names(data)))
+    
     if(length(col_diff)!=0){
       col_diff <- paste0(col_diff,collapse = ", ")
 
@@ -525,6 +540,9 @@ server = function(input, output,session) {
     } else {
       if(all(!(c("patient_id","staff_id") %in% names(data)))){
         setDT(data)
+        data[,visit_date:=anytime::anydate(visit_date)]
+        data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
+        
         data[,patient_id:=paste0(patient_name)]
         data[,staff_id:=paste0(staff_name)]
         withProgress(message = 'Calculation in progress',
@@ -561,6 +579,9 @@ server = function(input, output,session) {
 
       } else if(!("patient_id" %in% names(data))){
         setDT(data)
+        data[,visit_date:=anytime::anydate(visit_date)]
+        data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
+        
         data[,patient_id:=paste0(patient_name)]
 
         withProgress(message = 'Calculation in progress',
@@ -595,6 +616,9 @@ server = function(input, output,session) {
         )
       } else if(!('staff_id' %in% names(data))){
         setDT(data)
+        data[,visit_date:=anytime::anydate(visit_date)]
+        data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
+        print(data$visit_date[1:5])
         data[,staff_id:=paste0(staff_name)]
 
         withProgress(message = 'Calculation in progress',
@@ -629,7 +653,9 @@ server = function(input, output,session) {
         )
 
       }else {
-
+        data[,visit_date:=anytime::anydate(visit_date)]
+        data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
+        
         withProgress(message = 'Calculation in progress',
                      detail = 'This may take a while...', value = 10, {
                        updatePickerInput(session,inputId = "clinic_id", label = "Staff ID :",
@@ -737,6 +763,10 @@ server = function(input, output,session) {
 
   observeEvent(input$ref_date_id,{
     data <- rv_data$df
+    names(data) <- tolower(names(data))
+    data[,visit_date:=anytime::anydate(visit_date)]
+    data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
+    
     print(as.Date(input$ref_date_id)- min(as.Date(data$visit_date)))
     
     updatePickerInput(session, inputId = "days_frwd_id", label = "# of Days to Look forward :",
@@ -763,8 +793,10 @@ server = function(input, output,session) {
 
 
                    data <- rv_data$df
-
+                   names(data) <- tolower(names(data))
                    setDT(data)
+                   data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
+                   
 
                    if(!("staff_id" %in% names(data))){
                      data[,staff_id:=paste0(staff_name)]
@@ -1248,6 +1280,9 @@ server = function(input, output,session) {
 
   observeEvent(input$ref_date_id_1,{
     data <- rv_data$df
+    names(data) <- tolower(names(data))
+    data[,visit_date:=anytime::anydate(visit_date)]
+    data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
     
     updatePickerInput(session, inputId = "days_frwd_id_1", label = "# of Days to Look forward :",
                       choices = c(as.character(seq(0, (as.numeric(Sys.Date() - as.Date(input$ref_date_id_1))),1))),
@@ -1266,8 +1301,10 @@ server = function(input, output,session) {
     withProgress(message = 'Calculation in progress',
                  detail = 'This may take a while...', value = 10, {
                    data <- rv_data$df
+                   names(data) <- tolower(names(data))
                    setDT(data)
-
+                   data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
+                   
                    if(!("patient_id" %in% names(data))){
                      data[,patient_id:=paste0(patient_name)]
                      value_id1 <- trimws(input$patient_id)
