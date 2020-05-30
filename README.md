@@ -147,7 +147,7 @@ Querying Parameter Instructions:
 
 **Click on the “Run” button.**
 
-Please note that depending on your PC’s hardware, the size of your dataset, and the duration of which you are conducting the contact trace you may experience long computation times.  
+Please note that depending on your PC’s hardware, the size of your dataset, and the duration of time for which you are conducting the contact trace you may experience long computation times.  
 
 <img src="./inst/www/ct-main.PNG" width="1200" align="center"/>
 
