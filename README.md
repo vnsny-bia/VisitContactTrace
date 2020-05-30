@@ -220,7 +220,7 @@ After selecting the CRAN mirror and correct OS, click on "base," and click on "D
 
 <center><img src="./inst/www/VisitContactTrace-Setup.gif" width="800" align="center"/></center>
 
-In organizations that require administrative rights to install software, it is still possible to install R in the user's local storage without administrative rights.  You can find the **Rgui** executable file in the directory in which it was installed. Below are some examples of how this may look; click on Rgui.exe to launch an R session.  If you will be using this application often, consider creating a shortcut on your desktop.
+In organizations that require administrative rights to install software, it is still possible to install R in the user's local storage without administrative rights.  In this case, consider installing to the “documents” directory associated with your user account. You can find the **Rgui** executable file in a child directory within the directory that was selected during installation. Below are some examples of how this may look; click on Rgui.exe to launch an R session.  If you will be using this application often, consider creating a shortcut on your desktop.
 
 
 <img src="./inst/www/Ri386-image.PNG" width="600" align="center"/>
