@@ -220,7 +220,7 @@ server = function(input, output,session) {
   #__1.6.3 observeEvent to show modal dialog for review data -----
 
   observeEvent(input$review_btn,{
-    rv_data$df <- dt_read()
+    #rv_data$df <- dt_read()
     updateSelectInput(session, "OldColumnName", choices = colnames(rv_data$df),
                       selected = NULL)
 
@@ -280,7 +280,7 @@ server = function(input, output,session) {
   output$Table =renderDataTable({
     req(rv_data$df)
     temp <- rv_data$df
-    DT::datatable(head(temp,10),
+    DT::datatable(head(temp,10),rownames = F,
                   options = list(autoWidth=F,
                                  width = "100%",
                                  scrollX = '600px',
@@ -1162,7 +1162,7 @@ server = function(input, output,session) {
                        keycol <-c("contact_type","visit_date")
                        setorderv(table_txt, keycol)
                        
-                       DT::datatable(table_txt,
+                       DT::datatable(table_txt,rownames = F,
                                      class="nowrap display",
                                      options = list(autoWidth=F,
                                                     pageLength = 10,
@@ -1302,7 +1302,7 @@ server = function(input, output,session) {
                        setnames(stg_1_dt,c("name","status"),c("patient_name","patient_status"))
                        stg_1_dt <- as.data.frame(lapply(stg_1_dt, function(x) gsub('clin_','',x)))
 
-                       DT::datatable(stg_1_dt,
+                       DT::datatable(stg_1_dt,rownames = F,
                                      options = list(autoWidth=F,
                                                     width = "100%",
                                                     scrollX = '600px',
@@ -1334,7 +1334,7 @@ server = function(input, output,session) {
                        setnames(stg_2_dt,c("name","status"),c("staff_name","staff_status"))
                        stg_2_dt <- as.data.frame(lapply(stg_2_dt, function(x) gsub('clin_','',x)))
 
-                       DT::datatable(stg_2_dt,
+                       DT::datatable(stg_2_dt,rownames = F,
                                      options = list(autoWidth=F,
                                                     width = "100%",
                                                     scrollX = '600px',
@@ -1366,7 +1366,7 @@ server = function(input, output,session) {
                        setnames(stg_3_dt,c("name","status"),c("patient_name","patient_status"))
                        stg_3_dt <- as.data.frame(lapply(stg_3_dt, function(x) gsub('clin_','',x)))
 
-                       DT::datatable(stg_3_dt,
+                       DT::datatable(stg_3_dt,rownames = F,
                                      options = list(autoWidth=F,
                                                     width = "100%",
                                                     scrollX = '600px',
@@ -1726,7 +1726,7 @@ server = function(input, output,session) {
                        keycol <-c("contact_type","visit_date")
                        setorderv(table_txt, keycol)
                        
-                       DT::datatable(table_txt,
+                       DT::datatable(table_txt,rownames = F,
                                      class="nowrap display",
                                      options = list(autoWidth=F,
                                                     pageLength = 10,
@@ -1800,7 +1800,7 @@ server = function(input, output,session) {
                        stg_1_dt <- as.data.frame(lapply(stg_1_dt, function(x) gsub('clin_','',x)))
 
 
-                       DT::datatable(stg_1_dt,
+                       DT::datatable(stg_1_dt,rownames = F,
                                      options = list(autoWidth=F,
                                                     width = "100%",
                                                     scrollX = '600px',
@@ -1831,7 +1831,7 @@ server = function(input, output,session) {
                        
                        stg_2_dt <- as.data.frame(lapply(stg_2_dt, function(x) gsub('clin_','',x)))
 
-                       DT::datatable(stg_2_dt,
+                       DT::datatable(stg_2_dt,rownames = F,
                                      options = list(autoWidth=F,
                                                     width = "100%",
                                                     scrollX = '600px',
@@ -1864,7 +1864,7 @@ server = function(input, output,session) {
                        
                        stg_3_dt <- as.data.frame(lapply(stg_3_dt, function(x) gsub('clin_','',x)))
 
-                       DT::datatable(stg_3_dt,
+                       DT::datatable(stg_3_dt,rownames = F,
                                      options = list(autoWidth=F,
                                                     width = "100%",
                                                     scrollX = '600px',
