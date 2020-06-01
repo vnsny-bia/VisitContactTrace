@@ -59,9 +59,9 @@ header <- dashboardHeader(title = title_logo,titleWidth = 500,
                                        });
                                        }"))),
                           VisitContactTrace:::dropdownActionMenu(id="refresh1",title= "",icon = icon("chevron-circle-down"),
-                                                                 VisitContactTrace:::actionItem("refresh",tags$h4(style="color:white;",tags$i(class="fa fa-refresh fa-spin",style="font-size:16px"),HTML("&nbsp;")," Reload Data")),
-                                                                 VisitContactTrace:::actionItem("quit",tags$h4(style="color:white;",tags$i(class="fas fa-window-close",style="font-size:16px"),HTML("&nbsp;")," Exit")),
-                                                                 VisitContactTrace:::actionItem("github",tags$h4(style="color:white;",tags$i(class="fa fa-exclamation-circle",style="font-size:16px"),HTML("&nbsp;")," Report Issue"),onclick_event = "window.open('https://github.com/vnsny-bia/VisitContactTrace/issues', '_blank')")
+                                                                 VisitContactTrace:::actionItem("refresh",tags$h4(style="color:white;",tags$i(class="fa fa-refresh fa-spin",style="font-size:16px"),HTML("&nbsp;")," Load New Dataset")),
+                                                                 VisitContactTrace:::actionItem("github",tags$h4(style="color:white;",tags$i(class="fa fa-exclamation-circle",style="font-size:16px"),HTML("&nbsp;")," Report Issue"),onclick_event = "window.open('https://github.com/vnsny-bia/VisitContactTrace/issues', '_blank')"),
+                                                                 VisitContactTrace:::actionItem("quit",tags$h4(style="color:white;",tags$i(class="fas fa-window-close",style="font-size:16px"),HTML("&nbsp;")," Exit"))
 
                           )
 
@@ -223,7 +223,20 @@ body <- dashboardBody(
                                                )
                                              )
                                            )),
-                                       
+                                       tags$head(tags$style(HTML("
+                                        #license_txt { 
+                                        display: block;
+                                        font-size: 13px;
+                                        line-height: 1.42857143;
+                                        color: #333;
+                                        word-break: break-all;
+                                        word-wrap: break-word;
+                                        background-color: #f5f5f5;
+                                        border: 1px solid #ccc;
+                                        border-radius: 4px;
+                                        max-height: 560px;
+                                        }
+                                        "))),
                                        tags$head(
                                          tags$style(HTML("
                                                     #visit_date_rng {
@@ -470,6 +483,7 @@ body <- dashboardBody(
                                                )
                                              )
                                            )),
+                                       
                                        tags$style(HTML("<br>")),
                                        #verbatimTextOutput('visit_date_rng_1',placeholder = F),
                                        tags$head(
