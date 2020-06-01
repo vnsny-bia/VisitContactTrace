@@ -169,7 +169,7 @@ The right-hand panel of the application displays the primary, secondary, and ter
 
 ## Output - Plot <a name="outputplot"></a>
 
-The "Plot" tab displays the "network diagram" of primary, secondary, and tertiary contacts.  If the user included patient/staff statuses, the plot legend displays each distinct status type differently. The application applies **the most recent status for each patient or staff within the requested visit window**. For example, imagine that Patient A has a status of "NEGATIVE" for visits on 5/1, 5/2, 5/3, and 5/4, and then a status of "POSITIVE" for visits on 5/5 and 5/6. If the requested window of visits for Patient A ends on 5/4, then Patient A will be labeled as "NEGATIVE" in the plot. However, if the requested window of visits for Patient A ends on 5/5 or 5/6, then Patient A will be labeled as "POSITIVE" in the plot.
+The "Plot" tab displays the "network diagram" of primary, secondary, and tertiary contacts.  Users can hover over the patient and staff icons to see individual details (ID, name, status) or click on an icon in order to highlight the direct contacts of an individual. If the user included patient/staff statuses, the plot legend displays each distinct status type differently. The application applies **the most recent status for each patient or staff within the requested visit window**. For example, imagine that Patient A has a status of "NEGATIVE" for visits on 5/1, 5/2, 5/3, and 5/4, and then a status of "POSITIVE" for visits on 5/5 and 5/6. If the requested window of visits for Patient A ends on 5/4, then Patient A will be labeled as "NEGATIVE" in the plot. However, if the requested window of visits for Patient A ends on 5/5 or 5/6, then Patient A will be labeled as "POSITIVE" in the plot.
 
 <img src="./inst/www/ct-plot3.PNG" width="800" align="center"/>
 
@@ -229,7 +229,7 @@ In organizations that require administrative rights to install software, it is s
 
 ## Using the R Console ##
 
-In order to load and run the VisitContactTrace application, you must copy and paste commands into the R Console.  The R Console looks like the image below. You should write or paste the commands here in order to install and run the VisitContactTrace application on your computer.
+In order to load and run the VisitContactTrace application, you must copy and paste commands into the R Console.  The R Console looks like the image below. You should write or paste the commands here in order to [install](#installapp) and [run the VisitContactTrace application](#runnapp) on your computer.    
 
 <img src="./inst/www/Rconsole-image.PNG" width="800" align="center"/>
 
