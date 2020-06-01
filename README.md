@@ -24,7 +24,7 @@ Learn more about VNSNY's COVID-19 response [here](https://www.vnsny.org/coronavi
 [Requirements for the VisitContactTrace Application](#requirements)  
       [Installing the VisitContactTrace R package](#installapp)  
       [Running VisitContactTrace on Your PC](#runapp)  
-      [Input Data](#inputdata)  
+      [Input Data Type and Structure](#inputdata)  
       [Data Specifications](#dataspec)     
 [Using the VisitContactTrace Application](#useapp)  
       [Try VisitContactTrace with Demonstration Feature](#demodata)    
@@ -76,7 +76,7 @@ VisitContactTrace()
 ```
 Run those two commands from an R session every time you want to use VisitContactTrace.
 
-## Input Data <a name="inputdata"></a>
+## Input Data Type and Structure <a name="inputdata"></a>
 
 The VisitContactTrace application supports a common data structure used in community-based healthcare settings for functions such as billing and clinical record documentation. This data structure, known as "encounter data" or "visit data," was the motivation for creating this application. In a community-based healthcare setting, patients are usually homebound or have significant disability, and are not observed to encounter each other. The VisitContactTrace application uses only these visit interactions or "encounters" between visit staff and patients to trace the possible transmission route of an infectious disease in a visit-based service delivery model.  While it is possible for community-based visit staff to interact with each other in the field under certain circumstances, it is an uncommon occurrence, and VisitContactTrace currently does not support contact tracing for those interactions.  The concept of visit-based contact tracing can be used in other visit-based service delivery models outside of community-based healthcare settings.
 
@@ -169,7 +169,7 @@ In the screenshot above, [Florence Nightingale](https://en.wikipedia.org/wiki/Fl
 
 ## Output - Contact Lists <a name="outputcontactlists"></a>
 
-The right-hand panel of the application displays the primary, secondary, and tertiary contact lists (available in the three tabs under "Contact Lists." The user can download these lists into .csv.
+The right-hand panel of the application displays the primary, secondary, and tertiary contact lists (available in the three tabs under "Contact Lists." The user can download these lists into .csv by clicking on the "Download" button.
 
 
 ## Output - Plot <a name="outputplot"></a>
