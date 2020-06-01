@@ -132,9 +132,9 @@ If you don't have data available but would like to experiment with the applicati
 
 ## Importing Data <a name="importdata"></a>
 
-If you do have data you would like to use, click on "Upload File" and browse to the dataset that you wish to import into the VisitContactTrace application.  
+If you do have data you would like to use, click on "Choose Data File" and browse to the dataset that you wish to import into the VisitContactTrace application.  
 
-The "Review Data" button provides a preview of the data import and the ability to rename columns to the names defined in [data specifications](#dataspec). If column names and formats are correct, the "Submit Data" button will import the data into the application.  If not, the user will be notified of an error.
+The "View Selected File" button provides a preview of the data import and the ability to rename columns to the names defined in [data specifications](#dataspec). If column names and formats are correct, the "Use Selected File" button will import the data into the application.  If not, the user will be notified of an error.
 
 <img src="./inst/www/ct-preview.PNG" width="500"  align="center"/>
 
@@ -186,7 +186,7 @@ The visit details tab includes all primary, secondary, and tertiary contact visi
 
 ## Exit/Reload data <a name="exitapp"></a>
 
-The top right-hand corner of the application contains a drop down menu that contains options for users to exit the application or reload the user interface to upload data.  It is best to exit the application by clicking on "Exit" in this window, because this correctly closes the VisitContactTrace application from the R session. 
+The top right-hand corner of the application contains a drop down menu that contains options for users to exit the application or reload the user interface to upload a new dataset.  It is best to exit the application by clicking on "Exit" in this window, because this correctly closes the VisitContactTrace application from the R session. 
 
 # Other Useful R Functions/Objects (for experienced R users) <a name="advancedR"></a>
 
