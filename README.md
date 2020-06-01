@@ -60,6 +60,11 @@ install.packages("http://stats.vnsny.org/VisitContactTrace/VisitContactTrace_0.1
 # Public version install
 # install.packages("VisitContactTrace", repos = "https://github.com/vnsny-bia/VisitContactTrace")
 ```
+You will know that the packages are installed and that R is ready for the next command when you see the carat prompt in the R console:
+```r
+>
+```
+You can proceed to [running VisitContactTrace](#runapp) once you see the carat prompt appear.
 
 ## Running VisitContactTrace on Your PC <a name="runapp"></a>
 
