@@ -43,7 +43,7 @@ Learn more about VNSNY's COVID-19 response [here](https://www.vnsny.org/coronavi
     
 # Requirements for the VisitContactTrace Application <a name="requirements"></a>
 
-VisitContactTrace is an R package that requires R, an open-source software, to be installed. For more information about R, visit the [R Project for Statistical Computing](https://www.r-project.org/). Inexperienced R users can jump to [Help Getting Started with R](#helpR) for additional guidance.  
+VisitContactTrace is an R package that requires R, an open-source software, to be installed. For more information about R, visit the [R Project for Statistical Computing](https://www.r-project.org/). If you do not have R installed on your computer or do not have much experience with R, go to [Help Getting Started with R](#helpR) before proceeding to the next section.
 
 The VisitContactTrace application allows users to **upload data manually.**  For example, a user may have access to a data extract from a standard report of service encounters from their organization's electronic medical record system. The user can save this data file as an *.xlsx or *.csv file and upload it to the VisitContactTrace application.  More sophisticated R users can adapt the application's source code to read in datasets created from an ETL tool or incorporate the code into a data workflow.  [More on the data specifications](#dataspec)
 
@@ -225,7 +225,7 @@ After selecting the CRAN mirror and correct OS, click on "base," and click on "D
 
 <center><img src="./inst/www/VisitContactTrace-Setup.gif" width="800" align="center"/></center>
 
-In organizations that require administrative rights to install software, it is still possible to install R in the user's local storage without administrative rights.  In this case, consider installing to the “documents” directory associated with your user account. You can find the **Rgui** executable file in a child directory within the directory that was selected during installation. Below are some examples of how this may look; click on Rgui.exe to launch an R session.  If you will be using this application often, consider creating a shortcut on your desktop.
+In organizations that require administrative rights to install software, the user may receive an "access denied" failure when R is installed in certain folders. However, it is still possible to install R in the user's local storage without administrative rights by installing R in the "documents" directory associated with your user account.  Below is an example of how this may appear in a Windows environment.  You can find the **Rgui** executable file in a sub-directory within the directory that you selected during installation; click on Rgui.exe to launch an R session.  If you will be using this application often, consider creating a shortcut on your desktop.
 
 
 <img src="./inst/www/Ri386-image.PNG" width="600" align="center"/>
@@ -234,7 +234,7 @@ In organizations that require administrative rights to install software, it is s
 
 ## Using the R Console ##
 
-In order to load and run the VisitContactTrace application, you must copy and paste commands into the R Console.  The R Console looks like the image below. You should write or paste the commands here in order to [install](#installapp) and [run the VisitContactTrace application](#runnapp) on your computer.    
+In order to load and run the VisitContactTrace application, you must copy and paste commands into the R Console.  The R Console looks like the image below. You should write or paste the commands here in order to first [install](#installapp) and then to [run the VisitContactTrace application](#runnapp) on your computer.    
 
 <img src="./inst/www/Rconsole-image.PNG" width="800" align="center"/>
 
