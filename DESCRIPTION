@@ -11,7 +11,7 @@ LazyData: true
 Imports:
     shiny,
     shinydashboard,
-    viridis,
+    RColorBrewer,
     shinyFiles,
     shinycssloaders,
     shinyWidgets,
@@ -34,7 +34,7 @@ Depends:
     R (>= 2.10),
     shiny,
     shinydashboard,
-    viridis,
+    RColorBrewer,
     shinyFiles,
     shinycssloaders,
     shinyWidgets,

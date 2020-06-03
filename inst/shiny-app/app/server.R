@@ -937,6 +937,7 @@ server = function(input, output,session) {
                    data <- rv_data$df
                    names(data) <- tolower(names(data))
                    setDT(data)
+                   data[,visit_date:=anytime::anydate(visit_date)]
                    data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
                    
 
@@ -1233,7 +1234,8 @@ server = function(input, output,session) {
                      a[,label:=paste0(group,"-",Status)]
                      
                      
-                     icon.color <- viridis::viridis_pal(option = "D")(length(unique(a$label)))
+                     #icon.color <- viridis::viridis_pal(option = "D")(length(unique(a$label)))
+                     icon.color <- RColorBrewer::brewer.pal(length(unique(a$label)), "Set1")
                      icon.color <- cbind(label=unique(a$label), icon.color)
                      
                      a <- merge(a, icon.color, by="label")
@@ -1445,6 +1447,7 @@ server = function(input, output,session) {
                    data <- rv_data$df
                    names(data) <- tolower(names(data))
                    setDT(data)
+                   data[,visit_date:=anytime::anydate(visit_date)]
                    data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
                    
                    if(!("patient_id" %in% names(data))){
@@ -1658,7 +1661,9 @@ server = function(input, output,session) {
                      a[,label:=paste0(group,"-",Status)]
                      
                      
-                     icon.color <- viridis::viridis_pal(option = "D")(length(unique(a$label)))
+                     #icon.color <- viridis::viridis_pal(option = "D")(length(unique(a$label)))
+                     #require(RColorBrewer)
+                     icon.color <- RColorBrewer::brewer.pal(length(unique(a$label)), "Set1")
                      icon.color <- cbind(label=unique(a$label), icon.color)
                      
                      a <- merge(a, icon.color, by="label")
