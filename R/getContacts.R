@@ -262,7 +262,8 @@ getContacts <- function(staff_id= NA,
       a[,label:=paste0(group,"-",Status)]
       
       
-      icon.color <- viridis::viridis_pal(option = "D")(length(unique(a$label)))
+      #icon.color <- viridis::viridis_pal(option = "D")(length(unique(a$label)))
+      icon.color <- RColorBrewer::brewer.pal(length(unique(a$label)), "Set1")
       icon.color <- cbind(label=unique(a$label), icon.color)
       
       a <- merge(a, icon.color, by="label")
@@ -496,7 +497,8 @@ getContacts <- function(staff_id= NA,
           a[,label:=paste0(group,"-",Status)]
           
           
-          icon.color <- viridis::viridis_pal(option = "D")(length(unique(a$label)))
+          #icon.color <- viridis::viridis_pal(option = "D")(length(unique(a$label)))
+          icon.color <- RColorBrewer::brewer.pal(length(unique(a$label)), "Set1")
           icon.color <- cbind(label=unique(a$label), icon.color)
           
           a <- merge(a, icon.color, by="label")
