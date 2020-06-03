@@ -4,7 +4,7 @@
 
 # VisitContactTrace 
 
-This application is designed to conduct contact tracing on healthcare encounter data with a specific focus on providers of community-based healthcare delivery services.  In a community-based healthcare system, patients typically are homebound and are visited at home by healthcare providers.  Thus, while direct contact occurs between patients and visit staff, there is no direct contact between patients. This is in contrast with facility-based healthcare (e.g. hospitals, clinics) settings, where patients travel to a central geographic location at which healthcare services are delivered to several patients at a time, and where direct patient-to-patient, patient-to-staff, and staff-to-staff contact can occur.  The VisitContactTrace application allows the user to load and query their visit data in order to:
+This application is designed to facilitate contact tracing on healthcare encounter data with a specific focus on providers of community-based healthcare delivery services.  In a community-based healthcare system, patients typically are homebound and are visited at home by healthcare providers.  Thus, while direct contact occurs between patients and visit staff, there is no direct contact between patients. This is in contrast with facility-based healthcare (e.g. hospitals, clinics) settings, where patients travel to a central geographic location at which healthcare services are delivered to several patients at a time, and where direct patient-to-patient, patient-to-staff, and staff-to-staff contact can occur.  The VisitContactTrace application allows the user to load and query their visit data in order to:
 
 * explore how infectious disease might spread within a visit-based service delivery model if appropriate precautions are not in place; 
 
@@ -213,7 +213,7 @@ getContacts(staff_id= '1',
 
 ## Installing R Software
 
-VisitContactTrace is an R package that requires R software to be installed.  To learn more, please visit the [R Project for Statistical Computing]( https://www.r-project.org/).  You will be asked to choose a CRAN mirror, [also available here](https://cran.r-project.org/mirrors.html).  Choose any location as the mirror, as it does not matter which one you select.  Choose the correct operating system (OS) and download the relevant installation file.  See more OS tips below.
+VisitContactTrace is an R package that requires R software to be installed.  To learn more, please visit the [R Project for Statistical Computing]( https://www.r-project.org/).  You will be asked to choose a CRAN mirror, [also available here](https://cran.r-project.org/mirrors.html).  Choose any location as the CRAN mirror, as it does not matter which one you select.  Choose the correct operating system (OS) and download the relevant installation file.  See more OS tips below.
 
 If the R installation is successful a desktop shortcut for R should appear.  Click on that shortcut to open the R application.
 
