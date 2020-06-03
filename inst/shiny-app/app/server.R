@@ -1382,6 +1382,7 @@ server = function(input, output,session) {
 
                        lnodes <- a[,.(label,shape,icon.color,icon.face,icon.code,Status)]
                        lnodes <- lnodes[!duplicated(lnodes)]
+                       a[,ids:= paste0(group," ID :",gsub("clin_","",id))]
                        
                        
                        visNetwork(a, b1, width = "100%") %>%
@@ -1391,11 +1392,10 @@ server = function(input, output,session) {
                          visLegend(addNodes = lnodes, useGroups = FALSE) %>%
                          visEdges(shadow = TRUE,
                                   arrows =list(to = list(enabled = TRUE, scaleFactor = 2)),
-                                  color = list(color = "gray", highlight = "red")) %>% visExport()  %>%
+                                  color = list(color = "gray", highlight = "red"))%>%
                          visOptions(highlightNearest = TRUE,
-                                    nodesIdSelection = list(enabled = TRUE, selected = paste0('clin_',temp_wkrid)))
-
-
+                                    selectedBy = list(variable="ids",selected = paste0('Staff ID :',temp_wkrid),highlight = TRUE)
+                         )
                      })
 
                      #___1.16.10 renderDataTable for primary contacts table -----
@@ -1887,6 +1887,7 @@ server = function(input, output,session) {
 
                        lnodes <- a[,.(label,shape,icon.color,icon.face,icon.code,Status)]
                        lnodes <- lnodes[!duplicated(lnodes)]
+                       a[,ids:= paste0(group," ID :",gsub("clin_","",id))]
                        
                        
                        visNetwork(a, b1, width = "100%") %>%
@@ -1898,7 +1899,8 @@ server = function(input, output,session) {
                                   arrows =list(to = list(enabled = TRUE, scaleFactor = 2)),
                                   color = list(color = "gray", highlight = "red")) %>% visExport() %>%
                          visOptions(highlightNearest = TRUE,
-                                    nodesIdSelection = list(enabled = TRUE, selected = temp_patid))
+                                    selectedBy = list(variable="ids",selected = paste0('Patient ID :',temp_patid),highlight = TRUE)
+                         )
                      })
 
                      #___1.20.10 renderDataTable to display primary contact table (Patients) -----
