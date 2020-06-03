@@ -1391,7 +1391,9 @@ server = function(input, output,session) {
                          visLegend(addNodes = lnodes, useGroups = FALSE) %>%
                          visEdges(shadow = TRUE,
                                   arrows =list(to = list(enabled = TRUE, scaleFactor = 2)),
-                                  color = list(color = "gray", highlight = "red"))
+                                  color = list(color = "gray", highlight = "red")) %>% visExport()  %>%
+                         visOptions(highlightNearest = TRUE,
+                                    nodesIdSelection = list(enabled = TRUE, selected = paste0('clin_',temp_wkrid)))
 
 
                      })
@@ -1894,7 +1896,9 @@ server = function(input, output,session) {
                          visLegend(addNodes = lnodes, useGroups = FALSE) %>%
                          visEdges(shadow = TRUE,
                                   arrows =list(to = list(enabled = TRUE, scaleFactor = 2)),
-                                  color = list(color = "gray", highlight = "red"))
+                                  color = list(color = "gray", highlight = "red")) %>% visExport() %>%
+                         visOptions(highlightNearest = TRUE,
+                                    nodesIdSelection = list(enabled = TRUE, selected = temp_patid))
                      })
 
                      #___1.20.10 renderDataTable to display primary contact table (Patients) -----
