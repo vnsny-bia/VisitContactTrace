@@ -15,7 +15,7 @@ jscode <- "shinyjs.closeWindow = function() { window.close(); }"
 
 
 title_logo <-  tags$a(href='http://www.vnsny.org',target="_blank",
-                      tags$img(src='www/logo.png',height='50',width='180'),style="color:white;","VisitContactTrace Application")
+                      tags$img(src='www/VNSNY_BB.jpg',height='55'),style="color:#005daa;","VisitContactTrace Application")
 header <- dashboardHeader(title = title_logo,titleWidth = 500,
 
 
@@ -59,9 +59,9 @@ header <- dashboardHeader(title = title_logo,titleWidth = 500,
                                        });
                                        }"))),
                           VisitContactTrace:::dropdownActionMenu(id="refresh1",title= "",icon = icon("chevron-circle-down"),
-                                                                 VisitContactTrace:::actionItem("refresh",tags$h4(style="color:white;",tags$i(class="fa fa-refresh fa-spin",style="font-size:16px"),HTML("&nbsp;")," Load New Dataset")),
-                                                                 VisitContactTrace:::actionItem("github",tags$h4(style="color:white;",tags$i(class="fa fa-exclamation-circle",style="font-size:16px"),HTML("&nbsp;")," Report Issue"),onclick_event = "window.open('https://github.com/vnsny-bia/VisitContactTrace/issues', '_blank')"),
-                                                                 VisitContactTrace:::actionItem("quit",tags$h4(style="color:white;",tags$i(class="fas fa-window-close",style="font-size:16px"),HTML("&nbsp;")," Exit"))
+                                                                 VisitContactTrace:::actionItem("refresh",tags$h4(style="color:black;",tags$i(class="fa fa-refresh fa-spin",style="font-size:16px"),HTML("&nbsp;")," Load New Dataset")),
+                                                                 VisitContactTrace:::actionItem("github",tags$h4(style="color:black;",tags$i(class="fa fa-exclamation-circle",style="font-size:16px"),HTML("&nbsp;")," Report Issue"),onclick_event = "window.open('https://github.com/vnsny-bia/VisitContactTrace/issues', '_blank')"),
+                                                                 VisitContactTrace:::actionItem("quit",tags$h4(style="color:black;",tags$i(class="fas fa-window-close",style="font-size:16px"),HTML("&nbsp;")," Exit"))
 
                           )
 
@@ -212,7 +212,7 @@ body <- dashboardBody(
                                                            color:#fff;
                                                }
                                                            .bttn-material-flat.bttn-default {
-                                                              background: #231f20;
+                                                              background: #005daa;
                                                               color: #ffffff;
                                                               width: 80px;
                                                               height: 32px;
@@ -228,10 +228,10 @@ body <- dashboardBody(
                                         display: block;
                                         font-size: 13px;
                                         line-height: 1.42857143;
-                                        color: #333;
+                                        color: white;
                                         word-break: break-all;
                                         word-wrap: break-word;
-                                        background-color: #f5f5f5;
+                                        background-color: #005daa;
                                         border: 1px solid #ccc;
                                         border-radius: 4px;
                                         max-height: 560px;
@@ -241,20 +241,19 @@ body <- dashboardBody(
                                          tags$style(HTML("
                                                     #visit_date_rng {
                                                       padding: 9.5px;
-                                                      margin: 0 0 10px;
+                                                      margin: 0 25px 10px;
                                                       margin-left: 14px;
                                                       font-size: 13px;
                                                       line-height: 1.42857143;
                                                       color: #fff;
                                                           word-break: break-all;
                                                       word-wrap: break-word;
-                                                      background-color: #f5f5f5;
                                                           border: 1px solid #ccc;
                                                       border-radius: 4px;
                                                       max-height: 550px;
                                                       overflow: auto;
                                                      /* width:700px;*/
-                                                      background-color: #222527;
+                                                      background-color: #005daa;
                                                   }
                                               "))),
                                        tags$style(HTML("<br>")),
@@ -269,23 +268,18 @@ body <- dashboardBody(
                                                                 <span></span>
                                                                 <span></span>
                                                                 <span></span></p> </center>
-                                                                <h4 align="left" style="color:#3c8dbc;"><u><b>Introduction</b> </u></h4>
+                                                                <h4 align="left" style="color:#005daa;"><u><b>Introduction</b> </u></h4>
                                                                 <p style="font-size:14px;font-family: Arial, Sans-Serif">This application allows you to conduct visit-level contact tracing for a patient or staff member known/suspected to have an infectious disease (“index person”). Based on the visit data you supply, this application will list all primary, secondary, and tertiary patient or staff contacts within a look-back time period for a given index person.</p>
-                                                                <h4 align="left" style="color:#3c8dbc;"><u><b>Instructions</b> </u></h4>
+                                                                <h4 align="left" style="color:#005daa;"><u><b>Instructions</b> </u></h4>
                                                                 
-                                                              <!--  <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i>First choose whether you are starting with an index staff member or a patient by clicking the on the “Staff” or “Patient” tile. </p>
-                                                                <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i>Choose the Staff ID (or Patient ID) of the index person. </p>
-                                                                <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i>Choose the reference date. Ideally, this should be the date of symptom onset of the index person.</p>
-                                                                <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i>Choose the number of days to look back from the reference date (e.g. the incubation period of the disease) and the number of days to look forward from the reference date.</p>
-                                                                <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i>Click on the “run” button.</p>
-                                                              -->
+                                                            
                                                               
                                                              <ul class="fa-ul">
-                                                                <li style="font-size:14px;font-family: Arial, Sans-Serif"><i class="fa-li fa fa-check-square"></i> First choose whether you are starting with an index staff member or a patient by clicking the on the “Staff” or “Patient” tile.</li>
-                                                                <li style="font-size:14px;font-family: Arial, Sans-Serif"><i class="fa-li fa fa-check-square"></i> Choose the Staff ID (or Patient ID) of the index person. </li>
-                                                                <li style="font-size:14px;font-family: Arial, Sans-Serif"><i class="fa-li fa fa-check-square"></i> Choose the reference date. Ideally, this should be the date of symptom onset of the index person. </li>
-                                                                <li style="font-size:14px;font-family: Arial, Sans-Serif"><i class="fa-li fa fa-check-square"></i> Choose the number of days to look back from the reference date (e.g. the incubation period of the disease) and the number of days to look forward from the reference date.</li>
-                                                                <li style="font-size:14px;font-family: Arial, Sans-Serif"><i class="fa-li fa fa-check-square"></i> Click on the “run” button.</li>
+                                                                <li style="font-size:14px;font-family: Arial, Sans-Serif"><i class="fa-li fa fa-circle" style="font-size:10px;color:#005daa;"></i> First choose whether you are starting with an index staff member or a patient by clicking the on the “Staff” or “Patient” tile.</li>
+                                                                <li style="font-size:14px;font-family: Arial, Sans-Serif"><i class="fa-li fa fa-circle" style="font-size:10px;color:#005daa;"></i> Choose the Staff ID (or Patient ID) of the index person. </li>
+                                                                <li style="font-size:14px;font-family: Arial, Sans-Serif"><i class="fa-li fa fa-circle" style="font-size:10px;color:#005daa;"></i> Choose the reference date. Ideally, this should be the date of symptom onset of the index person. </li>
+                                                                <li style="font-size:14px;font-family: Arial, Sans-Serif"><i class="fa-li fa fa-circle" style="font-size:10px;color:#005daa;"></i> Choose the number of days to look back from the reference date (e.g. the incubation period of the disease) and the number of days to look forward from the reference date.</li>
+                                                                <li style="font-size:14px;font-family: Arial, Sans-Serif"><i class="fa-li fa fa-circle" style="font-size:10px;color:#005daa;"></i> Click on the “run” button.</li>
                                                                 </ul>
 
                                                                 <table style="font-size:14px;font-family: Arial, Sans-Serif">
@@ -382,7 +376,7 @@ body <- dashboardBody(
                               box(width=12,
                                   downloadButton("download4","Download"),
                                   withSpinner(DT::dataTableOutput("table_txt_tbl",height ="500px"),
-                                              color = '#3c8dbc'),
+                                              color = '#005daa'),
                                   value = 'table_4')
                      )
 
@@ -490,20 +484,19 @@ body <- dashboardBody(
                                          tags$style(HTML("
                                                     #visit_date_rng_1 {
                                                       padding: 9.5px;
-                                                      margin: 0 0 10px;
+                                                      margin: 0 25px 10px;
                                                       margin-left: 14px;
                                                       font-size: 13px;
                                                       line-height: 1.42857143;
                                                       color: #fff;
                                                           word-break: break-all;
                                                       word-wrap: break-word;
-                                                      background-color: #f5f5f5;
                                                           border: 1px solid #ccc;
                                                       border-radius: 4px;
                                                       max-height: 550px;
                                                       overflow: auto;
                                                       /*width:700px;*/
-                                                      background-color: #222527;
+                                                      background-color: #005daa;
                                                   }
                                               "))),
                                        tags$style(HTML("<br>")),
@@ -520,23 +513,17 @@ body <- dashboardBody(
                                                                 <span></span>
                                                                 <span></span>
                                                                 <span></span></p> </center>
-                                                                <h4 align="left" style="color:#3c8dbc;"><u><b>Introduction</b> </u></h4>
+                                                                <h4 align="left" style="color:#005daa;"><u><b>Introduction</b> </u></h4>
                                                                 <p style="font-size:14px;font-family: Arial, Sans-Serif">This application allows you to conduct visit-level contact tracing for a patient or staff member known/suspected to have an infectious disease (“index person”). Based on the visit data you supply, this application will list all primary, secondary, and tertiary patient or staff contacts within a look-back time period for a given index person.</p>
-                                                                <h4 align="left" style="color:#3c8dbc;"><u><b>Instructions</b> </u></h4>
+                                                                <h4 align="left" style="color:#005daa;"><u><b>Instructions</b> </u></h4>
                                                                 
-                                                              <!--  <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i>First choose whether you are starting with an index staff member or a patient by clicking the on the “Staff” or “Patient” tile. </p>
-                                                                <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i>Choose the Staff ID (or Patient ID) of the index person. </p>
-                                                                <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i>Choose the reference date. Ideally, this should be the date of symptom onset of the index person.</p>
-                                                                <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i>Choose the number of days to look back from the reference date (e.g. the incubation period of the disease) and the number of days to look forward from the reference date.</p>
-                                                                <p> <i style="font-size:18px; color:#3c8dbc;" class="fa">&#xf0a4;</i>Click on the “run” button.</p>
-                                                              -->
-                                                              
+                                                            
                                                              <ul class="fa-ul">
-                                                                <li style="font-size:14px;font-family: Arial, Sans-Serif"><i class="fa-li fa fa-check-square"></i> First choose whether you are starting with an index staff member or a patient by clicking the on the “Staff” or “Patient” tile.</li>
-                                                                <li style="font-size:14px;font-family: Arial, Sans-Serif"><i class="fa-li fa fa-check-square"></i> Choose the Staff ID (or Patient ID) of the index person. </li>
-                                                                <li style="font-size:14px;font-family: Arial, Sans-Serif"><i class="fa-li fa fa-check-square"></i> Choose the reference date. Ideally, this should be the date of symptom onset of the index person. </li>
-                                                                <li style="font-size:14px;font-family: Arial, Sans-Serif"><i class="fa-li fa fa-check-square"></i> Choose the number of days to look back from the reference date (e.g. the incubation period of the disease) and the number of days to look forward from the reference date.</li>
-                                                                <li style="font-size:14px;font-family: Arial, Sans-Serif"><i class="fa-li fa fa-check-square"></i> Click on the “run” button.</li>
+                                                                <li style="font-size:14px;font-family: Arial, Sans-Serif"><i class="fa-li fa fa-circle" style="font-size:10px;color:#005daa;"></i> First choose whether you are starting with an index staff member or a patient by clicking the on the “Staff” or “Patient” tile.</li>
+                                                                <li style="font-size:14px;font-family: Arial, Sans-Serif"><i class="fa-li fa fa-circle" style="font-size:10px;color:#005daa;"></i> Choose the Staff ID (or Patient ID) of the index person. </li>
+                                                                <li style="font-size:14px;font-family: Arial, Sans-Serif"><i class="fa-li fa fa-circle" style="font-size:10px;color:#005daa;"></i> Choose the reference date. Ideally, this should be the date of symptom onset of the index person. </li>
+                                                                <li style="font-size:14px;font-family: Arial, Sans-Serif"><i class="fa-li fa fa-circle" style="font-size:10px;color:#005daa;"></i> Choose the number of days to look back from the reference date (e.g. the incubation period of the disease) and the number of days to look forward from the reference date.</li>
+                                                                <li style="font-size:14px;font-family: Arial, Sans-Serif"><i class="fa-li fa fa-circle" style="font-size:10px;color:#005daa;"></i> Click on the “run” button.</li>
                                                                 </ul>
 
                                                                 <table style="font-size:14px;font-family: Arial, Sans-Serif">
@@ -624,7 +611,7 @@ body <- dashboardBody(
                               box(width=12,
                                   downloadButton("download8","Download"),
                                   withSpinner(DT::dataTableOutput("table_txt_tbl_1",height ="500px"),
-                                              color = '#3c8dbc'),
+                                              color = '#005daa'),
                                   value = 'table_4'))
               )
 

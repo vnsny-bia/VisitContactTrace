@@ -15,8 +15,8 @@ upload_button_style= 'border-radius: 0px;
                       text-decoration: none;
                       color: #ffffff;
                       font-size: 14px;
-                      background-color:#175477;
-                      border-top-color: #175477;'
+                      background-color:#005daa;
+                      border-top-color: #005daa;'
 
 
 
@@ -67,12 +67,12 @@ server = function(input, output,session) {
   observeEvent(input$accept_btn,{
     showModal( modalDialog(
     title =HTML(paste0('<div class="basic_dwnld"> 
-    <center><img src="www/VNSNY_White.png" alt="Data Preview"  height="100" align="center"></center>
+    <center><img src="www/VNSNY_single_bb.jpg" alt="Data Preview"  height="100" align="center"></center>
 
-    <h2 align="center",style="color:white; margin-top:-50px;">
+    <h2 align="center",style="color:#005daa; margin-top:-50px;">
     <i style="font-size:24px;color:rgb(255, 164, 27); class="fas fa-project-diagram"></i>
                   VisitContactTrace Application </h2>
-                      <h3 align="center" style="color:white;"><i class="fas fa-cloud-upload-alt" style="font-size:26px;color:white;"></i>&ensp;Upload Data</h3>
+                      <h3 align="center" style="color:#005daa;"><i class="fas fa-cloud-upload-alt" style="font-size:26px;color:#005daa;"></i>&ensp;Upload Data</h3>
       <br>
       <ul class="fa-ul">
         <li style="font-size:15px;font-family: Arial, Sans-Serif"><i class="fa-li fa fa-circle"></i>Please upload visit data file (.CSV or .XLSX) by clicking on the “Choose Data File” button.</li>
@@ -80,7 +80,7 @@ server = function(input, output,session) {
         <li style="font-size:15px;font-family: Arial, Sans-Serif"><i class="fa-li fa fa-circle"></i> Click on the “View Selected File” button to review your uploaded data file and to rename columns</li>
         <li style="font-size:15px;font-family: Arial, Sans-Serif"><i class="fa-li fa fa-circle"></i>Click on the “Use Selected File” button when you are ready to display your data in the application.</li>
       </ul>
-      <center>  <ui style="background-color:#9a2a1c;"><b>&#x26A0; Acceptable File Format/Type: .CSV/.XLSX </b> </ui><br></center></div><center><h4> Selected File Path : </h4>',textOutput('file_name_output'),'</center>')),
+      <center>  <ui style="background-color:tomato;"><b>&#x26A0; Acceptable File Format/Type: .CSV/.XLSX </b> </ui><br></center></div><center><h4> Selected File Path : </h4>',textOutput('file_name_output'),'</center>')),
     footer=list(actionButton("demo", label="Try out demo data"),modalButton("Close")),
     list(shinyFilesButton(id = 'file', 'Choose Data File', 'Please select a file', FALSE,style = upload_button_style),  tags$br(),
          div(style="display: inline-block;vertical-align:top; width: 100px; bottom: 200px; top: -100px; margin-top: 24px;height: 36px; margin-left:95px; ",
@@ -232,8 +232,8 @@ server = function(input, output,session) {
                            list( tags$p("The VisitContactTrace application will recognize the following columns: PATIENT_ID, PATIENT_NAME (required), VISIT_DATE (required), STAFF_ID, STAFF_NAME (required), PATIENT_STATUS, STAFF_STATUS"),
                                  div(style="display: inline-block;vertical-align:top; width: 300px;",selectInput(inputId = "OldColumnName", label = "Select Column Name to rename",multiple = F, choices = c("NA"), selected = "")),
                                  div(style="display: inline-block;vertical-align:top; width: 300px; margin-left:10px;",textInput(inputId = "NewColumnName", label = "Enter New Column Name", "NA")),
-                                 div(style="display: inline-block;vertical-align:top; width: 100px; bottom: 200px; top: -100px; margin-top: 24px;height: 36px; margin-left:10px;",actionButton("RenameColumn", "Rename Column",style = "color: #fff; background-color: MAROON; border-color: #2e6da4")),
-                                 div(style="display: inline-block;vertical-align:top; width: 100px; bottom: 200px; top: -100px; margin-top: 24px;height: 36px; margin-left:30px; ",actionButton("submit", "Use Selected File",style = "color: #fff; background-color: MAROON; border-color: #2e6da4"))
+                                 div(style="display: inline-block;vertical-align:top; width: 100px; bottom: 200px; top: -100px; margin-top: 24px;height: 36px; margin-left:10px;",actionButton("RenameColumn", "Rename Column",style = "color: #fff; background-color: #005daa; border-color: #005daa")),
+                                 div(style="display: inline-block;vertical-align:top; width: 100px; bottom: 200px; top: -100px; margin-top: 24px;height: 36px; margin-left:30px; ",actionButton("submit", "Use Selected File",style = "color: #fff; background-color: #005daa; border-color: #005daa"))
 
 
                            )
@@ -248,10 +248,10 @@ server = function(input, output,session) {
   observeEvent(input$back2,{
     showModal( modalDialog(
       title =HTML(paste0('<div class="basic_dwnld"> 
-      <center><img src="www/VNSNY_White.png" alt="Data Preview"  height="120" align="center"></center>
+      <center><img src="www/VNSNY_single_bb.jpg" alt="Data Preview"  height="120" align="center"></center>
 
-    <h2 align="center",style="color:white; margin-top:-50px;"><i style="font-size:24px;color:rgb(255, 164, 27); class="fas fa-project-diagram"></i>VisitContactTrace Application </h2>
-    <h3 align="center" style="color:white;"><i class="fas fa-cloud-upload-alt" style="font-size:26px;color:white;"></i>&ensp;Upload Data</h3>
+    <h2 align="center",style="color:#005daa; margin-top:-50px;"><i style="font-size:24px;color:rgb(255, 164, 27); class="fas fa-project-diagram"></i>VisitContactTrace Application </h2>
+    <h3 align="center" style="color:#005daa;"><i class="fas fa-cloud-upload-alt" style="font-size:26px;color:#005daa;"></i>&ensp;Upload Data</h3>
     <br>
     <ul class="fa-ul">
       <li style="font-size:15px;font-family: Arial, Sans-Serif"><i class="fa-li fa fa-circle"></i>Please upload visit data file (.CSV or .XLSX) by clicking on the “Choose Data File” button.</li>
@@ -260,7 +260,7 @@ server = function(input, output,session) {
       <li style="font-size:15px;font-family: Arial, Sans-Serif"><i class="fa-li fa fa-circle"></i>Click on the “Use Selected File” button when you are ready to display your data in the application.</li>
     </ul>
                     
-    <center>  <ui style="background-color:#9a2a1c;"><b>&#x26A0; Acceptable File Format/Type: .CSV/.XLSX </b> </ui><br></center></div><center><h4> Selected File Path : </h4>',textOutput('file_name_output'),'</center>')),
+    <center>  <ui style="background-color:tomato;"><b>&#x26A0; Acceptable File Format/Type: .CSV/.XLSX </b> </ui><br></center></div><center><h4> Selected File Path : </h4>',textOutput('file_name_output'),'</center>')),
       footer=list(actionButton("demo", label="Try out demo data"),modalButton("Close")),
       list(
         shinyFilesButton(id = 'file', 'Choose Data File', 'Please select a file', FALSE,style = upload_button_style),  tags$br(),
@@ -289,7 +289,7 @@ server = function(input, output,session) {
 
                                  initComplete = JS(
                                    "function(settings, json) {",
-                                   "$(this.api().table().header()).css({'background-color': '#3c8dbc', 'color': '#fff'});",
+                                   "$(this.api().table().header()).css({'background-color': '#005daa', 'color': '#fff'});",
                                    "}")),
                   class="nowrap display"
     )
@@ -853,44 +853,44 @@ server = function(input, output,session) {
   #_1.12 onclick to change selected tab background colors -----
 
   onclick("ref_date_id", {
-    js_code_1 <- "$('#clin_id').css('background-color', '#3a95e296');"
+    js_code_1 <- "$('#clin_id').css('background-color', '#005daa');"
     shinyjs::runjs(js_code_1)     })
 
   onclick("days_diff_id", {
-    js_code_1 <- "$('#clin_id').css('background-color', '#3a95e296');"
+    js_code_1 <- "$('#clin_id').css('background-color', '#005daa');"
     shinyjs::runjs(js_code_1)     })
 
   onclick("clinic_id", {
-    js_code_1 <- "$('#clin_id').css('background-color', '#3a95e296');"
+    js_code_1 <- "$('#clin_id').css('background-color', '#005daa');"
     shinyjs::runjs(js_code_1)    })
 
   onclick("patient_id", {
-    js_code_1 <- "$('#pat_id').css('background-color', '#3a95e296');"
+    js_code_1 <- "$('#pat_id').css('background-color', '#005daa');"
     shinyjs::runjs(js_code_1)
   })
 
   onclick("ref_date_id_1", {
-    js_code_1 <- "$('#pat_id').css('background-color', '#3a95e296');"
+    js_code_1 <- "$('#pat_id').css('background-color', '#005daa');"
     shinyjs::runjs(js_code_1)    })
 
   onclick("days_diff_id_1", {
-    js_code_1 <- "$('#pat_id').css('background-color', '#3a95e296');"
+    js_code_1 <- "$('#pat_id').css('background-color', '#005daa');"
     shinyjs::runjs(js_code_1)    })
 
   onclick("pat_id",{
 
-    js_code_1 <- "$('#clin_id').css('background-color', '#231f20');"
+    js_code_1 <- "$('#clin_id').css('background-color', 'white');"
     shinyjs::runjs(js_code_1)
-    js_code_1 <- "$('#pat_id').css('background-color', '#3a95e296');"
+    js_code_1 <- "$('#pat_id').css('background-color', '#005daa');"
     shinyjs::runjs(js_code_1)
 
   })
 
   onclick("clin_id",{
 
-    js_code_1 <- "$('#pat_id').css('background-color', '#231f20');"
+    js_code_1 <- "$('#pat_id').css('background-color', 'white');"
     shinyjs::runjs(js_code_1)
-    js_code_1 <- "$('#clin_id').css('background-color', '#3a95e296');"
+    js_code_1 <- "$('#clin_id').css('background-color', '#005daa');"
     shinyjs::runjs(js_code_1)
   })
 
@@ -1173,7 +1173,7 @@ server = function(input, output,session) {
 
                                                     initComplete = JS(
                                                       "function(settings, json) {",
-                                                      "$(this.api().table().header()).css({'background-color': '#3c8dbc', 'color': '#fff'});",
+                                                      "$(this.api().table().header()).css({'background-color': '#005daa', 'color': '#fff'});",
                                                       "}"))
                        )
                      }) #End Datatable
@@ -1310,7 +1310,7 @@ server = function(input, output,session) {
                                                     dom = 'B<"dwnld">frtip',
                                                     initComplete = JS(
                                                       "function(settings, json) {",
-                                                      "$(this.api().table().header()).css({'background-color': '#3c8dbc', 'color': '#fff'});",
+                                                      "$(this.api().table().header()).css({'background-color': '#005daa', 'color': '#fff'});",
                                                       "}"))
                        )
 
@@ -1343,7 +1343,7 @@ server = function(input, output,session) {
 
                                                     initComplete = JS(
                                                       "function(settings, json) {",
-                                                      "$(this.api().table().header()).css({'background-color': '#3c8dbc', 'color': '#fff'});",
+                                                      "$(this.api().table().header()).css({'background-color': '#005daa', 'color': '#fff'});",
                                                       "}"))
 
                        )
@@ -1375,7 +1375,7 @@ server = function(input, output,session) {
 
                                                     initComplete = JS(
                                                       "function(settings, json) {",
-                                                      "$(this.api().table().header()).css({'background-color': '#3c8dbc', 'color': '#fff'});",
+                                                      "$(this.api().table().header()).css({'background-color': '#005daa', 'color': '#fff'});",
                                                       "}"))
                        )
 
@@ -1736,7 +1736,7 @@ server = function(input, output,session) {
                                                     dom = 'B<"dwnld">frtip',
                                                     initComplete = JS(
                                                       "function(settings, json) {",
-                                                      "$(this.api().table().header()).css({'background-color': '#3c8dbc', 'color': '#fff'});",
+                                                      "$(this.api().table().header()).css({'background-color': '#005daa', 'color': '#fff'});",
                                                       "}"))
                        )
                      }) #End Datatable
@@ -1808,7 +1808,7 @@ server = function(input, output,session) {
                                                     dom = 'B<"dwnld">frtip',
                                                     initComplete = JS(
                                                       "function(settings, json) {",
-                                                      "$(this.api().table().header()).css({'background-color': '#3c8dbc', 'color': '#fff'});",
+                                                      "$(this.api().table().header()).css({'background-color': '#005daa', 'color': '#fff'});",
                                                       "}"))
                        )
 
@@ -1839,7 +1839,7 @@ server = function(input, output,session) {
                                                     dom = 'B<"dwnld">frtip',
                                                     initComplete = JS(
                                                       "function(settings, json) {",
-                                                      "$(this.api().table().header()).css({'background-color': '#3c8dbc', 'color': '#fff'});",
+                                                      "$(this.api().table().header()).css({'background-color': '#005daa', 'color': '#fff'});",
                                                       "}"))
 
                        )
@@ -1872,7 +1872,7 @@ server = function(input, output,session) {
                                                     dom = 'B<"dwnld">frtip',
                                                     initComplete = JS(
                                                       "function(settings, json) {",
-                                                      "$(this.api().table().header()).css({'background-color': '#3c8dbc', 'color': '#fff'});",
+                                                      "$(this.api().table().header()).css({'background-color': '#005daa', 'color': '#fff'});",
                                                       "}"))
                        )
 

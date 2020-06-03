@@ -24,7 +24,7 @@ Learn more about VNSNY's COVID-19 response [here](https://www.vnsny.org/coronavi
 [Requirements for the VisitContactTrace Application](#requirements)  
       [Installing the VisitContactTrace R package](#installapp)  
       [Running VisitContactTrace on Your PC](#runapp)  
-      [Input Data](#inputdata)  
+      [Input Data Type and Structure](#inputdata)  
       [Data Specifications](#dataspec)     
 [Using the VisitContactTrace Application](#useapp)  
       [Try VisitContactTrace with Demonstration Feature](#demodata)    
@@ -60,6 +60,11 @@ install.packages("http://stats.vnsny.org/VisitContactTrace/VisitContactTrace_0.1
 # Public version install
 # install.packages("VisitContactTrace", repos = "https://github.com/vnsny-bia/VisitContactTrace")
 ```
+You will know that the packages are installed and that R is ready for the next command when you see the carat prompt in the R console:
+```r
+>
+```
+You can proceed to [running VisitContactTrace](#runapp) once you see the carat prompt appear.
 
 ## Running VisitContactTrace on Your PC <a name="runapp"></a>
 
@@ -71,7 +76,7 @@ VisitContactTrace()
 ```
 Run those two commands from an R session every time you want to use VisitContactTrace.
 
-## Input Data <a name="inputdata"></a>
+## Input Data Type and Structure <a name="inputdata"></a>
 
 The VisitContactTrace application supports a common data structure used in community-based healthcare settings for functions such as billing and clinical record documentation. This data structure, known as "encounter data" or "visit data," was the motivation for creating this application. In a community-based healthcare setting, patients are usually homebound or have significant disability, and are not observed to encounter each other. The VisitContactTrace application uses only these visit interactions or "encounters" between visit staff and patients to trace the possible transmission route of an infectious disease in a visit-based service delivery model.  While it is possible for community-based visit staff to interact with each other in the field under certain circumstances, it is an uncommon occurrence, and VisitContactTrace currently does not support contact tracing for those interactions.  The concept of visit-based contact tracing can be used in other visit-based service delivery models outside of community-based healthcare settings.
 
@@ -94,60 +99,15 @@ There may be other precautions necessary that the authors of VisitContactTrace h
   
 The **VisitContactTrace** application recognizes the following data fields:
 
-<table class="table table-striped table-bordered">
-<thead>
-<tr>
-<th>Column Name</th>
-<th>Format</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>PATIENT_ID</td>
-<td>Character</td>
-<td>FALSE</td>
-<td>Unique identifier of patient.  If this column is absent, <strong>PATIENT_NAME</strong> is used instead.</td>
-</tr>
-<tr>
-<td>PATIENT_NAME</td>
-<td>Character</td>
-<td>TRUE</td>
-<td>First and last name of patient.* If the <strong>PATIENT_ID</strong> column is absent, this column is used as the unique identifier for patients.</td>
-</tr>
-<tr>
-<td>VISIT_DATE</td>
-<td>DATE</td>
-<td>TRUE</td>
-<td>The date that a visit staff member visits a patient. Acceptable date formats include ‘2004-03-21 12:45:33.123456’, ‘2004/03/21 12:45:33.123456’, ‘20040321 124533.123456’, ‘03/21/2004 12:45:33.123456’, ‘03-21-2004 12:45:33.123456’, ‘2004-03-21’, ‘20040321’, ‘03/21/2004’, ‘03-21-2004’, ‘20010101’</td>
-</tr>
-<tr>
-<td>STAFF_ID</td>
-<td>Character</td>
-<td>FALSE</td>
-<td>Unique ID for visit staff member.  If this column is absent, <strong>STAFF_NAME</strong> is used instead.</td>
-</tr>
-<tr>
-<td>STAFF_NAME</td>
-<td>Character</td>
-<td>TRUE</td>
-<td>First and last name of visit staff member*. If the <strong>STAFF_ID</strong> column is absent, this column is used as the unique identifier for visit staff members.</td>
-</tr>
-<tr>
-<td>PATIENT_STATUS</td>
-<td>Character</td>
-<td>FALSE</td>
-<td>Labels used to indicate a status for each <strong>patient</strong>, such as confirmation of an infectious disease or some other status (e.g. “POSITIVE”, “NEGATIVE”, “SUSPECTED”).  This label is case-sensitive (meaning that “Positive”, “positive”, and “POSITIVE” are all considered different statuses) and must be applied to all applicable visit observations for the <strong>patient</strong>.  See the Output - Plot section to learn how the application uses this column.</td>
-</tr>
-<tr>
-<td>STAFF_STATUS</td>
-<td>Character</td>
-<td>FALSE</td>
-<td>Labels used to indicate a status for each <strong>staff member</strong>, such as confirmation of an infectious disease or some other status (e.g. “POSITIVE”, “NEGATIVE”, “SUSPECTED”).  This label is case-sensitive (meaning that “Positive”, “positive”, and “POSITIVE” are all considered different statuses) and must be applied to all applicable visit observations for the <strong>staff member</strong>.  See the Output - Plot section to learn how the application uses this column.</td>
-</tr>
-</tbody>
-</table>
+| Column Name | Format | Required | Description |
+| --------------- | --------------- | --------------- |----------------------------------------------------------------------------|
+| PATIENT_ID | Character | FALSE | Unique identifier of patient.  If this column is absent, **PATIENT_NAME** is used instead. |
+| PATIENT_NAME | Character | TRUE | First and last name of patient.* If the **PATIENT_ID** column is absent, this column is used as the unique identifier for patients. |
+| VISIT_DATE | DATE | TRUE | The date that a visit staff member visits a patient. Acceptable date formats include '2004-03-21 12:45:33.123456', '2004/03/21 12:45:33.123456', '20040321 124533.123456', '03/21/2004 12:45:33.123456', '03-21-2004 12:45:33.123456', '2004-03-21', '20040321', '03/21/2004', '03-21-2004', '20010101' |
+| STAFF_ID | Character | FALSE | Unique ID for visit staff member.  If this column is absent, **STAFF_NAME** is used instead. |
+| STAFF_NAME | Character | TRUE | First and last name of visit staff member*. If the **STAFF_ID** column is absent, this column is used as the unique identifier for visit staff members. |
+| PATIENT_STATUS | Character | FALSE |  Labels used to indicate a status for each **patient**, such as confirmation of an infectious disease or some other status (e.g. "POSITIVE", "NEGATIVE", "SUSPECTED").  This label is case-sensitive (meaning that "Positive", "positive", and "POSITIVE" are all considered different statuses) and must be applied to all applicable visit observations for the **patient**.  See the Output - Plot section to learn how the application uses this column. |
+| STAFF_STATUS | Character | FALSE |  Labels used to indicate a status for each **staff member**, such as confirmation of an infectious disease or some other status (e.g. "POSITIVE", "NEGATIVE", "SUSPECTED").  This label is case-sensitive (meaning that "Positive", "positive", and "POSITIVE" are all considered different statuses) and must be applied to all applicable visit observations for the **staff member**.  See the Output - Plot section to learn how the application uses this column. |
 
 \* Many users may work with data systems that store patient/staff name in two columns (first name & last name).  Those users should consider concatenating those columns prior to uploading the data into the application.
 
@@ -172,16 +132,16 @@ If you don't have data available but would like to experiment with the applicati
 
 ## Importing Data <a name="importdata"></a>
 
-If you do have data you would like to use, click on "Upload File" and browse to the dataset that you wish to import into the VisitContactTrace application.  
+If you do have data you would like to use, click on "Choose Data File" and browse to the dataset that you wish to import into the VisitContactTrace application.  
 
-The "Review Data" button provides a preview of the data import and the ability to rename columns to the names defined in [data specifications](#dataspec). If column names and formats are correct, the "Submit Data" button will import the data into the application.  If not, the user will be notified of an error.
+The "View Selected File" button provides a preview of the data import and the ability to rename columns to the names defined in [data specifications](#dataspec). If column names and formats are correct, the "Use Selected File" button will import the data into the application.  If not, the user will be notified of an error.
 
 <img src="./inst/www/ct-preview.PNG" width="500"  align="center"/>
 
 
 ## Querying VisitContactTrace <a name="queryapp"></a>
 
-When using the VisitContactTrace application, the user needs to identify an individual that serves as the "index" person in a contact tracing investigation.  These options are available as different tabs in the top of the screenshot displayed below.
+When using the VisitContactTrace application, the user needs to identify an individual that serves as the “index” person in a contact tracing investigation. This application was designed assuming that the user has a list of individuals (patients and/or staff members) to conduct contact tracing on; the application itself does not inform the user as to which individuals need contact tracing.
 
 Querying Parameter Instructions:
 
@@ -191,6 +151,8 @@ Querying Parameter Instructions:
 * Choose the number of days to look back from the reference date (e.g. the incubation period of the disease) and the number of days to look forward from the reference date.  Consult your organization's policies & procedures for specific guidance regarding the use of index dates and tracing periods.
 
 **Click on the “Run” button.**
+
+Please note that depending on your PC’s hardware, the size of your dataset, and the duration of time for which you are conducting the contact trace you may experience long computation times.  
 
 <img src="./inst/www/ct-main.PNG" width="1200" align="center"/>
 
@@ -207,12 +169,12 @@ In the screenshot above, [Florence Nightingale](https://en.wikipedia.org/wiki/Fl
 
 ## Output - Contact Lists <a name="outputcontactlists"></a>
 
-The right-hand panel of the application displays the primary, secondary, and tertiary contact lists (available in the three tabs under "Contact Lists." The user can download these lists into .csv.
+The right-hand panel of the application displays the primary, secondary, and tertiary contact lists (available in the three tabs under "Contact Lists." The user can download these lists into .csv by clicking on the "Download" button.
 
 
 ## Output - Plot <a name="outputplot"></a>
 
-The "Plot" tab displays the "network diagram" of primary, secondary, and tertiary contacts.  If the user included patient/staff statuses, the plot legend displays each distinct status type differently. The application applies **the most recent status for each patient or staff within the requested visit window**. For example, imagine that Patient A has a status of "NEGATIVE" for visits on 5/1, 5/2, 5/3, and 5/4, and then a status of "POSITIVE" for visits on 5/5 and 5/6. If the requested window of visits for Patient A ends on 5/4, then Patient A will be labeled as "NEGATIVE" in the plot. However, if the requested window of visits for Patient A ends on 5/5 or 5/6, then Patient A will be labeled as "POSITIVE" in the plot.
+The "Plot" tab displays the "network diagram" of primary, secondary, and tertiary contacts.  Users can hover over the patient and staff icons to see individual details (ID, name, status) or click on an icon in order to highlight the direct contacts of an individual. If the user included patient/staff statuses, the plot legend displays each distinct status type differently. The application applies **the most recent status for each patient or staff within the requested visit window**. For example, imagine that Patient A has a status of "NEGATIVE" for visits on 5/1, 5/2, 5/3, and 5/4, and then a status of "POSITIVE" for visits on 5/5 and 5/6. If the requested window of visits for Patient A ends on 5/4, then Patient A will be labeled as "NEGATIVE" in the plot. However, if the requested window of visits for Patient A ends on 5/5 or 5/6, then Patient A will be labeled as "POSITIVE" in the plot.
 
 <img src="./inst/www/ct-plot3.PNG" width="800" align="center"/>
 
@@ -224,7 +186,7 @@ The visit details tab includes all primary, secondary, and tertiary contact visi
 
 ## Exit/Reload data <a name="exitapp"></a>
 
-The top right-hand corner of the application contains a drop down menu that contains options for users to exit the application or reload the user interface to upload data.  It is best to exit the application by clicking on "Exit" in this window, because this correctly closes the VisitContactTrace application from the R session. 
+The top right-hand corner of the application contains a drop down menu that contains options for users to exit the application or reload the user interface to upload a new dataset.  It is best to exit the application by clicking on "Exit" in this window, because this correctly closes the VisitContactTrace application from the R session. 
 
 # Other Useful R Functions/Objects (for experienced R users) <a name="advancedR"></a>
 
@@ -263,7 +225,7 @@ After selecting the CRAN mirror and correct OS, click on "base," and click on "D
 
 <center><img src="./inst/www/VisitContactTrace-Setup.gif" width="800" align="center"/></center>
 
-In organizations that require administrative rights to install software, it is still possible to install R in the user's local storage without administrative rights.  You can find the **Rgui** executable file in the directory in which it was installed. Below are some examples of how this may look; click on Rgui.exe to launch an R session.  If you will be using this application often, consider creating a shortcut on your desktop.
+In organizations that require administrative rights to install software, it is still possible to install R in the user's local storage without administrative rights.  In this case, consider installing to the “documents” directory associated with your user account. You can find the **Rgui** executable file in a child directory within the directory that was selected during installation. Below are some examples of how this may look; click on Rgui.exe to launch an R session.  If you will be using this application often, consider creating a shortcut on your desktop.
 
 
 <img src="./inst/www/Ri386-image.PNG" width="600" align="center"/>
@@ -272,7 +234,7 @@ In organizations that require administrative rights to install software, it is s
 
 ## Using the R Console ##
 
-In order to load and run the VisitContactTrace application, you must copy and paste commands into the R Console.  The R Console looks like the image below. You should write or paste the commands here in order to install and run the VisitContactTrace application on your computer.
+In order to load and run the VisitContactTrace application, you must copy and paste commands into the R Console.  The R Console looks like the image below. You should write or paste the commands here in order to [install](#installapp) and [run the VisitContactTrace application](#runnapp) on your computer.    
 
 <img src="./inst/www/Rconsole-image.PNG" width="800" align="center"/>
 
