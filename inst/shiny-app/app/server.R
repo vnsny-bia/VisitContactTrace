@@ -967,7 +967,6 @@ server = function(input, output,session) {
                    data[,staff_id:=paste0("clin_",staff_id)]
                    copy_data <<- data
 
-                   library(dplyr)
                    my_dplyr_fun <- function(data, id1) {
                      id2s <- filter(data, staff_id == {{id1}}) %>%
                        pull(patient_id)
@@ -1139,7 +1138,6 @@ server = function(input, output,session) {
                      output$table_txt_tbl <- renderDataTable({
 
                        if(is.null(table_txt)){return()}
-                       library(dplyr)
                        setDT(table_txt)[,n:=gsub("Stage ","",stage)]
                        table_txt <-  table_txt %>%
                          group_by(from,to,visit_date) %>%
@@ -1186,7 +1184,6 @@ server = function(input, output,session) {
                          paste("data-visit-details-", Sys.Date(), ".csv", sep="")
                        },
                        content = function(file) {
-                         library(dplyr)
                          setDT(table_txt)[,n:=gsub("Stage ","",stage)]
                          table_txt <-  table_txt %>%
                            group_by(from,to,visit_date) %>%
@@ -1235,7 +1232,9 @@ server = function(input, output,session) {
                      
                      
                      #icon.color <- viridis::viridis_pal(option = "D")(length(unique(a$label)))
-                     icon.color <- RColorBrewer::brewer.pal(length(unique(a$label)), "Set1")
+                     #icon.color <- RColorBrewer::brewer.pal(length(unique(a$label)), "Set1")
+                     icon.color <- randomcoloR::randomColor(length(unique(a$label)),luminosity="dark")
+                     
                      icon.color <- cbind(label=unique(a$label), icon.color)
                      
                      a <- merge(a, icon.color, by="label")
@@ -1663,7 +1662,10 @@ server = function(input, output,session) {
                      
                      #icon.color <- viridis::viridis_pal(option = "D")(length(unique(a$label)))
                      #require(RColorBrewer)
-                     icon.color <- RColorBrewer::brewer.pal(length(unique(a$label)), "Set1")
+                     #icon.color <- RColorBrewer::brewer.pal(length(unique(a$label)), "Set1")
+                     #icon.color <- randomcoloR::distinctColorPalette(length(unique(a$label)))
+                     icon.color <- randomcoloR::randomColor(length(unique(a$label)),luminosity="dark")
+                     
                      icon.color <- cbind(label=unique(a$label), icon.color)
                      
                      a <- merge(a, icon.color, by="label")
@@ -1707,7 +1709,6 @@ server = function(input, output,session) {
 
                      output$table_txt_tbl_1 <- renderDataTable({
 
-                       library(dplyr)
                        setDT(table_txt)[,n:=gsub("Stage ","",stage)]
                        table_txt <-  table_txt %>%
                          group_by(from,to,visit_date) %>%
@@ -1751,7 +1752,6 @@ server = function(input, output,session) {
                          paste("pat-data-visit-details-", Sys.Date(), ".csv", sep="")
                        },
                        content = function(file) {
-                         library(dplyr)
                          setDT(table_txt)[,n:=gsub("Stage ","",stage)]
                          table_txt <-  table_txt %>%
                            group_by(from,to,visit_date) %>%

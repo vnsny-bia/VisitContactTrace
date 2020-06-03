@@ -53,7 +53,7 @@ The VisitContactTrace application allows users to **upload data manually.**  For
 The following code must be run in R the first time you use VisitContactTrace (and anytime you switch versions of R).  This step may take a while to run as there are lot of other packages that need to be downloaded and installed before VisitContactTrace can run successfully.  Copy and paste the following lines of code (preserving the upper- and lower- case letters) into the R Console and press "enter" on the keyboard to install the development version of **VisitContactTrace** from GitHub:
 
 ```r
-depend.pack <- c('anytime', 'shiny', 'shinydashboard', 'RColorBrewer', 'shinyFiles', 'shinycssloaders', 'shinyWidgets', 'data.table', 'assertthat', 'dplyr', 'purrr', 'rmarkdown', 'visNetwork', 'DT', 'fst', 'stringr', 'shinyalert', 'epicontacts', 'fs', 'readxl', 'shinyjs')
+depend.pack <- c('anytime', 'shiny', 'shinydashboard', 'randomcoloR', 'shinyFiles', 'shinycssloaders', 'shinyWidgets', 'data.table', 'assertthat', 'dplyr', 'purrr', 'rmarkdown', 'visNetwork', 'DT', 'fst', 'stringr', 'shinyalert', 'epicontacts', 'fs', 'readxl', 'shinyjs')
 install.packages(depend.pack, dependencies=TRUE, repos="http://lib.stat.cmu.edu/R/CRAN/")
 # VNSNY Internal Employees Only (Remove before making public)
 install.packages("http://stats.vnsny.org/VisitContactTrace/VisitContactTrace_0.1.0.tar.gz",repo=NULL,type="source")
