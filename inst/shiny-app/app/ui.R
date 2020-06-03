@@ -159,14 +159,11 @@ body <- dashboardBody(
                                                  options = list(width=200, `live-search`=TRUE)
                                                )
                                            ),
-                                           div(style="display:inline-block",
-                                               pickerInput(
-                                                 inputId = "ref_date_id", label = "Reference Date :",
-                                                 choices = c(''),
-                                                 multiple = F,
-                                                 selected = 'Nothing Selected' ,
-                                                 width='150px',
-                                                 options = list(width=150, `live-search`=TRUE)
+                                           
+                                           div(style="display:inline-block;",
+                                               dateInput(
+                                                 inputId = "ref_date_id",
+                                                 label = "Reference Date :",width='150px'
                                                )
                                            ),
                                            div(style="display:inline-block",
@@ -282,7 +279,7 @@ body <- dashboardBody(
                                                                 <li style="font-size:14px;font-family: Arial, Sans-Serif"><i class="fa-li fa fa-circle" style="font-size:10px;color:#005daa;"></i> Click on the “run” button.</li>
                                                                 </ul>
 
-                                                                <table style="font-size:14px;font-family: Arial, Sans-Serif">
+                                                                <table class= "beta" style="font-size:14px;font-family: Arial, Sans-Serif">
                                                                       <tr>
                                                                       <th></th>
                                                                       <th>If a staff member is the index person…</th>
@@ -346,32 +343,7 @@ body <- dashboardBody(
                                               DT::dataTableOutput("stage_3_table"))
                               ),
                               value = 'stg_tbls'),
-                     # tabPanel(tagList(HTML('<i class="fa fa-group"></i>'),"Contact Tracing"),
-                     #          div(style="display:inline-block;padding-upper:'0px';padding-left:'2px';overflow-y: auto;",
-                     #              conditionalPanel("input.go_btn > 0",verbatimTextOutput('print_txt',placeholder = F)),
-                     #              tags$head(tags$style(HTML("
-                     #                                #print_txt {
-                     #                                  padding: 9.5px;
-                     #                                  margin: 0 0 10px;
-                     #                                  margin-left: 14px;
-                     #                                  font-size: 13px;
-                     #                                  line-height: 1.42857143;
-                     #                                  color: #fff;
-                     #                                      word-break: break-all;
-                     #                                  word-wrap: break-word;
-                     #                                  background-color: #f5f5f5;
-                     #                                      border: 1px solid #ccc;
-                     #                                  border-radius: 4px;
-                     #                                  max-height: 550px;
-                     #                                  overflow: auto;
-                     #                                  width:735px;
-                     #                                  background-color: #222527;
-                     #                              }
-                     #                          ")))
-                     #          ),
-                     #         value = 'model_perf1'),
-                     
-
+                   
                      tabPanel(tagList(HTML("<i class='fas fa-notes-medical'></i>"),"Visit Details"),
                               box(width=12,
                                   downloadButton("download4","Download"),
@@ -406,14 +378,11 @@ body <- dashboardBody(
                                                  options = list(width=200, `live-search`=TRUE)
                                                )
                                            ),
-                                           div(style="display:inline-block",
-                                               pickerInput(
-                                                 inputId = "ref_date_id_1", label = "Reference Date :",
-                                                 choices = c(''),
-                                                 multiple = F,
-                                                 selected = 'Nothing Selected',
-                                                 width='150px',
-                                                 options = list(width=150, `live-search`=TRUE)
+                                          
+                                           div(style="display:inline-block;",
+                                               dateInput(
+                                                 inputId = "ref_date_id_1",
+                                                 label = "Reference Date :",width='150px'
                                                )
                                            ),
                                            div(style="display:inline-block",
@@ -458,25 +427,26 @@ body <- dashboardBody(
                                                            background-color:black;
                                                            color:#fff;
                                                }
-                                                           table {
+                                                           .beta table {
                                                             font-family: arial, sans-serif;
                                                             border-collapse: collapse;
                                                             width: 100%;
                                                           }
 
-                                                          td, th {
+                                                         .beta td, th {
                                                             border: 1px solid black;
                                                             text-align: left;
                                                             padding: 8px;
                                                           }
 
-                                                          tr:nth-child(even) {
+                                                         .beta tr:nth-child(even) {
                                                             background-color: #dddddd;
                                                           }
                                                            "
                                                )
                                              )
-                                           )),
+                                           )
+                                           ),
                                        
                                        tags$style(HTML("<br>")),
                                        #verbatimTextOutput('visit_date_rng_1',placeholder = F),
@@ -526,7 +496,7 @@ body <- dashboardBody(
                                                                 <li style="font-size:14px;font-family: Arial, Sans-Serif"><i class="fa-li fa fa-circle" style="font-size:10px;color:#005daa;"></i> Click on the “run” button.</li>
                                                                 </ul>
 
-                                                                <table style="font-size:14px;font-family: Arial, Sans-Serif">
+                                                                <table class="beta" style="font-size:14px;font-family: Arial, Sans-Serif">
                                                                       <tr>
                                                                       <th></th>
                                                                       <th>If a staff member is the index person…</th>
@@ -581,31 +551,7 @@ body <- dashboardBody(
                               ),
 
                               value = 'stg_tbls'),
-                     # tabPanel(tagList(HTML('<i class="fa fa-group"></i>'),"Contact Tracing"),
-                     #          div(style="display:inline-block;padding-upper:'0px';padding-left:'2px';overflow-y: auto;",
-                     #              conditionalPanel("input.go_btn_1 > 0",verbatimTextOutput('print_txt_1',placeholder = F)),
-                     #              tags$head(tags$style(HTML("
-                     #                                #print_txt_1 {
-                     #                                  padding: 9.5px;
-                     #                                  margin: 0 0 10px;
-                     #                                  margin-left: 14px;
-                     #                                  font-size: 13px;
-                     #                                  line-height: 1.42857143;
-                     #                                  color: #fff;
-                     #                                      word-break: break-all;
-                     #                                  word-wrap: break-word;
-                     #                                  background-color: #f5f5f5;
-                     #                                      border: 1px solid #ccc;
-                     #                                  border-radius: 4px;
-                     #                                  max-height: 550px;
-                     #                                  overflow: auto;
-                     #                                  width:735px;
-                     #                                  background-color: #222527;
-                     #                              }
-                     #                          ")))
-                     #          ),
-                     # 
-                     #          value = 'model_perf'),
+                   
                      
                      tabPanel(tagList(HTML("<i class='fas fa-notes-medical'></i>"),"Visit Details"),
                               box(width=12,

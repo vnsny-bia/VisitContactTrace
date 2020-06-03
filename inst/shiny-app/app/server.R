@@ -158,12 +158,7 @@ server = function(input, output,session) {
         system(paste0("setfacl -m u:rstudio-connect:rwx ", inFile$datapath))
         dt <- read.csv(as.character(inFile$datapath),stringsAsFactors = F)
         setDT(dt)
-        # names(dt) <- tolower(names(dt))
-        # dt[,visit_date:=anytime::anydate(visit_date)]
-        # dt[, (colnames(dt)) := lapply(.SD, as.character), .SDcols = colnames(dt)]
-
-
-
+        
         if("X" %in% names(dt)){
           dt <- subset(dt,select=-X)}
 
@@ -178,12 +173,7 @@ server = function(input, output,session) {
 
         dt <- readxl::read_xlsx(as.character(a))
         setDT(dt)
-        # names(dt) <- tolower(names(dt))
-        # 
-        # dt[,visit_date:=anytime::anydate(visit_date)]
-        # dt[, (colnames(dt)) := lapply(.SD, as.character), .SDcols = colnames(dt)]
-
-
+        
         if("X" %in% names(dt)){
           dt <- subset(dt,select=-X)}
 
@@ -335,18 +325,33 @@ server = function(input, output,session) {
                                        choices = sort(c(unique(paste0(data$staff_name,': ',gsub('clin_','',data$staff_id)))))
 
                      )
-                     updatePickerInput(session, inputId = "ref_date_id", label = "Reference Date :",
-                                       choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days")))),'Nothing Selected'),
 
-                     )
                      updatePickerInput(session,inputId = "patient_id", label = "Patient ID :",
                                        choices = sort(c(unique(paste0(data$patient_name,': ',data$patient_id))))
 
                      )
-                     updatePickerInput(session, inputId = "ref_date_id_1", label = "Reference Date :",
-                                       choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days")))),'Nothing Selected'),
-                                       
+                     
+
+                     updateDateInput(
+                       session=session,
+                       inputId = "ref_date_id",
+                       label = "Reference Date :",
+                       min = as.character(min(as.Date(data$visit_date))),
+                       max = as.character(max(as.Date(data$visit_date))),
+                       value = as.character(min(as.Date(data$visit_date)))
+                       
                      )
+                     
+                     updateDateInput(
+                       session=session,
+                       inputId = "ref_date_id_1",
+                       label = "Reference Date :",
+                       min = as.character(min(as.Date(data$visit_date))),
+                       max = as.character(max(as.Date(data$visit_date))),
+                       value = as.character(min(as.Date(data$visit_date)))
+                       
+                     )
+                     
                    })
       removeModal()
 
@@ -412,19 +417,31 @@ server = function(input, output,session) {
                                            choices = sort(c(unique(paste0(gsub('clin_','',data$staff_id)))))
                                            
                          )
-                         updatePickerInput(session, inputId = "ref_date_id", label = "Reference Date :",
-                                           choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days"))))),
-                                           
-                         )
+                       
                          updatePickerInput(session,inputId = "patient_id", label = "Patient ID :",
                                            choices = sort(c(unique(paste0(data$patient_id))))
                                            
                          )
-                         updatePickerInput(session, inputId = "ref_date_id_1", label = "Reference Date :",
-                                           choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days"))))),
-                                           
+                       
+                         updateDateInput(
+                           session=session,
+                           inputId = "ref_date_id",
+                           label = "Reference Date :",
+                           min = as.character(min(as.Date(data$visit_date))),
+                           max = as.character(max(as.Date(data$visit_date))),
+                           value = as.character(min(as.Date(data$visit_date)))
+                           
                          )
                          
+                         updateDateInput(
+                           session=session,
+                           inputId = "ref_date_id_1",
+                           label = "Reference Date :",
+                           min = as.character(min(as.Date(data$visit_date))),
+                           max = as.character(max(as.Date(data$visit_date))),
+                           value = as.character(min(as.Date(data$visit_date)))
+                           
+                         )
                          
                          
                        })
@@ -465,19 +482,31 @@ server = function(input, output,session) {
                                            choices = sort(c(unique(paste0(data$staff_name,': ',gsub('clin_','',data$staff_id)))))
                                            
                          )
-                         updatePickerInput(session, inputId = "ref_date_id", label = "Reference Date :",
-                                           choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days"))))),
-                                           
-                         )
+                         
                          updatePickerInput(session,inputId = "patient_id", label = "Patient ID :",
                                            choices = sort(c(unique(paste0(data$patient_id))))
                                            
                          )
-                         updatePickerInput(session, inputId = "ref_date_id_1", label = "Reference Date :",
-                                           choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days"))))),
-                                           
+                         
+                         updateDateInput(
+                           session=session,
+                           inputId = "ref_date_id",
+                           label = "Reference Date :",
+                           min = as.character(min(as.Date(data$visit_date))),
+                           max = as.character(max(as.Date(data$visit_date))),
+                           value = as.character(min(as.Date(data$visit_date)))
+                           
                          )
                          
+                         updateDateInput(
+                           session=session,
+                           inputId = "ref_date_id_1",
+                           label = "Reference Date :",
+                           min = as.character(min(as.Date(data$visit_date))),
+                           max = as.character(max(as.Date(data$visit_date))),
+                           value = as.character(min(as.Date(data$visit_date)))
+                           
+                         )
                          
                          
                        })
@@ -515,21 +544,33 @@ server = function(input, output,session) {
                                            choices = sort(c(unique(paste0(gsub('clin_','',data$staff_id)))))
                                            
                          )
-                         updatePickerInput(session, inputId = "ref_date_id", label = "Reference Date :",
-                                           choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days"))))),
-                                           
-                         )
+                        
                          updatePickerInput(session,inputId = "patient_id", label = "Patient ID :",
                                            choices = sort(c(unique(paste0(data$patient_name,': ',data$patient_id))))
                                            
                          )
-                         updatePickerInput(session, inputId = "ref_date_id_1", label = "Reference Date :",
-                                           choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days"))))),
-                                           
+                         
+                         updateDateInput(
+                           session=session,
+                           inputId = "ref_date_id",
+                           label = "Reference Date :",
+                           min = as.character(min(as.Date(data$visit_date))),
+                           max = as.character(max(as.Date(data$visit_date))),
+                           value = as.character(min(as.Date(data$visit_date)))
+                           
                          )
                          
+                         updateDateInput(
+                           session=session,
+                           inputId = "ref_date_id_1",
+                           label = "Reference Date :",
+                           min = as.character(min(as.Date(data$visit_date))),
+                           max = as.character(max(as.Date(data$visit_date))),
+                           value = as.character(min(as.Date(data$visit_date)))
+                           
+                         )
                          
-                         
+
                        })
           removeModal()
           
@@ -564,19 +605,31 @@ server = function(input, output,session) {
                                            choices = sort(c(unique(paste0(data$staff_name,': ',gsub('clin_','',data$staff_id)))))
                                            
                          )
-                         updatePickerInput(session, inputId = "ref_date_id", label = "Reference Date :",
-                                           choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days"))))),
-                                           
-                         )
+
                          updatePickerInput(session,inputId = "patient_id", label = "Patient ID :",
                                            choices = sort(c(unique(paste0(data$patient_name,': ',data$patient_id))))
                                            
                          )
-                         updatePickerInput(session, inputId = "ref_date_id_1", label = "Reference Date :",
-                                           choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days"))))),
-                                           
+                    
+                         updateDateInput(
+                           session=session,
+                           inputId = "ref_date_id",
+                           label = "Reference Date :",
+                           min = as.character(min(as.Date(data$visit_date))),
+                           max = as.character(max(as.Date(data$visit_date))),
+                           value = as.character(min(as.Date(data$visit_date)))
+                           
                          )
                          
+                         updateDateInput(
+                           session=session,
+                           inputId = "ref_date_id_1",
+                           label = "Reference Date :",
+                           min = as.character(min(as.Date(data$visit_date))),
+                           max = as.character(max(as.Date(data$visit_date))),
+                           value = as.character(min(as.Date(data$visit_date)))
+                           
+                         )
                          
                          
                        })
@@ -604,11 +657,6 @@ server = function(input, output,session) {
     data <- rv_data$df
     names(data) <- tolower(names(data))
     data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
-    
-    # data <- dt_read()
-    # names(data) <- tolower(names(data))
-    # data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
-    # rv_data$df <- data
     
     req_col <- c('patient_name','staff_name','visit_date')
     col_diff <- setdiff(req_col,tolower(names(data)))
@@ -651,21 +699,33 @@ server = function(input, output,session) {
                                            choices = sort(c(unique(paste0(gsub('clin_','',data$staff_id)))))
                                            
                          )
-                         updatePickerInput(session, inputId = "ref_date_id", label = "Reference Date :",
-                                           choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days"))))),
-                                           
-                         )
+                       
                          updatePickerInput(session,inputId = "patient_id", label = "Patient ID :",
                                            choices = sort(c(unique(paste0(data$patient_id))))
                                            
                          )
-                         updatePickerInput(session, inputId = "ref_date_id_1", label = "Reference Date :",
-                                           choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days"))))),
-                                           
+                         
+                         
+                         updateDateInput(
+                           session=session,
+                           inputId = "ref_date_id",
+                           label = "Reference Date :",
+                           min = as.character(min(as.Date(data$visit_date))),
+                           max = as.character(max(as.Date(data$visit_date))),
+                           value = as.character(min(as.Date(data$visit_date)))
+                           
                          )
                          
-                         
-                         
+                         updateDateInput(
+                           session=session,
+                           inputId = "ref_date_id_1",
+                           label = "Reference Date :",
+                           min = as.character(min(as.Date(data$visit_date))),
+                           max = as.character(max(as.Date(data$visit_date))),
+                           value = as.character(min(as.Date(data$visit_date)))
+                           
+                         )
+                       
                        })
           removeModal()
           
@@ -704,21 +764,32 @@ server = function(input, output,session) {
                                            choices = sort(c(unique(paste0(data$staff_name,': ',gsub('clin_','',data$staff_id)))))
                                            
                          )
-                         updatePickerInput(session, inputId = "ref_date_id", label = "Reference Date :",
-                                           choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days"))))),
-                                           
+                       
+                         updateDateInput(
+                           session=session,
+                           inputId = "ref_date_id",
+                           label = "Reference Date :",
+                           min = as.character(min(as.Date(data$visit_date))),
+                           max = as.character(max(as.Date(data$visit_date))),
+                           value = as.character(min(as.Date(data$visit_date)))
+                           
                          )
+                         
+                         updateDateInput(
+                           session=session,
+                           inputId = "ref_date_id_1",
+                           label = "Reference Date :",
+                           min = as.character(min(as.Date(data$visit_date))),
+                           max = as.character(max(as.Date(data$visit_date))),
+                           value = as.character(min(as.Date(data$visit_date)))
+                           
+                         )
+                         
                          updatePickerInput(session,inputId = "patient_id", label = "Patient ID :",
                                            choices = sort(c(unique(paste0(data$patient_id))))
                                            
                          )
-                         updatePickerInput(session, inputId = "ref_date_id_1", label = "Reference Date :",
-                                           choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days"))))),
-                                           
-                         )
-                         
-                         
-                         
+
                        })
           removeModal()
           
@@ -754,18 +825,33 @@ server = function(input, output,session) {
                                            choices = sort(c(unique(paste0(gsub('clin_','',data$staff_id)))))
                                            
                          )
-                         updatePickerInput(session, inputId = "ref_date_id", label = "Reference Date :",
-                                           choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days"))))),
-                                           
-                         )
+                        
+                         
                          updatePickerInput(session,inputId = "patient_id", label = "Patient ID :",
                                            choices = sort(c(unique(paste0(data$patient_name,': ',data$patient_id))))
                                            
                          )
-                         updatePickerInput(session, inputId = "ref_date_id_1", label = "Reference Date :",
-                                           choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days"))))),
-                                           
+                         
+                         updateDateInput(
+                           session=session,
+                           inputId = "ref_date_id",
+                           label = "Reference Date :",
+                           min = as.character(min(as.Date(data$visit_date))),
+                           max = as.character(max(as.Date(data$visit_date))),
+                           value = as.character(min(as.Date(data$visit_date)))
+                           
                          )
+                         
+                         updateDateInput(
+                           session=session,
+                           inputId = "ref_date_id_1",
+                           label = "Reference Date :",
+                           min = as.character(min(as.Date(data$visit_date))),
+                           max = as.character(max(as.Date(data$visit_date))),
+                           value = as.character(min(as.Date(data$visit_date)))
+                           
+                         )
+                      
                          
                          
                          
@@ -803,18 +889,31 @@ server = function(input, output,session) {
                                            choices = sort(c(unique(paste0(data$staff_name,': ',gsub('clin_','',data$staff_id)))))
                                            
                          )
-                         updatePickerInput(session, inputId = "ref_date_id", label = "Reference Date :",
-                                           choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days"))))),
-                                           
-                         )
+                        
                          updatePickerInput(session,inputId = "patient_id", label = "Patient ID :",
                                            choices = sort(c(unique(paste0(data$patient_name,': ',data$patient_id))))
                                            
                          )
-                         updatePickerInput(session, inputId = "ref_date_id_1", label = "Reference Date :",
-                                           choices = c(sort(unique(as.character(seq(min(as.Date(data$visit_date)), (max(as.Date(data$visit_date))), by="days"))))),
-                                           
+
+                         updateDateInput(
+                           session=session,
+                           inputId = "ref_date_id",
+                           label = "Reference Date :",
+                           min = as.character(min(as.Date(data$visit_date))),
+                           max = as.character(max(as.Date(data$visit_date))),
+                           value = as.character(min(as.Date(data$visit_date)))
+                           
                          )
+                         updateDateInput(
+                           session=session,
+                           inputId = "ref_date_id_1",
+                           label = "Reference Date :",
+                           min = as.character(min(as.Date(data$visit_date))),
+                           max = as.character(max(as.Date(data$visit_date))),
+                           value = as.character(min(as.Date(data$visit_date)))
+                           
+                         )
+                         
                          
                          
                          

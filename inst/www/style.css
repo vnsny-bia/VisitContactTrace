@@ -12,6 +12,29 @@
 
   }
 */
+
+
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    top: -2px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #f4f4f4;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
 .navbar .nav-item{padding:1rem 1rem}
 
 body {
@@ -21,6 +44,11 @@ body {
 .dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_filter, .dataTables_wrapper .dataTables_info, .dataTables_wrapper .dataTables_processing, .dataTables_wrapper .dataTables_paginate {
     color: #fff;
 }
+
+
+
+
+
 
 .navbar-custom-menu>.navbar-nav>li>.dropdown-menu {
     position: absolute;
@@ -33,6 +61,16 @@ body {
 
 .nav-tabs-custom>.nav-tabs>li.active {
     border-top-color: black;
+}
+
+
+.navbar-nav>.messages-menu>.dropdown-menu>li .menu, .navbar-nav>.notifications-menu>.dropdown-menu>li .menu, .navbar-nav>.tasks-menu>.dropdown-menu>li .menu {
+    max-height: 200px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow-x: hidden;
+    background-color: white;
 }
 
 .navbar-nav>.notifications-menu>.dropdown-menu>li .menu>li>a:hover,
