@@ -1306,7 +1306,7 @@ server = function(input, output,session) {
                          keycol <-c("contact_type","visit_date")
                          setorderv(table_txt, keycol)
                          
-                         write.csv(table_txt, file)
+                         write.csv(table_txt, file,row.names = F)
                        }
                      )
 
@@ -1395,7 +1395,7 @@ server = function(input, output,session) {
                                   color = list(color = "gray", highlight = "red"))%>%
                          visOptions(highlightNearest = TRUE,
                                     selectedBy = list(variable="ids",selected = paste0('Staff ID :',temp_wkrid),highlight = TRUE)
-                         )
+                         ) %>% visExport()
                      })
 
                      #___1.16.10 renderDataTable for primary contacts table -----
@@ -1425,7 +1425,7 @@ server = function(input, output,session) {
                        content = function(file) {
                          stg_1_dt <- as.data.frame(lapply(stg_1_dt, function(x) gsub('clin_','',x)))
                          
-                         write.csv(stg_1_dt, file)
+                         write.csv(stg_1_dt, file,row.names = F)
                        }
                      )
 
@@ -1458,7 +1458,7 @@ server = function(input, output,session) {
                        content = function(file) {
                          stg_2_dt <- as.data.frame(lapply(stg_2_dt, function(x) gsub('clin_','',x)))
                          
-                         write.csv(stg_2_dt, file)
+                         write.csv(stg_2_dt, file,row.names = F)
                        }
                      )
 
@@ -1490,7 +1490,7 @@ server = function(input, output,session) {
                        content = function(file) {
                          stg_3_dt <- as.data.frame(lapply(stg_3_dt, function(x) gsub('clin_','',x)))
                          
-                         write.csv(stg_3_dt, file)
+                         write.csv(stg_3_dt, file,row.names = F)
                        }
                      )
 
@@ -1876,7 +1876,7 @@ server = function(input, output,session) {
                          keycol <-c("contact_type","visit_date")
                          setorderv(table_txt, keycol)
 
-                         write.csv(table_txt, file)
+                         write.csv(table_txt, file,row.names = F)
                        }
                      )
 
@@ -1897,10 +1897,10 @@ server = function(input, output,session) {
                          visLegend(addNodes = lnodes, useGroups = FALSE) %>%
                          visEdges(shadow = TRUE,
                                   arrows =list(to = list(enabled = TRUE, scaleFactor = 2)),
-                                  color = list(color = "gray", highlight = "red")) %>% visExport() %>%
+                                  color = list(color = "gray", highlight = "red")) %>% 
                          visOptions(highlightNearest = TRUE,
                                     selectedBy = list(variable="ids",selected = paste0('Patient ID :',temp_patid),highlight = TRUE)
-                         )
+                         ) %>% visExport()
                      })
 
                      #___1.20.10 renderDataTable to display primary contact table (Patients) -----
@@ -1930,7 +1930,7 @@ server = function(input, output,session) {
                        content = function(file) {
                          stg_1_dt <- as.data.frame(lapply(stg_1_dt, function(x) gsub('clin_','',x)))
                          
-                         write.csv(stg_1_dt, file)
+                         write.csv(stg_1_dt, file,row.names = F)
                        }
                      )
 
@@ -1963,7 +1963,7 @@ server = function(input, output,session) {
                        content = function(file) {
                          stg_2_dt <- as.data.frame(lapply(stg_2_dt, function(x) gsub('clin_','',x)))
                          
-                         write.csv(stg_2_dt, file)
+                         write.csv(stg_2_dt, file,row.names = F)
                        }
                      )
 
@@ -1995,7 +1995,7 @@ server = function(input, output,session) {
                        content = function(file) {
                          stg_3_dt <- as.data.frame(lapply(stg_3_dt, function(x) gsub('clin_','',x)))
                          
-                         write.csv(stg_3_dt, file)
+                         write.csv(stg_3_dt, file,row.names = F)
                        }
                      )
 
