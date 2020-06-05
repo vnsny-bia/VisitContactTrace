@@ -11,7 +11,7 @@ LazyData: true
 Imports:
     shiny,
     shinydashboard,
-    randomcoloR,
+    pals,
     shinyFiles,
     shinycssloaders,
     shinyWidgets (>= 0.5.3),
@@ -34,7 +34,7 @@ Depends:
     R (>= 2.10),
     shiny,
     shinydashboard,
-    randomcoloR,
+    pals,
     shinyFiles,
     shinycssloaders,
     shinyWidgets (>= 0.5.3),

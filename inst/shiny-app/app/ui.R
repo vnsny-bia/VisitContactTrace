@@ -157,17 +157,17 @@ body <- dashboardBody(
                                                )
                                            ),
                                            
-                                           # div(style="display:inline-block;",
-                                           #     dateInput(
-                                           #       inputId = "ref_date_id",
-                                           #       label = "Reference Date :",width='150px'
-                                           #     )
-                                           # ),
-                                           div(style="display:inline-block;top:-30px;position:relative;",
-                                               airDatepickerInput(inputId = "ref_date_id",
-                                                                  label = "Reference Date :",
-                                                                  width='150px')
+                                           div(style="display:inline-block;",
+                                               dateInput(
+                                                 inputId = "ref_date_id",
+                                                 label = "Reference Date :",width='150px'
+                                               )
                                            ),
+                                           # div(style="display:inline-block;top:-30px;position:relative;",
+                                           #     airDatepickerInput(inputId = "ref_date_id",
+                                           #                        label = "Reference Date :",
+                                           #                        width='150px')
+                                           # ),
                                            div(style="display:inline-block",
                                                pickerInput(
                                                  inputId = "days_diff_id", label = "# of Days to Look Back :",
@@ -381,12 +381,16 @@ body <- dashboardBody(
                                                )
                                            ),
                                           
-
-                                           div(style="display:inline-block;top:-30px;position:relative;",
-                                               airDatepickerInput(inputId = "ref_date_id_1",
-                                                                  label = "Reference Date :",
-                                                                  width='150px')
+                                           div(style="display:inline-block",
+                                             dateInput(inputId = "ref_date_id_1",
+                                                       label = "Reference Date :",
+                                                       width='150px')
                                            ),
+                                           # div(style="display:inline-block;top:-30px;position:relative;",
+                                           #     airDatepickerInput(inputId = "ref_date_id_1",
+                                           #                        label = "Reference Date :",
+                                           #                        width='150px')
+                                           # ),
                                            div(style="display:inline-block",
                                                pickerInput(
                                                  inputId = "days_diff_id_1", label = "# of Days to Look Back :",

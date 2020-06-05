@@ -331,6 +331,27 @@ server = function(input, output,session) {
                                        choices = sort(c(unique(paste0(data$patient_name,': ',data$patient_id))))
 
                      )
+                     
+                     
+                     updateDateInput(
+                       session=session,
+                       inputId = "ref_date_id",
+                       label = "Reference Date :",
+                       min = as.character(min(as.Date(data$visit_date))),
+                       max = as.character(max(as.Date(data$visit_date))),
+                       value = as.character(min(as.Date(data$visit_date)))
+                       
+                     )
+                     
+                     updateDateInput(
+                       session=session,
+                       inputId = "ref_date_id_1",
+                       label = "Reference Date :",
+                       min = as.character(min(as.Date(data$visit_date))),
+                       max = as.character(max(as.Date(data$visit_date))),
+                       value = as.character(min(as.Date(data$visit_date)))
+                       
+                     )
                   
                    })
       removeModal()
@@ -403,25 +424,25 @@ server = function(input, output,session) {
                                            
                          )
                        
-                         # updateDateInput(
-                         #   session=session,
-                         #   inputId = "ref_date_id",
-                         #   label = "Reference Date :",
-                         #   min = as.character(min(as.Date(data$visit_date))),
-                         #   max = as.character(max(as.Date(data$visit_date))),
-                         #   value = as.character(min(as.Date(data$visit_date)))
-                         #   
-                         # )
-                         # 
-                         # updateDateInput(
-                         #   session=session,
-                         #   inputId = "ref_date_id_1",
-                         #   label = "Reference Date :",
-                         #   min = as.character(min(as.Date(data$visit_date))),
-                         #   max = as.character(max(as.Date(data$visit_date))),
-                         #   value = as.character(min(as.Date(data$visit_date)))
-                         #   
-                         # )
+                         updateDateInput(
+                           session=session,
+                           inputId = "ref_date_id",
+                           label = "Reference Date :",
+                           min = as.character(min(as.Date(data$visit_date))),
+                           max = as.character(max(as.Date(data$visit_date))),
+                           value = as.character(min(as.Date(data$visit_date)))
+
+                         )
+
+                         updateDateInput(
+                           session=session,
+                           inputId = "ref_date_id_1",
+                           label = "Reference Date :",
+                           min = as.character(min(as.Date(data$visit_date))),
+                           max = as.character(max(as.Date(data$visit_date))),
+                           value = as.character(min(as.Date(data$visit_date)))
+
+                         )
                          
                          
                        })
@@ -468,26 +489,26 @@ server = function(input, output,session) {
                                            
                          )
                          
-                         # updateDateInput(
-                         #   session=session,
-                         #   inputId = "ref_date_id",
-                         #   label = "Reference Date :",
-                         #   min = as.character(min(as.Date(data$visit_date))),
-                         #   max = as.character(max(as.Date(data$visit_date))),
-                         #   value = as.character(min(as.Date(data$visit_date)))
-                         #   
-                         # )
-                         # 
-                         # updateDateInput(
-                         #   session=session,
-                         #   inputId = "ref_date_id_1",
-                         #   label = "Reference Date :",
-                         #   min = as.character(min(as.Date(data$visit_date))),
-                         #   max = as.character(max(as.Date(data$visit_date))),
-                         #   value = as.character(min(as.Date(data$visit_date)))
-                         #   
-                         # )
-                         # 
+                         updateDateInput(
+                           session=session,
+                           inputId = "ref_date_id",
+                           label = "Reference Date :",
+                           min = as.character(min(as.Date(data$visit_date))),
+                           max = as.character(max(as.Date(data$visit_date))),
+                           value = as.character(min(as.Date(data$visit_date)))
+
+                         )
+
+                         updateDateInput(
+                           session=session,
+                           inputId = "ref_date_id_1",
+                           label = "Reference Date :",
+                           min = as.character(min(as.Date(data$visit_date))),
+                           max = as.character(max(as.Date(data$visit_date))),
+                           value = as.character(min(as.Date(data$visit_date)))
+
+                         )
+
                          
                        })
           removeModal()
@@ -530,26 +551,26 @@ server = function(input, output,session) {
                                            
                          )
                          
-                         # updateDateInput(
-                         #   session=session,
-                         #   inputId = "ref_date_id",
-                         #   label = "Reference Date :",
-                         #   min = as.character(min(as.Date(data$visit_date))),
-                         #   max = as.character(max(as.Date(data$visit_date))),
-                         #   value = as.character(min(as.Date(data$visit_date)))
-                         #   
-                         # )
-                         # 
-                         # updateDateInput(
-                         #   session=session,
-                         #   inputId = "ref_date_id_1",
-                         #   label = "Reference Date :",
-                         #   min = as.character(min(as.Date(data$visit_date))),
-                         #   max = as.character(max(as.Date(data$visit_date))),
-                         #   value = as.character(min(as.Date(data$visit_date)))
-                         #   
-                         # )
-                         # 
+                         updateDateInput(
+                           session=session,
+                           inputId = "ref_date_id",
+                           label = "Reference Date :",
+                           min = as.character(min(as.Date(data$visit_date))),
+                           max = as.character(max(as.Date(data$visit_date))),
+                           value = as.character(min(as.Date(data$visit_date)))
+
+                         )
+
+                         updateDateInput(
+                           session=session,
+                           inputId = "ref_date_id_1",
+                           label = "Reference Date :",
+                           min = as.character(min(as.Date(data$visit_date))),
+                           max = as.character(max(as.Date(data$visit_date))),
+                           value = as.character(min(as.Date(data$visit_date)))
+
+                         )
+
 
                        })
           removeModal()
@@ -591,26 +612,26 @@ server = function(input, output,session) {
                                            
                          )
                     
-                         # updateDateInput(
-                         #   session=session,
-                         #   inputId = "ref_date_id",
-                         #   label = "Reference Date :",
-                         #   min = as.character(min(as.Date(data$visit_date))),
-                         #   max = as.character(max(as.Date(data$visit_date))),
-                         #   value = as.character(min(as.Date(data$visit_date)))
-                         #   
-                         # )
-                         # 
-                         # updateDateInput(
-                         #   session=session,
-                         #   inputId = "ref_date_id_1",
-                         #   label = "Reference Date :",
-                         #   min = as.character(min(as.Date(data$visit_date))),
-                         #   max = as.character(max(as.Date(data$visit_date))),
-                         #   value = as.character(min(as.Date(data$visit_date)))
-                         #   
-                         # )
-                         
+                         updateDateInput(
+                           session=session,
+                           inputId = "ref_date_id",
+                           label = "Reference Date :",
+                           min = as.character(min(as.Date(data$visit_date))),
+                           max = as.character(max(as.Date(data$visit_date))),
+                           value = as.character(min(as.Date(data$visit_date)))
+
+                         )
+
+                         updateDateInput(
+                           session=session,
+                           inputId = "ref_date_id_1",
+                           label = "Reference Date :",
+                           min = as.character(min(as.Date(data$visit_date))),
+                           max = as.character(max(as.Date(data$visit_date))),
+                           value = as.character(min(as.Date(data$visit_date)))
+
+                         )
+
                          
                        })
           removeModal()
@@ -686,25 +707,25 @@ server = function(input, output,session) {
                          )
                          
                          
-                         # updateDateInput(
-                         #   session=session,
-                         #   inputId = "ref_date_id",
-                         #   label = "Reference Date :",
-                         #   min = as.character(min(as.Date(data$visit_date))),
-                         #   max = as.character(max(as.Date(data$visit_date))),
-                         #   value = as.character(min(as.Date(data$visit_date)))
-                         #   
-                         # )
-                         # 
-                         # updateDateInput(
-                         #   session=session,
-                         #   inputId = "ref_date_id_1",
-                         #   label = "Reference Date :",
-                         #   min = as.character(min(as.Date(data$visit_date))),
-                         #   max = as.character(max(as.Date(data$visit_date))),
-                         #   value = as.character(min(as.Date(data$visit_date)))
-                         #   
-                         # )
+                         updateDateInput(
+                           session=session,
+                           inputId = "ref_date_id",
+                           label = "Reference Date :",
+                           min = as.character(min(as.Date(data$visit_date))),
+                           max = as.character(max(as.Date(data$visit_date))),
+                           value = as.character(min(as.Date(data$visit_date)))
+
+                         )
+
+                         updateDateInput(
+                           session=session,
+                           inputId = "ref_date_id_1",
+                           label = "Reference Date :",
+                           min = as.character(min(as.Date(data$visit_date))),
+                           max = as.character(max(as.Date(data$visit_date))),
+                           value = as.character(min(as.Date(data$visit_date)))
+
+                         )
                        
                        })
           removeModal()
@@ -745,25 +766,25 @@ server = function(input, output,session) {
                                            
                          )
                        
-                         # updateDateInput(
-                         #   session=session,
-                         #   inputId = "ref_date_id",
-                         #   label = "Reference Date :",
-                         #   min = as.character(min(as.Date(data$visit_date))),
-                         #   max = as.character(max(as.Date(data$visit_date))),
-                         #   value = as.character(min(as.Date(data$visit_date)))
-                         #   
-                         # )
-                         # 
-                         # updateDateInput(
-                         #   session=session,
-                         #   inputId = "ref_date_id_1",
-                         #   label = "Reference Date :",
-                         #   min = as.character(min(as.Date(data$visit_date))),
-                         #   max = as.character(max(as.Date(data$visit_date))),
-                         #   value = as.character(min(as.Date(data$visit_date)))
-                         #   
-                         # )
+                         updateDateInput(
+                           session=session,
+                           inputId = "ref_date_id",
+                           label = "Reference Date :",
+                           min = as.character(min(as.Date(data$visit_date))),
+                           max = as.character(max(as.Date(data$visit_date))),
+                           value = as.character(min(as.Date(data$visit_date)))
+
+                         )
+
+                         updateDateInput(
+                           session=session,
+                           inputId = "ref_date_id_1",
+                           label = "Reference Date :",
+                           min = as.character(min(as.Date(data$visit_date))),
+                           max = as.character(max(as.Date(data$visit_date))),
+                           value = as.character(min(as.Date(data$visit_date)))
+
+                         )
                          
                          updatePickerInput(session,inputId = "patient_id", label = "Patient ID :",
                                            choices = sort(c(unique(paste0(data$patient_id))))
@@ -812,25 +833,25 @@ server = function(input, output,session) {
                                            
                          )
                          
-                         # updateDateInput(
-                         #   session=session,
-                         #   inputId = "ref_date_id",
-                         #   label = "Reference Date :",
-                         #   min = as.character(min(as.Date(data$visit_date))),
-                         #   max = as.character(max(as.Date(data$visit_date))),
-                         #   value = as.character(min(as.Date(data$visit_date)))
-                         #   
-                         # )
-                         # 
-                         # updateDateInput(
-                         #   session=session,
-                         #   inputId = "ref_date_id_1",
-                         #   label = "Reference Date :",
-                         #   min = as.character(min(as.Date(data$visit_date))),
-                         #   max = as.character(max(as.Date(data$visit_date))),
-                         #   value = as.character(min(as.Date(data$visit_date)))
-                         #   
-                         # )
+                         updateDateInput(
+                           session=session,
+                           inputId = "ref_date_id",
+                           label = "Reference Date :",
+                           min = as.character(min(as.Date(data$visit_date))),
+                           max = as.character(max(as.Date(data$visit_date))),
+                           value = as.character(min(as.Date(data$visit_date)))
+
+                         )
+
+                         updateDateInput(
+                           session=session,
+                           inputId = "ref_date_id_1",
+                           label = "Reference Date :",
+                           min = as.character(min(as.Date(data$visit_date))),
+                           max = as.character(max(as.Date(data$visit_date))),
+                           value = as.character(min(as.Date(data$visit_date)))
+
+                         )
                       
                          
                          
@@ -875,25 +896,25 @@ server = function(input, output,session) {
                                            
                          )
 
-                         # updateDateInput(
-                         #   session=session,
-                         #   inputId = "ref_date_id",
-                         #   label = "Reference Date :",
-                         #   min = as.character(min(as.Date(data$visit_date))),
-                         #   max = as.character(max(as.Date(data$visit_date))),
-                         #   value = as.character(min(as.Date(data$visit_date)))
-                         #   
-                         # )
-                         # updateDateInput(
-                         #   session=session,
-                         #   inputId = "ref_date_id_1",
-                         #   label = "Reference Date :",
-                         #   min = as.character(min(as.Date(data$visit_date))),
-                         #   max = as.character(max(as.Date(data$visit_date))),
-                         #   value = as.character(min(as.Date(data$visit_date)))
-                         #   
-                         # )
-                         
+                         updateDateInput(
+                           session=session,
+                           inputId = "ref_date_id",
+                           label = "Reference Date :",
+                           min = as.character(min(as.Date(data$visit_date))),
+                           max = as.character(max(as.Date(data$visit_date))),
+                           value = as.character(min(as.Date(data$visit_date)))
+
+                         )
+                         updateDateInput(
+                           session=session,
+                           inputId = "ref_date_id_1",
+                           label = "Reference Date :",
+                           min = as.character(min(as.Date(data$visit_date))),
+                           max = as.character(max(as.Date(data$visit_date))),
+                           value = as.character(min(as.Date(data$visit_date)))
+
+                         )
+
                          
                          
                          
@@ -995,77 +1016,77 @@ server = function(input, output,session) {
   
   
   
-  observeEvent(input$clinic_id,{
-    req(rv_data$df)
-    
-    data <- rv_data$df
-    names(data) <- tolower(names(data))
-    data[,visit_date:=anytime::anydate(visit_date)]
-    
-    data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
-    
-    
-    cleaned_id <- trimws(sub('.*:', '', input$clinic_id))
-    vis_details <- sort(unique(as.character(data[staff_id==cleaned_id,visit_date])))
-    
-    max_date<- max(vis_details)
-    min_date <- min(vis_details)
-  
-    
-    if(length(vis_details)==0){
-      shinyjs::disable('ref_date_id')
-
-    } else {
-      shinyjs::enable('ref_date_id')
-    
-    updateAirDateInput(
-      session=session,
-      inputId = "ref_date_id",
-      label = "Reference Date :",
-      options=list(minDate = as.Date(min_date),
-                   maxDate = as.Date(max_date),
-                   autoClose=T),
-      value = as.Date(min_date)
-    )
-   }
-    
-  }) 
-
-  
-  observeEvent(input$patient_id,{
-    req(rv_data$df)
-    
-    data <- rv_data$df
-    names(data) <- tolower(names(data))
-    data[,visit_date:=anytime::anydate(visit_date)]
-    
-    data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
-    
-    
-    cleaned_id_1 <- trimws(sub('.*:', '', input$patient_id))
-    vis_details_1 <- sort(unique(as.character(data[patient_id==cleaned_id_1,visit_date])))
-    
-    max_date_1<- max(vis_details_1)
-    min_date_1 <- min(vis_details_1)
-    
-    if(length(vis_details_1)==0){
-      shinyjs::disable('ref_date_id')
-
-    } else {
-      shinyjs::enable('ref_date_id')
-    
-    updateAirDateInput(
-      session=session,
-      inputId = "ref_date_id_1",
-      label = "Reference Date :",
-      options=list(minDate = as.Date(min_date_1),
-                   maxDate = as.Date(max_date_1),
-                   autoClose=T),
-      value = as.Date(min_date_1)
-    )
-  }
-    
-  }) 
+  # observeEvent(input$clinic_id,{
+  #   req(rv_data$df)
+  #   
+  #   data <- rv_data$df
+  #   names(data) <- tolower(names(data))
+  #   data[,visit_date:=anytime::anydate(visit_date)]
+  #   
+  #   data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
+  #   
+  #   
+  #   cleaned_id <- trimws(sub('.*:', '', input$clinic_id))
+  #   vis_details <- sort(unique(as.character(data[staff_id==cleaned_id,visit_date])))
+  #   
+  #   max_date<- max(vis_details)
+  #   min_date <- min(vis_details)
+  # 
+  #   
+  #   if(length(vis_details)==0){
+  #     shinyjs::disable('ref_date_id')
+  # 
+  #   } else {
+  #     shinyjs::enable('ref_date_id')
+  #   
+  #   updateAirDateInput(
+  #     session=session,
+  #     inputId = "ref_date_id",
+  #     label = "Reference Date :",
+  #     options=list(minDate = as.Date(min_date),
+  #                  maxDate = as.Date(max_date),
+  #                  autoClose=T),
+  #     value = as.Date(min_date)
+  #   )
+  #  }
+  #   
+  # }) 
+  # 
+  # 
+  # observeEvent(input$patient_id,{
+  #   req(rv_data$df)
+  #   
+  #   data <- rv_data$df
+  #   names(data) <- tolower(names(data))
+  #   data[,visit_date:=anytime::anydate(visit_date)]
+  #   
+  #   data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
+  #   
+  #   
+  #   cleaned_id_1 <- trimws(sub('.*:', '', input$patient_id))
+  #   vis_details_1 <- sort(unique(as.character(data[patient_id==cleaned_id_1,visit_date])))
+  #   
+  #   max_date_1<- max(vis_details_1)
+  #   min_date_1 <- min(vis_details_1)
+  #   
+  #   if(length(vis_details_1)==0){
+  #     shinyjs::disable('ref_date_id')
+  # 
+  #   } else {
+  #     shinyjs::enable('ref_date_id')
+  #   
+  #   updateAirDateInput(
+  #     session=session,
+  #     inputId = "ref_date_id_1",
+  #     label = "Reference Date :",
+  #     options=list(minDate = as.Date(min_date_1),
+  #                  maxDate = as.Date(max_date_1),
+  #                  autoClose=T),
+  #     value = as.Date(min_date_1)
+  #   )
+  # }
+  #   
+  # }) 
   
   
   observeEvent(input$ref_date_id,{
@@ -1085,7 +1106,7 @@ server = function(input, output,session) {
                       choices = c(as.character(seq(0, (as.numeric(as.Date(input$ref_date_id)- min(as.Date(data$visit_date)))))))
 
     )
-  },ignoreInit = T,ignoreNULL = T)
+  },ignoreInit = T,ignoreNULL = F)
 
   
  
@@ -1138,7 +1159,7 @@ server = function(input, output,session) {
                        filter(patient_id %in% id2s)
                    }
                    value_id <- paste0("clin_",trimws(sub('.*:', '', input$clinic_id)))
-
+                  
                    data_subsetted<- my_dplyr_fun(data=data,id1 = value_id)
                    setDT(data_subsetted)
                    data_subsetted <- data_subsetted[,.(staff_id)]
@@ -1172,10 +1193,13 @@ server = function(input, output,session) {
     #_1.15 renderPrint to print date range -----
 
     output$visit_date_rng <- renderPrint({
+      max_date_visit <-  max(copy_data[staff_id==paste0("clin_",trimws(sub('.*:', '', input$clinic_id))),visit_date])
+      min_date_visit <-  min(copy_data[staff_id==paste0("clin_",trimws(sub('.*:', '', input$clinic_id))),visit_date])
       min_date <- as.Date(input$ref_date_id) - as.numeric(input$days_diff_id)
       max_date <- as.Date(frwd_date)
-      final_string <- paste0('All visits during ',min_date,' through ',max_date,' will be shown.' )
-      cat(final_string)
+      #final_string <- paste0('All visits during ',min_date,' through ',max_date,' will be shown.' )
+      final_string <- paste0('All visits during ',min_date,' through ',max_date,' will be shown. \nThe first visit for this clinician is : ',min_date_visit," \nThe last visit for this clinician is : ",max_date_visit )
+      cat(final_string,sep='\n')
     })
 
     return(data)
@@ -1682,9 +1706,13 @@ server = function(input, output,session) {
     #___1.18.1 renderPrint to show min and max dates for visits (Patients)-----
 
     output$visit_date_rng_1 <- renderPrint({
+      max_date_visit_1 <-  max(copy_data_1[patient_id==trimws(sub('.*:', '', input$patient_id)),visit_date])
+      min_date_visit_1 <-  min(copy_data_1[patient_id==trimws(sub('.*:', '', input$patient_id)),visit_date])
       min_date_1 <- as.Date(input$ref_date_id_1) - as.numeric(input$days_diff_id_1)
       max_date_1 <- as.Date(frwd_date_1)
-      final_string <- paste0('All visits during ',min_date_1,' through ',max_date_1,' will be shown.' )
+      #final_string <- paste0('All visits during ',min_date_1,' through ',max_date_1,' will be shown.' )
+      final_string <- paste0('All visits during ',min_date_1,' through ',max_date_1,' will be shown. \nThe first visit for this patient is : ',min_date_visit_1," \nThe last visit for this patient is : ",max_date_visit_1 )
+      
       cat(final_string)
     })
     return(data)
