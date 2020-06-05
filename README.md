@@ -51,7 +51,7 @@ The VisitContactTrace application allows users to **upload their own data.**  Fo
 
 ## Installing the VisitContactTrace R package <a name="installapp"></a>
 
-The following code must be run in R the first time you use VisitContactTrace (and anytime you switch versions of R).  This step may take a while to run as there are lot of other packages that need to be downloaded and installed before VisitContactTrace can run successfully.  Copy and paste the following lines of code (preserving the upper- and lower- case letters) into the R Console and press "enter" on the keyboard to install the development version of **VisitContactTrace** from GitHub:
+The following code must be run in R the first time you use VisitContactTrace (and anytime you switch versions of R).  This step may take a while to run (several minutes depending on your internet connection), as many packages will auto-download and install before VisitContactTrace will work successfully.  Copy and paste the following lines of code (preserving the upper- and lower- case letters) into the R Console and press "enter" on the keyboard to install the development version of **VisitContactTrace** from GitHub:
 
 ```r
 depend.pack <- c('anytime', 'shiny', 'shinydashboard', 'randomcoloR', 'shinyFiles', 'shinycssloaders', 'shinyWidgets', 'data.table', 'assertthat', 'dplyr', 'purrr', 'rmarkdown', 'visNetwork', 'DT', 'fst', 'stringr', 'shinyalert', 'epicontacts', 'fs', 'readxl', 'shinyjs')
@@ -61,7 +61,7 @@ install.packages("http://stats.vnsny.org/VisitContactTrace/VisitContactTrace_0.1
 # Public version install
 # install.packages("VisitContactTrace", repos = "https://github.com/vnsny-bia/VisitContactTrace")
 ```
-You will know that the packages are installed and that R is ready for the next command when you see the carat prompt in the R console:
+You will know that the packages have installed and that R is ready for the next command when you see the carat prompt in the R console:
 ```r
 >
 ```
