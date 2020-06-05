@@ -10,9 +10,9 @@ The VisitContactTrace application allows users to load their own visit data in o
 
 * explore how infectious disease can spread within a visit-based service delivery model if appropriate precautions are not in place; 
 
-* discover the contacts of any patient or visit staff member whose disease status is available to you so that you can notify those contacts about their potential exposures.
+* discover the visit-based contacts of any patient or visit staff member whose disease status is available to you so that you can notify those contacts about their potential exposures.
 
-Important disclaimer: this application **does not suggest causality** or **confirm disease transmission routes**.  Rather, it provides a means to explore how infectious disease may spread exponentially among patients and visit staff if precautions are not put into place in a visit-based service delivery model such as a community-based healthcare setting.
+Important disclaimer: this application **does not suggest causality** or **confirm disease transmission routes**.  It also does not consider potential contacts that occur outside of the visit delivery model, such as contacts with family members or friends. Rather, it provides a means to explore how infectious disease may spread exponentially among patients and visit staff if precautions are not put into place in a visit-based service delivery model such as a community-based healthcare setting.
 
 
 
