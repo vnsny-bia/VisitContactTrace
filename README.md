@@ -69,13 +69,13 @@ If you don't see a blank carat prompt line, try hitting "enter" on the keyboard 
 
 ## Running VisitContactTrace on Your PC <a name="runapp"></a>
 
-Type the following commands (preserving the upper- and lower- case letters) into the R Console in order to start the application. If you don't see your cursor on a blank carrot prompt line (">"), then hit "enter" on the keyboard until the application launches in a web browser:
+Type the following commands (preserving the upper- and lower- case letters) into the R Console in order to start the application. If you don't see your cursor on a blank carrot prompt line (">"), then hit "enter" on the keyboard:
 
 ```r
 library(VisitContactTrace);
 VisitContactTrace();
 ```
-Run these two commands from an R session every time you want to use VisitContactTrace.
+Run these two commands from an R session every time you want to use VisitContactTrace. When you run these commands, the VisitContactTrace application should launch in a web browser. VisitContactTrace works best in a Google Chrome browser; if you use a different browser, you can copy and paste the URL into a Google Chrome browser for the best performance.
 
 ## Input Data Type and Structure <a name="inputdata"></a>
 
