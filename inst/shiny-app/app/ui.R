@@ -4,9 +4,6 @@
 myModal <- function() {
   div(id = "test",
       modalDialog(downloadButton("download1","Download Data as csv"),
-                  # br(),
-                  # br(),
-                  # downloadButton("download2","Download Data as xlsx"),
                   easyClose = TRUE, title = "Download Table")
   )
 }
@@ -160,11 +157,16 @@ body <- dashboardBody(
                                                )
                                            ),
                                            
-                                           div(style="display:inline-block;",
-                                               dateInput(
-                                                 inputId = "ref_date_id",
-                                                 label = "Reference Date :",width='150px'
-                                               )
+                                           # div(style="display:inline-block;",
+                                           #     dateInput(
+                                           #       inputId = "ref_date_id",
+                                           #       label = "Reference Date :",width='150px'
+                                           #     )
+                                           # ),
+                                           div(style="display:inline-block;top:-30px;position:relative;",
+                                               airDatepickerInput(inputId = "ref_date_id",
+                                                                  label = "Reference Date :",
+                                                                  width='150px')
                                            ),
                                            div(style="display:inline-block",
                                                pickerInput(
@@ -187,13 +189,14 @@ body <- dashboardBody(
                                                )
                                            ),
 
-                                           div(style="display:inline-block;padding-bottom:10px",
+                                           div(style="display:inline-block;padding-bottom:10px;",
                                                actionBttn(
                                                  inputId = "go_btn",
                                                  label = "Run",
                                                  style = "material-flat",size = 'sm'
                                                )
-                                           ),tags$br(),
+                                           ),
+                                           # tags$br(),
                                            div(id="verbtext",fluidRow(verbatimTextOutput('visit_date_rng',placeholder = F))),
                                            tags$head(
                                              tags$style(
@@ -253,9 +256,8 @@ body <- dashboardBody(
                                                       background-color: #005daa;
                                                   }
                                               "))),
-                                       tags$style(HTML("<br>")),
-                                       tags$style(HTML("<br>")),
-                                       
+                                       # tags$style(HTML("<br>")),
+
                                        div(style="display: inline-block;",
                                            box(width=12,
                                                #height = '400px',
@@ -379,11 +381,11 @@ body <- dashboardBody(
                                                )
                                            ),
                                           
-                                           div(style="display:inline-block;",
-                                               dateInput(
-                                                 inputId = "ref_date_id_1",
-                                                 label = "Reference Date :",width='150px'
-                                               )
+
+                                           div(style="display:inline-block;top:-30px;position:relative;",
+                                               airDatepickerInput(inputId = "ref_date_id_1",
+                                                                  label = "Reference Date :",
+                                                                  width='150px')
                                            ),
                                            div(style="display:inline-block",
                                                pickerInput(
@@ -405,13 +407,13 @@ body <- dashboardBody(
                                                  options = list(width=125, `live-search`=TRUE)
                                                )
                                            ),
-                                           div(style="display:inline-block",
+                                           div(style="display:inline-block;padding-bottom:10px;",
                                                actionBttn(
                                                  inputId = "go_btn_1",
                                                  label = "Run",
                                                  style = "material-flat",size = 'sm'
                                                )
-                                           ),tags$br(),
+                                           ),
                                            div(id="verbtext_1",fluidRow(verbatimTextOutput('visit_date_rng_1',placeholder = F))),
                                            
                                            tags$head(
@@ -448,7 +450,7 @@ body <- dashboardBody(
                                            )
                                            ),
                                        
-                                       tags$style(HTML("<br>")),
+                                       #tags$style(HTML("<br>")),
                                        #verbatimTextOutput('visit_date_rng_1',placeholder = F),
                                        tags$head(
                                          tags$style(HTML("
@@ -469,8 +471,7 @@ body <- dashboardBody(
                                                       background-color: #005daa;
                                                   }
                                               "))),
-                                       tags$style(HTML("<br>")),
-
+                                       
                                        div(style="display: inline-block;",
                                            box(width=12,
                                                height = '425px',
