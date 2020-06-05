@@ -1,5 +1,5 @@
 
-<img src="./inst/www/VNSNY_Horiz_Blue.png" width="300" align="right"/>
+<img src="./inst/www/VNSNY_BB.jpg" width="300" align="right"/>
 
 
 # VisitContactTrace 
