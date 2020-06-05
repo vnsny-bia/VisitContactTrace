@@ -51,7 +51,7 @@ The VisitContactTrace application allows users to **upload their own data.**  Fo
 
 ## Installing the VisitContactTrace R package <a name="installapp"></a>
 
-The following code must be run in R the first time you use VisitContactTrace (and anytime you switch versions of R).  This step may take a while to run (several minutes depending on your internet connection), as many packages will auto-download and install before VisitContactTrace will work successfully.  Copy and paste the following lines of code (preserving the upper- and lower- case letters) into the R Console and press "enter" on the keyboard to install the development version of **VisitContactTrace** from GitHub:
+The following code must be run in R the first time you use VisitContactTrace (and anytime you switch versions of R).  This step may take a while to run (several minutes depending on your internet connection), as many R packages will auto-download and install before VisitContactTrace will work successfully.  Copy and paste the following lines of code (preserving the upper- and lower- case letters) into the R Console to install the development version of **VisitContactTrace** from GitHub. The packages may begin to download automatically, or you might have to hit "enter" on the keyboard once. 
 
 ```r
 depend.pack <- c('anytime', 'shiny', 'shinydashboard', 'randomcoloR', 'shinyFiles', 'shinycssloaders', 'shinyWidgets', 'data.table', 'assertthat', 'dplyr', 'purrr', 'rmarkdown', 'visNetwork', 'DT', 'fst', 'stringr', 'shinyalert', 'epicontacts', 'fs', 'readxl', 'shinyjs')
@@ -61,21 +61,21 @@ install.packages("http://stats.vnsny.org/VisitContactTrace/VisitContactTrace_0.1
 # Public version install
 # install.packages("VisitContactTrace", repos = "https://github.com/vnsny-bia/VisitContactTrace")
 ```
-You will know that the packages have installed and that R is ready for the next command when you see the carat prompt in the R console:
+You will know that the packages have installed and that R is ready for the next command when you see your cursor on a blank carat prompt line in the R console:
 ```r
 >
 ```
-You can proceed to [running VisitContactTrace](#runapp) once you see the carat prompt appear.
+If you don't see a blank carat prompt line, try hitting "enter" on the keyboard until you do. You can proceed to [running VisitContactTrace](#runapp) once you see the carat prompt appear.
 
 ## Running VisitContactTrace on Your PC <a name="runapp"></a>
 
-Type the following commands (preserving the upper- and lower- case letters) into the R Console and press "enter" in order to start the application:
+Type the following commands (preserving the upper- and lower- case letters) into the R Console in order to start the application. If you don't see your cursor on a blank carrot prompt line (">"), then hit "enter" on the keyboard until the application launches in a web browser:
 
 ```r
-library(VisitContactTrace)
-VisitContactTrace()
+library(VisitContactTrace);
+VisitContactTrace();
 ```
-Run those two commands from an R session every time you want to use VisitContactTrace.
+Run these two commands from an R session every time you want to use VisitContactTrace.
 
 ## Input Data Type and Structure <a name="inputdata"></a>
 
