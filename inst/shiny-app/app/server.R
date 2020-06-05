@@ -1198,7 +1198,7 @@ server = function(input, output,session) {
       min_date <- as.Date(input$ref_date_id) - as.numeric(input$days_diff_id)
       max_date <- as.Date(frwd_date)
       #final_string <- paste0('All visits during ',min_date,' through ',max_date,' will be shown.' )
-      final_string <- paste0('All visits during ',min_date,' through ',max_date,' will be shown. \nThe first visit for this clinician is : ',min_date_visit," \nThe last visit for this clinician is : ",max_date_visit )
+      final_string <- paste0('All visits during ',min_date,' through ',max_date,' will be shown. \nThe first visit for this staff is : ',min_date_visit," \nThe last visit for this staff is : ",max_date_visit )
       cat(final_string,sep='\n')
     })
 
