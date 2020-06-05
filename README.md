@@ -214,19 +214,17 @@ getContacts(staff_id= '1',
 
 ## Installing R Software
 
-VisitContactTrace is an R package that requires R software to be installed.  To learn more, please visit the [R Project for Statistical Computing]( https://www.r-project.org/).  You will be asked to choose a CRAN mirror, [also available here](https://cran.r-project.org/mirrors.html).  Choose any location as the CRAN mirror, as it does not matter which one you select.  Choose the correct operating system (OS) and download the relevant installation file.  See more OS tips below.
+You must have R installed to use VisitContactTrace.  To learn more about R, please visit the [R Project for Statistical Computing]( https://www.r-project.org/).  To install R, first choose a CRAN mirror from [here](https://cran.r-project.org/mirrors.html).  Choose any location as the CRAN mirror; it doesn't matter which one you select.  Once you click on a CRAN mirror, it will bring you to a page where you can download and install R. Choose the correct operating system (e.g. Linux, Mac, Windows) to download the relevant installation file.  
 
-If the R installation is successful a desktop shortcut for R should appear.  Click on that shortcut to open the R application.
+For Windows users: After selecting the CRAN mirror and correct OS, click on "base," and click on "Download R.#.#.#".  
+
+If the R installation is successful a shortcut for R should appear.  Click on that shortcut to open the R application.
 
 ## Opening the R Graphical User Interface application ###
 
 ### Instructions for Windows environments 
 
-After selecting the CRAN mirror and correct OS, click on "base," and click on "Download R.#.#.#".  Here is an abbreviated video to demonstrate the steps.
-
-<center><img src="./inst/www/VisitContactTrace-Setup.gif" width="800" align="center"/></center>
-
-In organizations that require administrative rights to install software, the user may receive an "access denied" failure when R is installed in certain folders. However, it is still possible to install R in the user's local storage without administrative rights by installing R in the "documents" directory associated with your user account.  Below is an example of how this may appear in a Windows environment.  You can find the **Rgui** executable file in a sub-directory within the directory that you selected during installation; click on Rgui.exe to launch an R session.  If you will be using this application often, consider creating a shortcut on your desktop.
+If your organization requires administrative rights to install software, you might not be able to install R in certain folders. You may, however, be able to install R in your local storage without administrative rights by installing R in the "documents" directory associated with your user account.  Below is an example of how this may appear in a Windows environment.  You can find the **Rgui** executable file in a sub-directory within the directory that you selected during installation; click on Rgui.exe to launch an R session.  If you will be using this application often, consider creating a shortcut for R on your desktop.
 
 
 <img src="./inst/www/Ri386-image.PNG" width="600" align="center"/>
@@ -240,10 +238,15 @@ In order to load and run the VisitContactTrace application, you must copy and pa
 <img src="./inst/www/Rconsole-image.PNG" width="800" align="center"/>
 
 
+## How-to Video <a name="video"></a>
+Here is an animated GIF demonstrating the steps from installing R to running VisitContractTrace in a Windows environment.
+
+<center><img src="./inst/www/VisitContactTrace-Setup.gif" width="800" align="center"/></center>
+
 # License <a name="license"></a>
 **VisitContactTrace** is released under [GPLv3 license](https://www.gnu.org/licenses/gpl-3.0.en.html). Please see the license in this GitHub repository for additional disclaimers on the usage of this application. 
 
 # Acknowledgments <a name="thanks"></a>
 
-* Nurse image used for the hex sticker <a href="http://cliparts.co/clipart/4411">cliparts.co</a>
+
 
