@@ -14,7 +14,6 @@ The VisitContactTrace application allows users to load their own visit data in o
 
 Important disclaimer: this application **does not suggest causality** or **confirm disease transmission routes**.  Rather, it provides a means to explore how infectious disease may spread exponentially among patients and visit staff if precautions are not put into place in a visit-based service delivery model such as a community-based healthcare setting.
 
-<img src="./inst/www/VNSNYCT-hexsticker.png" width="150" align="right"/>
 
 
 The VisitContactTrace application was created during the COVID-19 pandemic by the Data Science team at the [Visiting Nurse Service of New York](https://www.vnsny.org/) in order to support the organization's contact tracing efforts.  This application can be used for visit-based contact tracing of any infectious disease. Our hope is that VisitContactTrace is useful to agencies providing community-based healthcare and to other organizations that have visit-based service delivery models.
@@ -45,9 +44,9 @@ Learn more about VNSNY's COVID-19 response [here](https://www.vnsny.org/coronavi
     
 # Requirements for the VisitContactTrace Application <a name="requirements"></a>
 
-VisitContactTrace is an R package that requires R, an open-source software, to be installed. For more information about R, visit the [R Project for Statistical Computing](https://www.r-project.org/). If you do not have R installed on your computer or do not have much experience with R, go to [Help Getting Started with R](#helpR) before proceeding to the next section.
+VisitContactTrace is an application that runs in R, an open-source software for UNIX platforms, Windows, and MacOS. You must have R installed to use VisitContactTrace. For more information about R, visit the [R Project for Statistical Computing](https://www.r-project.org/). If you do not have R installed on your computer or do not have much experience with R, go to [Help Getting Started with R](#helpR) before continuing to the next section.
 
-The VisitContactTrace application allows users to **upload data manually.**  For example, a user may have access to a data extract from a standard report of service encounters from their organization's electronic medical record system. The user can save this data file as an *.xlsx or *.csv file and upload it to the VisitContactTrace application.  More sophisticated R users can adapt the application's source code to read in datasets created from an ETL tool or incorporate the code into a data workflow.  [More on the data specifications](#dataspec)
+The VisitContactTrace application allows users to **upload their own data.**  For example, you may have access to a data extract from a standard report of service encounters from your organization's electronic medical record system. You can save this data file as an *.xlsx or *.csv file and upload it to the VisitContactTrace application.  More sophisticated R users can adapt the application's source code to read in datasets created from an ETL tool or incorporate the code into a data workflow.  [More on the data specifications](#dataspec)
 
 
 ## Installing the VisitContactTrace R package <a name="installapp"></a>
