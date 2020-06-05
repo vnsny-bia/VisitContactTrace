@@ -4,18 +4,20 @@
 
 # VisitContactTrace 
 
-This application is designed to facilitate contact tracing on healthcare encounter data with a specific focus on providers of community-based healthcare delivery services.  In a community-based healthcare system, patients typically are homebound and are visited at home by healthcare providers.  Thus, while direct contact occurs between patients and visit staff, there is no direct contact between patients. This is in contrast with facility-based healthcare (e.g. hospitals, clinics) settings, where patients travel to a central geographic location at which healthcare services are delivered to several patients at a time, and where direct patient-to-patient, patient-to-staff, and staff-to-staff contact can occur.  The VisitContactTrace application allows the user to load and query their visit data in order to:
+Contact tracing is a tried-and-true public health method for exploring how infectious diseases spread. The concept is simple – trace the contacts of anyone who tests positive for an infectious disease so that you can monitor for symptoms in those contacts and mitigate the spread of disease. This application is designed to facilitate contact tracing on visit-based data with a specific focus on providers of community-based healthcare. In a community-based healthcare system, patients typically are homebound and are visited at home by care providers. This means that direct contact occurs between patients and visit staff in a community-based healthcare system, but there is no direct patient-to-patient contact. On the other hand, hospitals and clinics are examples of facility-based healthcare settings, where direct patient-to-patient, patient-to-staff, and staff-to-staff contact can happen. 
 
-* explore how infectious disease might spread within a visit-based service delivery model if appropriate precautions are not in place; 
+The VisitContactTrace application allows users to load their own visit data in order to:
 
-* conduct visit-based contact tracing of the primary, secondary, and tertiary contacts of an "index" patient or visit staff member whose disease status is known to the user.
+* explore how infectious disease can spread within a visit-based service delivery model if appropriate precautions are not in place; 
 
-This application **does not suggest causality** or confirm disease transmission routes.  Rather, it provides a means to explore how infectious disease may spread exponentially among patients and visit staff if precautions are not put into place in a visit-based service delivery model such as a community-based healthcare setting.
+* conduct visit-based contact tracing of the primary, secondary, and tertiary contacts of any patient or visit staff member whose disease status is available to you.
+
+Important disclaimer: this application **does not suggest causality** or **confirm disease transmission routes**.  Rather, it provides a means to explore how infectious disease may spread exponentially among patients and visit staff if precautions are not put into place in a visit-based service delivery model such as a community-based healthcare setting.
 
 <img src="./inst/www/VNSNYCT-hexsticker.png" width="150" align="right"/>
 
 
-The VisitContactTrace application was designed and created by the Data Science team at the [Visiting Nurse Service of New York](https://www.vnsny.org/) during the COVID-19 pandemic in order to support the organization's contact tracing efforts.  This application can be used for the purpose of visit-based contact tracing of any infectious disease and may be of value to other agencies providing community-based healthcare or to organizations that have visit-based service delivery models.
+The VisitContactTrace application was created during the COVID-19 pandemic by the Data Science team at the [Visiting Nurse Service of New York](https://www.vnsny.org/) in order to support the organization's contact tracing efforts.  This application can be used for visit-based contact tracing of any infectious disease. Our hope is that VisitContactTrace is useful to agencies providing community-based healthcare and to other organizations that have visit-based service delivery models.
 
 Learn more about VNSNY's COVID-19 response [here](https://www.vnsny.org/coronavirus-covid-19/vnsnys-covid-19-response/). 
 
