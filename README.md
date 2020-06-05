@@ -224,7 +224,15 @@ If the R installation is successful a shortcut for R should appear.  Click on th
 
 ### Instructions for Windows environments 
 
-If your organization requires administrative rights to install software, you might not be able to install R in certain folders. You may, however, be able to install R in your local storage without administrative rights by installing R in the "documents" directory associated with your user account.  Below is an example of how this may appear in a Windows environment.  You can find the **Rgui** executable file in a sub-directory within the directory that you selected during installation; click on Rgui.exe to launch an R session.  If you will be using this application often, consider creating a shortcut for R on your desktop.
+If your organization requires administrative rights to install software, you might not be able to install R in certain folders such as C:/Program Files. You may, however, be able to install R in your local storage without administrative rights by installing R in the "documents" directory associated with your user account.  Below is an example of how this might appear in a Windows environment.  
+
+To launch R, you need to find the **Rgui.exe** executable file. The easiest way to find it is to use your computer's search function. Otherwise, you can find the **Rgui.exe** executable file in a sub-directory within the directory that you selected during installation. For example, if you installed R in "Documents", then Rgui.exe might be located in the following places:
+* Documents --> R --> R-#.#.# --> bin --> x64 --> Rgui.exe
+* Documents --> R --> R-#.#.# --> bin --> i386 --> Rgui.exe
+* Documents --> R-#.#.# --> bin --> x64 --> Rgui.exe
+* Documents --> R-#.#.# --> bin --> i386 --> Rgui.exe
+
+Click on Rgui.exe to launch an R session and to view the R console.  If you will be using this application often, consider creating a shortcut for R on your desktop.
 
 
 <img src="./inst/www/Ri386-image.PNG" width="600" align="center"/>
