@@ -264,7 +264,7 @@ getContacts <- function(staff_id= NA,
       
       #icon.color <- viridis::viridis_pal(option = "D")(length(unique(a$label)))
       #icon.color <- RColorBrewer::brewer.pal(length(unique(a$label)), "Set1")
-      icon.color <- randomcoloR::randomColor(length(unique(a$label)),luminosity="dark")
+      icon.color <- pals::viridis(length(unique(a$label)))
       
       icon.color <- cbind(label=unique(a$label), icon.color)
       
@@ -502,7 +502,7 @@ getContacts <- function(staff_id= NA,
           #icon.color <- viridis::viridis_pal(option = "D")(length(unique(a$label)))
           #icon.color <- RColorBrewer::brewer.pal(length(unique(a$label)), "Set1")
           #icon.color <- randomcoloR::randomColor(length(unique(a$label)),luminosity="dark")
-          icon.color <- randomcoloR::randomColor(length(unique(a$label)),luminosity="dark")
+          icon.color <- pals::viridis(length(unique(a$label)))
           
           icon.color <- cbind(label=unique(a$label), icon.color)
           
