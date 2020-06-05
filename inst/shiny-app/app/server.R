@@ -94,7 +94,9 @@ server = function(input, output,session) {
   
   
   output$license_txt <- renderPrint({
+    #rawText <- readLines(system.file('www','LICENSE',package = 'VisitContactTrace'))
     rawText <- readLines(system.file('www','LICENSE',package = 'VisitContactTrace'))
+    
     cat(rawText,sep = '\n')
   })
   
@@ -1198,9 +1200,9 @@ server = function(input, output,session) {
       min_date <- as.Date(input$ref_date_id) - as.numeric(input$days_diff_id)
       max_date <- as.Date(frwd_date)
       #final_string <- paste0('All visits during ',min_date,' through ',max_date,' will be shown.' )
-      final_string <- paste0('All visits during ',min_date,' through ',max_date,' will be shown. \nThe first visit for this staff is : ',min_date_visit," \nThe last visit for this staff is : ",max_date_visit )
+      final_string <- paste0('All visits during ',min_date,' through ',max_date,' will be shown based on your inputs. \nThe date range of visits available for this individual is ', min_date_visit ,' to ', max_date_visit ,'.')
       cat(final_string,sep='\n')
-    })
+    },width = 750)
 
     return(data)
 
@@ -1711,7 +1713,7 @@ server = function(input, output,session) {
       min_date_1 <- as.Date(input$ref_date_id_1) - as.numeric(input$days_diff_id_1)
       max_date_1 <- as.Date(frwd_date_1)
       #final_string <- paste0('All visits during ',min_date_1,' through ',max_date_1,' will be shown.' )
-      final_string <- paste0('All visits during ',min_date_1,' through ',max_date_1,' will be shown. \nThe first visit for this patient is : ',min_date_visit_1," \nThe last visit for this patient is : ",max_date_visit_1 )
+      final_string <- paste0('All visits during ',min_date_1,' through ',max_date_1,' will be shown based on your inputs. \nThe date range of visits available for this individual is ', min_date_visit_1 ,' to ', max_date_visit_1 ,'.')
       
       cat(final_string)
     })
