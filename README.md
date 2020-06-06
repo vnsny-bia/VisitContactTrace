@@ -138,7 +138,7 @@ If you don't have data available but would like to experiment with the applicati
 
 ## Importing Data <a name="importdata"></a>
 
-If you do have data you would like to use, click on "Choose Data File" and browse to the dataset you want to import into the VisitContactTrace application.  
+If you have data you would like to use, click on "Choose Data File" and browse to the dataset you want to import into the VisitContactTrace application.  
 
 The "View Selected File" button lets you preview your data and rename your columns to the names defined in [data specifications](#dataspec). If your column names and data formats are correct, you can click on "Use Selected File" to import the data into the application.  If they are not correct, you will get an error message.
 
@@ -147,18 +147,17 @@ The "View Selected File" button lets you preview your data and rename your colum
 
 ## Querying VisitContactTrace <a name="queryapp"></a>
 
-When using the VisitContactTrace application, the user needs to identify an individual that serves as the “index” person in a contact tracing investigation. This application was designed assuming that the user has a list of individuals (patients and/or staff members) to conduct contact tracing on; the application itself does not inform the user as to which individuals need contact tracing.
+Once you have loaded data into the application, you are ready to start using VisitContactTrace. First, identify an individual in the dataset that you will consider as the “index” person in a contact tracing investigation. If you have a list of individuals (patients and/or staff members) who have tested positive for an infectious disease, any of those individuals can serve as the "index" person to conduct contact tracing on. Note that the application itself will not let you know which individuals need contact tracing.
 
-Querying Parameter Instructions:
-
-* Choose whether you are starting with an index staff member or a patient by clicking the on the “Staff” or “Patient” tile. 
+Instructions for entering your inputs:
+* Choose whether you are starting with an index staff member or a patient by clicking the on the “Staff” or “Patient” tile at the top of the application. 
 * Choose the Staff ID (or Patient ID) of the index person by selecting the ID/name from the drop-down. You can start typing the ID/name in order to narrow the results in the drop-down menu.
 * Choose the reference date. For example, this could be the date of symptom onset for the index person. 
 * Choose the number of days to look back from the reference date (e.g. the incubation period of the disease) and the number of days to look forward from the reference date.  Consult your organization's policies & procedures for specific guidance regarding the use of index dates and tracing periods.
 
 **Click on the “Run” button.**
 
-Please note that depending on your PC’s hardware, the size of your dataset, and the duration of time for which you are conducting the contact trace you may experience long computation times.  
+Please note that depending on your PC’s hardware, the size of your dataset, and the date range you select, you may experience long computation times.  
 
 <img src="./inst/www/ct-main.PNG" width="1200" align="center"/>
 
