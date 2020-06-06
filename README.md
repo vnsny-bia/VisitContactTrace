@@ -51,7 +51,7 @@ The VisitContactTrace application allows users to **upload their own data.**  Fo
 
 ## Installing the VisitContactTrace R package <a name="installapp"></a>
 
-The following code must be run in R the first time you use VisitContactTrace (and anytime you switch versions of R).  This step may take a while to run (several minutes depending on your internet connection), as many R packages will auto-download and install before VisitContactTrace will work successfully.  Copy and paste the following lines of code (preserving the upper- and lower- case letters) into the R Console to install the development version of **VisitContactTrace** from GitHub. The packages may begin to download automatically, or you might have to hit "enter" on the keyboard once. 
+You must run the following code in R the first time you use VisitContactTrace (and anytime you switch versions of R).  This step may take a while to run (several minutes depending on your internet connection), as many R packages will auto-download and install before VisitContactTrace will work successfully.  Copy and paste the following lines of code (preserving the upper- and lower- case letters) into the R Console to install the development version of **VisitContactTrace** from GitHub. The packages may begin to download automatically, or you might have to hit "enter" on the keyboard once. 
 
 ```r
 depend.pack <- c('anytime', 'shiny', 'shinydashboard', 'randomcoloR', 'shinyFiles', 'shinycssloaders', 'shinyWidgets', 'data.table', 'assertthat', 'dplyr', 'purrr', 'rmarkdown', 'visNetwork', 'DT', 'fst', 'stringr', 'shinyalert', 'epicontacts', 'fs', 'readxl', 'shinyjs')
@@ -91,18 +91,7 @@ You can use VisitContractTrace for other visit-based service delivery models out
 
 ## Data Specifications <a name="dataspec"></a>
 
-The VisitContactTrace application will not produce accurate results if there are any data integrity or completeness issues. Please take the following into consideration when preparing a data file to upload into the application:
-
-* Preprocess the data to ensure that each row in the dataset represents a direct person-to-person visit per day.
-  * Do not aggregate data from several days into one row.
-  * Only use one row to represent a unique patient/staff/date combination. If a staff member visited the same patient several times during the same day, the dataset should have only one row to represent those same-day visits.
-  * Exclude telephonic or telemedicine "visits" or encounters.
-* Keep in mind the range of visit dates included in your dataset when you use the application.
-  * For example, if you load a dataset that contains visits from April 2020, then VisitContactTrace will only return results that apply to April 2020 and will not be able to return results about visits from March 2020 or May 2020.
-
-There may be other precautions necessary that the authors of VisitContactTrace have not anticipated.  Please be thoughtful about other considerations relevant to your organization when uploading a dataset into the application.
-  
-The **VisitContactTrace** application recognizes the following data fields:
+You need to save your data file as a *.xlsx or *.csv file to upload it to VisitContactTrace. Here are the data fields that VisitContactTrace recognizes:
 
 | Column Name | Format | Required | Description |
 | --------------- | --------------- | --------------- |----------------------------------------------------------------------------|
@@ -114,15 +103,25 @@ The **VisitContactTrace** application recognizes the following data fields:
 | PATIENT_STATUS | Character | FALSE |  Labels used to indicate a status for each **patient**, such as confirmation of an infectious disease or some other status (e.g. "POSITIVE", "NEGATIVE", "SUSPECTED").  This label is case-sensitive (meaning that "Positive", "positive", and "POSITIVE" are all considered different statuses) and must be applied to all applicable visit observations for the **patient**.  See the Output - Plot section to learn how the application uses this column. |
 | STAFF_STATUS | Character | FALSE |  Labels used to indicate a status for each **staff member**, such as confirmation of an infectious disease or some other status (e.g. "POSITIVE", "NEGATIVE", "SUSPECTED").  This label is case-sensitive (meaning that "Positive", "positive", and "POSITIVE" are all considered different statuses) and must be applied to all applicable visit observations for the **staff member**.  See the Output - Plot section to learn how the application uses this column. |
 
-\* Many users may work with data systems that store patient/staff name in two columns (first name & last name).  Those users should consider concatenating those columns prior to uploading the data into the application.
+\* If you work with data where patient/staff names are stored in two columns (first name & last name), you can consider concatenating those columns prior to uploading the data into the application.
 
-The columns in the dataset can be in any order. However, PATIENT_NAME, STAFF_NAME, and VISIT_DATE are required columns and must be spelled exactly as specified. The VisitContactTrace application will ignore any columns names that do not exactly match those documented here. It is highly recommended that PATIENT_ID and STAFF_ID are derived from a data source that treats these fields as a unique key - i.e., that these columns uniquely identify specific patients and staff members. When PATIENT_ID and STAFF_ID are provided, the application relies on the integrity of these fields in order to produce accurate contact tracing. If either of these columns are not available, the application will use the PATIENT_NAME and STAFF_NAME columns to uniquely identify a patient or staff member, respectively. Thus, in the **absence of the PATIENT_ID and STAFF_ID columns**, users should be careful to:
-* address inconsistencies in spelling, use of upper- and lower- case letters, use of extraneous spaces, and the order of first and last names for the names contained in PATIENT_NAME and STAFF_NAME. For example, "Lillian Wald", "lillian wald", "Wald, Lillian", and "Lillian  Wald" (with 2 spaces between first and last name instead of one) would all be treated as different individuals. Similarly, ["Hazel Johnson-Brown"](https://en.wikipedia.org/wiki/Hazel_Johnson-Brown) and "Hazel Johnson Brown" (not hyphenated) would be treated as different individuals as well. 
-* ensure that patients or staff with common names are represented differently in the dataset. For example, if two different patients are named "John Doe", then the patient names should be distinct in some way (e.g. "John Doe DOB 2/3/1950" and "John Doe DOB 4/26/1933").
+If you have any columns in your dataset that aren't mentioned in the table above, VisitContactTrace will ignore them. The columns in your dataset can be in any order. PATIENT_NAME, STAFF_NAME, and VISIT_DATE are required columns and must be spelled exactly as specified. You'll get an error message if you attempt to upload a data file without these required columns, but you can rename the columns directly in the "Upload Data" screen from within the application.  
 
-### Renaming data columns
+For best performance, you should consider bringing in PATIENT_ID and STAFF_ID from a data source that treats these fields as a unique key (i.e. these columns should uniquely identify specific patients and staff members). VisitContactTrace works best when PATIENT_ID and STAFF_ID are provided.  If either of these columns are not available, the application will use the PATIENT_NAME and STAFF_NAME columns to uniquely identify a patient or staff member, respectively. If your dataset does **not** include the PATIENT_ID and STAFF_ID columns, you should be careful to:
+* address inconsistencies in spelling, use of upper- and lower- case letters, use of extraneous spaces, and the order of first and last names in PATIENT_NAME and STAFF_NAME. For example, "Lillian Wald", "lillian wald", "Wald, Lillian", and "Lillian  Wald" (with 2 spaces between first and last name instead of one) would all be treated as different individuals. Similarly, ["Hazel Johnson-Brown"](https://en.wikipedia.org/wiki/Hazel_Johnson-Brown) and "Hazel Johnson Brown" (not hyphenated) would be treated as different individuals as well. 
+* make sure that you represent patients or staff with common names differently in the dataset. For example, if two different patients are named "John Doe", then you should make the patient names distinct in some way (e.g. "John Doe DOB 2/3/1950" and "John Doe DOB 4/26/1933").
 
-The user interface for uploading data will raise an error if the user attempts to submit a data file without the required columns. The user interface allows users the option to rename columns with the correct spelling.  
+The VisitContactTrace application will not produce accurate results if your data have any integrity or completeness issues. Please take the following into consideration when you prepare a data file to upload into the application:
+
+* Preprocess the data to make sure that each row in the dataset represents a direct person-to-person visit per day.
+  * Do not aggregate data from several days into one row.
+  * Only use one row to represent a unique patient/staff/date combination. If a staff member visited the same patient several times during the same day, your dataset should have only one row to represent those same-day visits.
+  * Exclude telephonic "visits" or encounters.
+* Keep in mind the range of visit dates in your dataset when you use the application.
+  * For example, if you load a dataset that contains visits from April 2020, then VisitContactTrace will only return results that apply to April 2020 and will not be able to return results about visits from March 2020 or May 2020.
+
+We may not have anticipated all of the pitfalls associated with uploading your own dataset into VisitContactTrace.  Please be thoughtful about other considerations that are relevant to your organization's data when you upload a dataset into the application.
+
 
 
 # Using the VisitContactTrace Application <a name="useapp"></a>
