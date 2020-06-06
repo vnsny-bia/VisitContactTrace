@@ -89,11 +89,11 @@ The image below shows a snippet of an example dataset where a handful of clinici
 
 The VisitContactTrace application uses only these visit interactions or "encounters" between visit staff and patients to determine the contacts of an infected person in a visit-based service delivery model.  While it's possible for visit staff to interact with each other under certain circumstances, VisitContactTrace was built assuming that this happens rarely and currently does not support contact tracing for those interactions.  
 
-You can use VisitContractTrace for other visit-based service delivery models outside of community-based healthcare. As long as the data used in the application represent "visit encounters" and are in the format specified [below](#dataspec), you will be able to use VisitContactTrace to explore your data.
+You can use VisitContactTrace for other visit-based service delivery models outside of community-based healthcare. As long as the data used in the application represent "visit encounters" and are in the format specified [below](#dataspec), you will be able to use VisitContactTrace to explore your data.
 
 ## Data Specifications <a name="dataspec"></a>
 
-You need to save your dataset as a *.xlsx or *.csv file to upload it to VisitContactTrace. If you have several sheets in your *.xlsx file, your dataset must be located in the first sheet. Your column names should be the first row in your dataset. Here are the data fields that VisitContactTrace recognizes:
+You need to save your dataset as a *.xlsx or *.csv file to upload it to VisitContactTrace. If you have several sheets in your *.xlsx file, your dataset must be in the first sheet. Your column names should be the first row in your dataset. Here are the data fields that VisitContactTrace recognizes:
 
 | Column Name | Format | Required | Description |
 | --------------- | --------------- | --------------- |----------------------------------------------------------------------------|
@@ -111,7 +111,7 @@ If you have any columns in your dataset that aren't mentioned in the table above
 
 For best performance, you should consider bringing in PATIENT_ID and STAFF_ID from a data source that treats these fields as a unique key (i.e. these columns should uniquely identify specific patients and staff members). VisitContactTrace works best when PATIENT_ID and STAFF_ID are provided.  If either of these columns are not available, the application will use the PATIENT_NAME and STAFF_NAME columns to uniquely identify a patient or staff member, respectively. If your dataset does **not** include the PATIENT_ID and STAFF_ID columns, you should be careful to:
 * Address inconsistencies in spelling, use of upper- and lower- case letters, use of extraneous spaces, and the order of first and last names in PATIENT_NAME and STAFF_NAME. For example, "Lillian Wald", "lillian wald", "Wald, Lillian", and "Lillian  Wald" (with 2 spaces between first and last name instead of one) would all be treated as different individuals. Similarly, ["Hazel Johnson-Brown"](https://en.wikipedia.org/wiki/Hazel_Johnson-Brown) and "Hazel Johnson Brown" (not hyphenated) would be treated as different individuals as well. 
-* Make sure that you represent patients or staff with common names differently in the dataset. For example, if two different patients are named "John Doe", then you should make the patient names distinct in some way (e.g. "John Doe DOB 2/3/1950" and "John Doe DOB 4/26/1933").
+* Make sure that you represent patients or staff that share the same name differently in the dataset. For example, if two different patients are named "John Doe", then you should make the patient names distinct in some way (e.g. "John Doe DOB 2/3/1950" and "John Doe DOB 4/26/1933").
 
 The VisitContactTrace application will not produce accurate results if your data have any integrity or completeness issues. Please take the following into consideration when you prepare a data file to upload into the application:
 
@@ -176,7 +176,7 @@ Behind the scenes, VisitContactTrace first identifies the primary visit-based co
 
 ## Output - Plot <a name="outputplot"></a>
 
-The "Plot" tab displays a "network diagram" of primary, secondary, and tertiary contacts.  It is useful for visualizing how an infectious disease can spread expotentially within a visit-based population. You can hover over the patient and staff icons to see individual details (ID, name, status) or click on an icon in order to highlight the direct contacts of an individual. 
+The "Plot" tab displays a "network diagram" of primary, secondary, and tertiary contacts.  It is useful for visualizing how an infectious disease can spread exponentially within a visit-based population. You can hover over the patient and staff icons to see individual details (ID, name, status) or click on an icon in order to highlight the direct contacts of an individual. 
 
 If you included patient/staff statuses in your dataset, the plot legend will display each distinct status type. VisitContactTrace applies **the most recent status for each patient or staff within the visit window you request**. For example, imagine that Patient A has a status of "NEGATIVE" for visits on 5/1, 5/2, 5/3, and 5/4, and then a status of "POSITIVE" for visits on 5/5 and 5/6. If you select 5/4 as the end of the visit window for Patient A, then Patient A will be labeled as "NEGATIVE" in the plot. If you select 5/5 or 5/6 as the end of the visit window for Patient A, then Patient A will be labeled as "POSITIVE" in the plot.
 
@@ -195,7 +195,7 @@ The "Visit Details" tab includes all primary, secondary, and tertiary contact vi
 
 ## Exit/Reload data <a name="exitapp"></a>
 
-In the top right-hand corner of the application (the small down arrow icon), you'll find a drop down menu that contains options for exiting the application or reloading the screen to upload a new dataset.  It is best to exit the application by clicking on "Exit" in this window because this correctly closes the VisitContactTrace application from the R session. 
+In the top right-hand corner of the application (the small down arrow icon), you'll find a drop-down menu that contains options for exiting the application or reloading the screen to upload a new dataset.  It is best to exit the application by clicking on "Exit" in this window because this correctly closes the VisitContactTrace application from the R session. 
 
 # Other Useful R Functions/Objects (for experienced R users) <a name="advancedR"></a>
 
@@ -234,7 +234,7 @@ If the R installation is successful a shortcut for R should appear.  Click on th
 
 If your organization requires administrative rights to install software, you might not be able to install R in certain folders such as C:\Program Files. You may, however, be able to install R in your local storage without administrative rights by installing R in the "documents" directory associated with your user account.  Below is an example of how this might appear in a Windows environment.  
 
-To launch R, you need to find the **Rgui.exe** executable file. The easiest way to find it is to use your computer's search function. Otherwise, you can find the **Rgui.exe** executable file in a sub-directory within the directory that you selected during installation. For example, if you installed R in "Documents", then Rgui.exe might be located in the following places:
+To launch R, you need to find the **Rgui.exe** executable file. The easiest way to find it is to use your computer's search function. Otherwise, you can find the **Rgui.exe** executable file in a sub-directory within the directory that you selected during installation. For example, if you installed R in "Documents", then Rgui.exe might be in the following places:
 * Documents --> R --> R-#.#.# --> bin --> x64 --> Rgui.exe
 * Documents --> R --> R-#.#.# --> bin --> i386 --> Rgui.exe
 * Documents --> R-#.#.# --> bin --> x64 --> Rgui.exe
@@ -255,7 +255,7 @@ In order to load and run the VisitContactTrace application, you must copy and pa
 
 
 ## How-to Video <a name="video"></a>
-Here is an animated GIF demonstrating the steps from installing R to running VisitContractTrace in a Windows environment.
+Here is an animated GIF demonstrating the steps from installing R to running VisitContactTrace in a Windows environment.
 
 <center><img src="./inst/www/VisitContactTrace-Setup.gif" width="800" align="center"/></center>
 
