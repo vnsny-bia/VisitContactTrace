@@ -79,11 +79,15 @@ Run these two commands from an R session every time you want to use VisitContact
 
 ## Input Data Type and Structure <a name="inputdata"></a>
 
-The VisitContactTrace application supports a common data structure used in community-based healthcare settings for functions such as billing and clinical record documentation. This data structure, known as "encounter data" or "visit data," was the motivation for creating this application. In a community-based healthcare setting, patients are usually homebound or have significant disability, and are not observed to encounter each other. The VisitContactTrace application uses only these visit interactions or "encounters" between visit staff and patients to trace the possible transmission route of an infectious disease in a visit-based service delivery model.  While it is possible for community-based visit staff to interact with each other in the field under certain circumstances, it is an uncommon occurrence, and VisitContactTrace currently does not support contact tracing for those interactions.  The concept of visit-based contact tracing can be used in other visit-based service delivery models outside of community-based healthcare settings.
+The VisitContactTrace application supports a data structure commonly used for billing and clinical record documentation in community-based healthcare settings. This data structure is known as "encounter data" or "visit data," and was the motivation for creating this application.  
 
-The image below shows a snippet of an example dataset where a handful of clinicians have delivered visits to a few patients during an observation window of February - May 2020. In this simulated sample dataset, Patient 4 was first visited by [Anna Caroline Maxwell](https://en.wikipedia.org/wiki/Anna_Maxwell) on February 27, 2020, followed by several visits by [Lillian Wald](https://en.wikipedia.org/wiki/Lillian_Wald) every 2-6 days from February 29, 2020 to March 31, 2020.
+The image below shows a snippet of an example dataset where a handful of clinicians have delivered visits to a few patients during February - May 2020. In this simulated sample dataset, Patient 4 was first visited by [Anna Caroline Maxwell](https://en.wikipedia.org/wiki/Anna_Maxwell) on February 27, 2020, followed by several visits by [Lillian Wald](https://en.wikipedia.org/wiki/Lillian_Wald) every 2-6 days from February 29, 2020 to March 31, 2020.
 
 <img src="./inst/www/visithc.png" width="400" align="center"/>
+
+The VisitContactTrace application uses only these visit interactions or "encounters" between visit staff and patients to determine the contacts of an infected person in a visit-based service delivery model.  While it's possible for visit staff to interact with each other under certain circumstances, VisitContactTrace was built assuming that this happens rarely and currently does not support contact tracing for those interactions.  
+
+You can use VisitContractTrace for other visit-based service delivery models outside of community-based healthcare. As long as the data used in the application represent "visit encounters" and are in the format specified [below](#dataspec), you will be able to use VisitContactTrace to explore your data.
 
 ## Data Specifications <a name="dataspec"></a>
 
