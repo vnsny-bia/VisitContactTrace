@@ -174,16 +174,19 @@ Behind the scenes, VisitContactTrace first identifies the primary visit-based co
 <img src="./inst/www/ct-staff-patient-origin.PNG" width="600" align="center"/>
 
 
+## Output - Plot <a name="outputplot"></a>
+
+The "Plot" tab displays a "network diagram" of primary, secondary, and tertiary contacts.  It is useful for visualizing how an infectious disease can spread expotentially within a visit-based population. You can hover over the patient and staff icons to see individual details (ID, name, status) or click on an icon in order to highlight the direct contacts of an individual. 
+
+If you included patient/staff statuses in your dataset, the plot legend will display each distinct status type. VisitContactTrace applies **the most recent status for each patient or staff within the visit window you request**. For example, imagine that Patient A has a status of "NEGATIVE" for visits on 5/1, 5/2, 5/3, and 5/4, and then a status of "POSITIVE" for visits on 5/5 and 5/6. If you select 5/4 as the end of the visit window for Patient A, then Patient A will be labeled as "NEGATIVE" in the plot. If you select 5/5 or 5/6 as the end of the visit window for Patient A, then Patient A will be labeled as "POSITIVE" in the plot.
+
+<img src="./inst/www/ct-plot3.PNG" width="800" align="center"/>
+
+
 ## Output - Contact Lists <a name="outputcontactlists"></a>
 
 The right-hand panel of the application displays the primary, secondary, and tertiary contact lists (available in the three tabs under "Contact Lists." The user can download these lists into .csv by clicking on the "Download" button.
 
-
-## Output - Plot <a name="outputplot"></a>
-
-The "Plot" tab displays the "network diagram" of primary, secondary, and tertiary contacts.  Users can hover over the patient and staff icons to see individual details (ID, name, status) or click on an icon in order to highlight the direct contacts of an individual. If the user included patient/staff statuses, the plot legend displays each distinct status type differently. The application applies **the most recent status for each patient or staff within the requested visit window**. For example, imagine that Patient A has a status of "NEGATIVE" for visits on 5/1, 5/2, 5/3, and 5/4, and then a status of "POSITIVE" for visits on 5/5 and 5/6. If the requested window of visits for Patient A ends on 5/4, then Patient A will be labeled as "NEGATIVE" in the plot. However, if the requested window of visits for Patient A ends on 5/5 or 5/6, then Patient A will be labeled as "POSITIVE" in the plot.
-
-<img src="./inst/www/ct-plot3.PNG" width="800" align="center"/>
 
 ## Output - Visit Details <a name="outputdetails"></a>
 
