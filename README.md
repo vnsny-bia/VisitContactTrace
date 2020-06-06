@@ -185,14 +185,13 @@ If you included patient/staff statuses in your dataset, the plot legend will dis
 
 ## Output - Contact Lists <a name="outputcontactlists"></a>
 
-The "Contact Lists" tab displays the primary, secondary, and tertiary contact lists (available in separate tabs under "Contact Lists"). You can download these lists into .csv by clicking on the "Download" button. The contact lists identify which of your patients/staff are primary, secondary, or tertiary contacts of your index person, and when those contacts made or received visits.
+The "Contact Lists" tab displays the primary, secondary, and tertiary contact lists (available in separate subtabs under "Contact Lists"). You can download these lists into .csv by clicking on the "Download" button. The contact lists identify which of your patients/staff are primary, secondary, or tertiary contacts of your index person, and when those contacts made or received visits.
 
 
 ## Output - Visit Details <a name="outputdetails"></a>
 
-The visit details tab includes all primary, secondary, and tertiary contact visit details together and can be downloaded into .csv.  If the input dataset included patient/staff statuses, this tab shows the statuses that correspond to each patient/staff member on each given visit date.  In the example shown below, STAFF_ID 1 was the primary contact to patients with PATIENT_IDs 1043 and 1047.
+The "Visit Details" tab includes all primary, secondary, and tertiary contact visit details together to show information on "who visited whom on what date?"  You can download these results into .csv.  If your input dataset included patient/staff statuses, this tab will show the statuses that correspond to each patient/staff member on each given visit date.  
 
-<img src="./inst/www/ct-visitdetails.PNG" width="800" align="center"/>
 
 ## Exit/Reload data <a name="exitapp"></a>
 
