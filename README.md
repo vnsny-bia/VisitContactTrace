@@ -191,17 +191,17 @@ The visit details tab includes all primary, secondary, and tertiary contact visi
 
 ## Exit/Reload data <a name="exitapp"></a>
 
-The top right-hand corner of the application contains a drop down menu that contains options for users to exit the application or reload the user interface to upload a new dataset.  It is best to exit the application by clicking on "Exit" in this window, because this correctly closes the VisitContactTrace application from the R session. 
+In the top right-hand corner of the application (the small down arrow icon), you'll find a drop down menu that contains options for exiting the application or reloading the screen to upload a new dataset.  It is best to exit the application by clicking on "Exit" in this window because this correctly closes the VisitContactTrace application from the R session. 
 
 # Other Useful R Functions/Objects (for experienced R users) <a name="advancedR"></a>
 
-The VisitContactTrace R package includes a sample simulated Home Healthcare Visits dataset (visitshc.RData) that users can explore for experimentation and instructional purposes.
+If you are an experienced R user, you can explore and experiment with a sample simulated Home Healthcare Visits dataset (visitshc.RData)  included in the VisitContactTrace R package.
 
 ```r
 head(visitshc, 10)
 ```
 
-More experienced R users may want to access the contact tracing R function directly.  The getContacts function returns a dataframe of primary, secondary, and tertiary contacts when the following parameters are specified: the name of a visit-based patient-staff encounter data file, the ID of the index patient/staff, reference date, and number of days forward/back.
+More experienced R users may want to access the contact tracing R function directly.  The getContacts function returns a dataframe of primary, secondary, and tertiary contacts when the following parameters are specified: the data file, the ID of the index patient/staff, reference date, and number of days forward/back.
 
 ```r
 # The Below example will produce contact tracing lists based on staff id.
