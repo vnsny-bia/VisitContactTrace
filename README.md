@@ -30,8 +30,8 @@ Learn more about VNSNY's COVID-19 response [here](https://www.vnsny.org/coronavi
 [Using the VisitContactTrace Application](#useapp)  
       [Try VisitContactTrace with Demonstration Feature](#demodata)    
       [Importing Data](#importdata)  
-      [Exit/Reload data](#exitapp)  
       [Querying VisitContactTrace](#queryapp)  
+      [Exit/Reload data](#exitapp)  
 [The Output/Results](#results)  
       [Output - Plot](#outputplot)  
       [Output - Contact Lists](#outputcontactlists)  
@@ -163,6 +163,13 @@ In the screenshot below, we have selected [Florence Nightingale](https://en.wiki
 
 <img src="./inst/www/ct-main.PNG" width="1200" align="center"/>
 
+
+## Exit/Reload data <a name="exitapp"></a>
+
+In the top right-hand corner of the application (the small down arrow icon), you'll find a drop-down menu that contains options for exiting the application or reloading the screen to upload a new dataset.  It is best to exit the application by clicking on "Exit" in this window because this correctly closes the VisitContactTrace application from the R session. 
+
+
+
 # The Output/Results <a name="results"></a>
 
 When you hit the "run" button, all results will appear on the right-hand panel of the application. There are three results tabs: Plot, Contact Lists, and Visit Details. 
@@ -193,9 +200,10 @@ The "Contact Lists" tab displays the primary, secondary, and tertiary contact li
 The "Visit Details" tab includes all primary, secondary, and tertiary contact visit details together to show information on "who visited whom on what date?"  You can download these results into .csv.  If your input dataset included patient/staff statuses, this tab will show the statuses that correspond to each patient/staff member on each given visit date.  
 
 
-## Exit/Reload data <a name="exitapp"></a>
+## Exit the application
 
-In the top right-hand corner of the application (the small down arrow icon), you'll find a drop-down menu that contains options for exiting the application or reloading the screen to upload a new dataset.  It is best to exit the application by clicking on "Exit" in this window because this correctly closes the VisitContactTrace application from the R session. 
+See [this section](#exitapp) when you are ready to exit the VisitContactTrace application or reload data.
+
 
 # Other Useful R Functions/Objects (for experienced R users) <a name="advancedR"></a>
 
