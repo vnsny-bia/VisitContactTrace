@@ -77,6 +77,8 @@ VisitContactTrace();
 ```
 Run these two commands from an R session every time you want to use VisitContactTrace. When you run these commands, the VisitContactTrace application should launch in a web browser. VisitContactTrace works best in a Google Chrome browser; if you use a different browser, you can copy and paste the URL into a Google Chrome browser for the best performance.
 
+When you want to quit the application, follow the directions in the [Exit/Reload data section](#exitapp).
+
 ## Input Data Type and Structure <a name="inputdata"></a>
 
 The VisitContactTrace application supports a data structure commonly used for billing and clinical record documentation in community-based healthcare settings. This data structure is known as "encounter data" or "visit data," and was the motivation for creating this application.  
@@ -91,7 +93,7 @@ You can use VisitContractTrace for other visit-based service delivery models out
 
 ## Data Specifications <a name="dataspec"></a>
 
-You need to save your data file as a *.xlsx or *.csv file to upload it to VisitContactTrace. Here are the data fields that VisitContactTrace recognizes:
+You need to save your dataset as a *.xlsx or *.csv file to upload it to VisitContactTrace. If you have several sheets in your *.xlsx file, your dataset must be located in the first sheet. Your column names should be the first row in your dataset. Here are the data fields that VisitContactTrace recognizes:
 
 | Column Name | Format | Required | Description |
 | --------------- | --------------- | --------------- |----------------------------------------------------------------------------|
@@ -108,8 +110,8 @@ You need to save your data file as a *.xlsx or *.csv file to upload it to VisitC
 If you have any columns in your dataset that aren't mentioned in the table above, VisitContactTrace will ignore them. The columns in your dataset can be in any order. PATIENT_NAME, STAFF_NAME, and VISIT_DATE are required columns and must be spelled exactly as specified. You'll get an error message if you attempt to upload a data file without these required columns, but you can rename the columns directly in the "Upload Data" screen from within the application.  
 
 For best performance, you should consider bringing in PATIENT_ID and STAFF_ID from a data source that treats these fields as a unique key (i.e. these columns should uniquely identify specific patients and staff members). VisitContactTrace works best when PATIENT_ID and STAFF_ID are provided.  If either of these columns are not available, the application will use the PATIENT_NAME and STAFF_NAME columns to uniquely identify a patient or staff member, respectively. If your dataset does **not** include the PATIENT_ID and STAFF_ID columns, you should be careful to:
-* address inconsistencies in spelling, use of upper- and lower- case letters, use of extraneous spaces, and the order of first and last names in PATIENT_NAME and STAFF_NAME. For example, "Lillian Wald", "lillian wald", "Wald, Lillian", and "Lillian  Wald" (with 2 spaces between first and last name instead of one) would all be treated as different individuals. Similarly, ["Hazel Johnson-Brown"](https://en.wikipedia.org/wiki/Hazel_Johnson-Brown) and "Hazel Johnson Brown" (not hyphenated) would be treated as different individuals as well. 
-* make sure that you represent patients or staff with common names differently in the dataset. For example, if two different patients are named "John Doe", then you should make the patient names distinct in some way (e.g. "John Doe DOB 2/3/1950" and "John Doe DOB 4/26/1933").
+* Address inconsistencies in spelling, use of upper- and lower- case letters, use of extraneous spaces, and the order of first and last names in PATIENT_NAME and STAFF_NAME. For example, "Lillian Wald", "lillian wald", "Wald, Lillian", and "Lillian  Wald" (with 2 spaces between first and last name instead of one) would all be treated as different individuals. Similarly, ["Hazel Johnson-Brown"](https://en.wikipedia.org/wiki/Hazel_Johnson-Brown) and "Hazel Johnson Brown" (not hyphenated) would be treated as different individuals as well. 
+* Make sure that you represent patients or staff with common names differently in the dataset. For example, if two different patients are named "John Doe", then you should make the patient names distinct in some way (e.g. "John Doe DOB 2/3/1950" and "John Doe DOB 4/26/1933").
 
 The VisitContactTrace application will not produce accurate results if your data have any integrity or completeness issues. Please take the following into consideration when you prepare a data file to upload into the application:
 
@@ -126,7 +128,7 @@ We may not have anticipated all of the pitfalls associated with uploading your o
 
 # Using the VisitContactTrace Application <a name="useapp"></a>
 
-The following figure is the welcome screen that appears as soon as the application opens. 
+The following figure is the welcome screen that appears as soon as the application opens and you have clicked on "accept" to the license information. 
 
 <img src="./inst/www/ct-welcome.PNG" width="400"  align="center"/>
 
@@ -136,9 +138,9 @@ If you don't have data available but would like to experiment with the applicati
 
 ## Importing Data <a name="importdata"></a>
 
-If you do have data you would like to use, click on "Choose Data File" and browse to the dataset that you wish to import into the VisitContactTrace application.  
+If you do have data you would like to use, click on "Choose Data File" and browse to the dataset you want to import into the VisitContactTrace application.  
 
-The "View Selected File" button provides a preview of the data import and the ability to rename columns to the names defined in [data specifications](#dataspec). If column names and formats are correct, the "Use Selected File" button will import the data into the application.  If not, the user will be notified of an error.
+The "View Selected File" button lets you preview your data and rename your columns to the names defined in [data specifications](#dataspec). If your column names and data formats are correct, you can click on "Use Selected File" to import the data into the application.  If they are not correct, you will get an error message.
 
 <img src="./inst/www/ct-preview.PNG" width="500"  align="center"/>
 
