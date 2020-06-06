@@ -250,9 +250,7 @@ body <- dashboardBody(
                                                       word-wrap: break-word;
                                                           border: 1px solid #ccc;
                                                       border-radius: 4px;
-                                                      max-height: 550px;
                                                       overflow: auto;
-                                                     /* width:700px;*/
                                                       background-color: #005daa;
                                                   }
                                               "))),

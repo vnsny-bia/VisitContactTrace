@@ -95,7 +95,7 @@ server = function(input, output,session) {
   
   output$license_txt <- renderPrint({
     #rawText <- readLines(system.file('www','LICENSE',package = 'VisitContactTrace'))
-    rawText <- readLines(system.file('www','LICENSE',package = 'VisitContactTrace'))
+    rawText <- readLines(system.file('LICENSE',package = 'VisitContactTrace'))
     
     cat(rawText,sep = '\n')
   })
@@ -1179,6 +1179,7 @@ server = function(input, output,session) {
                    #Adding Days forward logic-----
 
                    frwd_date <- as.Date(input$ref_date_id) + as.numeric(input$days_frwd_id)
+                   print(frwd_date)
 
                    data <- data[ (days_diff <=as.numeric(input$days_diff_id) & days_diff > 0) | (visit_date >= input$ref_date_id),]
 
@@ -1198,7 +1199,7 @@ server = function(input, output,session) {
       max_date_visit <-  max(copy_data[staff_id==paste0("clin_",trimws(sub('.*:', '', input$clinic_id))),visit_date])
       min_date_visit <-  min(copy_data[staff_id==paste0("clin_",trimws(sub('.*:', '', input$clinic_id))),visit_date])
       min_date <- as.Date(input$ref_date_id) - as.numeric(input$days_diff_id)
-      max_date <- as.Date(frwd_date)
+      max_date <- as.Date(input$ref_date_id) + as.numeric(input$days_frwd_id)
       #final_string <- paste0('All visits during ',min_date,' through ',max_date,' will be shown.' )
       final_string <- paste0('All visits during ',min_date,' through ',max_date,' will be shown based on your inputs. \nThe date range of visits available for this individual is ', min_date_visit ,' to ', max_date_visit ,'.')
       cat(final_string,sep='\n')
@@ -1711,7 +1712,7 @@ server = function(input, output,session) {
       max_date_visit_1 <-  max(copy_data_1[patient_id==trimws(sub('.*:', '', input$patient_id)),visit_date])
       min_date_visit_1 <-  min(copy_data_1[patient_id==trimws(sub('.*:', '', input$patient_id)),visit_date])
       min_date_1 <- as.Date(input$ref_date_id_1) - as.numeric(input$days_diff_id_1)
-      max_date_1 <- as.Date(frwd_date_1)
+      max_date_1 <- as.Date(input$ref_date_id_1) + as.numeric(input$days_frwd_id_1)
       #final_string <- paste0('All visits during ',min_date_1,' through ',max_date_1,' will be shown.' )
       final_string <- paste0('All visits during ',min_date_1,' through ',max_date_1,' will be shown based on your inputs. \nThe date range of visits available for this individual is ', min_date_visit_1 ,' to ', max_date_visit_1 ,'.')
       
