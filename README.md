@@ -185,7 +185,7 @@ If you included patient/staff statuses in your dataset, the plot legend will dis
 
 ## Output - Contact Lists <a name="outputcontactlists"></a>
 
-The right-hand panel of the application displays the primary, secondary, and tertiary contact lists (available in the three tabs under "Contact Lists." The user can download these lists into .csv by clicking on the "Download" button.
+The "Contact Lists" tab displays the primary, secondary, and tertiary contact lists (available in separate tabs under "Contact Lists"). You can download these lists into .csv by clicking on the "Download" button. The contact lists identify which of your patients/staff are primary, secondary, or tertiary contacts of your index person, and when those contacts made or received visits.
 
 
 ## Output - Visit Details <a name="outputdetails"></a>
