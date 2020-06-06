@@ -159,18 +159,20 @@ Instructions for entering your inputs:
 
 Please note that depending on your PC’s hardware, the size of your dataset, and the date range you select, you may experience long computation times.  
 
+In the screenshot below, we have selected [Florence Nightingale](https://en.wikipedia.org/wiki/Florence_Nightingale) as the index staff person for visit-based contact tracing of a novel infectious disease.  In this hypothetical example, we use her symptom onset date, May 12, 2020, as the reference date. We set the contact tracing to start 7 days prior to that date (to account for a 7-day incubation period of the novel infectious disease) and to end 2 days afterwards (to account for visits that she delivered while she was symptomatic as well as to capture a longer window for secondary and tertiary contact visits to have occurred).  When we select these parameter inputs, the application displays some helpful messages immediately below the run button: "The date range of visits available for the individual is 2020-02-03 to 2020-05-21. All visits during 2020-05-05 through 2020-05-14 will be shown based on your inputs."  
+
 <img src="./inst/www/ct-main.PNG" width="1200" align="center"/>
 
 # The Output/Results <a name="results"></a>
 
-The algorithm behind the VisitContactTrace application first identifies the primary visit-based contacts of the index person during the specified window of time.  It proceeds to identify the visit-based contacts two to three orders of separation away from the index person.  These visit-based contacts must have occurred after the primary contact visit dates (and tertiary contacts must occur after the secondary contact visits). 
+When you hit the "run" button, all results will appear on the right-hand panel of the application. There are three results tabs: Plot, Contact Lists, and Visit Details. 
 
-In the screenshot above, [Florence Nightingale](https://en.wikipedia.org/wiki/Florence_Nightingale) has been selected as the index staff person for visit-based contact tracing of a novel infectious disease.  In this hypothetical example, her symptom onset date was May 12, 2020 and is used as the reference date. The contact tracing is set to start 7 days prior to that date (to account for a 7-day incubation period of the novel infectious disease) and will conclude 7 days afterwards (in order to account for visits that she delivered while she was symptomatic as well as to capture a longer timeframe for secondary and tertiary visits to have occurred).  The calculated begin and end dates for the contact tracing is presented back to the user immediately below the parameter input area: "All visits during 2020-05-05 and 2020-05-19 will be shown."  
-
+Behind the scenes, VisitContactTrace first identifies the primary visit-based contacts of the index person you selected during the window of time you specified.  Then, it identifies the visit-based contacts two to three orders of separation away from your index person.  The visits for these contacts must have occurred after the primary contact visit dates (and tertiary contacts visits must occur after the secondary contact visits). 
 
 #### Definition of Primary, Secondary Tertiary Contacts
 
 <img src="./inst/www/ct-staff-patient-origin.PNG" width="600" align="center"/>
+
 
 ## Output - Contact Lists <a name="outputcontactlists"></a>
 
