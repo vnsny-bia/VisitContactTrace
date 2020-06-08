@@ -140,7 +140,9 @@ body <- dashboardBody(
 
     tabItem("Data",
             fluidRow(
-              tabBox(id='main_data', width = 6, height = '640px',title = tagList(shiny::icon("table"),""),
+              tabBox(id='main_data', width = 6, 
+                     height = '700px',
+                     title = tagList(shiny::icon("table"),""),
                      tabPanel(tagList(shiny::icon("table"),"Input Data"),
 
                               fluidRow(box(width=12,
@@ -258,8 +260,8 @@ body <- dashboardBody(
 
                                        div(style="display: inline-block;",
                                            box(width=12,
-                                               #height = '400px',
-                                               div(style = 'overflow-y: scroll; height:400px;',
+                                               #height = '300px',
+                                               div(style = 'overflow-y: scroll; height:350px;',
                                                    HTML('<div class="header_csv"><center><p id="preloader6">
                                                                 <span></span>
                                                                 <span></span>
@@ -327,7 +329,8 @@ body <- dashboardBody(
                      height = '700px',
                      title = "",
                      tabPanel(tagList(shiny::icon("bar-chart-o"),"Plot"),
-                              visNetworkOutput('plot_epicontacts',height = '550px'),
+                              visNetworkOutput('plot_epicontacts',height = '550px'
+                                               ),
                               value = 'model_perf'),
                      tabPanel(tagList(HTML('<i class="fa fa-newspaper-o"></i>'),"Contact Lists"),
                               tabBox(id='stg_tbls',width = 12,
@@ -363,7 +366,7 @@ body <- dashboardBody(
     tabItem("Data_Dictionary",
             fluidRow(
               tabBox(id='main_data', width = 6, 
-                     height = '640px',title = tagList(shiny::icon("table"),""),
+                     height = '700px',title = tagList(shiny::icon("table"),""),
                      tabPanel(tagList(shiny::icon("table"),"Input Data"),
 
                               fluidRow(box(width=12,
@@ -476,7 +479,7 @@ body <- dashboardBody(
                                        
                                        div(style="display: inline-block;",
                                            box(width=12,
-                                               height = '425px',
+                                               height = '350px',
                                                div(style = 'overflow-y: scroll; height:400px;',
 
                                                    #New Addition-----

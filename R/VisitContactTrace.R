@@ -1,13 +1,21 @@
 #' A contact tracing application built to consume healthcare encounter data.
 #'
 #' @param viewer By default is opens up application in Browser. Options ('browser','pane','dialog')
+#' @param browserURL By default is opens up application in Browser. Options ('browser','pane','dialog')
+
 #' @export
 
-VisitContactTrace <- function(viewer = "browser") {
+VisitContactTrace <- function(viewer = "browser",browserURL=NULL) {
 
 
   if (viewer == "browser") {
-    inviewer <- browserViewer(browser = getOption("browser"))
+    if(is.null(browserURL)){
+      inviewer <- browserViewer(browser = getOption("browser"))
+    } else{
+      
+      inviewer <- browserViewer(browser = browserURL)
+      
+    }
   } else if (viewer == "pane") {
     inviewer <- paneViewer(minHeight = "maximize")
   } else if (viewer == "dialog"){

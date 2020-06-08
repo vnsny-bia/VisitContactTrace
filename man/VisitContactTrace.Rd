@@ -4,10 +4,12 @@
 \alias{VisitContactTrace}
 \title{A contact tracing application built to consume healthcare encounter data.}
 \usage{
-VisitContactTrace(viewer = "browser")
+VisitContactTrace(viewer = "browser", browserURL = NULL)
 }
 \arguments{
 \item{viewer}{By default is opens up application in Browser. Options ('browser','pane','dialog')}
+
+\item{browserURL}{By default is opens up application in Browser. Options ('browser','pane','dialog')}
 }
 \description{
 A contact tracing application built to consume healthcare encounter data.

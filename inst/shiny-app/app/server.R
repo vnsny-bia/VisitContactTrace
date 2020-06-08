@@ -1179,7 +1179,6 @@ server = function(input, output,session) {
                    #Adding Days forward logic-----
 
                    frwd_date <- as.Date(input$ref_date_id) + as.numeric(input$days_frwd_id)
-                   print(frwd_date)
 
                    data <- data[ (days_diff <=as.numeric(input$days_diff_id) & days_diff > 0) | (visit_date >= input$ref_date_id),]
 
