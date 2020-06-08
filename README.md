@@ -57,7 +57,7 @@ You must run the following code in R the first time you use VisitContactTrace (a
 depend.pack <- c('anytime', 'shiny', 'shinydashboard', 'pals', 'shinyFiles', 'shinycssloaders', 'shinyWidgets', 'data.table', 'assertthat', 'dplyr', 'purrr', 'rmarkdown', 'visNetwork', 'DT', 'fst', 'stringr', 'shinyalert', 'epicontacts', 'fs', 'readxl', 'shinyjs')
 install.packages(depend.pack, dependencies=TRUE, repos="http://lib.stat.cmu.edu/R/CRAN/")
 # Public version install
-# install.packages("VisitContactTrace", repos = "https://github.com/vnsny-bia/VisitContactTrace")
+install.packages("VisitContactTrace", repos = "https://github.com/vnsny-bia/VisitContactTrace")
 ```
 You will know that the packages have installed and that R is ready for the next command when you see your cursor on a blank carat prompt line in the R console:
 ```r
