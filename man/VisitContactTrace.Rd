@@ -9,7 +9,7 @@ VisitContactTrace(viewer = "browser", browserURL = NULL)
 \arguments{
 \item{viewer}{By default is opens up application in Browser. Options ('browser','pane','dialog')}
 
-\item{browserURL}{By default is opens up application in Browser. Options ('browser','pane','dialog')}
+\item{browserURL}{By default is NULL and is used to provide custom browser path for shiny app.}
 }
 \description{
 A contact tracing application built to consume healthcare encounter data.

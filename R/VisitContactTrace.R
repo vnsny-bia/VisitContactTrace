@@ -1,8 +1,7 @@
 #' A contact tracing application built to consume healthcare encounter data.
 #'
 #' @param viewer By default is opens up application in Browser. Options ('browser','pane','dialog')
-#' @param browserURL By default is opens up application in Browser. Options ('browser','pane','dialog')
-
+#' @param browserURL By default is NULL and is used to provide custom browser path for shiny app.
 #' @export
 
 VisitContactTrace <- function(viewer = "browser",browserURL=NULL) {
