@@ -272,6 +272,6 @@ Here is an animated GIF demonstrating the steps from installing R to running Vis
 **VisitContactTrace** is released under [AGPLv3 license](https://www.gnu.org/licenses/agpl-3.0.html). Please see the license in this GitHub repository for additional disclaimers on the usage of this application. 
 
 # Acknowledgments <a name="thanks"></a>
-
+Icon images are from https://fontawesome.com/
 
 
