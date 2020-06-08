@@ -85,7 +85,7 @@ The VisitContactTrace application supports a data structure commonly used for bi
 
 The image below shows a snippet of an example dataset where a handful of clinicians have delivered visits to a few patients during February - May 2020. In this simulated sample dataset, Patient 4 was first visited by [Anna Caroline Maxwell](https://en.wikipedia.org/wiki/Anna_Maxwell) on February 27, 2020, followed by several visits by [Lillian Wald](https://en.wikipedia.org/wiki/Lillian_Wald) every 2-6 days from February 29, 2020 to March 31, 2020.
 
-<img src="./inst/www/visithc.png" width="400" align="center"/>
+<img src="./readme-files/visithc.png" width="400" align="center"/>
 
 The VisitContactTrace application uses only these visit interactions or "encounters" between visit staff and patients to determine the contacts of an infected person in a visit-based service delivery model.  While it's possible for visit staff to interact with each other under certain circumstances, VisitContactTrace was built assuming that this happens rarely and currently does not support contact tracing for those interactions.  
 
@@ -130,7 +130,7 @@ We may not have anticipated all of the pitfalls associated with uploading your o
 
 The following figure is the welcome screen that appears as soon as the application opens and you have clicked on "accept" to the license information. 
 
-<img src="./inst/www/ct-welcome.PNG" width="400"  align="center"/>
+<img src="./readme-files/ct-welcome.PNG" width="400"  align="center"/>
 
 ## Demo Data <a name="demodata"></a>
 
@@ -142,7 +142,7 @@ If you have data you would like to use, click on "Choose Data File" and browse t
 
 The "View Selected File" button lets you preview your data and rename your columns to the names defined in [data specifications](#dataspec). If your column names and data formats are correct, you can click on "Use Selected File" to import the data into the application.  If they are not correct, you will get an error message.
 
-<img src="./inst/www/ct-preview.PNG" width="500"  align="center"/>
+<img src="./readme-files/ct-preview.PNG" width="500"  align="center"/>
 
 
 ## Querying VisitContactTrace <a name="queryapp"></a>
@@ -160,9 +160,9 @@ Instructions for entering your inputs:
 Please note that depending on your PC’s hardware, the size of your dataset, and the date range you select, you may experience long computation times.  
 
 ### Example
-In the screenshot below, we show a hypothetical scenario where [Florence Nightingale](https://en.wikipedia.org/wiki/Florence_Nightingale), a visiting nurse, started exhibiting symptoms of a novel infectious disease on May 12, 2020 and tested positive soon afterwards. We use VisitContactTrace to identify the patients she has come into contact with (primary contacts), the staff who then visited those same patients afterwards (secondary contacts), and the patients those staff then visited (tertiary contacts). We select Florence Nightingale's staff ID as the index staff person, and use May 12, 2020 (her symptom onset date) as the reference date.  We set the contact tracing to start 7 days prior to May 12 because the novel infectious disease has a 7-day incubation period and Nightingale may have been visiting patients while she was infectious but was not yet showing symptoms. We end the contact tracing 2 days after May 12 to confirm that she did not deliver any visits while she was symptomatic as well as to capture a longer window for secondary and tertiary contact visits to have occurred.  When we select these parameter inputs, the application displays some helpful messages immediately below the run button: "The date range of visits available for the individual is 2020-02-03 to 2020-05-21. All visits during 2020-05-05 through 2020-05-14 will be shown based on your inputs."  
+In the screenshot below, we show a hypothetical scenario where [Florence Nightingale](https://en.wikipedia.org/wiki/Florence_Nightingale), a visiting nurse, started exhibiting symptoms of a novel infectious disease on May 12, 2020 and tested positive soon afterwards. We use VisitContactTrace to identify the patients she has come into contact with (primary contacts), the staff who then visited those same patients afterwards (secondary contacts), and the patients those staff then visited (tertiary contacts). We select Florence Nightingale's staff ID as the index staff person, and use May 12, 2020 (her symptom onset date) as the reference date.  We set the contact tracing to start 7 days prior to May 12 because the novel infectious disease has a 7-day incubation period and Nightingale may have been visiting patients while she was infectious but was not yet showing symptoms. We end the contact tracing 7 days after May 12 to confirm that she did not deliver any visits while she was symptomatic as well as to capture a longer window for secondary and tertiary contact visits to have occurred.  When we select these parameter inputs, the application displays some helpful messages immediately below the run button: "All visits during 2020-05-05 through 2020-05-19 will be shown based on your inputs. The date range of visits available for the individual is 2020-02-03 to 2020-05-21."  
 
-<img src="./inst/www/ct-main.PNG" width="1200" align="center"/>
+<img src="./readme-files/ct-main.PNG" width="1200" align="center"/>
 
 
 ## Exit/Reload data <a name="exitapp"></a>
@@ -179,7 +179,7 @@ Behind the scenes, VisitContactTrace first identifies the primary visit-based co
 
 #### Definition of Primary, Secondary Tertiary Contacts
 
-<img src="./inst/www/ct-staff-patient-origin.PNG" width="600" align="center"/>
+<img src="./readme-files/ct-staff-patient-origin.PNG" width="600" align="center"/>
 
 
 ## Output - Plot <a name="outputplot"></a>
@@ -188,7 +188,7 @@ The "Plot" tab displays a "network diagram" of primary, secondary, and tertiary 
 
 If you included patient/staff statuses in your dataset, the plot legend will display each distinct status type. VisitContactTrace applies **the most recent status for each patient or staff within the visit window you request**. For example, imagine that Patient A has a status of "NEGATIVE" for visits on 5/1, 5/2, 5/3, and 5/4, and then a status of "POSITIVE" for visits on 5/5 and 5/6. If you select 5/4 as the end of the visit window for Patient A, then Patient A will be labeled as "NEGATIVE" in the plot. If you select 5/5 or 5/6 as the end of the visit window for Patient A, then Patient A will be labeled as "POSITIVE" in the plot.
 
-<img src="./inst/www/ct-plot3.PNG" width="800" align="center"/>
+<img src="./readme-files/ct-plot3.PNG" width="800" align="center"/>
 
 
 ## Output - Contact Lists <a name="outputcontactlists"></a>
@@ -252,26 +252,24 @@ To launch R, you need to find the **Rgui.exe** executable file. The easiest way 
 Click on Rgui.exe to launch an R session and to view the R console.  If you will be using this application often, consider creating a shortcut for R on your desktop.
 
 
-<img src="./inst/www/Ri386-image.PNG" width="600" align="center"/>
+<img src="./readme-files/Ri386-image.PNG" width="600" align="center"/>
 
-<img src="./inst/www/Rx64-image.png" width="600" align="center"/>
+<img src="./readme-files/Rx64-image.png" width="600" align="center"/>
 
 ## Using the R Console ##
 
 In order to load and run the VisitContactTrace application, you must copy and paste commands into the R Console.  The R Console looks like the image below. You should write or paste the commands here in order to first [install](#installapp) and then to [run the VisitContactTrace application](#runnapp) on your computer.    
 
-<img src="./inst/www/Rconsole-image.PNG" width="800" align="center"/>
+<img src="./readme-files/Rconsole-image.PNG" width="800" align="center"/>
 
 
 ## How-to Video <a name="video"></a>
 Here is an animated GIF demonstrating the steps from installing R to running VisitContactTrace in a Windows environment.
 
-<center><img src="./inst/www/VisitContactTrace-Setup.gif" width="800" align="center"/></center>
+<center><img src="./readme-files/VisitContactTrace-Setup.gif" width="800" align="center"/></center>
 
 # License <a name="license"></a>
 **VisitContactTrace** is released under [AGPLv3 license](https://www.gnu.org/licenses/agpl-3.0.html). Please see the license in this GitHub repository for additional disclaimers on the usage of this application. 
 
 # Acknowledgments <a name="thanks"></a>
-
-
-
+Icon images are from https://fontawesome.com/
