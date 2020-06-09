@@ -54,10 +54,10 @@ The VisitContactTrace application allows users to **upload their own data.**  Fo
 You must run the following code in R the first time you use VisitContactTrace (and anytime you switch versions of R).  This step may take a while to run (several minutes depending on your internet connection), as many R packages will auto-download and install before VisitContactTrace will work successfully.  Copy and paste the following lines of code (preserving the upper- and lower- case letters) into the R Console to install the development version of **VisitContactTrace** from GitHub. The packages may begin to download automatically, or you might have to hit "enter" on the keyboard once. 
 
 ```r
-depend.pack <- c('anytime', 'shiny', 'shinydashboard', 'pals', 'shinyFiles', 'shinycssloaders', 'shinyWidgets', 'data.table', 'assertthat', 'dplyr', 'purrr', 'rmarkdown', 'visNetwork', 'DT', 'fst', 'stringr', 'shinyalert', 'epicontacts', 'fs', 'readxl', 'shinyjs')
-install.packages(depend.pack, dependencies=TRUE, repos="http://lib.stat.cmu.edu/R/CRAN/")
-# Public version install
-install.packages("VisitContactTrace", repos = "https://github.com/vnsny-bia/VisitContactTrace")
+ depend.pack <- c('anytime', 'shiny', 'shinydashboard', 'pals', 'shinyFiles', 'shinycssloaders', 'shinyWidgets', 'data.table', 'assertthat', 'dplyr', 'purrr', 'rmarkdown', 'visNetwork', 'DT', 'fst', 'stringr', 'shinyalert', 'epicontacts', 'fs', 'readxl', 'shinyjs')
+ install.packages(depend.pack, dependencies=TRUE, repos="http://lib.stat.cmu.edu/R/CRAN/")
+ # Public version install
+ install.packages("VisitContactTrace", repos = "https://github.com/vnsny-bia/VisitContactTrace")
 ```
 You will know that the packages have installed and that R is ready for the next command when you see your cursor on a blank carat prompt line in the R console:
 ```r
@@ -70,8 +70,8 @@ If you don't see a blank carat prompt line, try hitting "enter" on the keyboard 
 Type the following commands (preserving the upper- and lower- case letters) into the R Console in order to start the application. If you don't see your cursor on a blank carrot prompt line (">"), then hit "enter" on the keyboard:
 
 ```r
-library(VisitContactTrace);
-VisitContactTrace();
+ library(VisitContactTrace);
+ VisitContactTrace();
 ```
 Run these two commands from an R session every time you want to use VisitContactTrace. When you run these commands, the VisitContactTrace application should launch in a web browser. VisitContactTrace works best in a Google Chrome browser; if you use a different browser, you can copy and paste the URL into a Google Chrome browser for the best performance.
 
@@ -83,7 +83,7 @@ The VisitContactTrace application supports a data structure commonly used for bi
 
 The image below shows a snippet of an example dataset where a handful of clinicians have delivered visits to a few patients during February - May 2020. In this simulated sample dataset, Patient 4 was first visited by [Anna Caroline Maxwell](https://en.wikipedia.org/wiki/Anna_Maxwell) on February 27, 2020, followed by several visits by [Lillian Wald](https://en.wikipedia.org/wiki/Lillian_Wald) every 2-6 days from February 29, 2020 to March 31, 2020.
 
-<img src="./readme-files/visithc.png" width="400" align="center"/>
+<center><img src="./readme-files/visithc.png" width="400" align="center"/> </center>
 
 The VisitContactTrace application uses only these visit interactions or "encounters" between visit staff and patients to determine the contacts of an infected person in a visit-based service delivery model.  While it's possible for visit staff to interact with each other under certain circumstances, VisitContactTrace was built assuming that this happens rarely and currently does not support contact tracing for those interactions.  
 
@@ -92,6 +92,7 @@ You can use VisitContactTrace for other visit-based service delivery models outs
 ## Data Specifications <a name="dataspec"></a>
 
 You need to save your dataset as a *.xlsx or *.csv file to upload it to VisitContactTrace. If you have several sheets in your *.xlsx file, your dataset must be in the first sheet. Your column names should be the first row in your dataset. Here are the data fields that VisitContactTrace recognizes:
+<center>
 
 | Column Name | Format | Required | Description |
 | --------------- | --------------- | --------------- |----------------------------------------------------------------------------|
@@ -110,6 +111,8 @@ If you have any columns in your dataset that aren't mentioned in the table above
 For best performance, you should consider bringing in PATIENT_ID and STAFF_ID from a data source that treats these fields as a unique key (i.e. these columns should uniquely identify specific patients and staff members). VisitContactTrace works best when PATIENT_ID and STAFF_ID are provided.  If either of these columns are not available, the application will use the PATIENT_NAME and STAFF_NAME columns to uniquely identify a patient or staff member, respectively. If your dataset does **not** include the PATIENT_ID and STAFF_ID columns, you should be careful to:
 * Address inconsistencies in spelling, use of upper- and lower- case letters, use of extraneous spaces, and the order of first and last names in PATIENT_NAME and STAFF_NAME. For example, "Lillian Wald", "lillian wald", "Wald, Lillian", and "Lillian  Wald" (with 2 spaces between first and last name instead of one) would all be treated as different individuals. Similarly, ["Hazel Johnson-Brown"](https://en.wikipedia.org/wiki/Hazel_Johnson-Brown) and "Hazel Johnson Brown" (not hyphenated) would be treated as different individuals as well. 
 * Make sure that you represent patients or staff that share the same name differently in the dataset. For example, if two different patients are named "John Doe", then you should make the patient names distinct in some way (e.g. "John Doe DOB 2/3/1950" and "John Doe DOB 4/26/1933").
+
+</center>
 
 The VisitContactTrace application will not produce accurate results if your data have any integrity or completeness issues. Please take the following into consideration when you prepare a data file to upload into the application:
 
