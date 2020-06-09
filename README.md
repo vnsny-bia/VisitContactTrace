@@ -373,3 +373,14 @@ Here is an animated GIF demonstrating the steps from installing R to running Vis
 <video width="320" height="240" controls>
   <source src="https://github.com/vnsny-bia/VisitContactTrace/blob/master/readme-files/R-dependencies_edited.mp4" type="video/mp4">
 </video>
+
+
+<div class="embed-container">
+  <iframe
+      src="https://github.com/vnsny-bia/VisitContactTrace/blob/master/readme-files/R-dependencies_edited.mp4"
+      width="700"
+      height="480"
+      frameborder="0"
+      allowfullscreen="">
+  </iframe>
+</div>
