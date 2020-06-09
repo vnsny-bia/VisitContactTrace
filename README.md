@@ -299,7 +299,7 @@ Click on Rgui.exe to launch an R session and to view the R console.  If you will
 
 
 <center><img src="./readme-files/Ri386-image.PNG" width="600" align="center"/></center>
-
+<br>
 <center><img src="./readme-files/Rx64-image.png" width="600" align="center"/></center>
 
 ## Using the R Console ##
