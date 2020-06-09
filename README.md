@@ -270,4 +270,102 @@ Here is an animated GIF demonstrating the steps from installing R to running Vis
 **VisitContactTrace** is released under [AGPLv3 license](https://www.gnu.org/licenses/agpl-3.0.html). Please see the license in this GitHub repository for additional disclaimers on the usage of this application. 
 
 # Acknowledgments <a name="thanks"></a>
-Icon images are from https://fontawesome.com/
+
+  Dirk Eddelbuettel (2020). anytime: Anything to 'POSIXct' or
+  'Date' Converter. R package version 0.3.7.
+  https://CRAN.R-project.org/package=anytime
+
+  Winston Chang, Joe Cheng, JJ Allaire, Yihui Xie and Jonathan
+  McPherson (2020). shiny: Web Application Framework for R. R
+  package version 1.4.0.2.
+  https://CRAN.R-project.org/package=shiny
+
+  Winston Chang and Barbara Borges Ribeiro (2018).
+  shinydashboard: Create Dashboards with 'Shiny'. R package
+  version 0.7.1.
+  https://CRAN.R-project.org/package=shinydashboard
+
+  Kevin Wright (2019). pals: Color Palettes, Colormaps, and
+  Tools to Evaluate Them. R package version 1.6.
+  https://CRAN.R-project.org/package=pals
+
+  Thomas Lin Pedersen, Vincent Nijs, Thomas Schaffner and Eric
+  Nantz (2020). shinyFiles: A Server-Side File System Viewer for
+  Shiny. R package version 0.8.0.
+  https://CRAN.R-project.org/package=shinyFiles
+
+  Andras Sali and Dean Attali (2020). shinycssloaders: Add CSS
+  Loading Animations to 'shiny' Outputs. R package version 0.3.
+  https://CRAN.R-project.org/package=shinycssloaders
+
+  Victor Perrier, Fanny Meyer and David Granjon (2020).
+  shinyWidgets: Custom Inputs Widgets for Shiny. R package
+  version 0.5.3. https://CRAN.R-project.org/package=shinyWidgets
+
+  Matt Dowle and Arun Srinivasan (2019). data.table: Extension
+  of `data.frame`. R package version 1.12.8.
+  https://CRAN.R-project.org/package=data.table
+
+  Hadley Wickham (2019). assertthat: Easy Pre and Post
+  Assertions. R package version 0.2.1.
+  https://CRAN.R-project.org/package=assertthat
+
+  Hadley Wickham, Romain François, Lionel Henry and Kirill
+  Müller (2020). dplyr: A Grammar of Data Manipulation. R
+  package version 1.0.0.
+  https://CRAN.R-project.org/package=dplyr
+
+  Lionel Henry and Hadley Wickham (2020). purrr: Functional
+  Programming Tools. R package version 0.3.4.
+  https://CRAN.R-project.org/package=purrr
+
+  JJ Allaire and Yihui Xie and Jonathan McPherson and Javier
+  Luraschi and Kevin Ushey and Aron Atkins and Hadley Wickham
+  and Joe Cheng and Winston Chang and Richard Iannone (2020).
+  rmarkdown: Dynamic Documents for R. R package version 2.2. URL
+  https://rmarkdown.rstudio.com.
+
+  Yihui Xie and J.J. Allaire and Garrett Grolemund (2018). R
+  Markdown: The Definitive Guide. Chapman and Hall/CRC. ISBN
+  9781138359338. URL https://bookdown.org/yihui/rmarkdown.
+
+  Almende B.V., Benoit Thieurmel and Titouan Robert (2019).
+  visNetwork: Network Visualization using 'vis.js' Library. R
+  package version 2.0.9.
+  https://CRAN.R-project.org/package=visNetwork
+
+  Yihui Xie, Joe Cheng and Xianying Tan (2020). DT: A Wrapper of
+  the JavaScript Library 'DataTables'. R package version 0.13.
+  https://CRAN.R-project.org/package=DT
+
+  Mark Klik (2020). fst: Lightning Fast Serialization of Data
+  Frames for R. R package version 0.9.2.
+  https://CRAN.R-project.org/package=fst
+
+  Hadley Wickham (2019). stringr: Simple, Consistent Wrappers
+  for Common String Operations. R package version 1.4.0.
+  https://CRAN.R-project.org/package=stringr
+
+  Dean Attali and Tristan Edwards (2020). shinyalert: Easily
+  Create Pretty Popup Messages (Modals) in 'Shiny'. R package
+  version 1.1. https://CRAN.R-project.org/package=shinyalert
+
+  VP Nagraj, Thibaut Jombart, Nistara Randhawa, Bertrand Sudre,
+  Finlay Campbell and Thomas Crellen (2017). epicontacts:
+  Handling, Visualisation and Analysis of Epidemiological
+  Contacts. R package version 1.1.0.
+  https://CRAN.R-project.org/package=epicontacts
+
+  Jim Hester and Hadley Wickham (2020). fs: Cross-Platform File
+  System Operations Based on 'libuv'. R package version 1.4.1.
+  https://CRAN.R-project.org/package=fs
+
+  Hadley Wickham and Jennifer Bryan (2019). readxl: Read Excel
+  Files. R package version 1.3.1.
+  https://CRAN.R-project.org/package=readxl
+
+  Dean Attali (2020). shinyjs: Easily Improve the User
+  Experience of Your Shiny Apps in Seconds. R package version
+  1.1. https://CRAN.R-project.org/package=shinyjs
+
+  Icon images are from https://fontawesome.com/
