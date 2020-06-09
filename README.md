@@ -378,7 +378,7 @@ Here is an animated GIF demonstrating the steps from installing R to running Vis
 
 <div class="embed-container">
   <iframe
-      src="./readme-files/R-dependencies_edited.mp4"
+      src="./readme-files/R-dependencies_edited.gif"
       width="700"
       height="480"
       frameborder="0"
