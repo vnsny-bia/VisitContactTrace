@@ -5,23 +5,7 @@
 @import "normalize";
 
 /* Style */
-#table-of-contents::before {
-    content: "Contents";
-    font-weight: bold;
-}
 
-
-// Using numbers instead of bullets for listing
-#table-of-contents ul {
-    list-style: decimal;
-}
-
-#table-of-contents {
-    border: 1px solid #aaa;
-    padding: 1.5em;
-    list-style: decimal;
-    display: inline-block;
-}
 body {
   font-size: 15px;
   font-family: Arial, Arial, Helvetica, sans-serif;
