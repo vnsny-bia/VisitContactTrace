@@ -371,5 +371,5 @@ Here is an animated GIF demonstrating the steps from installing R to running Vis
   Icon images are from https://fontawesome.com/
 
 <video width="320" height="240" controls>
-  <source src="./readme-files/R-dependencies_edited.mp4" type="video/mp4">
+  <source src="https://github.com/vnsny-bia/VisitContactTrace/blob/master/readme-files/R-dependencies_edited.mp4" type="video/mp4">
 </video>
