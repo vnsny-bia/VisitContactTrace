@@ -10,5 +10,5 @@ github:
 include:
   - README.md
   - PULL_REQUEST_TEMPLATE.md
-site.description: VisitContactTrace
+description: VisitContactTrace
 theme: jekyll-theme-time-machine
