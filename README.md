@@ -93,6 +93,7 @@ You can use VisitContactTrace for other visit-based service delivery models outs
 
 You need to save your dataset as a *.xlsx or *.csv file to upload it to VisitContactTrace. If you have several sheets in your *.xlsx file, your dataset must be in the first sheet. Your column names should be the first row in your dataset. Here are the data fields that VisitContactTrace recognizes:
 
+<center>
 <table class="table table-striped table-bordered">
 <thead>
 <tr>
@@ -147,7 +148,7 @@ You need to save your dataset as a *.xlsx or *.csv file to upload it to VisitCon
 </tr>
 </tbody>
 </table>
-
+</center>
 
 \* If you work with data where patient/staff names are stored in two columns (first name & last name), you can consider concatenating those columns prior to uploading the data into the application.
 
