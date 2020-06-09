@@ -12,3 +12,4 @@ include:
   - PULL_REQUEST_TEMPLATE.md
 description: VisitContactTrace
 theme: jekyll-theme-time-machine
+markdown: kramdown
