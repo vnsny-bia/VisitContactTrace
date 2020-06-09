@@ -51,8 +51,7 @@ The VisitContactTrace application allows users to **upload their own data.**  Fo
 
 ## Installing the VisitContactTrace R package <a name="installapp"></a>
 
-You must run the following code in R the first time you use VisitContactTrace (and anytime you switch versions of R).  This step may take a while to run (several minutes depending on your internet connection), as many R packages will auto-download and install before VisitContactTrace will work successfully.  Copy and paste the following lines of code (preserving the upper- and lower- case letters) into the R Console to install the development version of **VisitContactTrace** from GitHub. The packages may begin to download automatically, or you might have to hit "enter" on the keyboard once. 
-
+You must run the following code in R the first time you use VisitContactTrace (and anytime you switch versions of R).  This step may take a while to run (several minutes depending on your internet connection), as many R packages will auto-download and install before VisitContactTrace will work successfully.  Copy and paste the following lines of code (preserving the upper- and lower- case letters) into the R Console to install the development version of **VisitContactTrace** from GitHub. The packages may begin to download automatically, or you might have to hit "enter" on the keyboard once. <br>
 ```r
  depend.pack <- c('anytime', 'shiny', 'shinydashboard', 'pals', 'shinyFiles', 'shinycssloaders', 'shinyWidgets', 'data.table', 'assertthat', 'dplyr', 'purrr', 'rmarkdown', 'visNetwork', 'DT', 'fst', 'stringr', 'shinyalert', 'epicontacts', 'fs', 'readxl', 'shinyjs')
  install.packages(depend.pack, dependencies=TRUE, repos="http://lib.stat.cmu.edu/R/CRAN/")
@@ -61,7 +60,7 @@ You must run the following code in R the first time you use VisitContactTrace (a
 ```
 You will know that the packages have installed and that R is ready for the next command when you see your cursor on a blank carat prompt line in the R console:
 ```r
->
+ >
 ```
 If you don't see a blank carat prompt line, try hitting "enter" on the keyboard until you do. You can proceed to [running VisitContactTrace](#runapp) once you see the carat prompt appear.
 
@@ -92,7 +91,6 @@ You can use VisitContactTrace for other visit-based service delivery models outs
 ## Data Specifications <a name="dataspec"></a>
 
 You need to save your dataset as a *.xlsx or *.csv file to upload it to VisitContactTrace. If you have several sheets in your *.xlsx file, your dataset must be in the first sheet. Your column names should be the first row in your dataset. Here are the data fields that VisitContactTrace recognizes:
-<center>
 
 | Column Name | Format | Required | Description |
 | --------------- | --------------- | --------------- |----------------------------------------------------------------------------|
@@ -112,7 +110,6 @@ For best performance, you should consider bringing in PATIENT_ID and STAFF_ID fr
 * Address inconsistencies in spelling, use of upper- and lower- case letters, use of extraneous spaces, and the order of first and last names in PATIENT_NAME and STAFF_NAME. For example, "Lillian Wald", "lillian wald", "Wald, Lillian", and "Lillian  Wald" (with 2 spaces between first and last name instead of one) would all be treated as different individuals. Similarly, ["Hazel Johnson-Brown"](https://en.wikipedia.org/wiki/Hazel_Johnson-Brown) and "Hazel Johnson Brown" (not hyphenated) would be treated as different individuals as well. 
 * Make sure that you represent patients or staff that share the same name differently in the dataset. For example, if two different patients are named "John Doe", then you should make the patient names distinct in some way (e.g. "John Doe DOB 2/3/1950" and "John Doe DOB 4/26/1933").
 
-</center>
 
 The VisitContactTrace application will not produce accurate results if your data have any integrity or completeness issues. Please take the following into consideration when you prepare a data file to upload into the application:
 
@@ -131,7 +128,7 @@ We may not have anticipated all of the pitfalls associated with uploading your o
 
 The following figure is the welcome screen that appears as soon as the application opens and you have clicked on "accept" to the license information. 
 
-<img src="./readme-files/ct-welcome.PNG" width="400"  align="center"/>
+<center><img src="./readme-files/ct-welcome.PNG" width="400"  align="center"/></center>
 
 ## Demo Data <a name="demodata"></a>
 
@@ -143,7 +140,7 @@ If you have data you would like to use, click on "Choose Data File" and browse t
 
 The "View Selected File" button lets you preview your data and rename your columns to the names defined in [data specifications](#dataspec). If your column names and data formats are correct, you can click on "Use Selected File" to import the data into the application.  If they are not correct, you will get an error message.
 
-<img src="./readme-files/ct-preview.PNG" width="500"  align="center"/>
+<center><img src="./readme-files/ct-preview.PNG" width="500"  align="center"/></center>
 
 
 ## Querying VisitContactTrace <a name="queryapp"></a>
@@ -163,7 +160,7 @@ Please note that depending on your PC’s hardware, the size of your dataset, an
 ### Example
 In the screenshot below, we show a hypothetical scenario where [Florence Nightingale](https://en.wikipedia.org/wiki/Florence_Nightingale), a visiting nurse, started exhibiting symptoms of a novel infectious disease on May 12, 2020 and tested positive soon afterwards. We use VisitContactTrace to identify the patients she has come into contact with (primary contacts), the staff who then visited those same patients afterwards (secondary contacts), and the patients those staff then visited (tertiary contacts). We select Florence Nightingale's staff ID as the index staff person, and use May 12, 2020 (her symptom onset date) as the reference date.  We set the contact tracing to start 7 days prior to May 12 because the novel infectious disease has a 7-day incubation period and Nightingale may have been visiting patients while she was infectious but was not yet showing symptoms. We end the contact tracing 7 days after May 12 to confirm that she did not deliver any visits while she was symptomatic as well as to capture a longer window for secondary and tertiary contact visits to have occurred.  When we select these parameter inputs, the application displays some helpful messages immediately below the run button: "All visits during 2020-05-05 through 2020-05-19 will be shown based on your inputs. The date range of visits available for the individual is 2020-02-03 to 2020-05-21."  
 
-<img src="./readme-files/ct-main.PNG" width="1200" align="center"/>
+<center><img src="./readme-files/ct-main.PNG" width="1200" align="center"/></center>
 
 
 ## Exit/Reload data <a name="exitapp"></a>
@@ -180,7 +177,7 @@ Behind the scenes, VisitContactTrace first identifies the primary visit-based co
 
 #### Definition of Primary, Secondary Tertiary Contacts
 
-<img src="./readme-files/ct-staff-patient-origin.PNG" width="600" align="center"/>
+<center><img src="./readme-files/ct-staff-patient-origin.PNG" width="600" align="center"/></center>
 
 
 ## Output - Plot <a name="outputplot"></a>
@@ -189,7 +186,7 @@ The "Plot" tab displays a "network diagram" of primary, secondary, and tertiary 
 
 If you included patient/staff statuses in your dataset, the plot legend will display each distinct status type. VisitContactTrace applies **the most recent status for each patient or staff within the visit window you request**. For example, imagine that Patient A has a status of "NEGATIVE" for visits on 5/1, 5/2, 5/3, and 5/4, and then a status of "POSITIVE" for visits on 5/5 and 5/6. If you select 5/4 as the end of the visit window for Patient A, then Patient A will be labeled as "NEGATIVE" in the plot. If you select 5/5 or 5/6 as the end of the visit window for Patient A, then Patient A will be labeled as "POSITIVE" in the plot.
 
-<img src="./readme-files/ct-plot3.PNG" width="800" align="center"/>
+<center><img src="./readme-files/ct-plot3.PNG" width="800" align="center"/></center>
 
 
 ## Output - Contact Lists <a name="outputcontactlists"></a>
@@ -212,7 +209,7 @@ See [this section](#exitapp) when you are ready to exit the VisitContactTrace ap
 If you are an experienced R user, you can explore and experiment with a sample simulated Home Healthcare Visits dataset (visitshc.RData)  included in the VisitContactTrace R package.
 
 ```r
-head(visitshc, 10)
+ head(visitshc, 10)
 ```
 
 More experienced R users may want to access the contact tracing R function directly.  The getContacts function returns a dataframe of primary, secondary, and tertiary contacts when the following parameters are specified: the data file, the ID of the index patient/staff, reference date, and number of days forward/back.
@@ -220,7 +217,7 @@ More experienced R users may want to access the contact tracing R function direc
 ```r
 # The Below example will produce contact tracing lists based on staff id.
             
-getContacts(staff_id= '1',
+ getContacts(staff_id= '1',
              patient_id = NA,
              reference_date = "2020-03-01",
              look_forward_days = 20,
@@ -253,15 +250,15 @@ To launch R, you need to find the **Rgui.exe** executable file. The easiest way 
 Click on Rgui.exe to launch an R session and to view the R console.  If you will be using this application often, consider creating a shortcut for R on your desktop.
 
 
-<img src="./readme-files/Ri386-image.PNG" width="600" align="center"/>
+<center><img src="./readme-files/Ri386-image.PNG" width="600" align="center"/></center>
 
-<img src="./readme-files/Rx64-image.png" width="600" align="center"/>
+<center><img src="./readme-files/Rx64-image.png" width="600" align="center"/></center>
 
 ## Using the R Console ##
 
 In order to load and run the VisitContactTrace application, you must copy and paste commands into the R Console.  The R Console looks like the image below. You should write or paste the commands here in order to first [install](#installapp) and then to [run the VisitContactTrace application](#runnapp) on your computer.    
 
-<img src="./readme-files/Rconsole-image.PNG" width="800" align="center"/>
+<center><img src="./readme-files/Rconsole-image.PNG" width="800" align="center"/></center>
 
 
 ## How-to Video <a name="video"></a>
@@ -368,7 +365,7 @@ Here is an animated GIF demonstrating the steps from installing R to running Vis
   https://CRAN.R-project.org/package=readxl
 
   Dean Attali (2020). shinyjs: Easily Improve the User
-  Experience of Your Shiny Apps in Seconds. R package version
-  1.1. https://CRAN.R-project.org/package=shinyjs
+  Experience of Your Shiny Apps in Seconds. R package version 1.1.
+  https://CRAN.R-project.org/package=shinyjs
 
   Icon images are from https://fontawesome.com/
