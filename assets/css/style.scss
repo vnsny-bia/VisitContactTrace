@@ -5,18 +5,18 @@
 @import "normalize";
 
 /* Style */
-#markdown-toc::before {
+#table-of-contents::before {
     content: "Contents";
     font-weight: bold;
 }
 
 
 // Using numbers instead of bullets for listing
-#markdown-toc ul {
+#table-of-contents ul {
     list-style: decimal;
 }
 
-#markdown-toc {
+#table-of-contents {
     border: 1px solid #aaa;
     padding: 1.5em;
     list-style: decimal;
