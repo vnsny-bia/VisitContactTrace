@@ -20,6 +20,7 @@ The VisitContactTrace application was created during the COVID-19 pandemic by th
 
 Learn more about VNSNY's COVID-19 response [here](https://www.vnsny.org/coronavirus-covid-19/vnsnys-covid-19-response/). 
 
+{:toc}
 
 ## Table of Contents  
 [Requirements for the VisitContactTrace Application](#requirements)  
