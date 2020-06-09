@@ -1,3 +1,6 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^readme-files$
+^_layouts$
+^assets$
+^_config\.yml$
