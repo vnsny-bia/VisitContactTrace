@@ -57,7 +57,7 @@ You must run the following code in R the first time you use VisitContactTrace (a
  install.packages(depend.pack, dependencies=TRUE, repos="http://lib.stat.cmu.edu/R/CRAN/")
  
  # Public version install
- remotes::install_github("vnsny-bia/VisitContactTrace",dependencies = T)
+ remotes::install_github("vnsny-bia/VisitContactTrace",upgrade = "always")
 ```
 You will know that the packages have installed and that R is ready for the next command when you see your cursor on a blank carat prompt line in the R console:
 ```r
