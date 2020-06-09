@@ -41,8 +41,6 @@ Learn more about VNSNY's COVID-19 response [here](https://www.vnsny.org/coronavi
 [License](#license)  
 [Acknowledgments](#thanks)  
 
-{:toc}
-
     
 # Requirements for the VisitContactTrace Application <a name="requirements"></a>
 
