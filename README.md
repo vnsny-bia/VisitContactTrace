@@ -21,28 +21,7 @@ The VisitContactTrace application was created during the COVID-19 pandemic by th
 Learn more about VNSNY's COVID-19 response [here](https://www.vnsny.org/coronavirus-covid-19/vnsnys-covid-19-response/). 
 
 
-<h2 class="code-line" data-line-start=0 data-line-end=1 ><a id="Table_of_Contents_0"></a>Table of Contents</h2>
-<p class="has-line-data" data-line-start="1" data-line-end="19"><a href="#requirements">Requirements for the VisitContactTrace Application</a><br>
-      <a href="#installapp">Installing the VisitContactTrace R package</a><br>
-      <a href="#runapp">Running VisitContactTrace on Your PC</a><br>
-      <a href="#inputdata">Input Data Type and Structure</a><br>
-      <a href="#dataspec">Data Specifications</a><br>
-<a href="#useapp">Using the VisitContactTrace Application</a><br>
-      <a href="#demodata">Try VisitContactTrace with Demonstration Feature</a><br>
-      <a href="#importdata">Importing Data</a><br>
-      <a href="#queryapp">Querying VisitContactTrace</a><br>
-      <a href="#exitapp">Exit/Reload data</a><br>
-<a href="#results">The Output/Results</a><br>
-      <a href="#outputplot">Output - Plot</a><br>
-      <a href="#outputcontactlists">Output - Contact Lists</a><br>
-      <a href="#outputdetails">Output - Visit Details</a><br>
-<a href="#advancedR">Other Useful R Functions/Objects (for experienced R users)</a><br>
-<a href="#helpR">Help Getting Started with R</a><br>
-<a href="#license">License</a><br>
-<a href="#thanks">Acknowledgments</a></p>
-
-
-<!--## Table of Contents  
+## Table of Contents  
 [Requirements for the VisitContactTrace Application](#requirements)  
       [Installing the VisitContactTrace R package](#installapp)  
       [Running VisitContactTrace on Your PC](#runapp)  
@@ -61,7 +40,7 @@ Learn more about VNSNY's COVID-19 response [here](https://www.vnsny.org/coronavi
 [Help Getting Started with R](#helpR)  
 [License](#license)  
 [Acknowledgments](#thanks)  
--->
+
 
     
 # Requirements for the VisitContactTrace Application <a name="requirements"></a>
