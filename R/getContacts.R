@@ -290,16 +290,21 @@ getContacts <- function(staff_id= NA,
       
       lnodes <- a[,.(label,shape,icon.color,icon.face,icon.code,Status)]
       lnodes <- lnodes[!duplicated(lnodes)]
+      a[,ids:= paste0(group," ID :",gsub("clin_","",id))]
       
       
-      plot= visNetwork(a, b1, width = "100%") %>%
+       
+      plot = visNetwork(a, b1, width = "100%") %>%
         
         visPhysics(stabilization = FALSE) %>%
         addFontAwesome(name = "font-awesome-visNetwork") %>%
         visLegend(addNodes = lnodes, useGroups = FALSE) %>%
         visEdges(shadow = TRUE,
                  arrows =list(to = list(enabled = TRUE, scaleFactor = 2)),
-                 color = list(color = "gray", highlight = "red"))
+                 color = list(color = "gray", highlight = "red"))%>%
+        visOptions(highlightNearest = TRUE,
+                   selectedBy = list(variable="ids",selected = paste0('Staff ID :',temp_wkrid),highlight = TRUE)
+        ) %>% visExport()
       
     }
     
