@@ -1254,7 +1254,6 @@ server = function(input, output,session) {
       min_date_visit <-  min(copy_data[staff_id==paste0("clin_",trimws(sub('.*:', '', input$clinic_id))),visit_date])
       min_date <- as.Date(input$ref_date_id) - as.numeric(input$days_diff_id)
       max_date <- as.Date(input$ref_date_id) + as.numeric(input$days_frwd_id)
-      #final_string <- paste0('All visits during ',min_date,' through ',max_date,' will be shown.' )
       final_string <- paste0('All visits during ',min_date,' through ',max_date,' will be shown based on your inputs. \nThe date range of visits available for this individual is ', min_date_visit ,' to ', max_date_visit ,'.')
       cat(final_string,sep='\n')
     },width = 750)
