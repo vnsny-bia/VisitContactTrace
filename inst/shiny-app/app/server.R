@@ -1161,6 +1161,8 @@ server = function(input, output,session) {
   
   
   
+  data_copy <- reactiveValues(copy_data = NULL,copy_data_1 = NULL)
+  
   
   #_1.14 eventReactive to generate reactive data based on ref date, look back days, staff_id & forward days -----
   
@@ -1201,7 +1203,9 @@ server = function(input, output,session) {
                    
                    
                    data[,staff_id:=paste0("clin_",staff_id)]
-                   copy_data <<- data
+                  
+                   data_copy$copy_data <- data
+                   #copy_data <<- data
                    
                    my_dplyr_fun <- function(data, id1) {
                      id2s <- filter(data, staff_id == {{id1}}) %>%
@@ -1244,6 +1248,8 @@ server = function(input, output,session) {
     #_1.15 renderPrint to print date range -----
     
     output$visit_date_rng <- renderPrint({
+      copy_data <-  data_copy$copy_data
+      
       max_date_visit <-  max(copy_data[staff_id==paste0("clin_",trimws(sub('.*:', '', input$clinic_id))),visit_date])
       min_date_visit <-  min(copy_data[staff_id==paste0("clin_",trimws(sub('.*:', '', input$clinic_id))),visit_date])
       min_date <- as.Date(input$ref_date_id) - as.numeric(input$days_diff_id)
@@ -1265,6 +1271,7 @@ server = function(input, output,session) {
   
   observeEvent(list(input$go_btn),ignoreInit = F,ignoreNULL = T,{
     data <- dt()
+    copy_data <- data_copy$copy_data
     if(is.null(data)){return()}
     withProgress(message = 'Calculation in progress',
                  detail = 'This may take a while...', value = 10,
@@ -1714,7 +1721,8 @@ server = function(input, output,session) {
                    data[,staff_id:=paste0("clin_",staff_id)]
                    
                    
-                   copy_data_1 <<- data
+                   #copy_data_1 <<- data
+                   data_copy$copy_data_1 <- data
                    
                    
                    my_dplyr_fun <- function(data, id1) {
@@ -1757,6 +1765,7 @@ server = function(input, output,session) {
     #___1.18.1 renderPrint to show min and max dates for visits (Patients)-----
     
     output$visit_date_rng_1 <- renderPrint({
+      copy_data_1 <-  data_copy$copy_data_1 
       max_date_visit_1 <-  max(copy_data_1[patient_id==trimws(sub('.*:', '', input$patient_id)),visit_date])
       min_date_visit_1 <-  min(copy_data_1[patient_id==trimws(sub('.*:', '', input$patient_id)),visit_date])
       min_date_1 <- as.Date(input$ref_date_id_1) - as.numeric(input$days_diff_id_1)
@@ -1780,6 +1789,8 @@ server = function(input, output,session) {
   
   observeEvent(list(input$go_btn_1),ignoreInit = F,ignoreNULL = T,{
     data <- dt_1()
+    copy_data_1 <- data_copy$copy_data_1
+    
     if(is.null(data)){return()}
     withProgress(message = 'Calculation in progress',
                  detail = 'This may take a while...', value = 10,
@@ -2153,6 +2164,8 @@ server = function(input, output,session) {
     
     
   })# End ObserveEvent
+  
+
   
   gc()
   
