@@ -206,6 +206,8 @@ server = function(input, output,session) {
     if (input$NewColumnName != "NA") {
       colnames(rv_data$df)[colnames(rv_data$df) == input$OldColumnName] <-
         input$NewColumnName
+      updateSelectInput(session, "OldColumnName", choices = colnames(rv_data$df),
+                        selected = NULL)
     }
   })
   
@@ -1226,8 +1228,6 @@ server = function(input, output,session) {
                    
                    data[,n_visits:=.N, by=.(patient_id,staff_id)]
                    
-                   
-                   #data <- data[ (days_diff <=as.numeric(input$days_diff_id) & days_diff > 0) | (visit_date >= input$ref_date_id),]
                    
                    #Adding Days forward logic-----
                    
