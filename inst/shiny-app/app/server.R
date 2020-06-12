@@ -411,7 +411,7 @@ server = function(input, output,session) {
         
         withProgress(message = 'Checking input data',
                      detail = 'This may take a while...', value = 10, {  setDT(data)
-                       visit_dates_vec <-  anytime::anydate(data$visit_date)
+                       visit_dates_vec <-  anytime::anydate(data$visit_date ,useR = T)
                        visit_dates_vec_final <- data$visit_date[which(is.na(visit_dates_vec))][1:5] })
         
         if(any(is.na(visit_dates_vec))){
@@ -426,7 +426,7 @@ server = function(input, output,session) {
           
         } else {
           
-          data[,visit_date:=anytime::anydate(visit_date)]
+          data[,visit_date:=anytime::anydate(visit_date,useR = T)]
           data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
           
           data[,patient_id:=paste0(patient_name)]
@@ -479,7 +479,7 @@ server = function(input, output,session) {
       } else if(!("patient_id" %in% names(data))){
         withProgress(message = 'Checking input data',
                      detail = 'This may take a while...', value = 10, {  setDT(data)
-                       visit_dates_vec <-  anytime::anydate(data$visit_date)
+                       visit_dates_vec <-  anytime::anydate(data$visit_date,useR = T)
                        visit_dates_vec_final <- data$visit_date[which(is.na(visit_dates_vec))][1:5] })
         
         
@@ -493,7 +493,7 @@ server = function(input, output,session) {
           
         } else {
           
-          data[,visit_date:=anytime::anydate(visit_date)]
+          data[,visit_date:=anytime::anydate(visit_date,useR = T)]
           data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
           
           data[,patient_id:=paste0(patient_name)]
@@ -546,7 +546,7 @@ server = function(input, output,session) {
       } else if(!('staff_id' %in% names(data))){
         withProgress(message = 'Checking input data',
                      detail = 'This may take a while...', value = 10, {  setDT(data)
-                       visit_dates_vec <-  anytime::anydate(data$visit_date)
+                       visit_dates_vec <-  anytime::anydate(data$visit_date,useR = T)
                        visit_dates_vec_final <- data$visit_date[which(is.na(visit_dates_vec))][1:5] })
        
         if(any(is.na(visit_dates_vec))){
@@ -558,7 +558,7 @@ server = function(input, output,session) {
           )
           
         } else {
-          data[,visit_date:=anytime::anydate(visit_date)]
+          data[,visit_date:=anytime::anydate(visit_date,useR = T)]
           data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
           data[,staff_id:=paste0(staff_name)]
           
@@ -609,7 +609,7 @@ server = function(input, output,session) {
       }else {
         withProgress(message = 'Checking input data',
                      detail = 'This may take a while...', value = 10, {  setDT(data)
-                       visit_dates_vec <-  anytime::anydate(data$visit_date)
+                       visit_dates_vec <-  anytime::anydate(data$visit_date,useR = T)
                        visit_dates_vec_final <- data$visit_date[which(is.na(visit_dates_vec))][1:5] })
        
         if(any(is.na(visit_dates_vec))){
@@ -622,7 +622,7 @@ server = function(input, output,session) {
           
         } else {
           
-          data[,visit_date:=anytime::anydate(visit_date)]
+          data[,visit_date:=anytime::anydate(visit_date,useR = T)]
           data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
           
           withProgress(message = 'Calculation in progress',
@@ -716,7 +716,7 @@ server = function(input, output,session) {
         
         withProgress(message = 'Checking input data',
                      detail = 'This may take a while...', value = 10, {  setDT(data)
-                       visit_dates_vec <-  anytime::anydate(data$visit_date)
+                       visit_dates_vec <-  anytime::anydate(data$visit_date,useR = T)
                        visit_dates_vec_final <- data$visit_date[which(is.na(visit_dates_vec))][1:5] })
         
         if(any(is.na(visit_dates_vec))){
@@ -730,7 +730,7 @@ server = function(input, output,session) {
           
         } else {
           
-          data[,visit_date:=anytime::anydate(visit_date)]
+          data[,visit_date:=anytime::anydate(visit_date,useR = T)]
           data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
           
           data[,patient_id:=paste0(patient_name)]
@@ -783,7 +783,7 @@ server = function(input, output,session) {
       } else if(!("patient_id" %in% names(data))){
         withProgress(message = 'Checking input data',
                      detail = 'This may take a while...', value = 10, {  setDT(data)
-                       visit_dates_vec <-  anytime::anydate(data$visit_date)
+                       visit_dates_vec <-  anytime::anydate(data$visit_date,useR = T)
                        visit_dates_vec_final <- data$visit_date[which(is.na(visit_dates_vec))][1:5] })
         
         if(any(is.na(visit_dates_vec))){
@@ -796,7 +796,7 @@ server = function(input, output,session) {
           
         } else {
           
-          data[,visit_date:=anytime::anydate(visit_date)]
+          data[,visit_date:=anytime::anydate(visit_date,useR = T)]
           data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
           
           data[,patient_id:=paste0(patient_name)]
@@ -848,7 +848,7 @@ server = function(input, output,session) {
       } else if(!('staff_id' %in% names(data))){
         withProgress(message = 'Checking input data',
                      detail = 'This may take a while...', value = 10, {  setDT(data)
-                       visit_dates_vec <-  anytime::anydate(data$visit_date)
+                       visit_dates_vec <-  anytime::anydate(data$visit_date,useR = T)
                        visit_dates_vec_final <- data$visit_date[which(is.na(visit_dates_vec))][1:5] })
         
        
@@ -861,7 +861,7 @@ server = function(input, output,session) {
           )
           
         } else {
-          data[,visit_date:=anytime::anydate(visit_date)]
+          data[,visit_date:=anytime::anydate(visit_date,useR = T)]
           data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
           data[,staff_id:=paste0(staff_name)]
           
@@ -916,7 +916,7 @@ server = function(input, output,session) {
        
         withProgress(message = 'Checking input data',
                      detail = 'This may take a while...', value = 10, {  setDT(data)
-        visit_dates_vec <-  anytime::anydate(data$visit_date)
+        visit_dates_vec <-  anytime::anydate(data$visit_date,useR = T)
         visit_dates_vec_final <- data$visit_date[which(is.na(visit_dates_vec))][1:5] })
         
       
@@ -931,7 +931,7 @@ server = function(input, output,session) {
           
         } else {
           
-          data[,visit_date:=anytime::anydate(visit_date)]
+          data[,visit_date:=anytime::anydate(visit_date,useR = T)]
           data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
           
           withProgress(message = 'Calculation in progress',
@@ -1142,7 +1142,7 @@ server = function(input, output,session) {
   observeEvent(input$ref_date_id,{
     data <- rv_data$df
     names(data) <- tolower(names(data))
-    data[,visit_date:=anytime::anydate(visit_date)]
+    data[,visit_date:=anytime::anydate(visit_date,useR = T)]
     data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
     
 
@@ -1172,7 +1172,7 @@ server = function(input, output,session) {
                    data <- rv_data$df
                    names(data) <- tolower(names(data))
                    setDT(data)
-                   data[,visit_date:=anytime::anydate(visit_date)]
+                   data[,visit_date:=anytime::anydate(visit_date,useR = T)]
                    data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
                    
 
@@ -1663,7 +1663,7 @@ server = function(input, output,session) {
   observeEvent(input$ref_date_id_1,{
     data <- rv_data$df
     names(data) <- tolower(names(data))
-    data[,visit_date:=anytime::anydate(visit_date)]
+    data[,visit_date:=anytime::anydate(visit_date,useR = T)]
     data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
     
     updatePickerInput(session, inputId = "days_frwd_id_1", label = "# of Days to Look forward :",
@@ -1685,7 +1685,7 @@ server = function(input, output,session) {
                    data <- rv_data$df
                    names(data) <- tolower(names(data))
                    setDT(data)
-                   data[,visit_date:=anytime::anydate(visit_date)]
+                   data[,visit_date:=anytime::anydate(visit_date,useR = T)]
                    data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
                    
                    if(!("patient_id" %in% names(data))){
