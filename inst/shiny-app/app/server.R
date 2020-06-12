@@ -377,12 +377,25 @@ server = function(input, output,session) {
     
     data <- rv_data$df
     names(data) <- tolower(names(data))
-    data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
     
     req_col <- c('patient_name','staff_name','visit_date')
     col_diff <- setdiff(req_col,tolower(names(data)))
     
-    if(length(col_diff)!=0){
+    if(length(tolower(names(data))[duplicated(tolower(names(data)))]) != 0 ){
+      sendSweetAlert(
+        session = session,
+        title = "Error !!",
+        text = paste0("Duplicated columns found -  ", paste(tolower(names(data))[duplicated(tolower(names(data)))],collapse=', ')),
+        type = "error"
+      )
+      
+    } else if(length(col_diff)!=0){
+      data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
+      
+      req_col <- c('patient_name','staff_name','visit_date')
+      col_diff <- setdiff(req_col,tolower(names(data)))
+      
+      
       col_diff <- paste0(col_diff,collapse = ", ")
       
       sendSweetAlert(
@@ -392,6 +405,9 @@ server = function(input, output,session) {
         type = "error"
       )
     } else {
+      data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
+      
+      
       if(all(!(c("patient_id","staff_id") %in% names(data)))){
         
         setDT(data)
@@ -659,12 +675,24 @@ server = function(input, output,session) {
     
     data <- rv_data$df
     names(data) <- tolower(names(data))
-    data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
+    #data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
     
     req_col <- c('patient_name','staff_name','visit_date')
     col_diff <- setdiff(req_col,tolower(names(data)))
     
-    if(length(col_diff)!=0){
+    if(length(tolower(names(data))[duplicated(tolower(names(data)))]) != 0 ){
+      sendSweetAlert(
+        session = session,
+        title = "Error !!",
+        text = paste0("Duplicated columns found -  ", paste(tolower(names(data))[duplicated(tolower(names(data)))],collapse=', ')),
+        type = "error"
+      )
+    
+    } else if(length(col_diff)!=0){
+      data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
+      
+      req_col <- c('patient_name','staff_name','visit_date')
+      col_diff <- setdiff(req_col,tolower(names(data)))
       col_diff <- paste0(col_diff,collapse = ", ")
       
       sendSweetAlert(
@@ -674,6 +702,9 @@ server = function(input, output,session) {
         type = "error"
       )
     } else {
+      
+      data[, (colnames(data)) := lapply(.SD, as.character), .SDcols = colnames(data)]
+      
       if(all(!(c("patient_id","staff_id") %in% names(data)))){
         
         setDT(data)
