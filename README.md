@@ -325,9 +325,9 @@ Here is an animated GIF demonstrating the steps from installing R to running Vis
 
 # Acknowledgments <a name="thanks"></a>
 
-  Dirk Eddelbuettel (2020). anytime: Anything to 'POSIXct' or
-  'Date' Converter. R package version 0.3.7.
-  https://CRAN.R-project.org/package=anytime
+  Garrett Grolemund, Hadley Wickham (2011). Dates and Times Made Easy 
+  with lubridate. Journal of StatisticalSoftware, 40(3), 1-25. URL
+  https://CRAN.R-project.org/package=lubridate
 
   Winston Chang, Joe Cheng, JJ Allaire, Yihui Xie and Jonathan
   McPherson (2020). shiny: Web Application Framework for R. R
