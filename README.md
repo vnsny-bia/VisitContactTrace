@@ -303,6 +303,11 @@ Click on Rgui.exe to launch an R session and to view the R console.  If you will
 <br>
 <center><img src="./readme-files/Rx64-image.png" width="600" align="center"/></center>
 
+### Mac Users
+For Mac users, please see this installation video by Roger Peng
+
+https://www.youtube.com/watch?v=uxuuWXU-7UQ
+
 ## Using the R Console ##
 
 In order to load and run the VisitContactTrace application, you must copy and paste commands into the R Console.  The R Console looks like the image below. You should write or paste the commands here in order to first [install](#installapp) and then to [run the VisitContactTrace application](#runnapp) on your computer.    
