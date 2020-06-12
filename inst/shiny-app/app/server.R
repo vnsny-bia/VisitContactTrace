@@ -304,7 +304,6 @@ server = function(input, output,session) {
   #_1.9 observeEvent to update demo data from package -----
 
   observeEvent(input$demo,{
-    #shinyjs::disable("ref_date_id_button")
     req(dt_read_demo())
     data <- dt_read_demo()
     rv_data$df <- data
@@ -411,14 +410,15 @@ server = function(input, output,session) {
       if(all(!(c("patient_id","staff_id") %in% names(data)))){
         
         setDT(data)
+        visit_dates_vec <-  anytime::anydate(data$visit_date)
+        visit_dates_vec_final <- data$visit_date[which(is.na(visit_dates_vec))][1:5]
         
-        visit_date_error <- try(data[,visit_date:=anytime::assertDate(visit_date)],silent = T)
-        
-        if(any(class(visit_date_error)=="try-error")){
+        if(any(is.na(visit_dates_vec))){
+            
           sendSweetAlert(
             session = session,
             title = "Error !!",
-            text = "Check your visit_date column.",
+            text = paste0("Error: Input data ",paste(visit_dates_vec_final,collapse = ', '), " cannot be expressed as Date type."),
             type = "error"
           )
           
@@ -478,13 +478,15 @@ server = function(input, output,session) {
       } else if(!("patient_id" %in% names(data))){
         setDT(data)
         
-        visit_date_error <- try(data[,visit_date:=anytime::assertDate(visit_date)],silent = T)
+        visit_dates_vec <-  anytime::anydate(data$visit_date)
+        visit_dates_vec_final <- data$visit_date[which(is.na(visit_dates_vec))][1:5]
         
-        if(any(class(visit_date_error)=="try-error")){
+        
+        if(any(is.na(visit_dates_vec))){
           sendSweetAlert(
             session = session,
             title = "Error !!",
-            text = "Check your visit_date column.",
+            text = paste0("Error: Input data ",paste(visit_dates_vec_final,collapse = ', '), " cannot be expressed as Date type."),
             type = "error"
           )
           
@@ -542,13 +544,15 @@ server = function(input, output,session) {
         
       } else if(!('staff_id' %in% names(data))){
         setDT(data)
-        visit_date_error <- try(data[,visit_date:=anytime::assertDate(visit_date)],silent = T)
+        visit_dates_vec <-  anytime::anydate(data$visit_date)
+        visit_dates_vec_final <- data$visit_date[which(is.na(visit_dates_vec))][1:5]
         
-        if(any(class(visit_date_error)=="try-error")){
+       
+        if(any(is.na(visit_dates_vec))){
           sendSweetAlert(
             session = session,
             title = "Error !!",
-            text = "Check your visit_date column.",
+            text = paste0("Error: Input data ",paste(visit_dates_vec_final,collapse = ', '), " cannot be expressed as Date type."),
             type = "error"
           )
           
@@ -603,13 +607,15 @@ server = function(input, output,session) {
         
       }else {
         setDT(data)
-        visit_date_error <- try(data[,visit_date:=anytime::assertDate(visit_date)],silent = T)
-
-        if(any(class(visit_date_error)=="try-error")){
+        visit_dates_vec <-  anytime::anydate(data$visit_date)
+        visit_dates_vec_final <- data$visit_date[which(is.na(visit_dates_vec))][1:5]
+        
+       
+        if(any(is.na(visit_dates_vec))){
           sendSweetAlert(
             session = session,
             title = "Error !!",
-            text = "Check your visit_date column.",
+            text = paste0("Error: Input data ",paste(visit_dates_vec_final,collapse = ', '), " cannot be expressed as Date type."),
             type = "error"
           )
           
@@ -709,13 +715,15 @@ server = function(input, output,session) {
         
         setDT(data)
         
-        visit_date_error <- try(data[,visit_date:=anytime::assertDate(visit_date)],silent = T)
+        visit_dates_vec <-  anytime::anydate(data$visit_date)
+        visit_dates_vec_final <- data$visit_date[which(is.na(visit_dates_vec))][1:5]
         
-        if(any(class(visit_date_error)=="try-error")){
+        
+        if(any(is.na(visit_dates_vec))){
           sendSweetAlert(
             session = session,
             title = "Error !!",
-            text = "Check your visit_date column.",
+            text = paste0("Error: Input data ",paste(visit_dates_vec_final,collapse = ', '), " cannot be expressed as Date type."),
             type = "error"
           )
           
@@ -774,14 +782,15 @@ server = function(input, output,session) {
         
       } else if(!("patient_id" %in% names(data))){
         setDT(data)
+        visit_dates_vec <-  anytime::anydate(data$visit_date)
+        visit_dates_vec_final <- data$visit_date[which(is.na(visit_dates_vec))][1:5]
         
-        visit_date_error <- try(data[,visit_date:=anytime::assertDate(visit_date)],silent = T)
         
-        if(any(class(visit_date_error)=="try-error")){
+        if(any(is.na(visit_dates_vec))){
           sendSweetAlert(
             session = session,
             title = "Error !!",
-            text = "Check your visit_date column.",
+            text = paste0("Error: Input data ",paste(visit_dates_vec_final,collapse = ', '), " cannot be expressed as Date type."),
             type = "error"
           )
           
@@ -838,13 +847,15 @@ server = function(input, output,session) {
         
       } else if(!('staff_id' %in% names(data))){
         setDT(data)
-        visit_date_error <- try(data[,visit_date:=anytime::assertDate(visit_date)],silent = T)
+        visit_dates_vec <-  anytime::anydate(data$visit_date)
+        visit_dates_vec_final <- data$visit_date[which(is.na(visit_dates_vec))][1:5]
         
-        if(any(class(visit_date_error)=="try-error")){
+       
+        if(any(is.na(visit_dates_vec))){
           sendSweetAlert(
             session = session,
             title = "Error !!",
-            text = "Check your visit_date column.",
+            text = paste0("Error: Input data ",paste(visit_dates_vec_final,collapse = ', '), " cannot be expressed as Date type."),
             type = "error"
           )
           
@@ -902,13 +913,15 @@ server = function(input, output,session) {
         
       }else {
         setDT(data)
-        visit_date_error <- try(data[,visit_date:=anytime::assertDate(visit_date)],silent = T)
-
-        if(any(class(visit_date_error)=="try-error")){
+        visit_dates_vec <-  anytime::anydate(data$visit_date)
+        visit_dates_vec_final <- data$visit_date[which(is.na(visit_dates_vec))][1:5]
+        
+       
+        if(any(is.na(visit_dates_vec))){
           sendSweetAlert(
             session = session,
             title = "Error !!",
-            text = "Check your visit_date column.",
+            text = paste0("Error: Input data ",paste(visit_dates_vec_final,collapse = ', '), " cannot be expressed as Date type."),
             type = "error"
           )
           
