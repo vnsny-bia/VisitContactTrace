@@ -409,9 +409,10 @@ server = function(input, output,session) {
       
       if(all(!(c("patient_id","staff_id") %in% names(data)))){
         
-        setDT(data)
-        visit_dates_vec <-  anytime::anydate(data$visit_date)
-        visit_dates_vec_final <- data$visit_date[which(is.na(visit_dates_vec))][1:5]
+        withProgress(message = 'Checking input data',
+                     detail = 'This may take a while...', value = 10, {  setDT(data)
+                       visit_dates_vec <-  anytime::anydate(data$visit_date)
+                       visit_dates_vec_final <- data$visit_date[which(is.na(visit_dates_vec))][1:5] })
         
         if(any(is.na(visit_dates_vec))){
             
@@ -476,10 +477,10 @@ server = function(input, output,session) {
         }
         
       } else if(!("patient_id" %in% names(data))){
-        setDT(data)
-        
-        visit_dates_vec <-  anytime::anydate(data$visit_date)
-        visit_dates_vec_final <- data$visit_date[which(is.na(visit_dates_vec))][1:5]
+        withProgress(message = 'Checking input data',
+                     detail = 'This may take a while...', value = 10, {  setDT(data)
+                       visit_dates_vec <-  anytime::anydate(data$visit_date)
+                       visit_dates_vec_final <- data$visit_date[which(is.na(visit_dates_vec))][1:5] })
         
         
         if(any(is.na(visit_dates_vec))){
@@ -543,10 +544,10 @@ server = function(input, output,session) {
         }
         
       } else if(!('staff_id' %in% names(data))){
-        setDT(data)
-        visit_dates_vec <-  anytime::anydate(data$visit_date)
-        visit_dates_vec_final <- data$visit_date[which(is.na(visit_dates_vec))][1:5]
-        
+        withProgress(message = 'Checking input data',
+                     detail = 'This may take a while...', value = 10, {  setDT(data)
+                       visit_dates_vec <-  anytime::anydate(data$visit_date)
+                       visit_dates_vec_final <- data$visit_date[which(is.na(visit_dates_vec))][1:5] })
        
         if(any(is.na(visit_dates_vec))){
           sendSweetAlert(
@@ -606,10 +607,10 @@ server = function(input, output,session) {
         }
         
       }else {
-        setDT(data)
-        visit_dates_vec <-  anytime::anydate(data$visit_date)
-        visit_dates_vec_final <- data$visit_date[which(is.na(visit_dates_vec))][1:5]
-        
+        withProgress(message = 'Checking input data',
+                     detail = 'This may take a while...', value = 10, {  setDT(data)
+                       visit_dates_vec <-  anytime::anydate(data$visit_date)
+                       visit_dates_vec_final <- data$visit_date[which(is.na(visit_dates_vec))][1:5] })
        
         if(any(is.na(visit_dates_vec))){
           sendSweetAlert(
@@ -713,11 +714,10 @@ server = function(input, output,session) {
       
       if(all(!(c("patient_id","staff_id") %in% names(data)))){
         
-        setDT(data)
-        
-        visit_dates_vec <-  anytime::anydate(data$visit_date)
-        visit_dates_vec_final <- data$visit_date[which(is.na(visit_dates_vec))][1:5]
-        
+        withProgress(message = 'Checking input data',
+                     detail = 'This may take a while...', value = 10, {  setDT(data)
+                       visit_dates_vec <-  anytime::anydate(data$visit_date)
+                       visit_dates_vec_final <- data$visit_date[which(is.na(visit_dates_vec))][1:5] })
         
         if(any(is.na(visit_dates_vec))){
           sendSweetAlert(
@@ -781,10 +781,10 @@ server = function(input, output,session) {
         }
         
       } else if(!("patient_id" %in% names(data))){
-        setDT(data)
-        visit_dates_vec <-  anytime::anydate(data$visit_date)
-        visit_dates_vec_final <- data$visit_date[which(is.na(visit_dates_vec))][1:5]
-        
+        withProgress(message = 'Checking input data',
+                     detail = 'This may take a while...', value = 10, {  setDT(data)
+                       visit_dates_vec <-  anytime::anydate(data$visit_date)
+                       visit_dates_vec_final <- data$visit_date[which(is.na(visit_dates_vec))][1:5] })
         
         if(any(is.na(visit_dates_vec))){
           sendSweetAlert(
@@ -846,9 +846,10 @@ server = function(input, output,session) {
         }
         
       } else if(!('staff_id' %in% names(data))){
-        setDT(data)
-        visit_dates_vec <-  anytime::anydate(data$visit_date)
-        visit_dates_vec_final <- data$visit_date[which(is.na(visit_dates_vec))][1:5]
+        withProgress(message = 'Checking input data',
+                     detail = 'This may take a while...', value = 10, {  setDT(data)
+                       visit_dates_vec <-  anytime::anydate(data$visit_date)
+                       visit_dates_vec_final <- data$visit_date[which(is.na(visit_dates_vec))][1:5] })
         
        
         if(any(is.na(visit_dates_vec))){
@@ -912,12 +913,15 @@ server = function(input, output,session) {
         }
         
       }else {
-        setDT(data)
-        visit_dates_vec <-  anytime::anydate(data$visit_date)
-        visit_dates_vec_final <- data$visit_date[which(is.na(visit_dates_vec))][1:5]
-        
        
+        withProgress(message = 'Checking input data',
+                     detail = 'This may take a while...', value = 10, {  setDT(data)
+        visit_dates_vec <-  anytime::anydate(data$visit_date)
+        visit_dates_vec_final <- data$visit_date[which(is.na(visit_dates_vec))][1:5] })
+        
+      
         if(any(is.na(visit_dates_vec))){
+          
           sendSweetAlert(
             session = session,
             title = "Error !!",
