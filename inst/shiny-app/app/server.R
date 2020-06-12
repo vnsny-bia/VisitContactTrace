@@ -291,8 +291,8 @@ server = function(input, output,session) {
   #_1.8 eventReactive to read demo data from package -----
 
   dt_read_demo <- eventReactive(c(input$demo),{
-    data('hcvisits',package = 'VisitContactTrace')
-    demo <- copy(hcvisits)
+    data('visitshc',package = 'VisitContactTrace')
+    demo <- copy(visitshc)
     names(demo) <- tolower(names(demo))
     setDT(demo)[, (colnames(demo)) := lapply(.SD, as.character), .SDcols = colnames(demo)]
 
