@@ -327,7 +327,7 @@ Here is an animated GIF demonstrating the steps from installing R to running Vis
 
   Garrett Grolemund, Hadley Wickham (2011). Dates and Times Made Easy 
   with lubridate. Journal of StatisticalSoftware, 40(3), 1-25. URL
-  http://www.jstatsoft.org/v40/i03/.
+  https://CRAN.R-project.org/package=lubridate
 
   Winston Chang, Joe Cheng, JJ Allaire, Yihui Xie and Jonathan
   McPherson (2020). shiny: Web Application Framework for R. R
