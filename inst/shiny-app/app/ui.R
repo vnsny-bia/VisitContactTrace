@@ -14,8 +14,8 @@ jscode <- "shinyjs.closeWindow = function() { window.close(); }"
 title_logo <-  tags$a(href='http://www.vnsny.org',target="_blank",
                       tags$img(src='www/VNSNY_BB.jpg',height='55'),style="color:#005daa;","VisitContactTrace Application")
 header <- dashboardHeader(title = title_logo,titleWidth = 500,
-
-
+                          
+                          
                           tags$li(a(onclick = "openTab('Data')",
                                     href = NULL,'',
                                     HTML('<i class="fa fa-user-md"></i>'),"Staff",
@@ -39,7 +39,7 @@ header <- dashboardHeader(title = title_logo,titleWidth = 500,
                                        };
                                        });
                                         }"))),
-
+                          
                           tags$li(a(onclick = "openTab('Data_Dictionary')",
                                     href = NULL,
                                     HTML("<i class='fas fa-procedures'></i>"),"Patient",
@@ -59,10 +59,10 @@ header <- dashboardHeader(title = title_logo,titleWidth = 500,
                                                                  VisitContactTrace:::actionItem("refresh",tags$h4(style="color:black;",tags$i(class="fa fa-refresh fa-spin",style="font-size:16px"),HTML("&nbsp;")," Load New Dataset")),
                                                                  VisitContactTrace:::actionItem("github",tags$h4(style="color:black;",tags$i(class="fa fa-exclamation-circle",style="font-size:16px"),HTML("&nbsp;")," Report Issue"),onclick_event = "window.open('https://github.com/vnsny-bia/VisitContactTrace/issues', '_blank')"),
                                                                  VisitContactTrace:::actionItem("quit",tags$h4(style="color:black;",tags$i(class="fas fa-window-close",style="font-size:16px"),HTML("&nbsp;")," Exit"))
-
+                                                                 
                           )
-
-
+                          
+                          
 )
 
 
@@ -70,26 +70,26 @@ header <- dashboardHeader(title = title_logo,titleWidth = 500,
 
 sidebar <-   dashboardSidebar(width = '600px',
                               textInput("text", ""),
-
+                              
                               sidebarMenu(
                                 id = "tabs",
                                 menuItem("Data", icon = icon("th"),tabName = "Data"),
                                 menuItem("Data Dictionary", icon = icon("th"),tabName = "Data_Dictionary")
-
+                                
                               ),collapsed = T
-
+                              
 )
 
 body <- dashboardBody(
-
+  
   #4 HTML/CSS styling tags---------------
- # tags$head(includeCSS("./www/style1.css")),
+  # tags$head(includeCSS("./www/style1.css")),
   tags$head(tags$link(href = "www/style.css", rel = "stylesheet")),
   tags$style('.dataTables_wrapper .dataTables_scroll {
     clear: both;
     color: black;
 }'),
- tags$head(tags$script('
+  tags$head(tags$script('
                         var width = 0;
                         $(document).on("shiny:connected", function(e) {
                           width = window.innerWidth;
@@ -120,9 +120,9 @@ body <- dashboardBody(
   useShinyjs(),  # Set up shinyjs
   useShinyalert(),  # Set up shinyalert
   shinyjs::extendShinyjs(text = jscode, functions = c("closeWindow")),
-
+  
   shinyjs::extendShinyjs(text = "shinyjs.refresh = function() { location.reload(); }"),
-
+  
   tags$script(HTML( "$(document).ready(function(){
                                             $('.dropdown').click(function(e){
                                             		$('.navbar-nav .dropdown').removeClass('active')
@@ -133,28 +133,28 @@ body <- dashboardBody(
     tags$style(
       HTML('.skin-blue .wrapper .main-header .navbar .navbar-custom-menu { float: left;}
                       .skin-blue .main-header .navbar .sidebar-toggle {display: none;}'))),
-
-
-
+  
+  
+  
   tabItems(
-
+    
     tabItem("Data",
             fluidRow(
               tabBox(id='main_data', width = 6, 
                      height = '700px',
                      title = tagList(shiny::icon("table"),""),
                      tabPanel(tagList(shiny::icon("table"),"Input Data"),
-
+                              
                               fluidRow(box(width=12,
-
-
+                                           
+                                           
                                            div(style="display:inline-block",
                                                pickerInput(
                                                  inputId = "clinic_id", label = "Staff ID :",
                                                  choices = c(''),
                                                  multiple = F ,
                                                  width='200px',
-
+                                                 
                                                  options = list(width=200, `live-search`=TRUE)
                                                )
                                            ),
@@ -190,7 +190,7 @@ body <- dashboardBody(
                                                  width='125px'
                                                )
                                            ),
-
+                                           
                                            div(style="display:inline-block;padding-bottom:10px;",
                                                actionBttn(
                                                  inputId = "go_btn",
@@ -257,7 +257,7 @@ body <- dashboardBody(
                                                   }
                                               "))),
                                        # tags$style(HTML("<br>")),
-
+                                       
                                        div(style="display: inline-block;",
                                            box(width=12,
                                                #height = '300px',
@@ -309,28 +309,28 @@ body <- dashboardBody(
 
 
                                                    ')
-
-
-
+                                                   
+                                                   
+                                                   
                                                )
-
-
-
-
+                                               
+                                               
+                                               
+                                               
                                            ))),
-
+                              
                               div(style="display: inline-block;",HTML("<br>"))
-
+                              
                      )
-
-
+                     
+                     
               ),
               tabBox(id='conf_summary', width = 6,
                      height = '700px',
                      title = "",
                      tabPanel(tagList(shiny::icon("bar-chart-o"),"Plot"),
                               visNetworkOutput('plot_epicontacts',height = '550px'
-                                               ),
+                              ),
                               value = 'model_perf'),
                      tabPanel(tagList(HTML('<i class="fa fa-newspaper-o"></i>'),"Contact Lists"),
                               tabBox(id='stg_tbls',width = 12,
@@ -346,7 +346,7 @@ body <- dashboardBody(
                                               DT::dataTableOutput("stage_3_table"))
                               ),
                               value = 'stg_tbls'),
-                   
+                     
                      tabPanel(tagList(HTML("<i class='fas fa-notes-medical'></i>"),"Visit Details"),
                               box(width=12,
                                   downloadButton("download4","Download"),
@@ -354,24 +354,24 @@ body <- dashboardBody(
                                               color = '#005daa'),
                                   value = 'table_4')
                      )
-
-
+                     
+                     
               )
-
+              
             )
-
-
-
+            
+            
+            
     ),#End of data tab
     tabItem("Data_Dictionary",
             fluidRow(
               tabBox(id='main_data', width = 6, 
                      height = '700px',title = tagList(shiny::icon("table"),""),
                      tabPanel(tagList(shiny::icon("table"),"Input Data"),
-
+                              
                               fluidRow(box(width=12,
-
-
+                                           
+                                           
                                            div(style="display:inline-block",
                                                pickerInput(
                                                  inputId = "patient_id", label = "Patient ID :",
@@ -381,11 +381,11 @@ body <- dashboardBody(
                                                  options = list(width=200, `live-search`=TRUE)
                                                )
                                            ),
-                                          
+                                           
                                            div(style="display:inline-block",
-                                             dateInput(inputId = "ref_date_id_1",
-                                                       label = "Reference Date :",
-                                                       width='150px')
+                                               dateInput(inputId = "ref_date_id_1",
+                                                         label = "Reference Date :",
+                                                         width='150px')
                                            ),
                                            # div(style="display:inline-block;top:-30px;position:relative;",
                                            #     airDatepickerInput(inputId = "ref_date_id_1",
@@ -453,12 +453,12 @@ body <- dashboardBody(
                                                )
                                              )
                                            )
-                                           ),
-                                       
-                                       #tags$style(HTML("<br>")),
-                                       #verbatimTextOutput('visit_date_rng_1',placeholder = F),
-                                       tags$head(
-                                         tags$style(HTML("
+                              ),
+                              
+                              #tags$style(HTML("<br>")),
+                              #verbatimTextOutput('visit_date_rng_1',placeholder = F),
+                              tags$head(
+                                tags$style(HTML("
                                                     #visit_date_rng_1 {
                                                       padding: 9.5px;
                                                       margin: 0 25px 10px;
@@ -476,15 +476,15 @@ body <- dashboardBody(
                                                       background-color: #005daa;
                                                   }
                                               "))),
-                                       
-                                       div(style="display: inline-block;",
-                                           box(width=12,
-                                               height = '350px',
-                                               div(style = 'overflow-y: scroll; height:400px;',
-
-                                                   #New Addition-----
-
-                                                   HTML('<div class="header_csv"><center><p id="preloader6">
+                              
+                              div(style="display: inline-block;",
+                                  box(width=12,
+                                      height = '350px',
+                                      div(style = 'overflow-y: scroll; height:400px;',
+                                          
+                                          #New Addition-----
+                                          
+                                          HTML('<div class="header_csv"><center><p id="preloader6">
                                                                 <span></span>
                                                                 <span></span>
                                                                 <span></span>
@@ -530,11 +530,11 @@ body <- dashboardBody(
 
 
                                                    ')
-                                               )
-                                           ))),
+                                      )
+                                  ))),
                               div(style="display: inline-block;",HTML("<br>"))
                      )
-
+                     
               ),
               tabBox(id='conf_summary_1', width = 6,
                      height = '700px',
@@ -555,9 +555,9 @@ body <- dashboardBody(
                                               downloadButton("download7","Download"),
                                               DT::dataTableOutput("stage_3_table_1"))
                               ),
-
+                              
                               value = 'stg_tbls'),
-                   
+                     
                      
                      tabPanel(tagList(HTML("<i class='fas fa-notes-medical'></i>"),"Visit Details"),
                               box(width=12,
@@ -566,15 +566,15 @@ body <- dashboardBody(
                                               color = '#005daa'),
                                   value = 'table_4'))
               )
-
+              
             )
-
-
-
+            
+            
+            
     ) #End of patient tab
-
+    
   ) #End of main Tab items
-
+  
 )# End of Body
 
 
@@ -582,7 +582,7 @@ body <- dashboardBody(
 
 
 ui = dashboardPage(title = 'Contact Tracing',
-    header,
-    sidebar,
-    body
-  )
+                   header,
+                   sidebar,
+                   body
+)

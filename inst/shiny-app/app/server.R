@@ -330,6 +330,7 @@ server = function(input, output,session) {
                                        
                      )
                      
+                     
                      updatePickerInput(session,inputId = "patient_id", label = "Patient ID :",
                                        choices = sort(c(unique(paste0(data$patient_name,': ',data$patient_id))))
                                        
