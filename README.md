@@ -14,7 +14,7 @@ The VisitContactTrace application allows users to load their own visit data in o
 
 Important disclaimer: this application **does not suggest causality** or **confirm disease transmission routes**.  It also does not consider potential contacts that occur outside of the visit delivery model, such as contact with family members or friends.
 
-<img src="./readme-files/VisitContactTrace-hex.png" width="150" align="right"/>
+<!--<img src="./readme-files/VisitContactTrace-hex.png" width="150" align="right"/>-->
 
 The VisitContactTrace application was created during the COVID-19 pandemic by the Data Science team at the [Visiting Nurse Service of New York](https://www.vnsny.org/).  This application can be used for visit-based contact tracing of any infectious disease. Our hope is that VisitContactTrace is useful to agencies providing community-based healthcare and to other organizations that have visit-based service delivery models.
 
