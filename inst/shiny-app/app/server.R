@@ -1184,7 +1184,7 @@ server = function(input, output,session) {
                    
                    if(!("staff_id" %in% names(data))){
                      data[,staff_id:=paste0(staff_name)]
-                     value_id <- paste0("clin_",trimws(input$clinic_id))
+                     value_id <- paste0("clin_",base::trimws(input$clinic_id))
                    }
                    
                    if(!("patient_id" %in% names(data))){
@@ -1216,7 +1216,7 @@ server = function(input, output,session) {
                      data %>%
                        filter(patient_id %in% id2s)
                    }
-                   value_id <- paste0("clin_",trimws(sub('.*:', '', input$clinic_id)))
+                   value_id <- paste0("clin_",base::trimws(sub('.*:', '', input$clinic_id)))
                    
                    data_subsetted<- my_dplyr_fun(data=data,id1 = value_id)
                    setDT(data_subsetted)
@@ -1251,8 +1251,8 @@ server = function(input, output,session) {
     output$visit_date_rng <- renderPrint({
       copy_data <-  data_copy$copy_data
       
-      max_date_visit <-  max(copy_data[staff_id==paste0("clin_",trimws(sub('.*:', '', input$clinic_id))),visit_date])
-      min_date_visit <-  min(copy_data[staff_id==paste0("clin_",trimws(sub('.*:', '', input$clinic_id))),visit_date])
+      max_date_visit <-  max(copy_data[staff_id==paste0("clin_",base::trimws(sub('.*:', '', input$clinic_id))),visit_date])
+      min_date_visit <-  min(copy_data[staff_id==paste0("clin_",base::trimws(sub('.*:', '', input$clinic_id))),visit_date])
       min_date <- as.Date(input$ref_date_id) - as.numeric(input$days_diff_id)
       max_date <- as.Date(input$ref_date_id) + as.numeric(input$days_frwd_id)
       final_string <- paste0('All visits during ',min_date,' through ',max_date,' will be shown based on your inputs. \nThe date range of visits available for this individual is ', min_date_visit ,' to ', max_date_visit ,'.')
@@ -1278,7 +1278,7 @@ server = function(input, output,session) {
                  {
                    
                    data_updated <- data[!duplicated(data$staff_id)]
-                   temp_wkrid <- trimws(sub('.*:', '', input$clinic_id))
+                   temp_wkrid <- base::trimws(sub('.*:', '', input$clinic_id))
                    
                    if(length(unique(data_updated$nurse_pat[data_updated$staff_id == paste0('clin_',temp_wkrid)]))!=0){
                      
@@ -1698,7 +1698,7 @@ server = function(input, output,session) {
                    
                    if(!("patient_id" %in% names(data))){
                      data[,patient_id:=paste0(patient_name)]
-                     value_id1 <- trimws(input$patient_id)
+                     value_id1 <- base::trimws(input$patient_id)
                    }
                    
                    if(!("staff_id" %in% names(data))){
@@ -1731,7 +1731,7 @@ server = function(input, output,session) {
                      data %>%
                        filter(staff_id %in% id2s)
                    }
-                   value_id1 <- trimws(sub('.*:', '', input$patient_id))
+                   value_id1 <- base::trimws(sub('.*:', '', input$patient_id))
                    
                    data_subset<- my_dplyr_fun(data=data,id1 = value_id1)
                    setDT(data_subset)
@@ -1766,8 +1766,8 @@ server = function(input, output,session) {
     
     output$visit_date_rng_1 <- renderPrint({
       copy_data_1 <-  data_copy$copy_data_1 
-      max_date_visit_1 <-  max(copy_data_1[patient_id==trimws(sub('.*:', '', input$patient_id)),visit_date])
-      min_date_visit_1 <-  min(copy_data_1[patient_id==trimws(sub('.*:', '', input$patient_id)),visit_date])
+      max_date_visit_1 <-  max(copy_data_1[patient_id==base::trimws(sub('.*:', '', input$patient_id)),visit_date])
+      min_date_visit_1 <-  min(copy_data_1[patient_id==base::trimws(sub('.*:', '', input$patient_id)),visit_date])
       min_date_1 <- as.Date(input$ref_date_id_1) - as.numeric(input$days_diff_id_1)
       max_date_1 <- as.Date(input$ref_date_id_1) + as.numeric(input$days_frwd_id_1)
       #final_string <- paste0('All visits during ',min_date_1,' through ',max_date_1,' will be shown.' )
@@ -1795,7 +1795,7 @@ server = function(input, output,session) {
     withProgress(message = 'Calculation in progress',
                  detail = 'This may take a while...', value = 10,
                  {
-                   temp_patid <- trimws(sub('.*:', '', input$patient_id))
+                   temp_patid <- base::trimws(sub('.*:', '', input$patient_id))
                    data_updated <- data[!duplicated(data$patient_id)]
                    
                    if(length(unique(data_updated$pat_nurse[data_updated$patient_id == temp_patid]))!=0){
