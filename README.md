@@ -1,4 +1,3 @@
-[![HitCount](http://hits.dwyl.com/c-brickner/vnsny-bia/VisitContactTrace.svg)](http://hits.dwyl.com/c-brickner/vnsny-bia/VisitContactTrace)
 
 <img src="./inst/www/VNSNY_BB.jpg" width="300" align="right"/>
 
