@@ -1,4 +1,4 @@
-[![HitCount](http://hits.dwyl.com/vnsny-bia/VisitContactTrace.svg)](http://hits.dwyl.com/vnsny-bia/VisitContactTrace)
+<img align="center" src="https://visitor-badge.laobi.icu/badge?page_id=vnsny-bia.VisitContactTrace" alt="visitor badge"/>
 
 <img src="./inst/www/VNSNY_BB.jpg" width="300" align="right"/>
 
