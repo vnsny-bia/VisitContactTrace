@@ -1,3 +1,4 @@
+[![HitCount](http://hits.dwyl.com/vnsny-bia/VisitContactTrace.svg)](http://hits.dwyl.com/vnsny-bia/VisitContactTrace)
 
 <img src="./inst/www/VNSNY_BB.jpg" width="300" align="right"/>
 
@@ -423,6 +424,7 @@ Here is an animated GIF demonstrating the steps from installing R to running Vis
   https://CRAN.R-project.org/package=shinyjs
 
   Icon images are from https://fontawesome.com/
+
 
 <!--<video width="320" height="240" controls>
   <source src="https://github.com/vnsny-bia/VisitContactTrace/blob/master/readme-files/R-dependencies_edited.mp4?raw=true" type="video/mp4">
