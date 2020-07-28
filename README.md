@@ -1,4 +1,4 @@
-<img align="center" src="https://visitor-badge.laobi.icu/badge?page_id=vnsny-bia.VisitContactTrace&title=viewers" alt="visitor badge"/>
+<img align="center" src="https://visitor-badge.laobi.icu/badge?page_id=vnsny-bia.VisitContactTrace&title=Visitors" alt="visitor badge"/>
 
 <img src="./inst/www/VNSNY_BB.jpg" width="300" align="right"/>
 
